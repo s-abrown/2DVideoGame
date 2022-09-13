@@ -78,7 +78,7 @@ scene("introduction", () =>{
         [ "bean", "Much like you and I, an AI can understand language, plan things, solve problems, think, and flex its intelligence." ],
         [ "bean", "It's a great way to make computer perform tasks for us and help us in our everyday lives!" ],
         [ "bean", "From solving simple puzzles to helping research quantum physics, AIs can perform incredible tasks." ],
-        [ "bean", "If you've ever played video games, then you most likely would have encountered an AI. Thanks to it, your gaming experience is enhanced and feels more natural" ],
+        [ "bean", "If you play video games, then you most likely would have encountered an AI. Thanks to it, your gaming experience is enhanced and feels more natural" ],
         [ "bean", "Let me give you an example of an AI." ],
         [ "bean", "I'm sure you've all played Pac Man before?" ],
         [ "bean", "Well, the little ghosts that chase after you are AIs – each with their own personalities and traits! They act independently and can make split-second decisions on how to chase you. It's what makes the game so engaging!" ],

@@ -180,7 +180,8 @@ scene("introduction", () =>{
 
     onKeyPress("space", () => {
         // Cycle through the dialogs
-        curDialog = (curDialog + 1) % dialogs.length
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
         // Adding a delay between hitting space bar and the text showing up:
         wait(0.3,() => {
         updateDialog()})
@@ -190,14 +191,16 @@ scene("introduction", () =>{
 
     // Update the on screen sprite & text
     function updateDialog() {
-	const [ char, dialog ] = dialogs[curDialog]
-        go("corridor");
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
 
-	// Use a new sprite component to replace the old one
-	//avatar.use(sprite(char))
-    
-	// Update the dialog text
-	txt.text = dialog
+        // Use a new sprite component to replace the old one
+        //avatar.use(sprite(char))
+        
+        // Update the dialog text
+        txt.text = dialog} else {
+            go("corridor")
+        }
     }
 
     updateDialog()

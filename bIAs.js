@@ -122,38 +122,38 @@ scene("introduction", () =>{
         [ "bean", "I'm sure you've all played Pac Man before?" ],
         [ "bean", "Well, the little ghosts that chase after you are AIs – each with their own personalities and traits! They act independently and can make split-second decisions on how to chase you. It's what makes the game so engaging!" ],
         [ "bean", "As I said, AIs can be used in all sorts of scenarios to automate things and help carry out complex tasks" ],
-        // Teacher introduces KATE:
+        // Teacher introduces K.A.T.E.:
         [ "bean", "I'll be introducing you to one today." ],
-        [ "bean", "She's called KATE. Her name is short for 'Computer Assisted Teaching Engagement" ], 
+        [ "bean", "She's called K.A.T.E.. Her name is short for 'Computer Assisted Teaching Engagement" ], 
         [ "bean", "Her job is to help schools find the very best teachers to teach you kids, and suggest who she thinks will be the most suitable applicant for the job." ],
         [ "bean", "Naturally, our headmaster has taken an interest in her and what she can do. I'm sure you've all heard by now that the school is looking for a new science teacher." ],
-        [ "bean", "What better time to call on KATE to help us find a great new teacher for you all?" ],
+        [ "bean", "What better time to call on K.A.T.E. to help us find a great new teacher for you all?" ],
         [ "bean", "We don't want to leaver her with the final say on who will be hired to teach you, however." ],
         [ "bean", "After all, the staff and I are committed to offering you only the highest standard of teaching, and just like you or me, she can still make mistakes!" ],
         [ "bean", "That's where you kids come in!" ],
-        [ "bean", "Today, one of you will be chosen to spend some time with KATE and get to know her so that you can see and how she works." ],
+        [ "bean", "Today, one of you will be chosen to spend some time with K.A.T.E. and get to know her so that you can see and how she works." ],
         [ "bean", "AIs need to collect information to learn from before they can offer informed suggestions." ],
-        [ "bean", "For this reason, whomever will be chosen to spend some time with KATE will accompany her on her data-collecting journey!" ],
-        [ "bean", "Since our headmaster wants our new hiree to integrate comfortably in our school, KATE will be gathering her information from successful past applicants. In other words, she'll get to know other teachers and find out about their hiring experience." ],
+        [ "bean", "For this reason, whomever will be chosen to spend some time with K.A.T.E. will accompany her on her data-collecting journey!" ],
+        [ "bean", "Since our headmaster wants our new hiree to integrate comfortably in our school, K.A.T.E. will be gathering her information from successful past applicants. In other words, she'll get to know other teachers and find out about their hiring experience." ],
         [ "bean", "Their background, their work experience, their personnal opinions and insights..." ],
         [ "bean", "She'll even look at their CVs!" ],
         [ "bean", "Once she's gathered all the information she needs, she'll be able to tell us who she thinks is the best candidate for the science teaching opening." ],
-        [ "bean", "The student who will be accompanying KATE will have to learn alongside her, and have the chance to offer their own input on who they think is best suited." ],
-        [ "bean", "This way, we can compare KATE's assessment to that of a student's!" ],
+        [ "bean", "The student who will be accompanying K.A.T.E. will have to learn alongside her, and have the chance to offer their own input on who they think is best suited." ],
+        [ "bean", "This way, we can compare K.A.T.E.'s assessment to that of a student's!" ],
         [ "bean", "I wonder if they'll be very different." ],
         [ "bean", "I've got a bowl here with all of your names written on different slips of paper." ],
-        [ "bean", "I'll pick one at random, and the lucky winner will be chosen to be CATE's guide!" ],
+        [ "bean", "I'll pick one at random, and the lucky winner will be chosen to be K.A.T.E.'s guide!" ],
         [ "bean", "All right! One... " ],
         [ "bean", "Two..." ],
         [ "bean", "Three..." ],
         [ "bean", "..." ],
         // Make constant to allow the student to put their name in at the start of the game?
         [ "bean", `${namePlayer}!` ],
-        [ "bean", "You will be KATE's companion!" ],
+        [ "bean", "You will be K.A.T.E.'s companion!" ],
         [ "bean", "Take her around to talk to some teachers and gather information about them and understand what it is about them that helped them successfully get a teaching position here." ],
         [ "bean", "Their je-ne-sais-quoi if you will." ],
         [ "bean", "Take your time!" ],
-        [ "bean", "Once you and KATE have collected all of the information that you need to make your informed decision, come back here and we'll see what she suggests..." ],
+        [ "bean", "Once you and K.A.T.E. have collected all of the information that you need to make your informed decision, come back here and we'll see what she suggests..." ],
         [ "bean", "And if you agree with her!" ],
     ];
 
@@ -210,7 +210,7 @@ scene("introduction", () =>{
 ///////////// SCENE FOUR: CORRIDOR /////////////
 
 // Exit scene one: player is standing outside the door of their classroom.
-// KATE will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
+// K.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
         //Adding the school map as background: 

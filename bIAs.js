@@ -214,7 +214,7 @@ scene("introduction", () =>{
 
 scene("corridor", () =>{
         //Adding the school map as background: 
-    let mainCorridor = add([
+    let map = add([
         sprite("schoolMap"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
@@ -223,15 +223,104 @@ scene("corridor", () =>{
         fixed()
       ])
 
+      let corridorWallDown = add([
+        pos(8, 345),
+        rect(1150, 120),
+        opacity(0.7),
+        color(255, 0, 0),
+        area(),
+        solid()
+      ])
+      let corridorWallUp = add([
+        pos(8, 116),
+        rect(1150, 120),
+        opacity(0.7),
+        color(255, 0, 0),
+        area(),
+        solid()
+      ])
+      let corridorWallRight = add([
+        pos(0, 225),
+        rect(8, 150),
+        opacity(0.7),
+        color(255, 0, 0),
+        area(),
+        solid()
+      ])
+      let corridorWallLeft = add([
+        pos(1150, 225),
+        rect(8, 150),
+        opacity(0.7),
+        color(255, 0, 0),
+        area(),
+        solid()
+      ])
+      let lockers = add([
+        pos(37, 240),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+      ]);
+      add([
+        pos(138, 240),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+      ]);
+      add([
+        pos(340, 240),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+        ]);
+      add([
+        pos(37, 333),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+      ]);
+      add([
+        pos(168, 333),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+      ]);
+      add([
+        pos(340, 333),
+        rect(98, 8),
+        opacity(0.7),
+        color(0, 255, 0),
+        area(),
+        solid(), 
+        "locker"
+      ])
+
+
       // Adding player into the over world
       let overWorldPlayer = add([
         sprite("bean"),
-        pos(width()/2, height()/2),
+        pos(325, 325),
         origin("center"),
         area({
             width : 80,
             height : 80,
         }),
+        scale(0.2),
         solid(),
         color([32, 110, 19])
         // Animation for the player sprite
@@ -247,7 +336,7 @@ scene("corridor", () =>{
         //console.log(camPos(overWorldPlayer.pos))
 
         // Adding movements to the player:
-        const playerSpeed = 800
+        const playerSpeed = 400
         onKeyDown("left", () => {
             //if (overWorldPlayer.pos.x > overWorldPlayer.area.width/2) {
                 overWorldPlayer.move(-playerSpeed, 0)        
@@ -270,6 +359,38 @@ scene("corridor", () =>{
             //}
         });
 
+        overWorldPlayer.onCollide("locker", (lockers) => {
+            const textbox = add([
+                rect(width() - 300, 120, { radius: 32 }),
+                origin("center"),
+                pos(center().x + 100, height() - 125),
+                outline(2),
+            ]);
+            const portrait = add([
+                rect(200, 120, {radius: 32}),
+                origin("center"),
+                pos(center().x - 450, height() - 125),
+                outline(2),
+            ]);
+            const txt = add([
+                text("Oh, do you think some of the teachers are hiding in the lockers? How fun!", { 
+                    size: 32, 
+                    width: 800,
+                    }),
+                color([0, 0, 0]),
+                pos(textbox.pos),
+                origin("center")
+                ]);
+        
+                // Character avatar
+                const avatar = add([
+                sprite("bean"),
+                scale(1),
+                origin("center"),
+                pos(portrait.pos),
+                ])
+        })
+
         // Making objects on the map solid so that player doesn't go through them (walls, desks etc. )
 
 
@@ -280,4 +401,4 @@ scene("corridor", () =>{
 
 
 // Initialize game 
-go("introduction")
+go("corridor")

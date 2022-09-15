@@ -11,6 +11,7 @@ loadRoot("assets/")
 
 loadSprite("classRoom1","classroomBg.png")
 loadSprite("schoolMap","schoolMap.png")
+loadSprite("KATE", "KATEcu.png")
 
 loadBean("bean")
 
@@ -194,7 +195,9 @@ scene("introduction", () =>{
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
 
+        
         // Use a new sprite component to replace the old one
+        // We can use this for different facial expressions in the portraits? 
         //avatar.use(sprite(char))
         
         // Update the dialog text
@@ -210,109 +213,304 @@ scene("introduction", () =>{
 ///////////// SCENE FOUR: CORRIDOR /////////////
 
 // Exit scene one: player is standing outside the door of their classroom.
-// K.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
+// C.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
         //Adding the school map as background: 
-    let map = add([
+        let map = add([
         sprite("schoolMap"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
         // Keep the background position fixed even when the camera moves
         fixed()
-      ])
+    ]);
 
-      let corridorWallDown = add([
-        pos(8, 345),
-        rect(1150, 120),
-        opacity(0.7),
-        color(255, 0, 0),
-        area(),
-        solid()
-      ])
-      let corridorWallUp = add([
-        pos(8, 116),
-        rect(1150, 120),
-        opacity(0.7),
-        color(255, 0, 0),
-        area(),
-        solid()
-      ])
-      let corridorWallRight = add([
-        pos(0, 225),
-        rect(8, 150),
-        opacity(0.7),
-        color(255, 0, 0),
-        area(),
-        solid()
-      ])
-      let corridorWallLeft = add([
-        pos(1150, 225),
-        rect(8, 150),
-        opacity(0.7),
-        color(255, 0, 0),
-        area(),
-        solid()
-      ])
-      let lockers = add([
-        pos(37, 240),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
-      ]);
-      add([
-        pos(138, 240),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
-      ]);
-      add([
-        pos(340, 240),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
+
+    // I. PERIMETERS
+    // Setting up wall, lockers and mics positions : 
+    // 1) Walls (red)
+        let corridorWallDown = add([
+            pos(8, 342),
+            rect(1150, 4),
+            opacity(0.7),
+            color(255, 0, 0),
+            area(),
+            solid()
+        ])
+        let corridorWallUp = add([
+            pos(8, 237),
+            rect(1150, 4),
+            opacity(0.7),
+            color(255, 0, 0),
+            area(),
+            solid()
+        ])
+        let corridorWallLeft = add([
+            pos(6, 238),
+            rect(4, 110),
+            opacity(0.7),
+            color(255, 0, 0),
+            area(),
+            solid()
+        ])
+        let corridorWallRight = add([
+            pos(1150, 225),
+            rect(4, 130),
+            opacity(0.7),
+            color(255, 0, 0),
+            area(),
+            solid()
+        ])
+    // Lockers (green)
+        let lockers = add([
+            pos(37, 240),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
         ]);
-      add([
-        pos(37, 333),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
-      ]);
-      add([
-        pos(168, 333),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
-      ]);
-      add([
-        pos(340, 333),
-        rect(98, 8),
-        opacity(0.7),
-        color(0, 255, 0),
-        area(),
-        solid(), 
-        "locker"
-      ])
+        add([
+            pos(138, 240),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
+        ]);
+        add([
+            pos(340, 240),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
+            ]);
+        add([
+            pos(37, 333),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
+        ]);
+        add([
+            pos(168, 333),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
+        ]);
+        add([
+            pos(340, 333),
+            rect(98, 8),
+            opacity(0.7),
+            color(0, 255, 0),
+            area(),
+            solid(), 
+            "locker"
+        ])
+    // 2) Doors (purple)
+        let classDoor1 = add([
+            pos(302, 238),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door"
+        ]);
+        let scienceDoor = add([
+            pos(803, 238),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "scienceDoor"
+        ]);
+        let loungeDoor = add([
+            pos(135, 340),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "loungeDoor"
+        ]);
+        let classDoor4 = add([
+            pos(305, 340),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door"
+        ]);
+        let batroomDoor = add([
+            pos(499, 340),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "bathroomDoor"
+        ]);
+        let classDoor5 = add([
+            pos(591, 340),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door"
+        ]);
+        let classDoor6 = add([
+            pos(805, 340),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door"
+        ]);
+        let artDoor = add([
+            pos(1125, 552),
+            rect(25, 5),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "artDoor"
+        ]);
+        let headmasterDoor = add([
+            pos(178, 438),
+            rect(5, 25),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "loungeDoor"
+        ]);
+        let officeDoor1 = add([
+            pos(488, 650),
+            rect(5, 25),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "loungeDoor"
+        ]);
+        let officeDoor2 = add([
+            pos(784, 650),
+            rect(5, 25),
+            opacity(0.5),
+            color(102, 0, 255),
+            area(),
+            solid(),
+            "door",
+            "loungeDoor"
+        ]);
+    // 3) Misc. & desks
+    // classroom 1
+        let classroom1Misc = add([
+            pos(264, 94),
+            rect(22, 135),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "classMisk1"
+        ]);
+        let classroom1Desk1 = add([
+            pos(369, 99),
+            rect(22, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk2 = add([
+            pos(369, 142),
+            rect(22, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk3 = add([
+            pos(369, 182),
+            rect(22, 34),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk4 = add([
+            pos(432, 99),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk5 = add([
+            pos(432, 142),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk6 = add([
+            pos(432, 182),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk7 = add([
+            pos(432, 99),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
 
 
-      // Adding player into the over world
-      let overWorldPlayer = add([
+    // PLAYER AND PLAYER MOVEMENT
+    // Adding player into the over world : 
+    let overWorldPlayer = add([
         sprite("bean"),
         pos(325, 325),
         origin("center"),
@@ -323,9 +521,10 @@ scene("corridor", () =>{
         scale(0.2),
         solid(),
         color([32, 110, 19])
-        // Animation for the player sprite
-        ])
+        // Animation for the player sprite (walking) will go here :
+        ]);        
 
+        // Adding a camera to follow the player (bricks the player movement when we add it in)
         //const player = get("overWorldPlayer")[0]
             // Adding a camera to track the player?
         overWorldPlayer.onUpdate(() => {
@@ -341,7 +540,6 @@ scene("corridor", () =>{
             //if (overWorldPlayer.pos.x > overWorldPlayer.area.width/2) {
                 overWorldPlayer.move(-playerSpeed, 0)        
             //}
-            
         });
         onKeyDown("right", () => {
             //if (overWorldPlayer.pos.x < width() - overWorldPlayer.area.width/2){
@@ -359,39 +557,100 @@ scene("corridor", () =>{
             //}
         });
 
-        overWorldPlayer.onCollide("locker", (lockers) => {
-            const textbox = add([
-                rect(width() - 300, 120, { radius: 32 }),
-                origin("center"),
-                pos(center().x + 100, height() - 125),
-                outline(2),
-            ]);
-            const portrait = add([
-                rect(200, 120, {radius: 32}),
-                origin("center"),
-                pos(center().x - 450, height() - 125),
-                outline(2),
-            ]);
-            const txt = add([
-                text("Oh, do you think some of the teachers are hiding in the lockers? How fun!", { 
-                    size: 32, 
-                    width: 800,
-                    }),
-                color([0, 0, 0]),
-                pos(textbox.pos),
-                origin("center")
-                ]);
-        
-                // Character avatar
-                const avatar = add([
-                sprite("bean"),
-                scale(1),
-                origin("center"),
-                pos(portrait.pos),
-                ])
-        })
 
-        // Making objects on the map solid so that player doesn't go through them (walls, desks etc. )
+        // III. INTERACTIONS
+        // Adding interactions with lockers when player presses space while touching them (still need to get the text etc. to disappear once you've cycled through the dialog. Shoudld maybe make function for it?)
+        let lockerCount = 0
+        onKeyPress("space", () => {
+            //let interacted = false
+            every("locker", (c) => {
+                if (overWorldPlayer.isTouching(c)) {
+                    lockerCount += 1
+                    console.log("LockerCount :", lockerCount)
+                    // Textbox
+                    const textbox = add([
+                        rect(width() - 300, 120, { radius: 32 }),
+                        origin("center"),
+                        pos(center().x + 100, height() - 125),
+                        outline(2),
+                    ]);
+                    // Portait :
+                    const portrait = add([
+                        rect(200, 120, {radius: 32}),
+                        origin("center"),
+                        pos(center().x - 450, height() - 125),
+                        outline(2),
+                    ]);
+                    // Textbox texts :
+                    if(lockerCount == 1){
+                    add([
+                        text("Oh, do you think some of the teachers are hiding in the lockers? How fun!", { 
+                            size: 32, 
+                            width: 800,
+                            }),
+                        color([0, 0, 0]),
+                        pos(textbox.pos),
+                        origin("center")
+                        ])
+                    };
+                    if (lockerCount == 2){
+                        add([
+                            text("Is it a sort of school tradition for teachers lock themselves in the lockers?", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (lockerCount == 3){
+                        add([
+                            text("Maybe it's their designated quiet place?", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (lockerCount == 4){
+                        add([
+                            text("In any case, it seems like no one is in there.", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (lockerCount >= 5){
+                        add([
+                            text("Shall we move on?", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center"),
+                            ])
+                    };
+                    // Kate avatar:
+                    const avatar = add([
+                    sprite("KATE"),
+                    scale(1),
+                    origin("center"),
+                    pos(portrait.pos),
+                    ])           
+                }
+            })
+        });
+        // Doesn't work
+        // onKeyPressRepeat(console.log("keypressrepeat"))
+        
+
 
 
 

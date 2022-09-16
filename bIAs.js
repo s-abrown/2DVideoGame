@@ -125,7 +125,7 @@ scene("introduction", () =>{
         [ "bean", "As I said, AIs can be used in all sorts of scenarios to automate things and help carry out complex tasks" ],
         // Teacher introduces K.A.T.E.:
         [ "bean", "I'll be introducing you to one today." ],
-        [ "bean", "She's called K.A.T.E.. Her name is short for 'Computer Assisted Teaching Engagement" ], 
+        [ "bean", "She's called K.A.T.E.. Her name is short for 'Kind Artifical Teaching Enrichment Tool'. " ], 
         [ "bean", "Her job is to help schools find the very best teachers to teach you kids, and suggest who she thinks will be the most suitable applicant for the job." ],
         [ "bean", "Naturally, our headmaster has taken an interest in her and what she can do. I'm sure you've all heard by now that the school is looking for a new science teacher." ],
         [ "bean", "What better time to call on K.A.T.E. to help us find a great new teacher for you all?" ],
@@ -212,8 +212,8 @@ scene("introduction", () =>{
 
 ///////////// SCENE FOUR: CORRIDOR /////////////
 
-// Exit scene one: player is standing outside the door of their classroom.
-// K.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
+// Exit scene one: player is standing outside the door of their classroom with KATE.
+// The player can interact with her sprite (she can introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
         //Adding the school map as background: 
@@ -225,9 +225,6 @@ scene("corridor", () =>{
         // Keep the background position fixed even when the camera moves
         fixed()
     ]);
-
-    // First dialog with KATE here /!\ care with constants for dialog boxes/portraits/etc as they are used below?: 
-    // Can player take a few steps away from their classs door before KATE full body image pops up and she introduces herself
 
     // I. PERIMETERS
     // Setting up wall, lockers and mics positions : 
@@ -320,14 +317,15 @@ scene("corridor", () =>{
             "locker"
         ])
     // 3) Doors (purple)
-        let classDoor1 = add([
+        let mathsDoor = add([
             pos(302, 238),
             rect(25, 5),
             opacity(0.5),
             color(102, 0, 255),
             area(),
             solid(),
-            "door"
+            "door",
+            "mathsDoor"
         ]);
         let scienceDoor = add([
             pos(803, 238),
@@ -339,7 +337,7 @@ scene("corridor", () =>{
             "door",
             "scienceDoor"
         ]);
-        let loungeDoor = add([
+        let headmastersDoor = add([
             pos(135, 340),
             rect(25, 5),
             opacity(0.5),
@@ -347,16 +345,17 @@ scene("corridor", () =>{
             area(),
             solid(),
             "door",
-            "loungeDoor"
+            "headMastersDoor"
         ]);
-        let classDoor4 = add([
+        let playerClassDoor = add([
             pos(305, 340),
             rect(25, 5),
             opacity(0.5),
             color(102, 0, 255),
             area(),
             solid(),
-            "door"
+            "door",
+            "playerClassDoor"
         ]);
         let batroomDoor = add([
             pos(499, 340),
@@ -368,23 +367,25 @@ scene("corridor", () =>{
             "door",
             "bathroomDoor"
         ]);
-        let classDoor5 = add([
+        let englishDoor = add([
             pos(591, 340),
             rect(25, 5),
             opacity(0.5),
             color(102, 0, 255),
             area(),
             solid(),
-            "door"
+            "door",
+            "englishDoor"
         ]);
-        let classDoor6 = add([
+        let artDoor = add([
             pos(805, 340),
             rect(25, 5),
             opacity(0.5),
             color(102, 0, 255),
             area(),
             solid(),
-            "door"
+            "door",
+            "artDoor"
         ]);
         let headmasterDoor = add([
             pos(178, 438),
@@ -396,173 +397,6 @@ scene("corridor", () =>{
             "door",
             "loungeDoor"
         ]);
-    // 4) Misc. & desks
-    // NOT NECESSARY BECAUSE ONCE YOU INTERACT WITH THE DOOR AND YOU GO IN IT CUTS DIRECTLY TO THE NEXT TEACHER SCENE, SO THERE WILL BE NO INTERACTION WITH THE DESKS OR THE STUFF INSIDE THE CLASSROOMS AT ALL
-    // // a. classroom 1
-    //     let classroom1Misc = add([
-    //         pos(264, 94),
-    //         rect(22, 135),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "classMisk1"
-    //     ]);
-    //     let classroom1Desk1 = add([
-    //         pos(369, 99),
-    //         rect(22, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk2 = add([
-    //         pos(369, 142),
-    //         rect(22, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk3 = add([
-    //         pos(369, 182),
-    //         rect(22, 34),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk4 = add([
-    //         pos(432, 99),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk5 = add([
-    //         pos(432, 142),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk6 = add([
-    //         pos(432, 182),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk7 = add([
-    //         pos(496, 99),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk8 = add([
-    //         pos(496, 142),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk9 = add([
-    //         pos(496, 182),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk10 = add([
-    //         pos(556, 99),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk11 = add([
-    //         pos(556, 142),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk12 = add([
-    //         pos(556, 182),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk13 = add([
-    //         pos(612, 101),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk14 = add([
-    //         pos(612, 143),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    //     let classroom1Desk15 = add([
-    //         pos(612, 184),
-    //         rect(20, 33),
-    //         opacity(0.5),
-    //         color(204, 0, 153),
-    //         area(),
-    //         solid(),
-    //         "misc",
-    //         "desk",
-    //     ]);
-    // b. classroom 2
-        // ...
-        // ...
-        // ...
     // 4) Corridor misc
     let corridorPlant1 = add([
         pos(1122, 245),
@@ -598,7 +432,10 @@ scene("corridor", () =>{
         solid(),
         color([32, 110, 19])
         // Animation for the player sprite (walking) will go here :
-        ]);        
+        ]);
+
+        // Adding KATE sprite into te overworld:
+        //
 
         // Adding a camera to follow the player (bricks the player movement when we add it in)
         //const player = get("overWorldPlayer")[0]
@@ -649,6 +486,7 @@ scene("corridor", () =>{
                         origin("center"),
                         pos(center().x + 100, height() - 125),
                         outline(2),
+                        "textbox"
                     ]);
                     // Portait :
                     const portrait = add([
@@ -656,6 +494,7 @@ scene("corridor", () =>{
                         origin("center"),
                         pos(center().x - 450, height() - 125),
                         outline(2),
+                        "portrait"
                     ]);
                     // Textbox texts :
                     if(lockerCount == 1){
@@ -712,6 +551,11 @@ scene("corridor", () =>{
                             pos(textbox.pos),
                             origin("center"),
                             ])
+                    if (lockerCount > 5) {
+                        lockerCount = 0;
+                        destroyAll("textbox", "portrait")
+                        
+                    }
                     };
                     // Kate avatar:
                     const avatar = add([
@@ -829,6 +673,9 @@ scene("corridor", () =>{
                 }
             })
         });
+
+        // C) Interactions with the doors
+
 
         
 

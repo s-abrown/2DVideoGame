@@ -213,7 +213,7 @@ scene("introduction", () =>{
 ///////////// SCENE FOUR: CORRIDOR /////////////
 
 // Exit scene one: player is standing outside the door of their classroom.
-// C.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
+// K.A.T.E. will then interact with the player (introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
         //Adding the school map as background: 
@@ -386,16 +386,6 @@ scene("corridor", () =>{
             solid(),
             "door"
         ]);
-        let artDoor = add([
-            pos(1125, 552),
-            rect(25, 5),
-            opacity(0.5),
-            color(102, 0, 255),
-            area(),
-            solid(),
-            "door",
-            "artDoor"
-        ]);
         let headmasterDoor = add([
             pos(178, 438),
             rect(5, 25),
@@ -406,188 +396,169 @@ scene("corridor", () =>{
             "door",
             "loungeDoor"
         ]);
-        let officeDoor1 = add([
-            pos(488, 650),
-            rect(5, 25),
-            opacity(0.5),
-            color(102, 0, 255),
-            area(),
-            solid(),
-            "door",
-            "loungeDoor"
-        ]);
-        let officeDoor2 = add([
-            pos(784, 650),
-            rect(5, 25),
-            opacity(0.5),
-            color(102, 0, 255),
-            area(),
-            solid(),
-            "door",
-            "loungeDoor"
-        ]);
     // 4) Misc. & desks
-    // a. classroom 1
-        let classroom1Misc = add([
-            pos(264, 94),
-            rect(22, 135),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "classMisk1"
-        ]);
-        let classroom1Desk1 = add([
-            pos(369, 99),
-            rect(22, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk2 = add([
-            pos(369, 142),
-            rect(22, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk3 = add([
-            pos(369, 182),
-            rect(22, 34),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk4 = add([
-            pos(432, 99),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk5 = add([
-            pos(432, 142),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk6 = add([
-            pos(432, 182),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk7 = add([
-            pos(496, 99),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk8 = add([
-            pos(496, 142),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk9 = add([
-            pos(496, 182),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk10 = add([
-            pos(556, 99),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk11 = add([
-            pos(556, 142),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk12 = add([
-            pos(556, 182),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk13 = add([
-            pos(612, 101),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk14 = add([
-            pos(612, 143),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
-        let classroom1Desk15 = add([
-            pos(612, 184),
-            rect(20, 33),
-            opacity(0.5),
-            color(204, 0, 153),
-            area(),
-            solid(),
-            "misc",
-            "desk",
-        ]);
+    // NOT NECESSARY BECAUSE ONCE YOU INTERACT WITH THE DOOR AND YOU GO IN IT CUTS DIRECTLY TO THE NEXT TEACHER SCENE, SO THERE WILL BE NO INTERACTION WITH THE DESKS OR THE STUFF INSIDE THE CLASSROOMS AT ALL
+    // // a. classroom 1
+    //     let classroom1Misc = add([
+    //         pos(264, 94),
+    //         rect(22, 135),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "classMisk1"
+    //     ]);
+    //     let classroom1Desk1 = add([
+    //         pos(369, 99),
+    //         rect(22, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk2 = add([
+    //         pos(369, 142),
+    //         rect(22, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk3 = add([
+    //         pos(369, 182),
+    //         rect(22, 34),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk4 = add([
+    //         pos(432, 99),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk5 = add([
+    //         pos(432, 142),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk6 = add([
+    //         pos(432, 182),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk7 = add([
+    //         pos(496, 99),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk8 = add([
+    //         pos(496, 142),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk9 = add([
+    //         pos(496, 182),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk10 = add([
+    //         pos(556, 99),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk11 = add([
+    //         pos(556, 142),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk12 = add([
+    //         pos(556, 182),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk13 = add([
+    //         pos(612, 101),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk14 = add([
+    //         pos(612, 143),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
+    //     let classroom1Desk15 = add([
+    //         pos(612, 184),
+    //         rect(20, 33),
+    //         opacity(0.5),
+    //         color(204, 0, 153),
+    //         area(),
+    //         solid(),
+    //         "misc",
+    //         "desk",
+    //     ]);
     // b. classroom 2
         // ...
         // ...

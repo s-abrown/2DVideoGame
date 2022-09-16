@@ -262,7 +262,7 @@ scene("corridor", () =>{
             area(),
             solid()
         ])
-    // Lockers (green)
+    // 2) Lockers (green)
         let lockers = add([
             pos(37, 240),
             rect(98, 8),
@@ -317,7 +317,7 @@ scene("corridor", () =>{
             solid(), 
             "locker"
         ])
-    // 2) Doors (purple)
+    // 3) Doors (purple)
         let classDoor1 = add([
             pos(302, 238),
             rect(25, 5),
@@ -424,8 +424,8 @@ scene("corridor", () =>{
             "door",
             "loungeDoor"
         ]);
-    // 3) Misc. & desks
-    // classroom 1
+    // 4) Misc. & desks
+    // a. classroom 1
         let classroom1Misc = add([
             pos(264, 94),
             rect(22, 135),
@@ -497,7 +497,7 @@ scene("corridor", () =>{
             "desk",
         ]);
         let classroom1Desk7 = add([
-            pos(432, 99),
+            pos(496, 99),
             rect(20, 33),
             opacity(0.5),
             color(204, 0, 153),
@@ -506,6 +506,109 @@ scene("corridor", () =>{
             "misc",
             "desk",
         ]);
+        let classroom1Desk8 = add([
+            pos(496, 142),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk9 = add([
+            pos(496, 182),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk10 = add([
+            pos(556, 99),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk11 = add([
+            pos(556, 142),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk12 = add([
+            pos(556, 182),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk13 = add([
+            pos(612, 101),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk14 = add([
+            pos(612, 143),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+        let classroom1Desk15 = add([
+            pos(612, 184),
+            rect(20, 33),
+            opacity(0.5),
+            color(204, 0, 153),
+            area(),
+            solid(),
+            "misc",
+            "desk",
+        ]);
+    // b. classroom 2
+        // ...
+        // ...
+        // ...
+    // 4) Corridor misc
+    let corridorPlant1 = add([
+        pos(1122, 245),
+        rect(27, 25),
+        opacity(0.5),
+        color(242, 219, 15),
+        area(),
+        solid(),
+        "plant",
+    ]);
+    let corridorPlant2 = add([
+        pos(1122, 313),
+        rect(27, 27),
+        opacity(0.5),
+        color(242, 219, 15),
+        area(),
+        solid(),
+        "plant",
+    ]);
 
 
     // PLAYER AND PLAYER MOVEMENT
@@ -559,7 +662,7 @@ scene("corridor", () =>{
 
 
         // III. INTERACTIONS
-        // Adding interactions with lockers when player presses space while touching them (still need to get the text etc. to disappear once you've cycled through the dialog. Shoudld maybe make function for it?)
+        // A) Adding interactions with lockers when player presses space while touching them (still need to get the text etc. to disappear once you've cycled through the dialog. Shoudld maybe make function for it?)
         let lockerCount = 0
         onKeyPress("space", () => {
             //let interacted = false
@@ -649,6 +752,110 @@ scene("corridor", () =>{
         });
         // Doesn't work
         // onKeyPressRepeat(console.log("keypressrepeat"))
+
+
+        // B) Interaction with corridor plants 
+        // I got confused with the conditions but yeah....
+        let plantCount = 0
+        onKeyPress("space", () => {
+            //let interacted = false
+            every("plant", (c) => {
+                if (overWorldPlayer.isTouching(c)) {
+                    plantCount += 1
+                    console.log("plantCount :", plantCount)
+                    // Textbox
+                    const textbox = add([
+                        rect(width() - 300, 120, { radius: 32 }),
+                        origin("center"),
+                        pos(center().x + 100, height() - 125),
+                        outline(2),
+                    ]);
+                    // Portait :
+                    const portrait = add([
+                        rect(200, 120, {radius: 32}),
+                        origin("center"),
+                        pos(center().x - 450, height() - 125),
+                        outline(2),
+                    ]);
+                    // Textbox texts :
+                    if(plantCount == 1 && lockerCount <1){
+                    add([
+                        text("What a lovely green plant! And it's a real one too!", { 
+                            size: 32, 
+                            width: 800,
+                            }),
+                        color([0, 0, 0]),
+                        pos(textbox.pos),
+                        origin("center")
+                        ])
+                    };
+                    if (plantCount == 2 && lockerCount <1){
+                        add([
+                            text("Did you know that the presence of such plants can ease feelings of anxiety and stress?", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (plantCount == 3 && lockerCount <1){
+                        add([
+                            text("It helps you feel more at peace... and calm...", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (plantCount == 4 && lockerCount <1){
+                        add([
+                            text("Sort of like putting a piece of decoration in your Sims' house.", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    // Attempt: if you've triggered the teacher locker dialog 
+                    if (plantCount == 5 || lockerCount >= 4){
+                        add([
+                            text("I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ])
+                    };
+                    if (plantCount >= 6 && lockerCount != 4){
+                        add([
+                            text("Nature sure is precious", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([0, 0, 0]),
+                            pos(textbox.pos),
+                            origin("center"),
+                            ])
+                    };
+                    // Kate avatar:
+                    const avatar = add([
+                    sprite("KATE"),
+                    scale(1),
+                    origin("center"),
+                    pos(portrait.pos),
+                    ])           
+                }
+            })
+        });
+
         
 
 

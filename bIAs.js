@@ -21,7 +21,7 @@ let placeHolder = "My name: "
 let namePlayer
 const pad = 24
 
-///////////// SCENE ONE: Start Screen /////////////
+///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
 scene("accueil", () =>{
     add([
@@ -42,7 +42,7 @@ A game brought to you by Sophie and Tessa`, {
         go("nameInput");
     });
 });
-///////////// SCENE TWO: Name input /////////////
+///////////////////////////////////////////////////////////////// SCENE TWO: Name input ////////////////////////////////////////////////////
 scene("nameInput", () => {
     add([
         pos(150, 200),
@@ -79,7 +79,7 @@ scene("nameInput", () => {
     
 })
 
-///////////// SCENE THREE: Introduction /////////////
+///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
 // Your teacher introduces the AI, K.A.T.E. to the class and contextualises the game.
 
 // Adding the background image of the scene: 
@@ -210,7 +210,7 @@ scene("introduction", () =>{
 
 })
 
-///////////// SCENE FOUR: CORRIDOR /////////////
+//////////////////////////////////////////////////// SCENE FOUR: CORRIDOR /////////////////////////////////////////////////////////////////
 
 // Exit scene one: player is standing outside the door of their classroom with KATE.
 // The player can interact with her sprite (she can introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
@@ -387,16 +387,6 @@ scene("corridor", () =>{
             "door",
             "artDoor"
         ]);
-        let headmasterDoor = add([
-            pos(178, 438),
-            rect(5, 25),
-            opacity(0.5),
-            color(102, 0, 255),
-            area(),
-            solid(),
-            "door",
-            "loungeDoor"
-        ]);
     // 4) Corridor misc
     let corridorPlant1 = add([
         pos(1122, 245),
@@ -472,7 +462,80 @@ scene("corridor", () =>{
 
 
         // III. INTERACTIONS
-        // A) Adding interactions with lockers when player presses space while touching them (still need to get the text etc. to disappear once you've cycled through the dialog. Shoudld maybe make function for it?)
+        // A) Adding interactions with LOCKERS when player presses space while touching them
+        // let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?"];
+        // let lockerCount = 0;
+        // onKeyPress("space", () => {
+        //     //let interacted = false
+        //     every("locker", (c) => {
+        //         if (overWorldPlayer.isTouching(c)) {
+        //             lockerCount += 1;
+        //             for (let i = 1; i < lockerD.length + 1; i++){
+        //                 if (lockerCount == i){
+        //                     let textbox = add([
+        //                         rect(width() - 300, 120, { radius: 32 }),
+        //                         origin("center"),
+        //                         pos(center().x + 100, height() - 125),
+        //                         outline(2),
+        //                         "textbox"
+        //                     ]);
+        //                     // Portait :
+        //                     const portrait = add([
+        //                         rect(200, 120, {radius: 32}),
+        //                         origin("center"),
+        //                         pos(center().x - 450, height() - 125),
+        //                         outline(2),
+        //                         "portrait"
+        //                     ]);
+        //                     // Kate avatar:
+        //                     const avatar = add([
+        //                         sprite("KATE"),
+        //                         scale(1),
+        //                         origin("center"),
+        //                         pos(portrait.pos),
+        //                     ]);
+    
+        //                     add([
+        //                         text(lockerD[i - 1], { 
+        //                             size: 32, 
+        //                             width: 800,
+        //                             }),
+        //                         color([41, 143, 70]),
+        //                         pos(textbox.pos),
+        //                         origin("center")
+        //                         ])
+        //                 } else if (lockerCount > i){
+        //                     destroy("textbox")
+        //                 }
+        //             }
+        //         }
+        //         })
+        //     })
+        
+        const textbox = add([
+            rect(width() - 300, 120, { radius: 32 }),
+            origin("center"),
+            pos(center().x + 100, height() - 125),
+            outline(2),
+        ]);
+        textbox.hidden = true;
+        // Portait :
+        const portrait = add([
+            rect(200, 120, {radius: 32}),
+            origin("center"),
+            pos(center().x - 450, height() - 125),
+            outline(2),
+            "portrait"
+        ]);
+        portrait.hidden = true;
+        const avatar = add([
+            sprite("KATE"),
+            scale(1),
+            origin("center"),
+            pos(portrait.pos),
+            "avatar"
+        ]);
+        avatar.hidden = true;
         let lockerCount = 0
         onKeyPress("space", () => {
             //let interacted = false
@@ -480,24 +543,11 @@ scene("corridor", () =>{
                 if (overWorldPlayer.isTouching(c)) {
                     lockerCount += 1
                     console.log("LockerCount :", lockerCount)
-                    // Textbox
-                    const textbox = add([
-                        rect(width() - 300, 120, { radius: 32 }),
-                        origin("center"),
-                        pos(center().x + 100, height() - 125),
-                        outline(2),
-                        "textbox"
-                    ]);
-                    // Portait :
-                    const portrait = add([
-                        rect(200, 120, {radius: 32}),
-                        origin("center"),
-                        pos(center().x - 450, height() - 125),
-                        outline(2),
-                        "portrait"
-                    ]);
                     // Textbox texts :
                     if(lockerCount == 1){
+                    textbox.hidden = false;
+                    portrait.hidden = false;
+                    avatar.hidden = false;
                     add([
                         text("Oh, do you think some of the teachers are hiding in the lockers? How fun!", { 
                             size: 32, 
@@ -509,6 +559,9 @@ scene("corridor", () =>{
                         ])
                     };
                     if (lockerCount == 2){
+                        textbox.hidden = false;
+                        portrait.hidden = false;
+                        avatar.hidden = false;
                         add([
                             text("Is it a sort of school tradition for teachers to lock themselves in there?", { 
                                 size: 32, 
@@ -520,6 +573,9 @@ scene("corridor", () =>{
                             ])
                     };
                     if (lockerCount == 3){
+                        textbox.hidden = false;
+                        portrait.hidden = false;
+                        avatar.hidden = false;
                         add([
                             text("Maybe it's their designated quiet place?", { 
                                 size: 32, 
@@ -531,6 +587,9 @@ scene("corridor", () =>{
                             ])
                     };
                     if (lockerCount == 4){
+                        textbox.hidden = false;
+                        portrait.hidden = false;
+                        avatar.hidden = false;
                         add([
                             text("In any case, it seems like no one is in there.", { 
                                 size: 32, 
@@ -541,7 +600,10 @@ scene("corridor", () =>{
                             origin("center")
                             ])
                     };
-                    if (lockerCount >= 5){
+                    if (lockerCount == 5){
+                        textbox.hidden = false;
+                        portrait.hidden = false;
+                        avatar.hidden = false;
                         add([
                             text("Shall we move on?", { 
                                 size: 32, 
@@ -549,39 +611,71 @@ scene("corridor", () =>{
                                 }),
                             color([41, 143, 70]),
                             pos(textbox.pos),
-                            origin("center"),
+                            origin("center"), 
+                            "finalText"
                             ])
-                    if (lockerCount > 5) {
-                        lockerCount = 0;
-                        destroyAll("textbox", "portrait")
-                        
+                    if (lockerCount == 6) {
+                        textbox.hidden = true;
+                        portrait.hidden = true;
+                        avatar.hidden = true;
                     }
-                    };
-                    // Kate avatar:
-                    const avatar = add([
-                    sprite("KATE"),
-                    scale(1),
-                    origin("center"),
-                    pos(portrait.pos),
-                    ])           
+                }
                 }
             })
         });
-        // To get rid of dialog textbox etc. after having cycled thru the convo: 
-        // Doesn't work
-        // onKeyPressRepeat(console.log("keypressrepeat"))
 
 
-        // B) Interaction with corridor plants 
+        // B) Interaction with CORRIDOR PLANTS :
         // I got confused with the conditions texts overlap with locker dialog
-        let plantCount = 0
         onKeyPress("space", () => {
             //let interacted = false
             every("plant", (c) => {
                 if (overWorldPlayer.isTouching(c)) {
-                    plantCount += 1
-                    console.log("plantCount :", plantCount)
                     // Textbox
+                    const plantTextbox = add([
+                        rect(width() - 300, 120, { radius: 32 }),
+                        origin("center"),
+                        pos(center().x + 100, height() - 125),
+                        outline(2),
+                    ]);
+                    // Portait :
+                    const plantPortrait = add([
+                        rect(200, 120, {radius: 32}),
+                        origin("center"),
+                        pos(center().x - 450, height() - 125),
+                        outline(2),
+                    ]);
+                    // Textbox texts :
+                    add([
+                        text("This is ", { 
+                            size: 32, 
+                            width: 800,
+                            }),
+                        color([41, 143, 70]),
+                        pos(plantTextbox.pos),
+                        origin("center")
+                        ])
+                    // Kate avatar:
+                    const avatar = add([
+                        sprite("KATE"),
+                        scale(1),
+                        origin("center"),
+                        pos(plantPortrait.pos),
+                        ]);
+                    };          
+                });
+            });
+        });
+
+        // C) Interactions with DOORS :
+        // We'll need to make sure CONDITIONS are met before the player can re-enter their class room
+        // AKA the player must have read talked to each teacher and read through each CV.
+        onKeyPress("space", () => {
+            every("door", () => {
+                // Maths class door
+                if (overWorldPlayer.isTouching("mathsDoor")){
+                    console.log("mathsDoor interaction")
+                    /* // textbox
                     const textbox = add([
                         rect(width() - 300, 120, { radius: 32 }),
                         origin("center"),
@@ -595,94 +689,292 @@ scene("corridor", () =>{
                         pos(center().x - 450, height() - 125),
                         outline(2),
                     ]);
-                    // Textbox texts :
-                    if(plantCount == 1 && lockerCount <1){
+                   // Textbox texts :
                     add([
-                        text("What a lovely green plant! And it's a real one too!", { 
+                        text("This is the maths class door. Mr. XYZ should be in there now. Shall we go and talk to him?", { 
                             size: 32, 
                             width: 800,
                             }),
                         color([41, 143, 70]),
                         pos(textbox.pos),
                         origin("center")
-                        ])
+                        ]) */
+                    // onKeyPress("Y", go("mathsClass"))
                     };
-                    if (plantCount == 2 && lockerCount <1){
-                        add([
-                            text("Did you know that the presence of such plants can ease feelings of anxiety and stress?", { 
-                                size: 32, 
-                                width: 800,
-                                }),
-                            color([41, 143, 70]),
-                            pos(textbox.pos),
-                            origin("center")
-                            ])
-                    };
-                    if (plantCount == 3 && lockerCount <1){
-                        add([
-                            text("It helps you feel more at peace... and calm...", { 
-                                size: 32, 
-                                width: 800,
-                                }),
-                            color([41, 143, 70]),
-                            pos(textbox.pos),
-                            origin("center")
-                            ])
-                    };
-                    if (plantCount == 4 && lockerCount <1){
-                        add([
-                            text("Sort of like putting a piece of decoration in your Sim's house and watching their happiness meter go up.", { 
-                                size: 32, 
-                                width: 800,
-                                }),
-                            color([41, 143, 70]),
-                            pos(textbox.pos),
-                            origin("center")
-                            ])
-                    };
-                    // Attempt: if you've triggered the teacher locker dialog 
-                    if (plantCount == 5 || lockerCount >= 4){
-                        add([
-                            text("I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", { 
-                                size: 32, 
-                                width: 800,
-                                }),
-                            color([41, 143, 70]),
-                            pos(textbox.pos),
-                            origin("center")
-                            ])
-                    };
-                    if (plantCount >= 6 && lockerCount != 4){
-                        add([
-                            text("Nature sure is precious", { 
-                                size: 32, 
-                                width: 800,
-                                }),
-                            color([41, 143, 70]),
-                            pos(textbox.pos),
+                    // Science class door: 
+                    if (overWorldPlayer.isTouching("scienceDoor")){
+                        console.log("scienceDoor interaction")
+                        /* // textbox
+                        const textbox = add([
+                            rect(width() - 300, 120, { radius: 32 }),
                             origin("center"),
-                            ])
-                    };
-                    // Kate avatar:
-                    const avatar = add([
-                    sprite("KATE"),
-                    scale(1),
-                    origin("center"),
-                    pos(portrait.pos),
-                    ])           
-                }
-            })
-        });
+                            pos(center().x + 100, height() - 125),
+                            outline(2),
+                        ]);
+                        // Portait :
+                        const portrait = add([
+                            rect(200, 120, {radius: 32}),
+                            origin("center"),
+                            pos(center().x - 450, height() - 125),
+                            outline(2),
+                        ]);
+                       // Textbox texts :
+                        add([
+                            text("This is the science class door. Mr. XYZ is always in there. Would you like to pay him a visit?", { 
+                                size: 32, 
+                                width: 800,
+                                }),
+                            color([41, 143, 70]),
+                            pos(textbox.pos),
+                            origin("center")
+                            ]) */
+                        // onKeyPress("Y", go("scienceClass"))
+                        };
+                        // Headmaster's door: 
+                        if (overWorldPlayer.isTouching("headMastersDoor")){
+                            console.log("headMastersDoor")
+                            /* // textbox
+                            const textbox = add([
+                                rect(width() - 300, 120, { radius: 32 }),
+                                origin("center"),
+                                pos(center().x + 100, height() - 125),
+                                outline(2),
+                            ]);
+                            // Portait :
+                            const portrait = add([
+                                rect(200, 120, {radius: 32}),
+                                origin("center"),
+                                pos(center().x - 450, height() - 125),
+                                outline(2),
+                            ]);
+                           // Textbox texts :
+                            add([
+                                text("This door will take us through to Mr. XYZ, the headmaster. He'll let us consult the teachers' CVs. How about we take a look?", { 
+                                    size: 32, 
+                                    width: 800,
+                                    }),
+                                color([41, 143, 70]),
+                                pos(textbox.pos),
+                                origin("center")
+                                ]) */
+                            // onKeyPress("Y", go("headmastersRoom"))
+                            };
+                            // Player's class door /!\ Conditions to be met to enter: 
+                            if (overWorldPlayer.isTouching("playerClassDoor")){
+                                console.log("player class door interaction")
+                                /* // textbox
+                                const textbox = add([
+                                    rect(width() - 300, 120, { radius: 32 }),
+                                    origin("center"),
+                                    pos(center().x + 100, height() - 125),
+                                    outline(2),
+                                ]);
+                                // Portait :
+                                const portrait = add([
+                                    rect(200, 120, {radius: 32}),
+                                    origin("center"),
+                                    pos(center().x - 450, height() - 125),
+                                    outline(2),
+                                ]);
+                               // Textbox texts :
+                                add([
+                                    text("This is your class!", { 
+                                        size: 32, 
+                                        width: 800,
+                                        }),
+                                    color([41, 143, 70]),
+                                    pos(textbox.pos),
+                                    origin("center")
+                                    ]) */
+                                // onKeyPress("Y", go("playerClass"))
+                                };
+                                // Bathroom door: 
+                                if (overWorldPlayer.isTouching("bathroomDoor")){
+                                    console.log("bathroom Door intercation")
+                                    /* // textbox
+                                    const textbox = add([
+                                        rect(width() - 300, 120, { radius: 32 }),
+                                        origin("center"),
+                                        pos(center().x + 100, height() - 125),
+                                        outline(2),
+                                    ]);
+                                    // Portait :
+                                    const portrait = add([
+                                        rect(200, 120, {radius: 32}),
+                                        origin("center"),
+                                        pos(center().x - 450, height() - 125),
+                                        outline(2),
+                                    ]);
+                                   // Textbox texts :
+                                    add([
+                                        text("BLABLABALBLABLABABALBA", { 
+                                            size: 32, 
+                                            width: 800,
+                                            }),
+                                        color([41, 143, 70]),
+                                        pos(textbox.pos),
+                                        origin("center")
+                                        ]) */
+                                    // onKeyPress("Y", go("bathroom")) ?????
+                                    }; 
+                                    if (overWorldPlayer.isTouching("englishDoor")){
+                                        console.log("English Door interaction")
+                                        /* // textbox
+                                        const textbox = add([
+                                            rect(width() - 300, 120, { radius: 32 }),
+                                            origin("center"),
+                                            pos(center().x + 100, height() - 125),
+                                            outline(2),
+                                        ]);
+                                        // Portait :
+                                        const portrait = add([
+                                            rect(200, 120, {radius: 32}),
+                                            origin("center"),
+                                            pos(center().x - 450, height() - 125),
+                                            outline(2),
+                                        ]);
+                                       // Textbox texts :
+                                        add([
+                                            text("BLABLABALBLABLABABALBA", { 
+                                                size: 32, 
+                                                width: 800,
+                                                }),
+                                            color([41, 143, 70]),
+                                            pos(textbox.pos),
+                                            origin("center")
+                                            ]) */
+                                        // onKeyPress("Y", go(englishClass))
+                                        };
+                                        if (overWorldPlayer.isTouching("artDoor")){
+                                            console.log("art door interaction")
+                                            /* // textbox
+                                            const textbox = add([
+                                                rect(width() - 300, 120, { radius: 32 }),
+                                                origin("center"),
+                                                pos(center().x + 100, height() - 125),
+                                                outline(2),
+                                            ]);
+                                            // Portait :
+                                            const portrait = add([
+                                                rect(200, 120, {radius: 32}),
+                                                origin("center"),
+                                                pos(center().x - 450, height() - 125),
+                                                outline(2),
+                                            ]);
+                                           // Textbox texts :
+                                            add([
+                                                text("This is Mrs. XYZ's class, your art teacher. Would you like to chat to her?", { 
+                                                    size: 32, 
+                                                    width: 800,
+                                                    }),
+                                                color([41, 143, 70]),
+                                                pos(textbox.pos),
+                                                origin("center")
+                                                ]) */
+                                            // onKeyPress("Y", go("artClass") )
+                                            };  
+                                            // Kate avatar:
+                                            const avatar = add([
+                                            sprite("KATE"),
+                                            scale(1),
+                                            origin("center"),
+                                            pos(portrait.pos),
+                                            ]);  
+                                            });
 
-        // C) Interactions with the doors
+                                        })
+                                    //});
 
+
+                            //});
+
+
+
+
+scene("mathsClass", () =>{
+    let mathsClass = add([
+        sprite("classRoom1"),
+        // Make the background centered on the screen
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        // Allow the background to be scaled
+        //scale(1),
+        // Keep the background position fixed even when the camera moves
+        fixed()
+      ]);
+
+      // Adding the dialog/text box at the bottom of the screen:
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    // Adding the portrait to the left of the text box: 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+
+    const Mathsdialogs = [
+        // Teacher introducing AI:
+        [ "bean", "Hi, " `${namePlayer}!` ],
+        [ "bean", "Welcome to mathsClass" ],
+    ];
+
+    // Do we need to change this variable or...
+    let curDialog = 0
+
+    // Text
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+        ]);
+
+        // Character avatar
+        const avatar = add([
+        sprite("bean"),
+        scale(3),
+        color(143, 52, 235),
+        origin("center"),
+        pos(portrait.pos),
+        ])
+
+    onKeyPress("space", () => {
+        // Cycle through the dialogs
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        // Adding a delay between hitting space bar and the text showing up:
+        wait(0.3,() => {
+        updateDialog()})
+        // Looking at how to get the typing effect for the text?
+        //setTimeout("type()", 5000)  
+    });
+
+    // Update the on screen sprite & text
+    function updateDialog() {
+        if (curDialog < mathsDialogs.length){
+        const [ char, matsDialog ] = matsDialogs[curDialog]
 
         
+        // Use a new sprite component to replace the old one
+        // We can use this for different facial expressions in the portraits? 
+        //avatar.use(sprite(char))
+        
+        // Update the dialog text
+        txt.text = dialog} else {
+            go("corridor")
+        }
+    }
 
-
-
-
-
+    updateDialog()
 
 });
 

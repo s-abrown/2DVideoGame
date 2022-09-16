@@ -15,6 +15,11 @@ loadSprite("KATE", "KATEcu.png")
 loadSprite("overWorldKATE", "KATE1.png")
 loadSprite("mathsTeacher", "oldTeachCu.png")
 
+loadSound("corridorAmbient", "corridor.mp3")
+loadSound("spacePress", "spacePress.mp3")
+loadSound("soCold", "soCold.mp3")
+
+
 
 loadBean("bean")
 
@@ -219,6 +224,8 @@ scene("introduction", () =>{
 // The player can interact with her sprite (she can introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
+    // need to loop this? Or does it end with silence and we need to trim the mp3. Anyway I wanted to test a sound file
+    play("corridorAmbient")
         //Adding the school map as background: 
         let map = add([
         sprite("schoolMap"),
@@ -228,6 +235,7 @@ scene("corridor", () =>{
         // Keep the background position fixed even when the camera moves
         fixed()
     ]);
+
 
     // I. PERIMETERS
     // Setting up wall, lockers and mics positions : 
@@ -497,6 +505,8 @@ scene("corridor", () =>{
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
+        //Testing sound
+        play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
         lockerDialog += 1
@@ -574,13 +584,12 @@ scene("corridor", () =>{
     // D) Interactions with DOORS 
 
     // a) Maths Door
-    let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!",];
+    let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let mathsDoorDialog = 0;
     onKeyPress("space", () => {
         every("mathsDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             mathsDoorDialog += 1
-        console.log(mathsDoorDialog)
         wait(0.3,() => {
         updateMathsDoorDialog()})
         }; 
@@ -593,17 +602,22 @@ scene("corridor", () =>{
         avatar.hidden = false; 
         portrait.hidden = false;
         txt.hidden = false;  
-        txt.text = mathsDoorD[mathsDoorDialog - 1]} else {
+        txt.text = mathsDoorD[mathsDoorDialog - 1];
+        }
+        else {
             // deleEverything()
             YorNChoiceMathsDoor()
         }
     }
-    // WHY does it work with updatePlantDialog() but not updateMathsDoorDialog() T_T
+    // Made a mistake while making this and it works with updatePlantDialog() but not updateMathsDoorDialog() T_T Don't ask me why 
     updatePlantDialog()
+    //updateMathsDoorDialog()
 
-    // Door choice function 
+
+
+    // Yes or no choice to go through Maths Door: 
     function YorNChoiceMathsDoor (){
-        const YorNChoiceBox = add([
+            add([
             rect(width() - 300, 120, {radius: 32}),
             origin("center"),
             pos(center().x + 100, height() - 125),
@@ -624,9 +638,45 @@ scene("corridor", () =>{
         })
         onKeyPress("n", () => {
             console.log("Pressed N")
-            // deleteEverything()
         })
     };
+
+    // Door choice function 
+    /* function YorNChoiceMathsDoor (){
+        onKeyPress("Y", () => {
+            console.log("pressed Y")
+            go("mathsClass")
+        });
+        onKeyPress("N", () => {
+            console.log("pressed N")
+            deleEverything()
+        })       
+    }; */
+
+    /* let mathsDoorChoiceD = ["Y or N"];
+    let mathsDoorChoiceDialog = 0;
+    onKeyPress("space", () => {
+        every("mathsDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            mathsDoorChoiceDialog += 1
+        console.log(mathsDoorChoiceDialog)
+        wait(0.3,() => {
+            updateMathsDoorChoice()})
+        }; 
+        });
+    });
+    // Update the text
+    function updateMathsDoorChoice() {
+        if (mathsDoorChoiceDialog <= mathsDoorD.length && mathsDoorChoiceDialog != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = bathroomD[mathsDoorChoiceDialog - 1]} else {
+            deleEverything()
+        }
+    }
+    updateMathsDoorChoice() */
 
 
     
@@ -636,6 +686,8 @@ scene("corridor", () =>{
 
 
 scene("mathsClass", () =>{
+    //  ¯\_(ツ)_/¯
+    play("soCold")
     let MathsClass = add([
         sprite("classRoom1"),
         // Make the background centered on the screen
@@ -647,9 +699,29 @@ scene("mathsClass", () =>{
         fixed()
       ]);
 
-    const mathsTeacher = add([
-        sprite("mathsTeacher")
-    ])
+    // Adding Teacher
+   /*  const mathsTeacher = add([
+        sprite("mathsTeacher"),
+        scale(1),
+        loop(1.5, () =>{shake(50)})
+    ]) */
+    function random_rgba() {
+        var o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    }
+    
+    var colorA = random_rgba();
+
+    //  O_O
+    loop(0.5, () => {
+        add([
+            sprite("mathsTeacher"),
+            pos(rand(vec2(window.innerWidth, window.innerHeight))),
+            color(112, 11, 48)
+        ])
+    })
+    
+    
 
     // Adding the dialog/text box at the bottom of the screen:
     const textbox = add([
@@ -730,6 +802,18 @@ scene("mathsClass", () =>{
     updateDialog()
 });
 
+//////////////////////////////////////////////////// SCENE SIX: SCIENCE CLASS /////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////// SCENE SIX: HEADMASTER'S OFFICE /////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////// SCENE SIX: PLAYER CLASS /////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////// SCENE SIX: ENGLISH CLASS /////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////// SCENE SIX: ART CLASS /////////////////////////////////////////////////////////////////
+
+
+
 
 // Initialize game 
-go("corridor")
+go("mathsClass")

@@ -572,6 +572,7 @@ scene("corridor", () =>{
     updateBathroomDialog()
 
     // D) Interactions with DOORS 
+
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!",];
     let mathsDoorDialog = 0;
@@ -597,7 +598,9 @@ scene("corridor", () =>{
             YorNChoiceMathsDoor()
         }
     }
+    // WHY does it work with updatePlantDialog() but not updateMathsDoorDialog() T_T
     updatePlantDialog()
+
     // Door choice function 
     function YorNChoiceMathsDoor (){
         const YorNChoiceBox = add([
@@ -621,6 +624,7 @@ scene("corridor", () =>{
         })
         onKeyPress("n", () => {
             console.log("Pressed N")
+            // deleteEverything()
         })
     };
 

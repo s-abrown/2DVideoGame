@@ -226,6 +226,8 @@ scene("corridor", () =>{
         fixed()
     ]);
 
+    // First dialog with KATE here /!\ care with constants for dialog boxes/portraits/etc as they are used below?: 
+    // Can player take a few steps away from their classs door before KATE full body image pops up and she introduces herself
 
     // I. PERIMETERS
     // Setting up wall, lockers and mics positions : 
@@ -691,18 +693,18 @@ scene("corridor", () =>{
                             size: 32, 
                             width: 800,
                             }),
-                        color([0, 0, 0]),
+                        color([41, 143, 70]),
                         pos(textbox.pos),
                         origin("center")
                         ])
                     };
                     if (lockerCount == 2){
                         add([
-                            text("Is it a sort of school tradition for teachers lock themselves in the lockers?", { 
+                            text("Is it a sort of school tradition for teachers to lock themselves in there?", { 
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -713,7 +715,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -724,7 +726,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -735,7 +737,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center"),
                             ])
@@ -750,12 +752,13 @@ scene("corridor", () =>{
                 }
             })
         });
+        // To get rid of dialog textbox etc. after having cycled thru the convo: 
         // Doesn't work
         // onKeyPressRepeat(console.log("keypressrepeat"))
 
 
         // B) Interaction with corridor plants 
-        // I got confused with the conditions but yeah....
+        // I got confused with the conditions texts overlap with locker dialog
         let plantCount = 0
         onKeyPress("space", () => {
             //let interacted = false
@@ -784,7 +787,7 @@ scene("corridor", () =>{
                             size: 32, 
                             width: 800,
                             }),
-                        color([0, 0, 0]),
+                        color([41, 143, 70]),
                         pos(textbox.pos),
                         origin("center")
                         ])
@@ -795,7 +798,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -806,18 +809,18 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
                     };
                     if (plantCount == 4 && lockerCount <1){
                         add([
-                            text("Sort of like putting a piece of decoration in your Sims' house.", { 
+                            text("Sort of like putting a piece of decoration in your Sim's house and watching their happiness meter go up.", { 
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -829,7 +832,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center")
                             ])
@@ -840,7 +843,7 @@ scene("corridor", () =>{
                                 size: 32, 
                                 width: 800,
                                 }),
-                            color([0, 0, 0]),
+                            color([41, 143, 70]),
                             pos(textbox.pos),
                             origin("center"),
                             ])

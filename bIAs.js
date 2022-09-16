@@ -816,4 +816,4 @@ scene("mathsClass", () =>{
 
 
 // Initialize game 
-go("mathsClass")
+go("corridor")

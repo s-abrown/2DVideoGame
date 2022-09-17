@@ -502,88 +502,18 @@ scene("corridor", () =>{
         portrait.hidden = true;
         txt.hidden = true
     }
-
-    // A) Interactions with LOCKERS when player presses space while touching them
-    let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
-    let lockerDialog = 0;
-    onKeyPress("space", () => {
-        //Testing sound
-        play("spacePress")
-        every("locker", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-        lockerDialog += 1
-        console.log(lockerDialog)
-        wait(0.3,() => {
-        updateLockerDialog()})
-        }; 
-        });
-    });
-    // Update the text
-    function updateLockerDialog() {
-        if (lockerDialog <= lockerD.length && lockerDialog != 0){
+    // A function to update the dialogues (for objects with minimal interaction)
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
         textbox.hidden = false;
         avatar.hidden = false; 
         portrait.hidden = false;
         txt.hidden = false;  
-        txt.text = lockerD[lockerDialog - 1]} else {
+        txt.text = t[v - 1]} else {
             deleEverything()
         }
     }
-    updateLockerDialog()
-
-    // B) Interaction with CORRIDOR PLANTS when player presses space while touching them :
-    let plantsD = ["What a lovely green plant! And it's a real one too!", "Did you know that the presence of such plants can ease feelings of anxiety and stress?", "It helps you feel more at peace... and calm...", "Sort of like putting a piece of decoration in your Sim's house.", "I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", "Nature sure is precious"];
-    let plantDialog = 0;
-    onKeyPress("space", () => {
-        every("plant", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-        plantDialog += 1
-        console.log(plantDialog)
-        wait(0.3,() => {
-        updatePlantDialog()})
-        }; 
-        });
-    });
-    function updatePlantDialog() {
-        if (plantDialog <= plantsD.length && plantDialog != 0){
-        textbox.hidden = false;
-        avatar.hidden = false; 
-        portrait.hidden = false;
-        txt.hidden = false;  
-        txt.text = plantsD[plantDialog - 1]} else {
-            deleEverything()
-        }
-    }
-    updatePlantDialog()
-
-    // C) Interaction with BATHROOM DOOR when player presses space when touching it
-    let bathroomD = ["Oh, do you need to go to the bathroom?", "Go on, I'll wait for you here then", "...", "...", "...", "All done? Awesome! Let's go"];
-    let bathroomDialog = 0;
-    onKeyPress("space", () => {
-        every("bathroomDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-        bathroomDialog += 1
-        console.log(bathroomDialog)
-        wait(0.3,() => {
-        updateBathroomDialog()})
-        }; 
-        });
-    });
-    function updateBathroomDialog() {
-        if (bathroomDialog <= bathroomD.length && bathroomDialog != 0){
-        textbox.hidden = false;
-        avatar.hidden = false; 
-        portrait.hidden = false;
-        txt.hidden = false;  
-        txt.text = bathroomD[bathroomDialog - 1]} else {
-            deleEverything()
-        }
-    }
-    updateBathroomDialog()
-
-    // D) Interactions with DOORS
-
-    // Yes or no choice to go through doors: 
+    // Two functions to update the dialogues (for doors from which to access the teachers)
     function YorNChoiceDoor (string){
         portrait.hidden = true;
         avatar.hidden = true;
@@ -599,6 +529,67 @@ scene("corridor", () =>{
         txt.hidden = true; 
     })
     }
+    function updateDoorsDialog(v, t, string) {
+        if (v <= t.length && v != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = t[v - 1];
+        }
+        else if (v > t.length){
+            YorNChoiceDoor(string)
+        }
+    }
+
+    // A) Interactions with LOCKERS when player presses space while touching them
+    let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
+    let lockerDialog = 0;
+    onKeyPress("space", () => {
+        //Testing sound
+        play("spacePress")
+        every("locker", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+        lockerDialog += 1
+        console.log(lockerDialog)
+        wait(0.3,() => {
+        updateDialog(lockerDialog, lockerD)})
+        }; 
+        });
+    });
+
+    // B) Interaction with CORRIDOR PLANTS when player presses space while touching them :
+    let plantsD = ["What a lovely green plant! And it's a real one too!", "Did you know that the presence of such plants can ease feelings of anxiety and stress?", "It helps you feel more at peace... and calm...", "Sort of like putting a piece of decoration in your Sim's house.", "I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", "Nature sure is precious"];
+    let plantDialog = 0;
+    onKeyPress("space", () => {
+        every("plant", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+        plantDialog += 1
+        console.log(plantDialog)
+        wait(0.3,() => {
+            updateDialog(plantDialog, plantsD)})
+        }; 
+        });
+    });
+
+    // C) Interaction with BATHROOM DOOR when player presses space when touching it
+    let bathroomD = ["Oh, do you need to go to the bathroom?", "Go on, I'll wait for you here then", "...", "...", "...", "All done? Awesome! Let's go"];
+    let bathroomDialog = 0;
+    onKeyPress("space", () => {
+        every("bathroomDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+        bathroomDialog += 1
+        console.log(bathroomDialog)
+        wait(0.3,() => {
+        updateDialog(bathroomDialog, bathroomD)})
+        }; 
+        });
+    });
+
+    // D) Interactions with DOORS
+
+    // Yes or no choice to go through doors: 
+    
 
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
@@ -608,25 +599,75 @@ scene("corridor", () =>{
         if (overWorldPlayer.isTouching(c)) {
             mathsDoorDialog += 1
         wait(0.3,() => {
-        updateMathsDoorDialog()})
+        updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")})
         }; 
         });
     });
-    function updateMathsDoorDialog() {
-        if (mathsDoorDialog <= mathsDoorD.length && mathsDoorDialog != 0){
-        textbox.hidden = false;
-        avatar.hidden = false; 
-        portrait.hidden = false;
-        txt.hidden = false;  
-        txt.text = mathsDoorD[mathsDoorDialog - 1];
-        }
-        else if (mathsDoorDialog > mathsDoorD.length){
-            YorNChoiceDoor("mathsClass")
-        }
-    }
-    updateMathsDoorDialog()
 
+    // b) Science Door
+    let scienceDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let scienceDoorDialog = 0;
+    onKeyPress("space", () => {
+        every("scienceDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            scienceDoorDialog += 1
+        wait(0.3,() => {
+            updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceDoor")})
+        }; 
+        });
+    });
 
+    // c) Headmaster's office
+    let HMDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let HMDoorDialog = 0;
+    onKeyPress("space", () => {
+        every("headMastersDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            HMDoorDialog += 1
+        wait(0.3,() => {
+            updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMastersDoor")})
+        }; 
+        });
+    });
+
+    // d) Player class
+    let PCDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let PCDoorDialog = 0;
+    onKeyPress("space", () => {
+        every("playerClassDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            PCDoorDialog += 1
+        wait(0.3,() => {
+            updateDoorsDialog(PCDoorDialog, PCDoorD, "playerClassDoor")})
+        }; 
+        });
+    });
+    
+    // e) English class englishDoor
+    let englishDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let englishDoorDialog = 0;
+    onKeyPress("space", () => {
+        every("englishDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            englishDoorDialog += 1
+        wait(0.3,() => {
+            updateDoorsDialog(englishDoorDialog, englishDoorD, "englishDoor")})
+        }; 
+        });
+    });
+
+    // f) Art Door
+    let artDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let artDoorDialog = 0;
+    onKeyPress("space", () => {
+        every("artDoor", (c) => {
+        if (overWorldPlayer.isTouching(c)) {
+            artDoorDialog += 1
+        wait(0.3,() => {
+            updateDoorsDialog(artDoorDialog, artDoorD, "artDoor")})
+        }; 
+        });
+    });
     
 });
 

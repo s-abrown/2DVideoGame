@@ -9,12 +9,14 @@ kaboom({
 
 loadRoot("assets/")
 
+// Sprites
 loadSprite("classRoom1","classroomBg.png")
 loadSprite("schoolMap","schoolMap.png")
 loadSprite("KATE", "KATEcu.png")
 loadSprite("overWorldKATE", "KATE1.png")
-loadSprite("mathsTeacher", "oldTeachCu.png")
+loadSprite("mathsTeacher", "oldTeachcu.png")
 
+// Sounds
 loadSound("corridorAmbient", "corridor.mp3")
 loadSound("spacePress", "spacePress.mp3")
 loadSound("soCold", "soCold.mp3")
@@ -418,43 +420,6 @@ scene("corridor", () =>{
         "plant",
     ]);
 
-    // Textbox, portrait and text for the interactions
-    const textbox = add([
-        rect(width() - 300, 120, { radius: 32 }),
-        origin("center"),
-        pos(center().x + 100, height() - 125),
-        outline(2),
-    ]);
-    textbox.hidden = true;
-    // Portait :
-    const portrait = add([
-        rect(200, 120, {radius: 32}),
-        origin("center"),
-        pos(center().x - 450, height() - 125),
-        outline(2),
-        "portrait"
-    ]);
-    portrait.hidden = true;
-    // Character avatar
-    const avatar = add([
-        sprite("KATE"),
-        scale(2),
-        origin("center"),
-        pos(portrait.pos),
-    ])
-    avatar.hidden = true
-    // Text
-    const txt = add([
-        text("", { 
-            size: 32, 
-            width: 800,
-            }),
-        color([0, 0, 0]),
-        pos(textbox.pos),
-        origin("center")
-    ]);
-    txt.hidden = true
-
     // PLAYER AND PLAYER MOVEMENT
     // Adding player into the over world : 
     let overWorldPlayer = add([
@@ -494,6 +459,42 @@ scene("corridor", () =>{
 
 
     // III. INTERACTIONS
+        // Textbox, portrait and text for the interactions
+        const textbox = add([
+            rect(width() - 300, 120, { radius: 32 }),
+            origin("center"),
+            pos(center().x + 100, height() - 125),
+            outline(2),
+        ]);
+        textbox.hidden = true;
+        // Portait :
+        const portrait = add([
+            rect(200, 120, {radius: 32}),
+            origin("center"),
+            pos(center().x - 450, height() - 125),
+            outline(2),
+            "portrait"
+        ]);
+        portrait.hidden = true;
+        // Character avatar
+        const avatar = add([
+            sprite("KATE"),
+            scale(2),
+            origin("center"),
+            pos(portrait.pos),
+        ])
+        avatar.hidden = true
+        // Text
+        const txt = add([
+            text("", { 
+                size: 32, 
+                width: 800,
+                }),
+            color([0, 0, 0]),
+            pos(textbox.pos),
+            origin("center")
+        ]);
+        txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
     function deleEverything (){
         textbox.hidden = true;
@@ -542,7 +543,6 @@ scene("corridor", () =>{
         }; 
         });
     });
-    // Update the text
     function updatePlantDialog() {
         if (plantDialog <= plantsD.length && plantDialog != 0){
         textbox.hidden = false;
@@ -568,7 +568,6 @@ scene("corridor", () =>{
         }; 
         });
     });
-    // Update the text
     function updateBathroomDialog() {
         if (bathroomDialog <= bathroomD.length && bathroomDialog != 0){
         textbox.hidden = false;
@@ -581,7 +580,24 @@ scene("corridor", () =>{
     }
     updateBathroomDialog()
 
-    // D) Interactions with DOORS 
+    // D) Interactions with DOORS
+
+    // Yes or no choice to go through doors: 
+    function YorNChoiceDoor (string){
+        portrait.hidden = true;
+        avatar.hidden = true;
+        textbox.hidden = false;
+        txt.text = "Press Y if you would like to go in, or N if you don't.";
+    onKeyPress("y", () => {
+        console.log("Pressed Y")
+        go(string)
+    })
+    onKeyPress("n", () => {
+        console.log("Pressed N");
+        textbox.hidden = true;
+        txt.hidden = true; 
+    })
+    }
 
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
@@ -595,7 +611,6 @@ scene("corridor", () =>{
         }; 
         });
     });
-    // Update the text
     function updateMathsDoorDialog() {
         if (mathsDoorDialog <= mathsDoorD.length && mathsDoorDialog != 0){
         textbox.hidden = false;
@@ -604,42 +619,14 @@ scene("corridor", () =>{
         txt.hidden = false;  
         txt.text = mathsDoorD[mathsDoorDialog - 1];
         }
-        else {
-            // deleEverything()
-            YorNChoiceMathsDoor()
+        else if (mathsDoorDialog > mathsDoorD.length){
+            YorNChoiceDoor("mathsClass")
         }
     }
-    // Made a mistake while making this and it works with updatePlantDialog() but not updateMathsDoorDialog() T_T Don't ask me why 
-    updatePlantDialog()
-    //updateMathsDoorDialog()
+
+    updateMathsDoorDialog()
 
 
-
-    // Yes or no choice to go through Maths Door: 
-    function YorNChoiceMathsDoor (){
-            add([
-            rect(width() - 300, 120, {radius: 32}),
-            origin("center"),
-            pos(center().x + 100, height() - 125),
-            outline(2)
-        ])
-        add([
-            text("Press Y if you would like to go in, or N if you don't.", { 
-                size: 32, 
-                width: 800,
-                }),
-            color([41, 143, 70]),
-            pos(textbox.pos),
-            origin("center")
-            ]);
-        onKeyPress("y", () => {
-            console.log("Pressed Y")
-            go("mathsClass")
-        })
-        onKeyPress("n", () => {
-            console.log("Pressed N")
-        })
-    };
 
     // Door choice function 
     /* function YorNChoiceMathsDoor (){

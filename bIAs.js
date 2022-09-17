@@ -502,7 +502,8 @@ scene("corridor", () =>{
         portrait.hidden = true;
         txt.hidden = true
     }
-    // A) Adding interactions with LOCKERS when player presses space while touching them
+
+    // A) Interactions with LOCKERS when player presses space while touching them
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
@@ -623,47 +624,7 @@ scene("corridor", () =>{
             YorNChoiceDoor("mathsClass")
         }
     }
-
     updateMathsDoorDialog()
-
-
-
-    // Door choice function 
-    /* function YorNChoiceMathsDoor (){
-        onKeyPress("Y", () => {
-            console.log("pressed Y")
-            go("mathsClass")
-        });
-        onKeyPress("N", () => {
-            console.log("pressed N")
-            deleEverything()
-        })       
-    }; */
-
-    /* let mathsDoorChoiceD = ["Y or N"];
-    let mathsDoorChoiceDialog = 0;
-    onKeyPress("space", () => {
-        every("mathsDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            mathsDoorChoiceDialog += 1
-        console.log(mathsDoorChoiceDialog)
-        wait(0.3,() => {
-            updateMathsDoorChoice()})
-        }; 
-        });
-    });
-    // Update the text
-    function updateMathsDoorChoice() {
-        if (mathsDoorChoiceDialog <= mathsDoorD.length && mathsDoorChoiceDialog != 0){
-        textbox.hidden = false;
-        avatar.hidden = false; 
-        portrait.hidden = false;
-        txt.hidden = false;  
-        txt.text = bathroomD[mathsDoorChoiceDialog - 1]} else {
-            deleEverything()
-        }
-    }
-    updateMathsDoorChoice() */
 
 
     
@@ -707,7 +668,6 @@ scene("mathsClass", () =>{
             color(112, 11, 48)
         ])
     })
-    
     
 
     // Adding the dialog/text box at the bottom of the screen:

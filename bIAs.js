@@ -7,29 +7,30 @@ kaboom({
 
 ///////////// ASSETS /////////////
 
-loadRoot("assets/")
+loadRoot("assets/");
 
 // Sprites
-loadSprite("classRoom1","classroomBg.png")
-loadSprite("schoolMap","schoolMap.png")
-loadSprite("KATE", "KATEcu.png")
-loadSprite("overWorldKATE", "KATE1.png")
-loadSprite("mathsTeacher", "oldTeachcu.png")
+loadSprite("classRoom1","classroomBg.png");
+loadSprite("schoolMap","schoolMap.png");
+loadSprite("KATE", "KATEcu.png");
+loadSprite("overWorldKATE", "KATE1.png");
+loadSprite("mathsTeacher", "oldTeachcu.png");
 
 // Sounds
-loadSound("corridorAmbient", "corridor.mp3")
-loadSound("spacePress", "spacePress.mp3")
-loadSound("soCold", "soCold.mp3")
+loadSound("corridorAmbient", "corridor.mp3");
+loadSound("spacePress", "spacePress.mp3");
+loadSound("soCold", "soCold.mp3");
 
 
 
-loadBean("bean")
+loadBean("bean");
 
 
 ///////////// VARIABLES /////////////
-let placeHolder = "My name: "
-let namePlayer
-const pad = 24
+let placeHolder = "My name: ";
+let namePlayer;
+const pad = 24;
+let playerPoints = 0;
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
@@ -630,19 +631,33 @@ scene("corridor", () =>{
         });
     });
 
-    // d) Player class
-    let PCDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    // d) Player class --> !! the playerPoints should be updated everytime the player meets a teacher, as in playerPoints += 1, so that once the player has visited all five teachers he will be able to access the classroom again
+    let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
+    let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"]
     let PCDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("playerClassDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            PCDoorDialog += 1
-        wait(0.3,() => {
-            updateDoorsDialog(PCDoorDialog, PCDoorD, "playerClassDoor")})
-        }; 
+
+    if (playerPoints < 5){
+        onKeyPress("space", () => {
+            every("playerClassDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                PCDoorDialog += 1
+            wait(0.3,() => {
+                updateDialog(PCDoorDialog, PCNotReadyDoorD)})
+            }; 
+            });
         });
-    });
-    
+    } else {
+        onKeyPress("space", () => {
+            every("playerClassDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                PCDoorDialog += 1
+            wait(0.3,() => {
+                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClassDoor")})
+            }; 
+            });
+        });
+    }
+
     // e) English class englishDoor
     let englishDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let englishDoorDialog = 0;

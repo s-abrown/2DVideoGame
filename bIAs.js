@@ -557,10 +557,11 @@ scene("corridor", () =>{
         play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-        lockerDialog += 1
-        console.log(lockerDialog)
-        wait(0.3,() => {
-        updateDialog(lockerDialog, lockerD)})
+            lockerDialog += 1
+            console.log(lockerDialog)
+            wait(0.3,() => {
+                updateDialog(lockerDialog, lockerD)
+            });
         }; 
         });
     });
@@ -571,10 +572,11 @@ scene("corridor", () =>{
     onKeyPress("space", () => {
         every("plant", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-        plantDialog += 1
-        console.log(plantDialog)
-        wait(0.3,() => {
-            updateDialog(plantDialog, plantsD)})
+            plantDialog += 1
+            console.log(plantDialog)
+            wait(0.3,() => {
+                updateDialog(plantDialog, plantsD)
+            });
         }; 
         });
     });
@@ -585,10 +587,11 @@ scene("corridor", () =>{
     onKeyPress("space", () => {
         every("bathroomDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-        bathroomDialog += 1
-        console.log(bathroomDialog)
-        wait(0.3,() => {
-        updateDialog(bathroomDialog, bathroomD)})
+            bathroomDialog += 1
+            console.log(bathroomDialog)
+            wait(0.3,() => {
+                updateDialog(bathroomDialog, bathroomD)
+            });
         }; 
         });
     });
@@ -605,8 +608,9 @@ scene("corridor", () =>{
         every("mathsDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             mathsDoorDialog += 1
-        wait(0.3,() => {
-        updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")})
+            wait(0.3,() => {
+                updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")
+            });
         }; 
         });
     });
@@ -618,8 +622,9 @@ scene("corridor", () =>{
         every("scienceDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             scienceDoorDialog += 1
-        wait(0.3,() => {
-            updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceDoor")})
+            wait(0.3,() => {
+                updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceDoor")
+            });
         }; 
         });
     });
@@ -631,8 +636,9 @@ scene("corridor", () =>{
         every("headMastersDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             HMDoorDialog += 1
-        wait(0.3,() => {
-            updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMastersDoor")})
+            wait(0.3,() => {
+                updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMastersDoor")
+            });
         }; 
         });
     });
@@ -647,11 +653,12 @@ scene("corridor", () =>{
             every("playerClassDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
                 PCDoorDialog += 1
-            wait(0.3,() => {
-                updateDialog(PCDoorDialog, PCNotReadyDoorD)})
+                wait(0.3,() => {
+                    updateDialog(PCDoorDialog, PCNotReadyDoorD)
+                });
             }; 
-            });
         });
+    });
     } else {
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
@@ -671,21 +678,23 @@ scene("corridor", () =>{
         every("englishDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             englishDoorDialog += 1
-        wait(0.3,() => {
-            updateDoorsDialog(englishDoorDialog, englishDoorD, "englishDoor")})
+            wait(0.3,() => {
+                updateDoorsDialog(englishDoorDialog, englishDoorD, "englishDoor")
+            });
         }; 
         });
     });
 
     // f) Art Door
-    let artDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let artDoorD = ["Ah, this is the art class.", "Mrs. XYZ must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
     let artDoorDialog = 0;
     onKeyPress("space", () => {
         every("artDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             artDoorDialog += 1
-        wait(0.3,() => {
-            updateDoorsDialog(artDoorDialog, artDoorD, "artDoor")})
+            wait(0.3,() => {
+                updateDoorsDialog(artDoorDialog, artDoorD, "artClass")
+            });
         }; 
         });
     });
@@ -713,7 +722,7 @@ scene("mathsClass", () =>{
     const mathsTeacher = add([
         sprite("mathsTeacher"),
     ])
-    //  O_O
+    //  (⊙‿⊙)(⊙‿⊙)(⊙‿⊙)
     /* loop(0.5, () => {
         add([
             sprite("mathsTeacher"),
@@ -721,8 +730,6 @@ scene("mathsClass", () =>{
             color(112, 11, 48)
         ])
     }) */
-    
-
     // Adding the dialog/text box at the bottom of the screen:
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
@@ -776,9 +783,6 @@ scene("mathsClass", () =>{
         [ "KATE", "That is correct!" ],
         [ "mathsTeacherAvatar", "Well, good luck on your data-gathering journey." ],
         [ "mathsTeacherAvatar", "And if you do see the headmaster, let him know that I am available for our fishing trip next Saturday will you?" ],
-
-
-
     ];
 
     let curDialog = 0
@@ -794,14 +798,14 @@ scene("mathsClass", () =>{
         origin("center")
         ]);
 
-        // Character avatars
-        // Maths teacher:
-        const avatar = add([
-        sprite("mathsTeacherAvatar"),
-        scale(0.3),
-        origin("center"),
-        pos(portrait.pos),
-        ])
+    // Character avatars
+    // Maths teacher:
+    const avatar = add([
+    sprite("mathsTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
 
     onKeyPress("space", () => {
         // Sound: 
@@ -819,11 +823,11 @@ scene("mathsClass", () =>{
     // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
-        const [ char, dialog ] = dialogs[curDialog]
-	// Use a new sprite component to replace the old one
-	avatar.use(sprite(char))
-	// Update the dialog text
-	txt.text = dialog       
+            const [ char, dialog ] = dialogs[curDialog]
+        // Use a new sprite component to replace the old one
+        avatar.use(sprite(char))
+        // Update the dialog text
+        txt.text = dialog       
         // Update the dialog text
         txt.text = dialog} else {
             play("door")
@@ -879,19 +883,53 @@ scene("artClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` ],
+        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
         [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
         [ "KATE", "I am at your service!" ],
         [ "artTeacherAvatar", "How charming." ],
-        [ "artTeacherAvatar", "I suspect that you are here to learn " ],
+        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
+        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+        [ "artTeacherAvatar", "I've always been passionate about art." ],
+        [ "artTeacherAvatar", "So much so that I studied art and art history for years, right until I finished my doctorate degree!" ],
+        [ "artTeacherAvatar", "Eventually, I opened my own art gallery." ],
+        [ "artTeacherAvatar", "That was truly one of my greatest accomplishments." ],
+        [ "artTeacherAvatar", "Sharing art that moves one's soul and encouraging artists far and wide to pursue their craft..." ],
+        [ "artTeacherAvatar", "That's one of life's greatest joys." ],
+        [ "artTeacherAvatar", "Eventually, once my husband retired we moved to a quiet little house not too far from here." ],
+        [ "artTeacherAvatar", "My art gallery had been so successful that we were in want for nothing." ],
+        [ "artTeacherAvatar", "But my love for art and its diffusion never dwindled. I must admit, that I was feeling like something was missing in my life." ],
+        [ "artTeacherAvatar", "And then I realised..." ],
+        // Am I saying passion too often 
+        [ "artTeacherAvatar", "What better way to channel my passion than to teach art to the youth?" ],
+        [ "artTeacherAvatar", "Encourage young, inquisitive minds to find beauty and comfort in the world around them." ],
+        [ "artTeacherAvatar", "Next thing I knew, I had sent my CV off to Mr. XYZ." ],
+        // KATE avatar
+        [ "KATE", "You were driven by the love for your craft. How inspiring!" ],
+        [ "artTeacherAvatar", "Yes, and also my love for sharing my passion! Students here are all so creative. They never cease to inspire me. " ],
+        [ "artTeacherAvatar", `${namePlayer}, ` + "your most recent piece was so clever." ],
+        // KATE avatar
+        [ "KATE", "How was the hiring process?" ],
+        [ "artTeacherAvatar", "Oh, well..." ],
+        [ "artTeacherAvatar", "It was surprisingly difficult." ],
+        [ "artTeacherAvatar", "I had assumed, perhaps foolishly, that my many degrees and qualifications would have made the whole ordeal easier." ],
+        [ "artTeacherAvatar", "Not to mention the fact that I had owned a successful art gallery and patroned many great artists." ],
+        [ "artTeacherAvatar", "But the process was long." ],
+        [ "artTeacherAvatar", "I had three rounds of interviews and had to produce numerous letters of recommendation." ],
+        // KATE avatar
+        [ "KATE", "Wow! That's quite a stringent process!" ],
+        [ "artTeacherAvatar", "Yes, my dear. But I would do it again in a heart beat. Students here are truly astonishing. Some may become great artists themselves!" ],
+        [ "artTeacherAvatar", "I think if it weren't for them I would not be teaching." ],
+        [ "KATE", "Oh?" ],
+        [ "artTeacherAvatar", "Well... I am sure you've noticed that I am the only woman in the faculty." ],
+        [ "artTeacherAvatar", "It can be a little difficult at times. It feels like a bit of a 'boy's club' here at times." ],
+        [ "artTeacherAvatar", "" ],
 
 
 
 
     ];
 
-    let curDialog = 0
-
+    let curDialog = 0;
     // Text
     const txt = add([
         text("", { 
@@ -903,14 +941,14 @@ scene("artClass", () =>{
         origin("center")
         ]);
 
-        // Character avatars
-        // Maths teacher:
-        const avatar = add([
-        sprite("artTeacherAvatar"),
-        scale(0.3),
-        origin("center"),
-        pos(portrait.pos),
-        ])
+    // Character avatars
+    // Maths teacher:
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
 
     onKeyPress("space", () => {
         // Sound: 
@@ -944,4 +982,4 @@ scene("artClass", () =>{
 
 
 // Initialize game 
-go("artClass")
+go("corridor")

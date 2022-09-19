@@ -16,11 +16,14 @@ loadSprite("KATE", "KATEcu.png");
 loadSprite("overWorldKATE", "KATE1.png");
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
+loadSprite("artTeacher", "artTeach.png");
+loadSprite("artTeacherAvatar", "artTeachCu.png");
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");
 loadSound("spacePress", "spacePress.mp3");
 loadSound("soCold", "soCold.mp3");
+loadSound("door", "door.mp3");
 
 
 
@@ -214,6 +217,7 @@ scene("introduction", () =>{
         
         // Update the dialog text
         txt.text = dialog} else {
+            play("door")
             go("corridor")
         }
     }
@@ -822,6 +826,7 @@ scene("mathsClass", () =>{
 	txt.text = dialog       
         // Update the dialog text
         txt.text = dialog} else {
+            play("door")
             go("corridor")
         }
     };
@@ -838,8 +843,105 @@ scene("mathsClass", () =>{
 
 //////////////////////////////////////////////////// SCENE SIX: ART CLASS /////////////////////////////////////////////////////////////////
 
+scene("artClass", () =>{
+    //  ¯\_(ツ)_/¯
+    //play("soCold")
+    let MathsClass = add([
+        sprite("classRoom1"),
+        // Make the background centered on the screen
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        // Allow the background to be scaled
+        //scale(1),
+        // Keep the background position fixed even when the camera moves
+        fixed()
+      ]);
 
+    // Adding Teacher
+    const mathsTeacher = add([
+        sprite("artTeacher"),
+    ])
+    
+    // Adding the dialog/text box at the bottom of the screen:
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    // Adding the portrait to the left of the text box: 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` ],
+        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
+        [ "KATE", "I am at your service!" ],
+        [ "artTeacherAvatar", "How charming." ],
+        [ "artTeacherAvatar", "I suspect that you are here to learn " ],
+
+
+
+
+    ];
+
+    let curDialog = 0
+
+    // Text
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+        ]);
+
+        // Character avatars
+        // Maths teacher:
+        const avatar = add([
+        sprite("artTeacherAvatar"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+        ])
+
+    onKeyPress("space", () => {
+        // Sound: 
+
+        // Cycle through the dialogs
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        // Adding a delay between hitting space bar and the text showing up:
+        wait(0.3,() => {
+        updateDialog()})
+        // Looking at how to get the typing effect for the text?
+        //setTimeout("type()", 5000)  
+    });
+
+    // Update the on screen sprite & text
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	// Use a new sprite component to replace the old one
+	avatar.use(sprite(char))
+	// Update the dialog text
+	txt.text = dialog       
+        // Update the dialog text
+        txt.text = dialog} else {
+            play("door")
+            go("corridor")
+        }
+    };
+    updateDialog()
+});
 
 
 // Initialize game 
-go("mathsClass")
+go("artClass")

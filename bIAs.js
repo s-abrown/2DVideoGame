@@ -14,7 +14,8 @@ loadSprite("classRoom1","classroomBg.png");
 loadSprite("schoolMap","schoolMap.png");
 loadSprite("KATE", "KATEcu.png");
 loadSprite("overWorldKATE", "KATE1.png");
-loadSprite("mathsTeacher", "oldTeachcu.png");
+loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
+loadSprite("mathsTeacher", "oldTeach.png");
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");
@@ -548,6 +549,7 @@ scene("corridor", () =>{
     let lockerDialog = 0;
     onKeyPress("space", () => {
         //Testing sound
+        // For some reason spacePress plays if you press space even when not interacting with a locker hmmm
         play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
@@ -691,7 +693,7 @@ scene("corridor", () =>{
 
 scene("mathsClass", () =>{
     //  ¯\_(ツ)_/¯
-    play("soCold")
+    //play("soCold")
     let MathsClass = add([
         sprite("classRoom1"),
         // Make the background centered on the screen
@@ -704,26 +706,17 @@ scene("mathsClass", () =>{
       ]);
 
     // Adding Teacher
-   /*  const mathsTeacher = add([
+    const mathsTeacher = add([
         sprite("mathsTeacher"),
-        scale(1),
-        loop(1.5, () =>{shake(50)})
-    ]) */
-    function random_rgba() {
-        var o = Math.round, r = Math.random, s = 255;
-        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-    }
-    
-    var colorA = random_rgba();
-
+    ])
     //  O_O
-    loop(0.5, () => {
+    /* loop(0.5, () => {
         add([
             sprite("mathsTeacher"),
             pos(rand(vec2(window.innerWidth, window.innerHeight))),
             color(112, 11, 48)
         ])
-    })
+    }) */
     
 
     // Adding the dialog/text box at the bottom of the screen:
@@ -743,14 +736,44 @@ scene("mathsClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "bean", `${namePlayer}!` ],
-        [ "bean", "Your teacher told me to be expecting one of his/her students to stop by during this period." ],
-        [ "bean", "So you're the lucky student who got paired up with KATE, huh?" ],
-        [ "bean", "I understand that you're here to ask me about how I got hired here." ],
-        [ "bean", "Well it was quite a simple process, to be honest" ],
-        [ "bean", "I am a dude so that's pretty much it" ],
-        [ "KATE", "Well that was anticlimactic..." ],
-        [ "bean", "You feminazis ruin everything. Now get outta here." ],
+        [ "mathsTeacherAvatar", `${namePlayer}!` ],
+        [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his/her students to stop by during this period." ],
+        [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with KATE, huh?" ],
+        [ "mathsTeacherAvatar", "I understand that you're here to ask me about how I got hired here." ],
+        [ "mathsTeacherAvatar", "It was quite a serendipitous to be honest." ],
+        [ "mathsTeacherAvatar", "You see, I've known Mr XYZ, our headmaster for quite a long time..." ],
+        [ "mathsTeacherAvatar", "ever since I was a teenager, actually!" ],
+        [ "mathsTeacherAvatar", "He used to live next door to my family." ],
+        [ "mathsTeacherAvatar", "Dad and he became fast friends. They'd go on fishing trips together. I even tagged along a few times." ],
+        [ "mathsTeacherAvatar", "When I graduated from university Mr. XYZ even wrote me a glowing letter of recommendation... as a personal favour of course." ],
+        [ "mathsTeacherAvatar", "Competition was tough back then." ],
+        [ "mathsTeacherAvatar", "I spent a few months trying to get a teaching position, but alas, to no avail." ],
+        [ "mathsTeacherAvatar", "Then Mr. XYZ got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
+        [ "mathsTeacherAvatar", "He hired me on the spot!" ],
+        [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
+        // Avatar size issue here for KATE
+        [ "KATE", "Oh? I can only conclude that your qualifications must have been perfectly suited to the position!" ],
+        [ "mathsTeacherAvatar", "Well, yes. I may not have had any prior teaching experience at the time, but I've since proven my worth since then..." ],
+        [ "mathsTeacherAvatar", "Isn't that right," + `${namePlayer}!` ],
+        [ "mathsTeacherAvatar", "Most of my students leave here with good grades, after all." ],
+        [ "mathsTeacherAvatar", "And I dare say that our dear headmaster has trusted me with teaching maths from the very start of my career." ],
+        // KATE avatar
+        [ "KATE", "A longstanding and positive relationship with the headmaster certainly seems very important!" ],
+        [ "mathsTeacherAvatar", "Indeed. It's always good to nurture a good rapport with the boss!" ],
+        [ "mathsTeacherAvatar", "That reminds me..." ],
+        [ "mathsTeacherAvatar", `${namePlayer},` + "don't forget to hand in your maths homework on time this week." ],
+        [ "mathsTeacherAvatar", "I'm starting to find it hard to believe that your pet has recently taken such a liking to vandalising your papers." ],
+        [ "mathsTeacherAvatar", "Anyway, if you would like to find more details about how the hiring process works here, you can take a look at my old CV in the headmaster's office." ],
+        [ "mathsTeacherAvatar", "It'll have ample information for you to use." ],
+        // KATE avatar
+        [ "KATE", "Excellent! It will be most useful for me to learn from so that I may fulfill my purpose today!" ],
+        [ "mathsTeacherAvatar", "Of course. I suppose I am one of those 'datasets' that fuels that brain of yours, KATE." ],
+        // KATE avatar
+        [ "KATE", "That is correct!" ],
+        [ "mathsTeacherAvatar", "Well, good luck on your data-gathering journey." ],
+        [ "mathsTeacherAvatar", "And if you do see the headmaster, let him know that I am available for our fishing trip next Saturday will you?" ],
+
+
 
     ];
 
@@ -770,13 +793,15 @@ scene("mathsClass", () =>{
         // Character avatars
         // Maths teacher:
         const avatar = add([
-        sprite("bean"),
-        scale(3),
+        sprite("mathsTeacherAvatar"),
+        scale(0.3),
         origin("center"),
         pos(portrait.pos),
         ])
 
     onKeyPress("space", () => {
+        // Sound: 
+
         // Cycle through the dialogs
         curDialog = (curDialog + 1)
         console.log(curDialog)
@@ -791,12 +816,10 @@ scene("mathsClass", () =>{
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
-
 	// Use a new sprite component to replace the old one
 	avatar.use(sprite(char))
 	// Update the dialog text
-	txt.text = dialog
-        
+	txt.text = dialog       
         // Update the dialog text
         txt.text = dialog} else {
             go("corridor")
@@ -819,4 +842,4 @@ scene("mathsClass", () =>{
 
 
 // Initialize game 
-go("corridor")
+go("mathsClass")

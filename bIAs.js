@@ -35,6 +35,7 @@ let placeHolder = "My name: ";
 let namePlayer;
 const pad = 24;
 let playerPoints = 0;
+let sciencePoint = 0; 
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
@@ -611,17 +612,31 @@ scene("corridor", () =>{
 
     // b) Science Door
     let scienceDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let scienceDoorD2 = ["We already visited this class, are you sure you wanna go back in?"]
     let scienceDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("scienceDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            scienceDoorDialog += 1
-            wait(0.3,() => {
-                updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass")
+    if (sciencePoint == 0){
+        onKeyPress("space", () => {
+            every("scienceDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                scienceDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass")
+                });
+            }; 
             });
-        }; 
         });
-    });
+    } else if (sciencePoint > 0){
+        onKeyPress("space", () => {
+            every("scienceDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                scienceDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass")
+                });
+            }; 
+            });
+        }); 
+    }
 
     // c) Headmaster's office
     let HMDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
@@ -788,10 +803,10 @@ scene("mathsClass", () =>{
     // Character avatars
     // Maths teacher:
     const avatar = add([
-    sprite("mathsTeacherAvatar"),
-    scale(0.3),
-    origin("center"),
-    pos(portrait.pos),
+        sprite("mathsTeacherAvatar"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
     ]);
 
     onKeyPress("space", () => {
@@ -812,6 +827,7 @@ scene("mathsClass", () =>{
         txt.text = dialog} else {
             play("door")
             go("corridor")
+            playerPoints += 1;
         };
     };
     updateDialog()
@@ -890,6 +906,8 @@ scene("scienceClass", () =>{
         txt.text = dialog} else {
             play("door")
             go("corridor")
+            playerPoints += 1;
+            sciencePoint += 1;
         }
     };
     updateDialog()
@@ -967,6 +985,7 @@ scene("headMaster", () =>{
         txt.text = dialog} else {
             play("door")
             go("cvs")
+            playerPoints += 1;
         }
     };
     updateDialog()
@@ -1055,6 +1074,7 @@ scene("englishClass", () =>{
         txt.text = dialog} else {
             play("door")
             go("corridor")
+            playerPoints += 1;
         }
     };
     updateDialog()
@@ -1167,6 +1187,7 @@ scene("artClass", () =>{
         txt.text = dialog} else {
             play("door")
             go("corridor")
+            playerPoints += 1;
         }
     };
     updateDialog()

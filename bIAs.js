@@ -68,7 +68,7 @@ scene("nameInput", () => {
             lineSpacing: 8,
             letterSpacing: 4,
         })
-    ])
+    ]);
     const input = add([
         pos(250, 250),
         text(`${placeHolder}`, {
@@ -79,19 +79,18 @@ scene("nameInput", () => {
             letterSpacing: 4,
         }),
 
-    ])
+    ]);
     onCharInput((ch) => {
         input.text += ch
-    })
+    });
     onKeyPressRepeat("backspace", () => {
         input.text = input.text.substring(0, input.text.length - 1)
-    })
+    });
     onKeyPress("enter", () => {
         placeHolder = input.text
         go("introduction");
         namePlayer = placeHolder.replace("My name: ", "");
-    })
-    
+    });
 })
 
 ///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
@@ -192,7 +191,7 @@ scene("introduction", () =>{
         scale(3),
         origin("center"),
         pos(portrait.pos),
-        ])
+        ]);
 
     onKeyPress("space", () => {
         // Cycle through the dialogs
@@ -208,7 +207,7 @@ scene("introduction", () =>{
     // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
-        const [ char, dialog ] = dialogs[curDialog]
+        const [ char, dialog ] = dialogs[curDialog];
 
         
         // Use a new sprite component to replace the old one
@@ -219,12 +218,12 @@ scene("introduction", () =>{
         txt.text = dialog} else {
             play("door")
             go("corridor")
-        }
-    }
+        };
+    };
 
-    updateDialog()
+    updateDialog();
 
-})
+});
 
 //////////////////////////////////////////////////// SCENE FOUR: CORRIDOR /////////////////////////////////////////////////////////////////
 
@@ -255,7 +254,7 @@ scene("corridor", () =>{
             color(255, 0, 0),
             area(),
             solid()
-        ])
+        ]);
         let corridorWallUp = add([
             pos(8, 237),
             rect(1150, 4),
@@ -263,7 +262,7 @@ scene("corridor", () =>{
             color(255, 0, 0),
             area(),
             solid()
-        ])
+        ]);
         let corridorWallLeft = add([
             pos(6, 238),
             rect(4, 110),
@@ -271,7 +270,7 @@ scene("corridor", () =>{
             color(255, 0, 0),
             area(),
             solid()
-        ])
+        ]);
         let corridorWallRight = add([
             pos(1150, 225),
             rect(4, 130),
@@ -279,7 +278,7 @@ scene("corridor", () =>{
             color(255, 0, 0),
             area(),
             solid()
-        ])
+        ]);
     // 2) Lockers (green)
         let lockers = add([
             pos(37, 240),
@@ -334,7 +333,7 @@ scene("corridor", () =>{
             area(),
             solid(), 
             "locker"
-        ])
+        ]);
     // 3) Doors (purple)
         let mathsDoor = add([
             pos(302, 238),
@@ -488,7 +487,7 @@ scene("corridor", () =>{
             scale(2),
             origin("center"),
             pos(portrait.pos),
-        ])
+        ]);
         avatar.hidden = true
         // Text
         const txt = add([
@@ -507,7 +506,7 @@ scene("corridor", () =>{
         avatar.hidden = true; 
         portrait.hidden = true;
         txt.hidden = true
-    }
+    };
     // A function to update the dialogues (for objects with minimal interaction)
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -517,8 +516,8 @@ scene("corridor", () =>{
         txt.hidden = false;  
         txt.text = t[v - 1]} else {
             deleEverything()
-        }
-    }
+        };
+    };
     // Two functions to update the dialogues (for doors from which to access the teachers)
     function YorNChoiceDoor (string){
         portrait.hidden = true;
@@ -528,13 +527,13 @@ scene("corridor", () =>{
     onKeyPress("y", () => {
         console.log("Pressed Y")
         go(string)
-    })
+    });
     onKeyPress("n", () => {
         console.log("Pressed N");
         textbox.hidden = true;
         txt.hidden = true; 
-    })
-    }
+    });
+    };
     function updateDoorsDialog(v, t, string) {
         if (v <= t.length && v != 0){
         textbox.hidden = false;
@@ -545,8 +544,8 @@ scene("corridor", () =>{
         }
         else if (v > t.length){
             YorNChoiceDoor(string)
-        }
-    }
+        };
+    };
 
     // A) Interactions with LOCKERS when player presses space while touching them
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
@@ -597,10 +596,7 @@ scene("corridor", () =>{
     });
 
     // D) Interactions with DOORS
-
     // Yes or no choice to go through doors: 
-    
-
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let mathsDoorDialog = 0;
@@ -645,7 +641,7 @@ scene("corridor", () =>{
 
     // d) Player class --> !! the playerPoints should be updated everytime the player meets a teacher, as in playerPoints += 1, so that once the player has visited all five teachers he will be able to access the classroom again
     let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
-    let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"]
+    let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
     let PCDoorDialog = 0;
 
     if (playerPoints < 5){
@@ -697,13 +693,10 @@ scene("corridor", () =>{
             });
         }; 
         });
-    });
-    
+    }); 
 });
 
 //////////////////////////////////////////////////// SCENE FIVE: MATHS CLASS /////////////////////////////////////////////////////////////////
-
-
 scene("mathsClass", () =>{
     //  ¯\_(ツ)_/¯
     //play("soCold")
@@ -721,7 +714,7 @@ scene("mathsClass", () =>{
     // Adding Teacher
     const mathsTeacher = add([
         sprite("mathsTeacher"),
-    ])
+    ]);
     //  (⊙‿⊙)(⊙‿⊙)(⊙‿⊙)
     /* loop(0.5, () => {
         add([
@@ -730,19 +723,26 @@ scene("mathsClass", () =>{
             color(112, 11, 48)
         ])
     }) */
-    // Adding the dialog/text box at the bottom of the screen:
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
-    ]);
-    // Adding the portrait to the left of the text box: 
+    ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
         origin("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
     ]);
 
     const dialogs = [
@@ -764,7 +764,7 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
         // Avatar size issue here for KATE
         [ "KATE", "Oh? I can only conclude that your qualifications must have been perfectly suited to the position!" ],
-        [ "mathsTeacherAvatar", "Well, yes. I may not have had any prior teaching experience at the time, but I've since proven my worth since then..." ],
+        [ "mathsTeacherAvatar", "Well, yes. I may not have had any prior teaching experience at the time, but I've since proven my worth..." ],
         [ "mathsTeacherAvatar", "Isn't that right," + `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Most of my students leave here with good grades, after all." ],
         [ "mathsTeacherAvatar", "And I dare say that our dear headmaster has trusted me with teaching maths from the very start of my career." ],
@@ -785,18 +785,7 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "And if you do see the headmaster, let him know that I am available for our fishing trip next Saturday will you?" ],
     ];
 
-    let curDialog = 0
-
-    // Text
-    const txt = add([
-        text("", { 
-            size: 32, 
-            width: 800,
-            }),
-        color([0, 0, 0]),
-        pos(textbox.pos),
-        origin("center")
-        ]);
+    let curDialog = 0;
 
     // Character avatars
     // Maths teacher:
@@ -805,34 +794,27 @@ scene("mathsClass", () =>{
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
-    ])
+    ]);
 
     onKeyPress("space", () => {
         // Sound: 
 
-        // Cycle through the dialogs
         curDialog = (curDialog + 1)
         console.log(curDialog)
-        // Adding a delay between hitting space bar and the text showing up:
         wait(0.3,() => {
-        updateDialog()})
-        // Looking at how to get the typing effect for the text?
-        //setTimeout("type()", 5000)  
+        updateDialog()}) 
     });
 
     // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
             const [ char, dialog ] = dialogs[curDialog]
-        // Use a new sprite component to replace the old one
         avatar.use(sprite(char))
-        // Update the dialog text
         txt.text = dialog       
-        // Update the dialog text
         txt.text = dialog} else {
             play("door")
             go("corridor")
-        }
+        };
     };
     updateDialog()
 });
@@ -852,33 +834,35 @@ scene("artClass", () =>{
     //play("soCold")
     let MathsClass = add([
         sprite("classRoom1"),
-        // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
-        // Allow the background to be scaled
-        //scale(1),
-        // Keep the background position fixed even when the camera moves
         fixed()
       ]);
 
-    // Adding Teacher
-    const mathsTeacher = add([
+    // Adding Teacher sprite
+    const artTeacher = add([
         sprite("artTeacher"),
-    ])
-    
-    // Adding the dialog/text box at the bottom of the screen:
+    ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
-    ]);
-    // Adding the portrait to the left of the text box: 
+    ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
         origin("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
     ]);
 
     const dialogs = [
@@ -923,26 +907,10 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "Well... I am sure you've noticed that I am the only woman in the faculty." ],
         [ "artTeacherAvatar", "It can be a little difficult at times. It feels like a bit of a 'boy's club' here at times." ],
         [ "artTeacherAvatar", "" ],
-
-
-
-
     ];
 
     let curDialog = 0;
-    // Text
-    const txt = add([
-        text("", { 
-            size: 32, 
-            width: 800,
-            }),
-        color([0, 0, 0]),
-        pos(textbox.pos),
-        origin("center")
-        ]);
 
-    // Character avatars
-    // Maths teacher:
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
@@ -953,25 +921,17 @@ scene("artClass", () =>{
     onKeyPress("space", () => {
         // Sound: 
 
-        // Cycle through the dialogs
         curDialog = (curDialog + 1)
         console.log(curDialog)
-        // Adding a delay between hitting space bar and the text showing up:
         wait(0.3,() => {
         updateDialog()})
-        // Looking at how to get the typing effect for the text?
-        //setTimeout("type()", 5000)  
     });
 
-    // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
-	// Use a new sprite component to replace the old one
 	avatar.use(sprite(char))
-	// Update the dialog text
 	txt.text = dialog       
-        // Update the dialog text
         txt.text = dialog} else {
             play("door")
             go("corridor")

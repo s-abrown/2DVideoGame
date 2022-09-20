@@ -35,7 +35,11 @@ let placeHolder = "My name: ";
 let namePlayer;
 const pad = 24;
 let playerPoints = 0;
+let mathsPoint = 0;
 let sciencePoint = 0; 
+let headmPoint = 0;
+let englishPoint = 0; 
+let artPoint = 0; 
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
@@ -598,17 +602,31 @@ scene("corridor", () =>{
     // Yes or no choice to go through doors: 
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let mathsDoorD2 = ["We already talked to the math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"]
     let mathsDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("mathsDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            mathsDoorDialog += 1
-            wait(0.3,() => {
-                updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")
+    if (mathsPoint == 0){
+        onKeyPress("space", () => {
+            every("mathsDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                mathsDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")
+                });
+            }; 
             });
-        }; 
         });
-    });
+    } else if (mathsPoint > 0) {
+        onKeyPress("space", () => {
+            every("mathsDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                mathsDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass")
+                });
+            }; 
+            });
+        });
+    }
 
     // b) Science Door
     let scienceDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
@@ -636,27 +654,40 @@ scene("corridor", () =>{
             }; 
             });
         }); 
-    }
+    };
 
     // c) Headmaster's office
     let HMDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"]
     let HMDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("headMastersDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            HMDoorDialog += 1
-            wait(0.3,() => {
-                updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMaster")
+    if (headmPoint == 0) {
+        onKeyPress("space", () => {
+            every("headMastersDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                HMDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMaster")
+                });
+            }; 
             });
-        }; 
         });
-    });
-
+    } else if (headmPoint > 0)
+    {
+        onKeyPress("space", () => {
+            every("headMastersDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                HMDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(scienceDoorDialog, HMDoorD2, "cvs")
+                });
+            }; 
+            });
+        });
+    };
     // d) Player class --> !! the playerPoints should be updated everytime the player meets a teacher, as in playerPoints += 1, so that once the player has visited all five teachers he will be able to access the classroom again
     let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
     let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
     let PCDoorDialog = 0;
-
     if (playerPoints < 5){
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
@@ -682,31 +713,59 @@ scene("corridor", () =>{
 
     // e) English class englishDoor
     let englishDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love myself some Shakespear. would you like to talk to the english teacher again?"]
     let englishDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("englishDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            englishDoorDialog += 1
-            wait(0.3,() => {
-                updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass")
+        if (englishPoint == 0){
+        onKeyPress("space", () => {
+            every("englishDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                englishDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass")
+                });
+            }; 
             });
-        }; 
+        }); 
+    } else if (englishPoint > 0){
+        onKeyPress("space", () => {
+            every("englishDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                englishDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass")
+                });
+            }; 
+            });
         });
-    });
+    }  
 
     // f) Art Door
     let artDoorD = ["Ah, this is the art class.", "Mrs. XYZ must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
+    let artDoorD2 = ["The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"]
     let artDoorDialog = 0;
-    onKeyPress("space", () => {
-        every("artDoor", (c) => {
-        if (overWorldPlayer.isTouching(c)) {
-            artDoorDialog += 1
-            wait(0.3,() => {
-                updateDoorsDialog(artDoorDialog, artDoorD, "artClass")
+    if (artPoint == 0){
+        onKeyPress("space", () => {
+            every("artDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                artDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(artDoorDialog, artDoorD, "artClass")
+                });
+            }; 
             });
-        }; 
-        });
-    }); 
+        }); 
+    } else if (artPoint > 0){
+        onKeyPress("space", () => {
+            every("artDoor", (c) => {
+            if (overWorldPlayer.isTouching(c)) {
+                artDoorDialog += 1
+                wait(0.3,() => {
+                    updateDoorsDialog(artDoorDialog, artDoorD2, "artClass")
+                });
+            }; 
+            });
+        });  
+    }
 });
 
 //////////////////////////////////////////////////// SCENE FIVE: MATHS CLASS /////////////////////////////////////////////////////////////////
@@ -828,6 +887,7 @@ scene("mathsClass", () =>{
             play("door")
             go("corridor")
             playerPoints += 1;
+            mathsPoint += 1;
         };
     };
     updateDialog()
@@ -986,6 +1046,7 @@ scene("headMaster", () =>{
             play("door")
             go("cvs")
             playerPoints += 1;
+            headmPoint += 1;
         }
     };
     updateDialog()
@@ -1075,6 +1136,7 @@ scene("englishClass", () =>{
             play("door")
             go("corridor")
             playerPoints += 1;
+            englishPoint += 1;
         }
     };
     updateDialog()
@@ -1188,6 +1250,7 @@ scene("artClass", () =>{
             play("door")
             go("corridor")
             playerPoints += 1;
+            artPoint += 1;
         }
     };
     updateDialog()

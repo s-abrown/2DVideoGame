@@ -98,7 +98,7 @@ scene("nameInput", () => {
 
 // Adding the background image of the scene: 
 scene("introduction", () =>{
-    let class1 = add([
+    let classRoom = add([
         sprite("classRoom1"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
@@ -122,6 +122,23 @@ scene("introduction", () =>{
         origin("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
+    ]);
+    // Text
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    // Character avatar
+    const avatar = add([
+        sprite("bean"),
+        scale(3),
+        origin("center"),
+        pos(portrait.pos),
     ]);
 
     const dialogs = [
@@ -173,25 +190,6 @@ scene("introduction", () =>{
     ];
 
     let curDialog = 0
-
-    // Text
-    const txt = add([
-        text("", { 
-            size: 32, 
-            width: 800,
-            }),
-        color([0, 0, 0]),
-        pos(textbox.pos),
-        origin("center")
-        ]);
-
-        // Character avatar
-        const avatar = add([
-        sprite("bean"),
-        scale(3),
-        origin("center"),
-        pos(portrait.pos),
-        ]);
 
     onKeyPress("space", () => {
         // Cycle through the dialogs
@@ -619,7 +617,7 @@ scene("corridor", () =>{
         if (overWorldPlayer.isTouching(c)) {
             scienceDoorDialog += 1
             wait(0.3,() => {
-                updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceDoor")
+                updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass")
             });
         }; 
         });
@@ -633,7 +631,7 @@ scene("corridor", () =>{
         if (overWorldPlayer.isTouching(c)) {
             HMDoorDialog += 1
             wait(0.3,() => {
-                updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMastersDoor")
+                updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMaster")
             });
         }; 
         });
@@ -675,7 +673,7 @@ scene("corridor", () =>{
         if (overWorldPlayer.isTouching(c)) {
             englishDoorDialog += 1
             wait(0.3,() => {
-                updateDoorsDialog(englishDoorDialog, englishDoorD, "englishDoor")
+                updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass")
             });
         }; 
         });
@@ -700,7 +698,7 @@ scene("corridor", () =>{
 scene("mathsClass", () =>{
     //  ¯\_(ツ)_/¯
     //play("soCold")
-    let MathsClass = add([
+    let classRoom = add([
         sprite("classRoom1"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
@@ -820,13 +818,247 @@ scene("mathsClass", () =>{
 });
 
 //////////////////////////////////////////////////// SCENE SIX: SCIENCE CLASS /////////////////////////////////////////////////////////////////
+scene("scienceClass", () =>{
+    //  ¯\_(ツ)_/¯
+    //play("soCold")
+    let classRoom = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
 
+    // Adding Teacher sprite
+    const scienceTeacher = add([
+        sprite("artTeacher"),
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
+        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
+        [ "KATE", "I am at your service!" ],
+        [ "artTeacherAvatar", "How charming." ],
+        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
+        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        // Sound: 
+
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	avatar.use(sprite(char))
+	txt.text = dialog       
+        txt.text = dialog} else {
+            play("door")
+            go("corridor")
+        }
+    };
+    updateDialog()
+});
 //////////////////////////////////////////////////// SCENE SIX: HEADMASTER'S OFFICE /////////////////////////////////////////////////////////////////
+scene("headMaster", () =>{
+    //  ¯\_(ツ)_/¯
+    //play("soCold")
+    let classRoom = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
 
+    // Adding Teacher sprite
+    const headmaster = add([
+        sprite("artTeacher"),
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
+        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
+        [ "KATE", "I am at your service!" ],
+        [ "artTeacherAvatar", "How charming." ],
+        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
+        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        // Sound: 
+
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	avatar.use(sprite(char))
+	txt.text = dialog       
+        txt.text = dialog} else {
+            play("door")
+            go("cvs")
+        }
+    };
+    updateDialog()
+});
+//////////////////////////////////////////////////// CV'S SCENE /////////////////////////////////////////////////////////////////
+scene("cvs", () => {
+    let classRoom = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+});
 //////////////////////////////////////////////////// SCENE SIX: PLAYER CLASS /////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////// SCENE SIX: ENGLISH CLASS /////////////////////////////////////////////////////////////////
+scene("englishClass", () =>{
+    //  ¯\_(ツ)_/¯
+    //play("soCold")
+    let classRoom = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
 
+    // Adding Teacher sprite
+    const englishTeacher = add([
+        sprite("artTeacher"),
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
+        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
+        [ "KATE", "I am at your service!" ],
+        [ "artTeacherAvatar", "How charming." ],
+        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
+        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        // Sound: 
+
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	avatar.use(sprite(char))
+	txt.text = dialog       
+        txt.text = dialog} else {
+            play("door")
+            go("corridor")
+        }
+    };
+    updateDialog()
+});
 //////////////////////////////////////////////////// SCENE SIX: ART CLASS /////////////////////////////////////////////////////////////////
 
 scene("artClass", () =>{

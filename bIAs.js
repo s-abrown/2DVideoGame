@@ -10,22 +10,30 @@ kaboom({
 loadRoot("assets/");
 
 // Sprites
+// 1) Classrooms
 loadSprite("classRoom1","classroomBg.png");
+
+// 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
+// 3) KATE
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
+// 4) Maths teacher
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
+// 5) Arts teacher
 loadSprite("artTeacher", "artTeach.png");
 loadSprite("artTeacherAvatar", "artTeachCu.png");
+// 6) Science teacher palce holder
+loadSprite("scienceTeacher", "scienceIDK.png");
+loadSprite("scienceTeacherAvatar", "scienceIDKCu.png")
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");
 loadSound("spacePress", "spacePress.mp3");
 loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
-
-
+loadSound("bigshot", "bigshot.mp3");
 
 loadBean("bean");
 
@@ -895,8 +903,22 @@ scene("mathsClass", () =>{
 
 //////////////////////////////////////////////////// SCENE SIX: SCIENCE CLASS /////////////////////////////////////////////////////////////////
 scene("scienceClass", () =>{
-    //  ¯\_(ツ)_/¯
-    //play("soCold")
+    /* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
+    ⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛
+    ➖⬛⬜⬜⬜⬜⬜⬜⬜⬛
+    ➖⬛⬛⬛⬜⬛⬛⬛⬜⬛
+    ⬛🟪🟪🟪⬛🟨🟨🟨⬛⬛                S C I E N C E  T E A C H E R 
+    ⬛🟪🟪🟪⬛🟨🟨🟨⬛➖
+    ⬛⬛⬛⬛⬜⬛⬛⬛⬜⬜                  T H I N K S  H E' S  A 
+    ➖⬛⬛⬜⬜⬜⬜🟥🟥⬜                        B I G   S H O T
+    ⬜⬜⬜⬜⬜⬜⬜⬛🟥⬜
+    ⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜
+    ⬜⬛⬜⬜⬜⬜⬛⬜⬜➖
+    ⬜⬜⬛⬛⬛⬛⬜⬜➖➖
+    ➖⬜⬛⬛⬛⬛⬜➖➖➖
+    ➖➖⬜⬜⬜⬜➖➖➖➖ */
+    // 
+    play("bigshot")
     let classRoom = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
@@ -906,8 +928,9 @@ scene("scienceClass", () =>{
 
     // Adding Teacher sprite
     const scienceTeacher = add([
-        sprite("artTeacher"),
+        sprite("scienceTeacher"),
     ]);
+
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
@@ -932,18 +955,76 @@ scene("scienceClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
-        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
-        [ "KATE", "I am at your service!" ],
-        [ "artTeacherAvatar", "How charming." ],
-        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
-        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+        [ "scienceTeacherAvatar", "Well well, if it isn't " + `${namePlayer}.` ],
+        [ "scienceTeacherAvatar", "Wait, wait, wait... " ],
+        [ "scienceTeacherAvatar", "before you even say anything let me just say this once:" ],
+        [ "scienceTeacherAvatar", `${namePlayer}, ` + "Do not even think about touching that bunsen burner." ],
+        [ "scienceTeacherAvatar", "Your left eyebrow has finally grown back again and I refuse to be held responsible for your absent-mindedness." ],
+        // KATE avatar
+        [ "KATE", "You seem to take safety-precautions very seriously!" ],
+        [ "scienceTeacherAvatar", "You mean that I take my students passing the year in one piece seriously." ],
+        [ "scienceTeacherAvatar", "That's really all that matters here." ],
+        [ "scienceTeacherAvatar", "Students passing the year means that the school's success rate goes up..." ],
+        [ "scienceTeacherAvatar", "The school's success-rate going up means that my track record stays intact.." ],
+        [ "scienceTeacherAvatar", "My track record staying intact means that I get my bonus pay at the end of each academic year." ],
+        //KATE avatar
+        [ "KATE", "Very pragmatic..." ],
+        [ "scienceTeacherAvatar", "Someone has to be." ],
+        [ "scienceTeacherAvatar", "Good results speak for themselves..." ],
+        [ "scienceTeacherAvatar", "And results are the only true measurements of success." ],
+        [ "scienceTeacherAvatar", "I invite you to reflect upon that, " + `${namePlayer}, ` + "regarding next week's test." ],
+        [ "scienceTeacherAvatar", "Anyway, " + `${namePlayer}, ` + "it seems you're the lucky person who gets to tag along with this AI here." ],
+        // KATE avatar
+        [ "KATE", "Indeed! " + `${namePlayer} ` + "is accompanying me on my journey to collect data and learn from successful hirees here in this school..."],
+        [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
+        [ "scienceTeacherAvatar", "'That so?" ],
+        [ "scienceTeacherAvatar", "Well then I'll keep my story brief." ],
+        [ "scienceTeacherAvatar", "I was hired by Mr. XYZ straight out of university." ],
+        [ "scienceTeacherAvatar", "I had excellent grades throughout my time in university. They spoke for themselves" ],
+        [ "scienceTeacherAvatar", "Practice and repeat, practice and repeat, practice and repeat..." ],
+        [ "scienceTeacher", "That was my motto." ],
+        [ "scienceTeacherAvatar", "Sure, I didn't have any teaching experience by the time I finally got my degree." ],
+        [ "scienceTeacherAvatar", "But that didn't matter, because I graduated within the top five percent in my year." ],
+        [ "scienceTeacherAvatar", "Not to mention that at that time I hadn't even considered teaching as a career path." ],
+        [ "scienceTeacherAvatar", "My CV was refered to potential employers and I eventually got an interview with our headmaster." ],
+        [ "scienceTeacherAvatar", "Next thing I know the decision comes down to me and this other candidate." ],
+        // Do I need to simplify this by saying it's a very wow cool wow amazing place or something
+        [ "scienceTeacherAvatar", "She held a biological engineering postdoctorate from MIT in Boston, and had a few years of lab work under her belt. Not to mention she had been supervising undergraduate students throughout her post-graduate degrees." ],
+        [ "scienceTeacherAvatar", "When I met her I thought she'd get the job for sure." ],
+        [ "scienceTeacherAvatar", "She was vastly over experienced." ],
+        // KATE avatar
+        [ "KATE", "Surely something made you stand out!" ],
+        [ "scienceTeacherAvatar", "I can only surmise that our interviews went very differently." ],
+        // KATE avatar
+        [ "KATE", "Interviewing represents a crucial part of any hiring process." ],
+        [ "KATE", "That's when potential employers can establish strong common grounds with their potential employees..." ],
+        // I NEVER KNOW IF IT'S WHOM OR WHO AKSJFAKFBJHD
+        [ "KATE", "And pick whomever suits the work environment best." ],
+        [ "scienceTeacher", "Right..." ],
+        [ "scienceTeacher", "Well in any case I'm here now." ],
+        [ "scienceTeacher", "Probaly because the boss thought she was a liability." ],
+        [ "scienceTeacher", "Those were the head master's words not mine." ],
+        [ "scienceTeacher", "He later told me that it turned out that she had just gotten married. He didn't want to deal with a potential maternity leave." ],
+        [ "scienceTeacher", "Anyway... I got the job." ],
+        [ "scienceTeacher", "Ever since then I've been proving my worth and our student's results in science have never been better." ],
+        [ "KATE", "Student satisfaction and success seems important to you." ],
+        [ "scienceTeacher", "Their grades reflect on my performance... " ],
+        [ "scienceTeacher", "And my performance is what got me the edge in the hiring process." ],
+        [ "scienceTeacher", "Student satisfaction..." ],
+        // DOES THIS EVEN MAKE SENSE
+        [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
+        [ "scienceTeacher", "Isn't that right, " + `${namePlayer}?` + "After you pass this years' finals you can dabble with bunsen burners to your heart's content."],
+        [ "scienceTeacher", "..." ],
+        [ "scienceTeacher", "You can roll your eyes as much as you want, " + `${namePlayer}, ` + "but it has to be said – Mrs. XYZ coddles you too much in that respect." ],
+        // KATE avatar
+        [ "KATE", "Thank you for your time, Mr. XYZ." ],
+        [ "scienceTeacher", "right, right. Off with you now." ],
     ];
 
     let curDialog = 0;
 
     const avatar = add([
-    sprite("artTeacherAvatar"),
+    sprite("scienceTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
@@ -973,6 +1054,13 @@ scene("scienceClass", () =>{
     updateDialog()
 });
 //////////////////////////////////////////////////// SCENE SEVEN: HEADMASTER'S OFFICE /////////////////////////////////////////////////////////////////
+
+// NOTES: 
+// SUCCESS TERMS IN INTERVIEW/CV (SCIENCE)
+// NEPOTISM/ BOYS CLUB (MATHS)
+// SEXISM v-à-v ART TEACH (ART) // PASSIONATE // GROWTH FOCUSED
+// ENGLISH - TBA
+
 scene("headMaster", () =>{
     //  ¯\_(ツ)_/¯
     //play("soCold")
@@ -1011,12 +1099,7 @@ scene("headMaster", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
-        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
-        [ "KATE", "I am at your service!" ],
-        [ "artTeacherAvatar", "How charming." ],
-        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
-        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+        [ "bean", "HEADMASTER" ],
     ];
 
     let curDialog = 0;
@@ -1101,12 +1184,7 @@ scene("englishClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
-        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
-        [ "KATE", "I am at your service!" ],
-        [ "artTeacherAvatar", "How charming." ],
-        [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
-        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+        [ "bean", "ENGLISH" ],
     ];
 
     let curDialog = 0;
@@ -1186,25 +1264,29 @@ scene("artClass", () =>{
         [ "KATE", "I am at your service!" ],
         [ "artTeacherAvatar", "How charming." ],
         [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],
-        [ "artTeacherAvatar", "It seemed like a natural progression in my career, you see." ],
+        [ "artTeacherAvatar", "It felt like a natural progression in my career, you see." ],
         [ "artTeacherAvatar", "I've always been passionate about art." ],
         [ "artTeacherAvatar", "So much so that I studied art and art history for years, right until I finished my doctorate degree!" ],
         [ "artTeacherAvatar", "Eventually, I opened my own art gallery." ],
-        [ "artTeacherAvatar", "That was truly one of my greatest accomplishments." ],
+        // KATE avatar
+        [ "KATE", "You have multiple degrees and a successful art gallery to your name – impressive!" ],
+        [ "artTeacherAvatar", "Oh thank you dear. My gallery truly was one of my greatest accomplishments. More meaningful than any university qualification, in the grand scheme of things..." ],
+        [ "artTeacherAvatar", "Though I must admit, my academic career was a wonderful time full of wonder and fun." ],
         [ "artTeacherAvatar", "Sharing art that moves one's soul and encouraging artists far and wide to pursue their craft..." ],
         [ "artTeacherAvatar", "That's one of life's greatest joys." ],
         [ "artTeacherAvatar", "Eventually, once my husband retired we moved to a quiet little house not too far from here." ],
         [ "artTeacherAvatar", "My art gallery had been so successful that we were in want for nothing." ],
         [ "artTeacherAvatar", "But my love for art and its diffusion never dwindled. I must admit, that I was feeling like something was missing in my life." ],
         [ "artTeacherAvatar", "And then I realised..." ],
-        // Am I saying passion too often 
+        // Am I saying "passion" too often 
         [ "artTeacherAvatar", "What better way to channel my passion than to teach art to the youth?" ],
         [ "artTeacherAvatar", "Encourage young, inquisitive minds to find beauty and comfort in the world around them." ],
         [ "artTeacherAvatar", "Next thing I knew, I had sent my CV off to Mr. XYZ." ],
         // KATE avatar
         [ "KATE", "You were driven by the love for your craft. How inspiring!" ],
-        [ "artTeacherAvatar", "Yes, and also my love for sharing my passion! Students here are all so creative. They never cease to inspire me. " ],
+        [ "artTeacherAvatar", "Yes, and also my love for sharing that passion! Students here are all so creative. They never cease to inspire me. " ],
         [ "artTeacherAvatar", `${namePlayer}, ` + "your most recent piece was so clever." ],
+        [ "artTeacherAvatar", "Who knew that dried pasta and glitter glue could come together in such poetic harmony." ],
         // KATE avatar
         [ "KATE", "How was the hiring process?" ],
         [ "artTeacherAvatar", "Oh, well..." ],
@@ -1220,7 +1302,20 @@ scene("artClass", () =>{
         [ "KATE", "Oh?" ],
         [ "artTeacherAvatar", "Well... I am sure you've noticed that I am the only woman in the faculty." ],
         [ "artTeacherAvatar", "It can be a little difficult at times. It feels like a bit of a 'boy's club' here at times." ],
-        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "To be clear, I get along well with my peers." ],
+        [ "artTeacherAvatar", "But my greatest source of inspiration and motivation comes from watching my students flourish." ],
+        // Kate avatar
+        [ "KATE", "student fulfilment seems to be a high priority for you." ],
+        [ "artTeacherAvatar", "Not everything should be reduced to test results and grades. I truly think that my class can be a safe place for students to pursue and express their passion, whatever that may mean to them." ],
+        [ "artTeacherAvatar", "..." ],
+        [ "artTeacherAvatar", "Oh look at me, rambling along." ],
+        [ "artTeacherAvatar", "I won't hold keep you any longer with any of my little old ramblings." ],
+        [ "artTeacherAvatar", "Thank you for listening to my experience, " + `${namePlayer}, ` + "and you too of course, KATE." ],
+        [ "artTeacherAvatar", "I am curious to see how this little experiment ends. How incredible to see how far technology can help us. Even the art world is not immune to the wonders of AIs!" ],
+        [ "KATE", "Indeed! One of my peers is dabbling in regenerative art!" ],
+        [ "artTeacherAvatar", "How fascinating!" ],
+        [ "artTeacherAvatar", "Well my dears, it's time for you to move on." ],
+        [ "artTeacherAvatar", "Take care now!" ],
     ];
 
     let curDialog = 0;

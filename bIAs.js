@@ -12,7 +12,7 @@ loadRoot("assets/");
 // Sprites
 loadSprite("classRoom1","classroomBg.png");
 loadSprite("schoolMap","schoolMap.png");
-loadSprite("KATE", "KATEcu.png");
+loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
@@ -483,7 +483,7 @@ scene("corridor", () =>{
         // Character avatar
         const avatar = add([
             sprite("KATE"),
-            scale(2),
+            scale(0.3),
             origin("center"),
             pos(portrait.pos),
         ]);

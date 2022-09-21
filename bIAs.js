@@ -18,16 +18,19 @@ loadSprite("schoolMap","schoolMap.png");
 // 3) KATE
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
-// 4) Maths teacher
+// 4) Player's teacher
+loadSprite("playerTeacherAvatar", "playerTeacherCu.png");
+loadSprite("playerTeacher", "playerTeacher.png");
+// 5) Maths teacher
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
-// 5) Arts teacher
+// 6) Arts teacher
 loadSprite("artTeacher", "artTeach.png");
 loadSprite("artTeacherAvatar", "artTeachCu.png");
-// 6) Science teacher
+// 7) Science teacher
 loadSprite("scienceTeacher", "scienceTeach.png");
 loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
-// 7) English teacher
+// 8) English teacher
 loadSprite("englishTeacher", "englishTeach.png");
 loadSprite("englishTeacherAvatar", "englishTeachCu.png");
 

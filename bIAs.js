@@ -1184,7 +1184,25 @@ scene("englishClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "bean", "ENGLISH" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+
+        
     ];
 
     let curDialog = 0;

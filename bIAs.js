@@ -24,9 +24,12 @@ loadSprite("mathsTeacher", "oldTeach.png");
 // 5) Arts teacher
 loadSprite("artTeacher", "artTeach.png");
 loadSprite("artTeacherAvatar", "artTeachCu.png");
-// 6) Science teacher palce holder
-loadSprite("scienceTeacher", "scienceIDK.png");
-loadSprite("scienceTeacherAvatar", "scienceIDKCu.png")
+// 6) Science teacher
+loadSprite("scienceTeacher", "scienceTeach.png");
+loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
+// 7) English teacher
+loadSprite("englishTeacher", "englishTeach.png");
+loadSprite("englishTeacherAvatar", "englishTeachCu.png");
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");

@@ -1201,6 +1201,17 @@ scene("englishClass", () =>{
         [ "artTeacherAvatar", "" ],
         [ "artTeacherAvatar", "" ],
         [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        [ "artTeacherAvatar", "" ],
+        
 
         
     ];

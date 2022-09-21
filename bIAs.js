@@ -680,13 +680,12 @@ scene("corridor", () =>{
             if (overWorldPlayer.isTouching(c)) {
                 HMDoorDialog += 1
                 wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, HMDoorD, "headMaster")
+                    updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster")
                 });
             }; 
             });
         });
-    } else if (headmPoint > 0)
-    {
+    } else if (headmPoint > 0){
         onKeyPress("space", () => {
             every("headMastersDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {

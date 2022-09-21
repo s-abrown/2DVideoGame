@@ -110,7 +110,7 @@ scene("nameInput", () => {
         go("introduction");
         namePlayer = placeHolder.replace("My name: ", "");
     });
-})
+});
 
 ///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
 // Your teacher introduces the AI, K.A.T.E. to the class and contextualises the game.
@@ -960,10 +960,10 @@ scene("scienceClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "scienceTeacherAvatar", "Well well, if it isn't " + `${namePlayer}.` ],
+        [ "scienceTeacherAvatar", `Well well, if it isn't ${namePlayer}.` ],
         [ "scienceTeacherAvatar", "Wait, wait, wait... " ],
         [ "scienceTeacherAvatar", "before you even say anything let me just say this once:" ],
-        [ "scienceTeacherAvatar", `${namePlayer}, ` + "Do not even think about touching that bunsen burner." ],
+        [ "scienceTeacherAvatar", `${namePlayer}, Do not even think about touching that bunsen burner.` ],
         [ "scienceTeacherAvatar", "Your left eyebrow has finally grown back again and I refuse to be held responsible for your absent-mindedness." ],
         // KATE avatar
         [ "KATE", "You seem to take safety-precautions very seriously!" ],
@@ -977,10 +977,10 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "Someone has to be." ],
         [ "scienceTeacherAvatar", "Good results speak for themselves..." ],
         [ "scienceTeacherAvatar", "And results are the only true measurements of success." ],
-        [ "scienceTeacherAvatar", "I invite you to reflect upon that, " + `${namePlayer}, ` + "regarding next week's test." ],
-        [ "scienceTeacherAvatar", "Anyway, " + `${namePlayer}, ` + "it seems you're the lucky person who gets to tag along with this AI here." ],
+        [ "scienceTeacherAvatar", `I invite you to reflect upon that, ${namePlayer}, regarding next week's test.`],
+        [ "scienceTeacherAvatar", `Anyway, ${namePlayer}, it seems you're the lucky person who gets to tag along with this AI here.` ],
         // KATE avatar
-        [ "KATE", "Indeed! " + `${namePlayer} ` + "is accompanying me on my journey to collect data and learn from successful hirees here in this school..."],
+        [ "KATE", `Indeed! ${namePlayer} is accompanying me on my journey to collect data and learn from successful hirees here in this school...`],
         [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
         [ "scienceTeacherAvatar", "'That so?" ],
         [ "scienceTeacherAvatar", "Well then I'll keep my story brief." ],
@@ -1018,9 +1018,9 @@ scene("scienceClass", () =>{
         [ "scienceTeacher", "Student satisfaction..." ],
         // DOES THIS EVEN MAKE SENSE
         [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
-        [ "scienceTeacher", "Isn't that right, " + `${namePlayer}?` + "After you pass this years' finals you can dabble with bunsen burners to your heart's content."],
+        [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content.`],
         [ "scienceTeacher", "..." ],
-        [ "scienceTeacher", "You can roll your eyes as much as you want, " + `${namePlayer}, ` + "but it has to be said – Mrs. XYZ coddles you too much in that respect." ],
+        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – Mrs. XYZ coddles you too much in that respect.` ],
         // KATE avatar
         [ "KATE", "Thank you for your time, Mr. XYZ." ],
         [ "scienceTeacher", "right, right. Off with you now." ],
@@ -1293,7 +1293,7 @@ scene("artClass", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "artTeacherAvatar", "Oh, if it isn't my dear " + `${namePlayer}!` + " Welcome, welcome!" ],
+        [ "artTeacherAvatar", `Oh, if it isn't my dear  ${namePlayer}! Welcome, welcome!` ],
         [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
         [ "KATE", "I am at your service!" ],
         [ "artTeacherAvatar", "How charming." ],
@@ -1319,7 +1319,7 @@ scene("artClass", () =>{
         // KATE avatar
         [ "KATE", "You were driven by the love for your craft. How inspiring!" ],
         [ "artTeacherAvatar", "Yes, and also my love for sharing that passion! Students here are all so creative. They never cease to inspire me. " ],
-        [ "artTeacherAvatar", `${namePlayer}, ` + "your most recent piece was so clever." ],
+        [ "artTeacherAvatar", `${namePlayer}, your most recent piece was so clever.` ],
         [ "artTeacherAvatar", "Who knew that dried pasta and glitter glue could come together in such poetic harmony." ],
         // KATE avatar
         [ "KATE", "How was the hiring process?" ],
@@ -1344,7 +1344,7 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "..." ],
         [ "artTeacherAvatar", "Oh look at me, rambling along." ],
         [ "artTeacherAvatar", "I won't hold keep you any longer with any of my little old ramblings." ],
-        [ "artTeacherAvatar", "Thank you for listening to my experience, " + `${namePlayer}, ` + "and you too of course, KATE." ],
+        [ "artTeacherAvatar", `Thank you for listening to my experience, ${namePlayer}, and you too of course, K.A.T.E.`],
         [ "artTeacherAvatar", "I am curious to see how this little experiment ends. How incredible to see how far technology can help us. Even the art world is not immune to the wonders of AIs!" ],
         [ "KATE", "Indeed! One of my peers is dabbling in regenerative art!" ],
         [ "artTeacherAvatar", "How fascinating!" ],
@@ -1387,4 +1387,4 @@ scene("artClass", () =>{
 
 
 // Initialize game 
-go("corridor")
+go("corridor");

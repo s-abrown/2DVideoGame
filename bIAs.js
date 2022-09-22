@@ -14,6 +14,8 @@ loadRoot("assets/");
 loadSprite("classRoom1","classroomBg.png");
 loadSprite("headmasterBg", "headmasterOffice.png");
 loadSprite("cvsBg", "cvBg.png");
+loadSprite("mathClassroom","mathClassroomBg.png");
+loadSprite("artClassroom","artClassroomBg.png");
 
 // 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
@@ -1264,7 +1266,7 @@ scene("artClass", () =>{
     //  ¯\_(ツ)_/¯
     //play("soCold")
     let MathsClass = add([
-        sprite("classRoom1"),
+        sprite("artClassroom"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -1392,4 +1394,4 @@ scene("artClass", () =>{
 
 
 // Initialize game 
-go("corridor");
+go("artClass");

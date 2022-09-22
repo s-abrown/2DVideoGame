@@ -15,7 +15,7 @@ loadSprite("classRoom1","classroomBg.png");
 
 // 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
-// 3) KATE
+// 3) K.A.T.E.
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
 // 4) Player's teacher
@@ -838,7 +838,7 @@ scene("mathsClass", () =>{
         // Teacher introducing AI:
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his/her students to stop by during this period." ],
-        [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with KATE, huh?" ],
+        [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with K.A.T.E., huh?" ],
         [ "mathsTeacherAvatar", "I understand that you're here to ask me about how I got hired here." ],
         [ "mathsTeacherAvatar", "It was quite a serendipitous to be honest." ],
         [ "mathsTeacherAvatar", "You see, I've known Mr XYZ, our headmaster for quite a long time..." ],
@@ -867,7 +867,7 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "It'll have ample information for you to use." ],
         // KATE avatar
         [ "KATE", "Excellent! It will be most useful for me to learn from so that I may fulfill my purpose today!" ],
-        [ "mathsTeacherAvatar", "Of course. I suppose I am one of those 'datasets' that fuels that brain of yours, KATE." ],
+        [ "mathsTeacherAvatar", "Of course. I suppose I am one of those 'datasets' that fuels that brain of yours, K.A.T.E." ],
         // KATE avatar
         [ "KATE", "That is correct!" ],
         [ "mathsTeacherAvatar", "Well, good luck on your data-gathering journey." ],
@@ -1298,7 +1298,7 @@ scene("artClass", () =>{
     const dialogs = [
         // Teacher introducing AI:
         [ "artTeacherAvatar", `Oh, if it isn't my dear  ${namePlayer}! Welcome, welcome!` ],
-        [ "artTeacherAvatar", "And this must be KATE! I have heard so much about you!" ],
+        [ "artTeacherAvatar", "And this must be K.A.T.E.! I have heard so much about you!" ],
         [ "KATE", "I am at your service!" ],
         [ "artTeacherAvatar", "How charming." ],
         [ "artTeacherAvatar", "I suspect that you are here to learn about my experience getting a job here." ],

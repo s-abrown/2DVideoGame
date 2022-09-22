@@ -10,8 +10,10 @@ kaboom({
 loadRoot("assets/");
 
 // Sprites
-// 1) Classrooms
+// 1) Backgrounds
 loadSprite("classRoom1","classroomBg.png");
+loadSprite("headmasterBg", "headmasterOffice.png");
+loadSprite("cvsBg", "cvBg.png");
 
 // 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
@@ -36,7 +38,6 @@ loadSprite("englishTeacherAvatar", "englishTeachCu.png");
 // 9) Headmaster
 loadSprite("headmaster", "headmaster.png");
 loadSprite("headmasterAvatar", "headmasterCu.png");
-loadSprite("headmasterBg", "headmasterOffice.png");
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");

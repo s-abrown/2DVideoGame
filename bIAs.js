@@ -33,6 +33,10 @@ loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
 // 8) English teacher
 loadSprite("englishTeacher", "englishTeach.png");
 loadSprite("englishTeacherAvatar", "englishTeachCu.png");
+// 9) Headmaster
+loadSprite("headmaster", "headmaster.png");
+loadSprite("headmasterAvatar", "headmasterCu.png");
+loadSprite("headmasterBg", "headmasterOffice.png");
 
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");
@@ -1070,7 +1074,7 @@ scene("headMaster", () =>{
     //  ¯\_(ツ)_/¯
     //play("soCold")
     let classRoom = add([
-        sprite("classRoom1"),
+        sprite("headmasterOffice"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -1078,7 +1082,7 @@ scene("headMaster", () =>{
 
     // Adding Teacher sprite
     const headmaster = add([
-        sprite("artTeacher"),
+        sprite("headmaster"),
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
@@ -1110,7 +1114,7 @@ scene("headMaster", () =>{
     let curDialog = 0;
 
     const avatar = add([
-    sprite("artTeacherAvatar"),
+    sprite("headmasterAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),

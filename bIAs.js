@@ -470,7 +470,7 @@ scene("corridor", () =>{
         //
         ]);
 
-    // Adding KATE sprite into te overworld with follow: 
+    // Adding KATE sprite into the overworld to follow player:
     //
     //
     //
@@ -1077,10 +1077,8 @@ scene("scienceClass", () =>{
 // "LIABILITY" USED TO DESCRIBE SUBBED ENGLISH TEACHER AND SNUBBED SCIENCE WOMAN HIREE
 
 scene("headMaster", () =>{
-    //  ¯\_(ツ)_/¯
-    //play("soCold")
     let classRoom = add([
-        sprite("headmasterOffice"),
+        sprite("headmasterBg"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -1113,7 +1111,8 @@ scene("headMaster", () =>{
     ]);
 
     const dialogs = [
-        [ "bean", "HEADMASTER" ],
+        [ "headmasterAvatar", "" ],
+        [ "headmasterAvatar", "" ],
     ];
 
     let curDialog = 0;
@@ -1148,7 +1147,7 @@ scene("headMaster", () =>{
     };
     updateDialog()
 });
-//////////////////////////////////////////////////// CV'S SCENE /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// CVs SCENE (CONSULT CVs) /////////////////////////////////////////////////////////////////
 scene("cvs", () => {
     let classRoom = add([
         sprite("classRoom1"),
@@ -1410,7 +1409,7 @@ scene("artClass", () =>{
     updateDialog()
 });
 
-//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS AGAIN (CHOICE) /////////////////////////////////////////////////////////////////
 scene("playerClass", () => {
     let classRoom = add([
         sprite("classRoom1"),
@@ -1459,7 +1458,6 @@ scene("playerClass", () => {
     };
 
     const dialogs = [
-        // Teacher introducing AI:
         [ "playerTeacher", "" ],
         [ "playerTeacher", "" ],
         [ "playerTeacher", "" ],
@@ -1498,4 +1496,4 @@ scene("cvs2", () => {
 })
 
 // Initialize game 
-go("corridor");
+go("headMaster");

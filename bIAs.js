@@ -1194,11 +1194,28 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Hello there!" ],
         [ "englishTeacherAvatar", `It's ${namePlayer}, right?` ],
         [ "englishTeacherAvatar", "Forgive me for asking, but I'm sure that you can imagine how hard it is to have to memorise so many new names." ],
+        // KATE
         [ "KATE", "Oh! Are you new here?" ],
         [ "englishTeacherAvatar", "I started only a couple of weeks ago." ],
         [ "englishTeacherAvatar", "I'm a substitute teacher for Mrs. Englishdudette." ],
-        [ "KATE", "Perfect! Your insights regarding the hiring process here are the most recent then." ],
+        //KATE
+        [ "KATE", "Perfect! Your insights regarding the hiring process here are the most recent, then." ],
+        [ "KATE", "You will certainly prove to be most useful for gathering data on current hiring practices in this establishment." ],
+        [ "englishTeacherAvatar", "Sure." ],
+        [ "englishTeacherAvatar", "Though I must warn you that my experience is by no means what one would call 'typical'. " ],
+        [ "englishTeacherAvatar", "I got wind that the headmaster here was quite desperate to find a sub as quickly as possible to replace some woman who had to go on maternity leave." ],
+        [ "englishTeacherAvatar", "I've heard shes expecting twins so between you and me..." ],
+        [ "englishTeacherAvatar", "So I reckon that she might be unable get back to work any time soon." ],
+        // KATE
+        [ "KATE", "You're looking to keep this position indefinitely then?" ],
+        [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot keeping the job permanently." ],
+        [ "englishTeacherAvatar", "Call it friendly competition." ],
+        [ "englishTeacherAvatar", "Offer and demand and all that." ],
+        [ "englishTeacherAvatar", "I get it, honestly I do." ],
+        [ "englishTeacherAvatar", "After all, when my wife had kids she had to stop working to take care of the little rascals full time." ],
+        [ "englishTeacherAvatar", "It's just how these things should go." ],
         [ "englishTeacherAvatar", "" ],
+
 
 
         

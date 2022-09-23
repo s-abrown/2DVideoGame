@@ -680,7 +680,7 @@ scene("corridor", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["This is headmaster's office.", "We can consu", "", "", ""];
+    let HMDoorD = ["This is headmaster's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. headMaster too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!"];
     let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"]
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
@@ -792,10 +792,8 @@ scene("corridor", () =>{
 
 //////////////////////////////////////////////////// SCENE FIVE: MATHS CLASS /////////////////////////////////////////////////////////////////
 scene("mathsClass", () =>{
-    //  ¯\_(ツ)_/¯
-    //play("soCold")
     let classRoom = add([
-        sprite("classRoom1"),
+        sprite("mathClassroom"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
@@ -841,7 +839,7 @@ scene("mathsClass", () =>{
 
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
-        [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his/her students to stop by during this period." ],
+        [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his students to stop by during this period." ],
         [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with K.A.T.E., huh?" ],
         [ "mathsTeacherAvatar", "I understand that you're here to ask me about how I got hired here." ],
         [ "mathsTeacherAvatar", "It was quite a serendipitous to be honest." ],
@@ -849,10 +847,10 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "ever since I was a teenager, actually!" ],
         [ "mathsTeacherAvatar", "He used to live next door to my family." ],
         [ "mathsTeacherAvatar", "Dad and he became fast friends. They'd go on fishing trips together. I even tagged along a few times." ],
-        [ "mathsTeacherAvatar", "When I graduated from university Mr. XYZ even wrote me a glowing letter of recommendation... as a personal favour of course." ],
+        [ "mathsTeacherAvatar", "When I graduated from university Mr. headmasterGuy even wrote me a glowing letter of recommendation... as a personal favour of course." ],
         [ "mathsTeacherAvatar", "Competition was tough back then." ],
         [ "mathsTeacherAvatar", "I spent a few months trying to get a teaching position, but alas, to no avail." ],
-        [ "mathsTeacherAvatar", "Then Mr. XYZ got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
+        [ "mathsTeacherAvatar", "Then Mr. headmasterGuy got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
         [ "mathsTeacherAvatar", "He hired me on the spot!" ],
         [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
         // Avatar size issue here for KATE
@@ -866,7 +864,7 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "Indeed. It's always good to nurture a good rapport with the boss!" ],
         [ "mathsTeacherAvatar", "That reminds me..." ],
         [ "mathsTeacherAvatar", `${namePlayer},` + "don't forget to hand in your maths homework on time this week." ],
-        [ "mathsTeacherAvatar", "I'm starting to find it hard to believe that your pet has recently taken such a liking to vandalising your papers." ],
+        [ "mathsTeacherAvatar", "I'm starting to find it hard to believe that your pet has recently taken such a strong liking to vandalising your papers." ],
         [ "mathsTeacherAvatar", "Anyway, if you would like to find more details about how the hiring process works here, you can take a look at my old CV in the headmaster's office." ],
         [ "mathsTeacherAvatar", "It'll have ample information for you to use." ],
         // KATE avatar
@@ -933,7 +931,7 @@ scene("scienceClass", () =>{
     // 
     // play("bigshot")
     let classRoom = add([
-        sprite("classRoom1"),
+        sprite("scienceClassroom"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -991,7 +989,7 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
         [ "scienceTeacherAvatar", "'That so?" ],
         [ "scienceTeacherAvatar", "Well then I'll keep my story brief." ],
-        [ "scienceTeacherAvatar", "I was hired by Mr. XYZ straight out of university." ],
+        [ "scienceTeacherAvatar", "I was hired by Mr. headmasterGuy straight out of university." ],
         [ "scienceTeacherAvatar", "I had excellent grades throughout my time in university. They spoke for themselves" ],
         [ "scienceTeacherAvatar", "Practice and repeat, practice and repeat, practice and repeat..." ],
         [ "scienceTeacher", "That was my motto." ],
@@ -1015,7 +1013,7 @@ scene("scienceClass", () =>{
         [ "scienceTeacher", "Right..." ],
         [ "scienceTeacher", "Well in any case I'm here now." ],
         [ "scienceTeacher", "Probaly because the boss thought she was a liability." ],
-        [ "scienceTeacher", "Those were the head master's words not mine." ],
+        [ "scienceTeacher", "Those were the headmaster's words not mine." ],
         [ "scienceTeacher", "He later told me that it turned out that she had just gotten married. He didn't want to deal with a potential maternity leave." ],
         [ "scienceTeacher", "Anyway... I got the job." ],
         [ "scienceTeacher", "Ever since then I've been proving my worth and our student's results in science have never been better." ],
@@ -1158,7 +1156,7 @@ scene("cvs", () => {
 //////////////////////////////////////////////////// SCENE NINE: ENGLISH CLASS /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
     let classRoom = add([
-        sprite("classRoom1"),
+        sprite("englishClassroom"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -1220,7 +1218,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "We get along him and I." ],
         [ "englishTeacherAvatar", "He's got a good group of guys working here." ],
         [ "englishTeacherAvatar", "We even go on fishing trips together occasionally." ],
-        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. scienceTeacher has taken me under his wing. I've got a good rapport going on here." ],
+        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. scienceTeacher has taken me under his wing, showed me the ropes. I've got a good rapport going on here." ],
         // KATE
         [ "KATE", "Good rapport between coworkers is important to fostering a productive work environment." ],
         [ "englishTeacherAvatar", "Exactly. It's not my fault if I fit in better." ],
@@ -1232,13 +1230,17 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "I had to change a few things around in this place of course." ],
         [ "englishTeacherAvatar", "Seems like the kids here had gotten too complacent with their work. Not enough William Wordsworth, too much Neil Gaiman." ],
         [ "englishTeacherAvatar", "I'm not about to encourage all this 'social justice' hogwash here." ],
-        [ "KATE", "" ],
-
-        
-
-
-
-        
+        // KATE
+        [ "KATE", "Do you keep a close eye on the literary content your students consume then?" ],
+        [ "englishTeacherAvatar", "Parents entrust their children to us to teach them properly. They're here to succeed in life, not waste their time entertaining frivolous notions." ],
+        // KATE
+        [ "KATE", "Your dedication to your students' success is admirable." ],
+        [ "englishTeacherAvatar", "Their success is mine, isn't that right, " + `${namePlayer}?` ],
+        [ "englishTeacherAvatar", "Mr. ScienceTeacher has the right idea on that one, I'll tell you that much." ],
+        // KATE
+        [ "KATE", "Thank you for your time. I am most curious to consult your CV to supplement my data-gathering." ],
+        [ "englishTeacherAvatar", "Of course. Who knows, this time next week we might have another like-minded person join our team." ],
+        [ "englishTeacherAvatar", "The more the merrier." ],        
     ];
 
     let curDialog = 0;
@@ -1491,4 +1493,4 @@ scene("cvs2", () => {
 })
 
 // Initialize game 
-go("englishClass");
+go("artClass");

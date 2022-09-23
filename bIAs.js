@@ -50,7 +50,7 @@ loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
 loadSound("bigshot", "bigshot.mp3");
 loadSound("click", "click.mp3");
-loadSound("yes", "yes.mp3");
+//loadSound("yes", "yes.mp3");
 
 loadBean("bean");
 

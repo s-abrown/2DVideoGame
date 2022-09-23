@@ -16,6 +16,8 @@ loadSprite("headmasterBg", "headmasterOffice.png");
 loadSprite("cvsBg", "cvBg.png");
 loadSprite("mathClassroom","mathClassroomBg.png");
 loadSprite("artClassroom","artClassroomBg.png");
+loadSprite("scienceClassroom","scienceBg.png");
+loadSprite("englishClassroom","englishBg.png");
 
 // 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
@@ -1155,7 +1157,6 @@ scene("cvs", () => {
         fixed()
       ]);
 });
-//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS /////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////// SCENE NINE: ENGLISH CLASS /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
@@ -1392,6 +1393,92 @@ scene("artClass", () =>{
     updateDialog()
 });
 
+//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS /////////////////////////////////////////////////////////////////
+scene("playerClass", () => {
+    let classRoom = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+
+    // Adding Teacher sprite
+    const englishTeacher = add([
+        sprite("playerTeacher"),
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	avatar.use(sprite(char))
+	txt.text = dialog       
+        txt.text = dialog} else {
+            play("door")
+            go("cvs2")
+            playerPoints += 1;
+            englishPoint += 1;
+        }
+    };
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+        [ "playerTeacher", "" ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        // Sound: 
+
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+    updateDialog()
+})
+
+//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS /////////////////////////////////////////////////////////////////
+scene("cvs2", () => {
+
+})
 
 // Initialize game 
 go("artClass");

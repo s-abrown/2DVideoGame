@@ -1205,14 +1205,14 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Though I must warn you that my experience is by no means what one would call 'typical'. " ],
         [ "englishTeacherAvatar", "I got wind that the headmaster here was quite desperate to find a sub as quickly as possible to replace some woman who had to go on maternity leave." ],
         [ "englishTeacherAvatar", "I've heard shes expecting twins so between you and me..." ],
-        [ "englishTeacherAvatar", "So I reckon that she might be unable get back to work any time soon." ],
+        [ "englishTeacherAvatar", "I reckon that she might be unable get back to work any time soon." ],
         // KATE
-        [ "KATE", "You're looking to keep this position indefinitely then?" ],
+        [ "KATE", "You're looking to keep this position indefinitely?" ],
         [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
+        [ "KATE", "What if Mrs. englishteacherdudette may want to come back to her teaching position?" ],
         [ "englishTeacherAvatar", "Call it friendly competition." ],
         [ "englishTeacherAvatar", "Offer and demand and all that." ],
-        [ "KATE", "What if Mrs. englishteacherdudette may want to come back?" ],
-        [ "englishTeacherAvatar", "I get it, honestly I do." ],
+        [ "englishTeacherAvatar", "Listen, I get it, honestly I do." ],
         [ "englishTeacherAvatar", "After all, when my wife had kids she had to stop working to take care of the little rascals full time." ],
         [ "englishTeacherAvatar", "It's just how these things should go." ],
         [ "englishTeacherAvatar", "Unlike her, I'm not a liability." ],
@@ -1220,7 +1220,21 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "We get along him and I." ],
         [ "englishTeacherAvatar", "He's got a good group of guys working here." ],
         [ "englishTeacherAvatar", "We even go on fishing trips together occasionally." ],
-        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here." ],
+        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. scienceTeacher has taken me under his wing. I've got a good rapport going on here." ],
+        // KATE
+        [ "KATE", "Good rapport between coworkers is important to fostering a productive work environment." ],
+        [ "englishTeacherAvatar", "Exactly. It's not my fault if I fit in better." ],
+        [ "englishTeacherAvatar", "The lads and I see eye to eye on many things. We click well." ],
+        [ "englishTeacherAvatar", "I guess it was just meant to be." ],
+        // KATE
+        [ "KATE", "Did you have any competition to get the job?" ],
+        [ "englishTeacherAvatar", "Not really. I have a lot of experience on the job and I make sure that my students work dilligently." ],
+        [ "englishTeacherAvatar", "I had to change a few things around in this place of course." ],
+        [ "englishTeacherAvatar", "Seems like the kids here had gotten too complacent with their work. Not enough William Wordsworth, too much Neil Gaiman." ],
+        [ "englishTeacherAvatar", "I'm not about to encourage all this 'social justice' hogwash here." ],
+        [ "KATE", "" ],
+
+        
 
 
 

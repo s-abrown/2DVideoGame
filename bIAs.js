@@ -1111,6 +1111,21 @@ scene("headMaster", () =>{
     ]);
 
     const dialogs = [
+        // reminder to me for writing: 
+        // He's a dickhead. If Matt Gaetz was a headmaster. If Brett Kavanaugh was a teacher. Rly hammer it home
+        // Possible way of progressing thru the dialog: 
+        // You go thru each teacher 1 by 1? 
+        // To sum up each conversation as a refresher
+        // Look again at KATE's interventions with teacher dialog to underline what she's "learnt" and what she perceives to be traits to prioritise in hiring the new teacher
+        // These traits will be further hammered down your throat with the CVs
+        // underline HM's misogyny by having him refer to:
+            // a) failed science applicant as being too "shrill" ? ≠ to male teacher's vocab/ambitions (english and science)/complacency (maths)
+            // b) english teacher on maternity leave as taking on her "proper" role in society/trad wife crap. He definitely wants to hire the english sub. He mentions him fitting in well
+            // c) arts teacher being older/downplaying her accomplishments/career, arts == women's job cause unimportant or academic oriented (if so, should add more dialog that underlines her academic knowledge of art/art history), oblivious to her discomfort in the current work environment, mentions her encouraging non-academic/artistic things in students in a negative light
+        // segway to CVs
+        // he s flippant and condescending throughout
+        // he's definitely going to say something abt KATE being a girl's name and CaN A GIrL AI MaKE ThhE RiGHt DeCiSiON?
+        // KATE responds obliviously bc she is and tells inadvertently shuts him down
         [ "headmasterAvatar", "" ],
         [ "headmasterAvatar", "" ],
     ];

@@ -1071,7 +1071,7 @@ scene("scienceClass", () =>{
 // SUCCESS TERMS IN INTERVIEW/CV (SCIENCE)
 // NEPOTISM/ BOYS CLUB (MATHS)
 // SEXISM v-à-v ART TEACH (ART) // PASSIONATE // GROWTH FOCUSED
-// ENGLISH - TBA
+// "LIABILITY" USED TO DESCRIBE SUBBED ENGLISH TEACHER AND SNUBBED SCIENCE WOMAN HIREE
 
 scene("headMaster", () =>{
     //  ¯\_(ツ)_/¯
@@ -1208,13 +1208,19 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "So I reckon that she might be unable get back to work any time soon." ],
         // KATE
         [ "KATE", "You're looking to keep this position indefinitely then?" ],
-        [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot keeping the job permanently." ],
+        [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
         [ "englishTeacherAvatar", "Call it friendly competition." ],
         [ "englishTeacherAvatar", "Offer and demand and all that." ],
+        [ "KATE", "What if Mrs. englishteacherdudette may want to come back?" ],
         [ "englishTeacherAvatar", "I get it, honestly I do." ],
         [ "englishTeacherAvatar", "After all, when my wife had kids she had to stop working to take care of the little rascals full time." ],
         [ "englishTeacherAvatar", "It's just how these things should go." ],
-        [ "englishTeacherAvatar", "" ],
+        [ "englishTeacherAvatar", "Unlike her, I'm not a liability." ],
+        [ "englishTeacherAvatar", "Those are the headmaster's words, not mine." ],
+        [ "englishTeacherAvatar", "We get along him and I." ],
+        [ "englishTeacherAvatar", "He's got a good group of guys working here." ],
+        [ "englishTeacherAvatar", "We even go on fishing trips together occasionally." ],
+        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here." ],
 
 
 

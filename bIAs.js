@@ -685,7 +685,7 @@ scene("corridor", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["This is headmaster's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. headMaster too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!"];
+    let HMDoorD = ["This is headmaster's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. headMaster too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
     let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"]
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
@@ -894,7 +894,7 @@ scene("mathsClass", () =>{
 
     onKeyPress("space", () => {
         // Sound: 
-
+        play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
@@ -1047,7 +1047,7 @@ scene("scienceClass", () =>{
 
     onKeyPress("space", () => {
         // Sound: 
-
+        play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
@@ -1127,7 +1127,7 @@ scene("headMaster", () =>{
 
     onKeyPress("space", () => {
         // Sound: 
-
+        play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
@@ -1259,7 +1259,7 @@ scene("englishClass", () =>{
 
     onKeyPress("space", () => {
         // Sound: 
-
+        play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
@@ -1498,4 +1498,4 @@ scene("cvs2", () => {
 })
 
 // Initialize game 
-go("artClass");
+go("corridor");

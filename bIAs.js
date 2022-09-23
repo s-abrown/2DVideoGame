@@ -49,6 +49,8 @@ loadSound("spacePress", "spacePress.mp3");
 loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
 loadSound("bigshot", "bigshot.mp3");
+loadSound("click", "click.mp3");
+loadSound("yes", "yes.mp3");
 
 loadBean("bean");
 
@@ -257,7 +259,6 @@ scene("introduction", () =>{
 // The player can interact with her sprite (she can introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
 
 scene("corridor", () =>{
-    // need to loop this? Or does it end with silence and we need to trim the mp3. Anyway I wanted to test a sound file
     play("corridorAmbient")
         //Adding the school map as background: 
         let map = add([
@@ -465,14 +466,18 @@ scene("corridor", () =>{
         solid(),
         color([32, 110, 19])
         // Animation for the player sprite (walking) will go here :
+        //
+        //
         ]);
 
-    // Adding KATE sprite into te overworld:
+    // Adding KATE sprite into te overworld with follow: 
+    //
+    //
+    //
     //
 
     overWorldPlayer.onUpdate(() => {
     });
-
     // Adding movements to the player:
     const playerSpeed = 400
     onKeyDown("left", () => {
@@ -489,7 +494,7 @@ scene("corridor", () =>{
     });
 
 
-    // III. INTERACTIONS
+    // III. CORRIDOR INTERACTIONS
         // Textbox, portrait and text for the interactions
         const textbox = add([
             rect(width() - 300, 120, { radius: 32 }),
@@ -578,7 +583,7 @@ scene("corridor", () =>{
     let lockerDialog = 0;
     onKeyPress("space", () => {
         //Testing sound
-        // For some reason spacePress plays if you press space even when not interacting with a locker hmmm
+        // /!\ For some reason spacePress plays if you press space even when not interacting with a locker hmmm
         play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
@@ -1383,7 +1388,7 @@ scene("artClass", () =>{
 
     onKeyPress("space", () => {
         // Sound: 
-
+        play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {

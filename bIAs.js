@@ -680,7 +680,7 @@ scene("corridor", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let HMDoorD = ["This is headmaster's office.", "We can consu", "", "", ""];
     let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"]
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
@@ -734,8 +734,8 @@ scene("corridor", () =>{
     }
 
     // e) English class englishDoor
-    let englishDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love myself some Shakespear. would you like to talk to the english teacher again?"]
+    let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. XYZ is available.",];
+    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"]
     let englishDoorDialog = 0;
         if (englishPoint == 0){
         onKeyPress("space", () => {
@@ -840,7 +840,6 @@ scene("mathsClass", () =>{
     ]);
 
     const dialogs = [
-        // Teacher introducing AI:
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his/her students to stop by during this period." ],
         [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with K.A.T.E., huh?" ],
@@ -932,7 +931,7 @@ scene("scienceClass", () =>{
     ➖⬜⬛⬛⬛⬛⬜➖➖➖
     ➖➖⬜⬜⬜⬜➖➖➖➖ */
     // 
-    play("bigshot")
+    // play("bigshot")
     let classRoom = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
@@ -968,7 +967,6 @@ scene("scienceClass", () =>{
     ]);
 
     const dialogs = [
-        // Teacher introducing AI:
         [ "scienceTeacherAvatar", `Well well, if it isn't ${namePlayer}.` ],
         [ "scienceTeacherAvatar", "Wait, wait, wait... " ],
         [ "scienceTeacherAvatar", "before you even say anything let me just say this once:" ],
@@ -1027,12 +1025,12 @@ scene("scienceClass", () =>{
         [ "scienceTeacher", "Student satisfaction..." ],
         // DOES THIS EVEN MAKE SENSE
         [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
-        [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content.`],
+        [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content. Until then, I'll have my eye on you.`],
         [ "scienceTeacher", "..." ],
-        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – Mrs. XYZ coddles you too much in that respect.` ],
+        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. ArtTeacher. She coddles you kids too much.` ],
         // KATE avatar
         [ "KATE", "Thank you for your time, Mr. XYZ." ],
-        [ "scienceTeacher", "right, right. Off with you now." ],
+        [ "scienceTeacher", "Right, right. Off with you now." ],
     ];
 
     let curDialog = 0;
@@ -1112,7 +1110,6 @@ scene("headMaster", () =>{
     ]);
 
     const dialogs = [
-        // Teacher introducing AI:
         [ "bean", "HEADMASTER" ],
     ];
 
@@ -1160,8 +1157,6 @@ scene("cvs", () => {
 
 //////////////////////////////////////////////////// SCENE NINE: ENGLISH CLASS /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
-    //  ¯\_(ツ)_/¯
-    //play("soCold")
     let classRoom = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
@@ -1171,7 +1166,7 @@ scene("englishClass", () =>{
 
     // Adding Teacher sprite
     const englishTeacher = add([
-        sprite("artTeacher"),
+        sprite("englishTeacher"),
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
@@ -1196,34 +1191,14 @@ scene("englishClass", () =>{
     ]);
 
     const dialogs = [
-        // Teacher introducing AI:
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
-        [ "artTeacherAvatar", "" ],
+        [ "englishTeacherAvatar", "Hello there!" ],
+        [ "englishTeacherAvatar", `It's ${namePlayer}, right?` ],
+        [ "englishTeacherAvatar", "Forgive me for asking, but I'm sure that you can imagine how hard it is to have to memorise so many new names." ],
+        [ "KATE", "Oh! Are you new here?" ],
+        [ "englishTeacherAvatar", "I started only a couple of weeks ago." ],
+        [ "englishTeacherAvatar", "I'm a substitute teacher for Mrs. Englishdudette." ],
+        [ "KATE", "Perfect! Your insights regarding the hiring process here are the most recent then." ],
+        [ "englishTeacherAvatar", "" ],
 
 
         
@@ -1232,7 +1207,7 @@ scene("englishClass", () =>{
     let curDialog = 0;
 
     const avatar = add([
-    sprite("artTeacherAvatar"),
+    sprite("englishTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
@@ -1264,8 +1239,6 @@ scene("englishClass", () =>{
 //////////////////////////////////////////////////// SCENE TEN: ART CLASS /////////////////////////////////////////////////////////////////
 
 scene("artClass", () =>{
-    //  ¯\_(ツ)_/¯
-    //play("soCold")
     let MathsClass = add([
         sprite("artClassroom"),
         pos(width() / 2, height() / 2),
@@ -1458,7 +1431,7 @@ scene("playerClass", () => {
     let curDialog = 0;
 
     const avatar = add([
-    sprite("artTeacherAvatar"),
+    sprite("playerTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
@@ -1481,4 +1454,4 @@ scene("cvs2", () => {
 })
 
 // Initialize game 
-go("artClass");
+go("englishClass");

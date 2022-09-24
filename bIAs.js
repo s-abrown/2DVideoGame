@@ -125,7 +125,6 @@ scene("nameInput", () => {
 });
 
 ///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
-// Your teacher introduces the AI, K.A.T.E. to the class and contextualises the game.
 
 // Adding the background image of the scene: 
 scene("introduction", () =>{
@@ -238,10 +237,7 @@ scene("introduction", () =>{
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog];
 
-        
-        // Use a new sprite component to replace the old one
-        // We can use this for different facial expressions in the portraits? 
-        //avatar.use(sprite(char))
+      
         
         // Update the dialog text
         txt.text = dialog} else {
@@ -1127,6 +1123,26 @@ scene("headMaster", () =>{
         // he s flippant and condescending throughout
         // he's definitely going to say something abt KATE being a girl's name and CaN A GIrL AI MaKE ThhE RiGHt DeCiSiON?
         // KATE responds obliviously bc she is and tells inadvertently shuts him down
+
+        // 3 applicant CV for potential teacher
+        // You then pick your CV
+        // Then go to scene where you discuss your choice with KATE
+        // Either you picked her top choice or not
+        // If you pick her choice KATE: "same choice, makes sense. my reasoning was XYZ for this choice." abt 3 questions to pick from "was there a specific wording/term you picked up on?" and she answers how heamster/teachers/Cvs have the terms. Also be to the point and straight up say
+        // that males are preferred over females (no maternity leave)
+        // if not choice she picked she will ask why we picked them over her choice
+        // and player will mention school ethics/vibe. 
+        
+
+        // Art teach name Yvonne Lefebvre
+        // english teach name James Moore
+        // science teach Angus Mackenzie
+        // maths teacher Ross Parker
+        // headmaster Atticus Carlton
+        // Player teacher John Alden
+        // Fix names in dialog
+
+        // 
         [ "headmasterAvatar", "" ],
         [ "headmasterAvatar", "" ],
     ];

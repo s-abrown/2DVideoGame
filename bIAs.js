@@ -1222,8 +1222,8 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Sure." ],
         [ "englishTeacherAvatar", "Though I must warn you that my experience is by no means what one would call 'typical'. " ],
         [ "englishTeacherAvatar", "I got wind that the headmaster here was quite desperate to find a sub as quickly as possible to replace some woman who had to go on maternity leave." ],
-        [ "englishTeacherAvatar", "I've heard shes expecting twins so between you and me..." ],
-        [ "englishTeacherAvatar", "I reckon that she might be unable get back to work any time soon." ],
+        [ "englishTeacherAvatar", "I've heard she's expecting twins so between you and me..." ],
+        [ "englishTeacherAvatar", "I reckon that she might be unable to get back to work any time soon." ],
         // KATE
         [ "KATE", "You're looking to keep this position indefinitely?" ],
         [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
@@ -1255,7 +1255,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Parents entrust their children to us to teach them properly. They're here to succeed in life, not waste their time entertaining frivolous notions." ],
         // KATE
         [ "KATE", "Your dedication to your students' success is admirable." ],
-        [ "englishTeacherAvatar", "Their success is mine, isn't that right, " + `${namePlayer}?` ],
+        [ "englishTeacherAvatar", `Their success is mine, isn't that right, ${namePlayer}?` ],
         [ "englishTeacherAvatar", "Mr. ScienceTeacher has the right idea on that one, I'll tell you that much." ],
         // KATE
         [ "KATE", "Thank you for your time. I am most curious to consult your CV to supplement my data-gathering." ],

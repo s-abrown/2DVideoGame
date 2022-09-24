@@ -55,6 +55,7 @@ loadSound("click", "click.mp3");
 loadBean("bean");
 
 
+
 ///////////// VARIABLES /////////////
 let placeHolder = "My name: ";
 let namePlayer;

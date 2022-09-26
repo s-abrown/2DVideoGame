@@ -65,7 +65,10 @@ let mathsPoint = 0;
 let sciencePoint = 0; 
 let headmPoint = 0;
 let englishPoint = 0; 
-let artPoint = 0; 
+let artPoint = 0;
+let cvReadCounter = 0;
+let playerChoice;
+let kateChoice = "A";
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
@@ -1441,17 +1444,17 @@ scene("artClass", () =>{
     updateDialog()
 });
 
-//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS AGAIN (CHOICE) /////////////////////////////////////////////////////////////////
-scene("playerClass", () => {
-    let classRoom = add([
-        sprite("classRoom1"),
+//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS (CV's introduction and choices) /////////////////////////////////////////////////////////////////
+scene("cvs2", () => {
+    let playerClass = add([
+        sprite("classroom1"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
       ]);
 
     // Adding Teacher sprite
-    const englishTeacher = add([
+    const artTeacher = add([
         sprite("playerTeacher"),
     ]);
     const textbox = add([
@@ -1476,6 +1479,32 @@ scene("playerClass", () => {
         origin("center")
     ]);
 
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
+        [ "KATE", "They were!" ],
+        [ "playerTeacherAvatar", "Good, on this table you will find three cv's of people who applied for the job." ],
+        [ "playerTeacherAvatar", `${namePlayer} I'd like you to read them and choose which one seems best to you.`],
+        [ "playerTeacherAvatar", "You should then talk to K.A.T.E. about it." ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        play("click")
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
@@ -1483,49 +1512,250 @@ scene("playerClass", () => {
 	txt.text = dialog       
         txt.text = dialog} else {
             play("door")
-            go("cvs2")
+            go("corridor")
             playerPoints += 1;
-            englishPoint += 1;
+            artPoint += 1;
         }
     };
-
-    const dialogs = [
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-        [ "playerTeacher", "" ],
-    ];
-
-    let curDialog = 0;
-
+    updateDialog()   
+})
+//////////////////////////////////////////////////// SCENE TEN: CV'S OVERWIEV /////////////////////////////////////////////////////////////////
+scene("cvsOverwiev", () => {
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text(`So ${namePlayer},`, { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hideen = true;
     const avatar = add([
-    sprite("playerTeacherAvatar"),
-    scale(0.3),
-    origin("center"),
-    pos(portrait.pos),
-    ])
-
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    function ChoiceCv (){
+        txt.text = "Press A to see the first CV, B for the second and C for the third.";
+        onKeyPress("a", () => {
+            console.log("Pressed A")
+            go("A")
+        });
+        onKeyPress("b", () => {
+            console.log("Pressed b");
+            go("B") 
+        });
+        onKeyPress("c", () => {
+            console.log("Pressed c");
+            go("C")
+        });
+    };
+    function finalChoiche (){
+        txt.text = "It's time to make your choice. Press A for the first cv, B for the second and C for the third.";
+        onKeyPress("a", () => {
+            playerChoice = "A";
+            go("kateDialog")
+        });
+        onKeyPress("b", () => {
+            playerChoice = "B";
+            go("kateDialog")
+        });
+        onKeyPress("c", () => {
+            playerChoice = "C";
+            go("kateDialog")
+        });
+    };
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        txt.hidden = false;  
+        txt.text = t[v - 1];
+        }
+        else if (v > t.length){
+            portrait.hidden = true;
+            avatar.hidden = true;
+            if (cvReadCounter >= 3){
+                finalChoiche()
+            } else {
+                ChoiceCv()
+            }
+        };
+    };
+    let cvDialog = ["Here ar the three CV's Mr. Alden was talking about.", "I think we should take a closer look and then make our choices."];
+    let cvDialog2 = ["Are you ready to make your choice then?", "After reading the CV's I think it's pretty clear who should be the next science professor."];
+    let cvDialog3 = ["We haven't had a look at all the CV's yet.", "Maybe we should make sure to read all of them before making a choice?"];
+    let cvNumber = 0;
+    if (cvReadCounter == 0){
+            onKeyPress("space", () => {
+                cvNumber += 1
+                wait(0.3,() => {
+                    updateDialog(cvNumber, cvDialog)
+                });
+            });
+    } if (cvReadCounter > 0 && cvReadCounter <= 2){
+        onKeyPress("space", () => {
+            cvNumber += 1
+            wait(0.3,() => {
+                updateDialog(cvNumber, cvDialog3)
+            });
+        }); 
+    } else if (cvReadCounter >= 3){
+        onKeyPress("space", () => {
+            cvNumber += 1
+            wait(0.3,() => {
+                updateDialog(cvNumber, cvDialog2)
+            });
+        });
+    }
+})
+//////////////////////////////////////////////////// SCENE x: CV "A" /////////////////////////////////////////////////////////////////
+scene("A", () => {
+    cvReadCounter += 1; 
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
     onKeyPress("space", () => {
-        // Sound: 
-
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
-        wait(0.3,() => {
-        updateDialog()})
+        go("cvsOverwiev") 
     });
-    updateDialog()
+    onKeyPress("b", () => {
+        console.log("Pressed b");
+        go("B") 
+    });
+    onKeyPress("c", () => {
+        console.log("Pressed c");
+        go("C")
+    });
+});
+//////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
+scene("B", () => {
+    cvReadCounter += 1;
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvsOverwiev") 
+    });
+    onKeyPress("a", () => {
+        console.log("Pressed b");
+        go("A") 
+    });
+    onKeyPress("c", () => {
+        console.log("Pressed c");
+        go("C")
+    });
+});
+//////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
+scene("C", () => {
+    cvReadCounter += 1;
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
+            size: 32, 
+            width: 800,
+        }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvsOverwiev") 
+    });
+    onKeyPress("a", () => {
+        console.log("Pressed b");
+        go("A") 
+    });
+    onKeyPress("b", () => {
+        console.log("Pressed c");
+        go("B")
+    });
+});
+//////////////////////////////////////////////////// SCENE x: KATE DIALOG /////////////////////////////////////////////////////////////////
+scene("kateDialog", ()=>{
+
 })
-
-//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS /////////////////////////////////////////////////////////////////
-scene("cvs2", () => {
-
-})
-
 // Initialize game 
-go("headMaster");
+go("A");

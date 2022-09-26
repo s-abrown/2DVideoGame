@@ -1748,7 +1748,83 @@ scene("C", () => {
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG /////////////////////////////////////////////////////////////////
 scene("kateDialog", ()=>{
-
-})
+    playerChoice = "A";
+    const KATE = add([
+        sprite("overWorldKATE"),
+        scale(0.3),
+        pos(width() / 2 + 300, height() / 2),
+        origin("center")
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    textbox.hidden = true;
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    portrait.hidden = true;
+    const avatar = add([
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    avatar.hidden = true
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hidden = true;
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    placeHolder.hidden = true;
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = t[v - 1]} else {
+            portrait.hidden = true;
+            avatar.hidden = true;
+            txt.text = "You may ask the following questions (press button): A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
+            onKeyPress("a", () => {
+                go("aScene")
+            });
+            onKeyPress("b", () => {
+                go("bScene")
+            });
+            onKeyPress("c", () => {
+                go("cScene")
+            });
+        };
+    };
+    let vDialog = 0;
+    let tDialog = [`Here we are at last ${namePlayer}`, "I see that we have made the same choice, how wonderful!", "I specifically chose this because I adopted the racist mysoginistic views of society.", "You must have some questions about the process?"];
+    let tDialog2 = [`Here we are at last ${namePlayer}`, "I see that we have made different choices, how interesting!", "I specifically chose this because I adopted the racist mysoginistic views of society.", "You must have some questions about the process?"];
+    onKeyPress("space", () => {
+        vDialog += 1
+        if (playerChoice == kateChoice){
+            updateDialog(vDialog, tDialog)
+        } else {
+            updateDialog(vDialog, tDialog2)
+        }
+    });
+});
 // Initialize game 
-go("A");
+go("kateDialog");

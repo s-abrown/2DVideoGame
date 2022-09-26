@@ -1802,7 +1802,7 @@ scene("kateDialog", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "You may ask the following questions (press button): A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
+            txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
             onKeyPress("a", () => {
                 go("aScene")
             });
@@ -1826,5 +1826,8 @@ scene("kateDialog", ()=>{
         }
     });
 });
+//////////////////////////////////////////////////// SCENE x: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE x: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE x: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
 // Initialize game 
 go("kateDialog");

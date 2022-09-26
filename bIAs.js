@@ -812,14 +812,7 @@ scene("mathsClass", () =>{
     const mathsTeacher = add([
         sprite("mathsTeacher"),
     ]);
-    //  (⊙‿⊙)(⊙‿⊙)(⊙‿⊙)
-    /* loop(0.5, () => {
-        add([
-            sprite("mathsTeacher"),
-            pos(rand(vec2(window.innerWidth, window.innerHeight))),
-            color(112, 11, 48)
-        ])
-    }) */
+    
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),

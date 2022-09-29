@@ -1445,7 +1445,7 @@ scene("artClass", () =>{
 //////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS (CV's introduction and choices) /////////////////////////////////////////////////////////////////
 scene("cvs2", () => {
     let playerClass = add([
-        sprite("classroom1"),
+        sprite("classRoom1"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
@@ -1810,15 +1810,12 @@ scene("kateDialog", ()=>{
             txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
             onKeyPress("a", () => {
                 go("aScene")
-                choiceTable = choiceTable.filter(x => x.key != "a")
             });
             onKeyPress("b", () => {
                 go("bScene")
-                choiceTable = choiceTable.filter(x => x.key != "b")
             });
             onKeyPress("c", () => {
                 go("cScene")
-                choiceTable = choiceTable.filter(x => x.key != "c")
             });
         };
     };
@@ -1836,7 +1833,7 @@ scene("kateDialog", ()=>{
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
 scene("aScene", ()=>{
-    choiceTable.push({key: "d", })
+    choiceTable = choiceTable.filter(x => x.key != "a")
     const KATE = add([
         sprite("overWorldKATE"),
         scale(0.3),
@@ -1885,11 +1882,19 @@ scene("aScene", ()=>{
         let t = '';
         portrait.hidden = true;
         avatar.hidden = true;
-        for (let i = 0; i < choiceTable.length; i++){
-            t += choiceTable[i].value;
-            onKeyPress(`${choiceTable[i].key}`, () => {
-                go(`${choiceTable[i].key}Scene`)
-            });
+        if (choiceTable.length > 0){
+            for (let i = 0; i < choiceTable.length; i++){
+                t += choiceTable[i].value;
+                onKeyPress(`${choiceTable[i].key}`, () => {
+                    go(`${choiceTable[i].key}Scene`)
+                });
+            }
+            txt.text = t
+        } else {
+            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP"
+            onKeyPress("space", () => {
+                go("lastScene")
+            })
         }
         txt.text = t
     }
@@ -1912,7 +1917,7 @@ scene("aScene", ()=>{
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
 scene("bScene", ()=>{
-    choiceTable.push({key: "d", })
+    choiceTable = choiceTable.filter(x => x.key != "b")
     const KATE = add([
         sprite("overWorldKATE"),
         scale(0.3),
@@ -1961,13 +1966,20 @@ scene("bScene", ()=>{
         let t = '';
         portrait.hidden = true;
         avatar.hidden = true;
-        for (let i = 0; i < choiceTable.length; i++){
-            t += choiceTable[i].value;
-            onKeyPress(`${choiceTable[i].key}`, () => {
-                go(`${choiceTable[i].key}Scene`)
-            });
+        if (choiceTable.length > 0){
+            for (let i = 0; i < choiceTable.length; i++){
+                t += choiceTable[i].value;
+                onKeyPress(`${choiceTable[i].key}`, () => {
+                    go(`${choiceTable[i].key}Scene`)
+                });
+            }
+            txt.text = t
+        } else {
+            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRAP UP"
+            onKeyPress("space", () => {
+                go("lastScene")
+            })
         }
-        txt.text = t
     }
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -1980,15 +1992,15 @@ scene("bScene", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    let tDialog = ["KATE ANSWER TO QUESTION B"];
     onKeyPress("space", () => {
         vDialog += 1
         updateDialog(vDialog, tDialog)
     });
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
-scene("aScene", ()=>{
-    choiceTable.push({key: "d", })
+scene("cScene", ()=>{
+    choiceTable = choiceTable.filter(x => x.key != "c")
     const KATE = add([
         sprite("overWorldKATE"),
         scale(0.3),
@@ -2037,13 +2049,20 @@ scene("aScene", ()=>{
         let t = '';
         portrait.hidden = true;
         avatar.hidden = true;
-        for (let i = 0; i < choiceTable.length; i++){
-            t += choiceTable[i].value;
-            onKeyPress(`${choiceTable[i].key}`, () => {
-                go(`${choiceTable[i].key}Scene`)
-            });
+        if (choiceTable.length > 0){
+            for (let i = 0; i < choiceTable.length; i++){
+                t += choiceTable[i].value;
+                onKeyPress(`${choiceTable[i].key}`, () => {
+                    go(`${choiceTable[i].key}Scene`)
+                });
+            }
+            txt.text = t
+        } else {
+            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP"
+            onKeyPress("space", () => {
+                go("lastScene")
+            })
         }
-        txt.text = t
     }
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -2056,11 +2075,105 @@ scene("aScene", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    let tDialog = ["KATE ANSWER TO QUESTION C"];
     onKeyPress("space", () => {
         vDialog += 1
         updateDialog(vDialog, tDialog)
     });
 });
+//////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+scene("lastScene", ()=>{
+    let playerClass = add([
+        sprite("classRoom1"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+
+    // Adding Teacher sprite
+    const artTeacher = add([
+        sprite("playerTeacher"),
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+
+    const dialogs = [
+        // Teacher introducing AI:
+        [ "playerTeacherAvatar", `So  ${namePlayer}, you have worked with KATE and seen how biased she can be.` ],
+        [ "KATE", "It's called categorisation through datasets" ],
+        [ "playerTeacherAvatar", "It really is but it leaves us with an important question" ],
+        [ "playerTeacherAvatar", "What do we change first the A.I. trained on biased datasets or the society that created the A.I. and the biases?"],
+        [ "playerTeacherAvatar", "Go on home and think about that" ],
+    ];
+
+    let curDialog = 0;
+
+    const avatar = add([
+    sprite("artTeacherAvatar"),
+    scale(0.3),
+    origin("center"),
+    pos(portrait.pos),
+    ])
+
+    onKeyPress("space", () => {
+        play("click")
+        curDialog = (curDialog + 1)
+        console.log(curDialog)
+        wait(0.3,() => {
+        updateDialog()})
+    });
+
+    function updateDialog() {
+        if (curDialog < dialogs.length){
+        const [ char, dialog ] = dialogs[curDialog]
+	avatar.use(sprite(char))
+	txt.text = dialog       
+        txt.text = dialog} else {
+            play("door")
+            go("credits")
+        }
+    };
+    updateDialog() 
+})
+//////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+scene("credits", () =>{
+    add([
+        text(`bIAs was developed as part of the course
+Jeu video 2D (Spring 2022) taught by 
+Isaac Pante (SLI, Lettres, UNIL)
+
+Press space to play again`, {
+            size: 30,
+            font: "sink",
+            lineSpacing: 10,
+            align: center,
+        }),
+        pos (100, 250),
+    ]);
+
+    // Ajouter un évennement quand j'appuie sur une touche
+    onKeyPress("space", () =>{
+        go("nameInput");
+    });
+});
 // Initialize game 
-go("kateDialog");
+go("credits");

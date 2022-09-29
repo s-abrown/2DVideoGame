@@ -58,7 +58,7 @@ loadBean("bean");
 
 ///////////// VARIABLES /////////////
 let placeHolder = "My name: ";
-let namePlayer;
+let namePlayer = "";
 const pad = 24;
 let playerPoints = 0;
 let mathsPoint = 0;
@@ -69,6 +69,11 @@ let artPoint = 0;
 let cvReadCounter = 0;
 let playerChoice;
 let kateChoice = "A";
+let choiceTable = [
+    {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
+    {key: "b", value: "B. Do you think more information would be useful to conduct an appropriate choice?"},
+    {key: "c", value: "C. NO IDEA, ANOTHER QUESTION"}
+];
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
 
@@ -1805,12 +1810,15 @@ scene("kateDialog", ()=>{
             txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
             onKeyPress("a", () => {
                 go("aScene")
+                choiceTable = choiceTable.filter(x => x.key != "a")
             });
             onKeyPress("b", () => {
                 go("bScene")
+                choiceTable = choiceTable.filter(x => x.key != "b")
             });
             onKeyPress("c", () => {
                 go("cScene")
+                choiceTable = choiceTable.filter(x => x.key != "c")
             });
         };
     };
@@ -1827,7 +1835,232 @@ scene("kateDialog", ()=>{
     });
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
+scene("aScene", ()=>{
+    choiceTable.push({key: "d", })
+    const KATE = add([
+        sprite("overWorldKATE"),
+        scale(0.3),
+        pos(width() / 2 + 300, height() / 2),
+        origin("center")
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    textbox.hidden = true;
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    portrait.hidden = true;
+    const avatar = add([
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    avatar.hidden = true
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hidden = true;
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    placeHolder.hidden = true;
+    function askOtherQuestions (){
+        let t = '';
+        portrait.hidden = true;
+        avatar.hidden = true;
+        for (let i = 0; i < choiceTable.length; i++){
+            t += choiceTable[i].value;
+            onKeyPress(`${choiceTable[i].key}`, () => {
+                go(`${choiceTable[i].key}Scene`)
+            });
+        }
+        txt.text = t
+    }
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = t[v - 1]} else {
+            askOtherQuestions()
+        };
+    };
+    let vDialog = 0;
+    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    onKeyPress("space", () => {
+        vDialog += 1
+        updateDialog(vDialog, tDialog)
+    });
+});
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
+scene("bScene", ()=>{
+    choiceTable.push({key: "d", })
+    const KATE = add([
+        sprite("overWorldKATE"),
+        scale(0.3),
+        pos(width() / 2 + 300, height() / 2),
+        origin("center")
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    textbox.hidden = true;
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    portrait.hidden = true;
+    const avatar = add([
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    avatar.hidden = true
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hidden = true;
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    placeHolder.hidden = true;
+    function askOtherQuestions (){
+        let t = '';
+        portrait.hidden = true;
+        avatar.hidden = true;
+        for (let i = 0; i < choiceTable.length; i++){
+            t += choiceTable[i].value;
+            onKeyPress(`${choiceTable[i].key}`, () => {
+                go(`${choiceTable[i].key}Scene`)
+            });
+        }
+        txt.text = t
+    }
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = t[v - 1]} else {
+            askOtherQuestions()
+        };
+    };
+    let vDialog = 0;
+    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    onKeyPress("space", () => {
+        vDialog += 1
+        updateDialog(vDialog, tDialog)
+    });
+});
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
+scene("aScene", ()=>{
+    choiceTable.push({key: "d", })
+    const KATE = add([
+        sprite("overWorldKATE"),
+        scale(0.3),
+        pos(width() / 2 + 300, height() / 2),
+        origin("center")
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]);
+    textbox.hidden = true;
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    portrait.hidden = true;
+    const avatar = add([
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    avatar.hidden = true
+    const txt = add([
+        text("", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hidden = true;
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    placeHolder.hidden = true;
+    function askOtherQuestions (){
+        let t = '';
+        portrait.hidden = true;
+        avatar.hidden = true;
+        for (let i = 0; i < choiceTable.length; i++){
+            t += choiceTable[i].value;
+            onKeyPress(`${choiceTable[i].key}`, () => {
+                go(`${choiceTable[i].key}Scene`)
+            });
+        }
+        txt.text = t
+    }
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        textbox.hidden = false;
+        avatar.hidden = false; 
+        portrait.hidden = false;
+        txt.hidden = false;  
+        txt.text = t[v - 1]} else {
+            askOtherQuestions()
+        };
+    };
+    let vDialog = 0;
+    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    onKeyPress("space", () => {
+        vDialog += 1
+        updateDialog(vDialog, tDialog)
+    });
+});
 // Initialize game 
 go("kateDialog");

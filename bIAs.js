@@ -1600,10 +1600,7 @@ scene("cvs2", () => {
 	avatar.use(sprite(char));
 	txt.text = dialog;       
         txt.text = dialog} else {
-            play("door");
-            go("corridor");
-            playerPoints += 1;
-            artPoint += 1;
+            go("cvsOverwiev");
         };
     };
     updateDialog();   

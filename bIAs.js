@@ -18,7 +18,6 @@ loadSprite("mathClassroom","mathClassroomBg.png");
 loadSprite("artClassroom","artClassroomBg.png");
 loadSprite("scienceClassroom","scienceBg.png");
 loadSprite("englishClassroom","englishBg.png");
-
 // 2) Corridor
 loadSprite("schoolMap","schoolMap.png");
 // 3) K.A.T.E.
@@ -42,7 +41,6 @@ loadSprite("englishTeacherAvatar", "englishTeachCu.png");
 // 9) Headmaster
 loadSprite("headmaster", "headmaster.png");
 loadSprite("headmasterAvatar", "headmasterCu.png");
-
 // Sounds
 loadSound("corridorAmbient", "corridor.mp3");
 loadSound("spacePress", "spacePress.mp3");
@@ -50,11 +48,8 @@ loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
 loadSound("bigshot", "bigshot.mp3");
 loadSound("click", "click.mp3");
-//loadSound("yes", "yes.mp3");
-
+// bean placeholder
 loadBean("bean");
-
-
 
 ///////////// VARIABLES /////////////
 let placeHolder = "My name: ";
@@ -67,7 +62,8 @@ let headmPoint = 0;
 let englishPoint = 0; 
 let artPoint = 0;
 let cvReadCounter = 0;
-let playerChoice;
+let cvReadCounter1 = 0;
+let playerChoice = "";
 let kateChoice = "A";
 let choiceTable = [
     {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
@@ -76,19 +72,19 @@ let choiceTable = [
 ];
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
-
 scene("accueil", () =>{
     add([
-        text(`bIAs
-        
+        text(`   
 PRESS SPACE BAR TO BEGIN
 
-A game brought to you by Sophie and Tessa`, {
+b.I.A.s
+A game by Sophie and Tessa`, {
             size: 48,
             font: "sink",
+            lineSpacing: 10,
             
         }),
-        pos (100, 350),
+        pos (100, 200),
     ]);
 
     // Ajouter un évennement quand j'appuie sur une touche
@@ -133,28 +129,24 @@ scene("nameInput", () => {
 });
 
 ///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
-
-// Adding the background image of the scene: 
 scene("introduction", () =>{
+    // Adding the background image of the scene
     let classRoom = add([
         sprite("classRoom1"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
-        // Allow the background to be scaled
-        //scale(1),
-        // Keep the background position fixed even when the camera moves
         fixed()
       ]);
 
-    // Adding the dialog/text box at the bottom of the screen:
+    // Adding the dialog/text box at the bottom of the screen
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
-    // Adding the portrait to the left of the text box: 
+    // Adding the portrait to the left of the text box
     const portrait = add([
         rect(200, 220, {radius: 32}),
         origin("center"),
@@ -227,62 +219,45 @@ scene("introduction", () =>{
         [ "playerTeacherAvatar", "And if you agree with her!" ],
     ];
 
-    let curDialog = 0
+    let curDialog = 0;
 
     onKeyPress("space", () => {
         // Cycle through the dialogs
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
+        curDialog += 1;
         // Adding a delay between hitting space bar and the text showing up:
         wait(0.3,() => {
         updateDialog()})
-        // Looking at how to get the typing effect for the text?
-        //setTimeout("type()", 5000)  
     });
 
     // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog];
-
-      
-        
         // Update the dialog text
         txt.text = dialog} else {
             play("door")
             go("corridor")
         };
     };
-
     updateDialog();
-
 });
 
-//////////////////////////////////////////////////// SCENE FOUR: CORRIDOR /////////////////////////////////////////////////////////////////
-
-// Exit scene one: player is standing outside the door of their classroom with KATE.
-// The player can interact with her sprite (she can introduce herself, maybe explain once more that she needs to listen in on convos with teacher to gather her data, explain that she'll cross reference each teacher to determine/pintpoint what it is that made them successful (non-recurring terms, male-oriented language, gender etc.))
-
+//////////////////////////////////////////////////// SCENE FOUR: corridor /////////////////////////////////////////////////////////////////
 scene("corridor", () =>{
-    play("corridorAmbient")
-        //Adding the school map as background: 
+    play("corridorAmbient") 
         let map = add([
         sprite("schoolMap"),
-        // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
-        // Keep the background position fixed even when the camera moves
         fixed()
     ]);
-
-
     // I. PERIMETERS
-    // Setting up wall, lockers and mics positions : 
+    // Setting up wall, lockers and mics positions
     // 1) Walls (red)
         let corridorWallDown = add([
             pos(8, 342),
             rect(1150, 4),
-            opacity(0.7),
+            opacity(0),
             color(255, 0, 0),
             area(),
             solid()
@@ -290,7 +265,7 @@ scene("corridor", () =>{
         let corridorWallUp = add([
             pos(8, 237),
             rect(1150, 4),
-            opacity(0.7),
+            opacity(0),
             color(255, 0, 0),
             area(),
             solid()
@@ -298,7 +273,7 @@ scene("corridor", () =>{
         let corridorWallLeft = add([
             pos(6, 238),
             rect(4, 110),
-            opacity(0.7),
+            opacity(0),
             color(255, 0, 0),
             area(),
             solid()
@@ -306,7 +281,7 @@ scene("corridor", () =>{
         let corridorWallRight = add([
             pos(1150, 225),
             rect(4, 130),
-            opacity(0.7),
+            opacity(0),
             color(255, 0, 0),
             area(),
             solid()
@@ -315,7 +290,7 @@ scene("corridor", () =>{
         let lockers = add([
             pos(37, 240),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -324,7 +299,7 @@ scene("corridor", () =>{
         add([
             pos(138, 240),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -333,7 +308,7 @@ scene("corridor", () =>{
         add([
             pos(340, 240),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -342,7 +317,7 @@ scene("corridor", () =>{
         add([
             pos(37, 333),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -351,7 +326,7 @@ scene("corridor", () =>{
         add([
             pos(168, 333),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -360,7 +335,7 @@ scene("corridor", () =>{
         add([
             pos(340, 333),
             rect(98, 8),
-            opacity(0.7),
+            opacity(0),
             color(0, 255, 0),
             area(),
             solid(), 
@@ -370,7 +345,7 @@ scene("corridor", () =>{
         let mathsDoor = add([
             pos(302, 238),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -380,7 +355,7 @@ scene("corridor", () =>{
         let scienceDoor = add([
             pos(803, 238),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -390,7 +365,7 @@ scene("corridor", () =>{
         let headmastersDoor = add([
             pos(135, 340),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -400,7 +375,7 @@ scene("corridor", () =>{
         let playerClassDoor = add([
             pos(305, 340),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -410,7 +385,7 @@ scene("corridor", () =>{
         let batroomDoor = add([
             pos(499, 340),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -420,7 +395,7 @@ scene("corridor", () =>{
         let englishDoor = add([
             pos(591, 340),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -430,7 +405,7 @@ scene("corridor", () =>{
         let artDoor = add([
             pos(805, 340),
             rect(25, 5),
-            opacity(0.5),
+            opacity(0),
             color(102, 0, 255),
             area(),
             solid(),
@@ -441,7 +416,7 @@ scene("corridor", () =>{
     let corridorPlant1 = add([
         pos(1122, 245),
         rect(27, 25),
-        opacity(0.5),
+        opacity(0),
         color(242, 219, 15),
         area(),
         solid(),
@@ -450,7 +425,7 @@ scene("corridor", () =>{
     let corridorPlant2 = add([
         pos(1122, 313),
         rect(27, 27),
-        opacity(0.5),
+        opacity(0),
         color(242, 219, 15),
         area(),
         solid(),
@@ -498,9 +473,7 @@ scene("corridor", () =>{
             overWorldPlayer.move(0, +playerSpeed)
     });
 
-
     // III. CORRIDOR INTERACTIONS
-        // Textbox, portrait and text for the interactions
         const textbox = add([
             rect(width() - 300, 120, { radius: 32 }),
             origin("center"),
@@ -508,7 +481,6 @@ scene("corridor", () =>{
             outline(2),
         ]);
         textbox.hidden = true;
-        // Portait :
         const portrait = add([
             rect(200, 120, {radius: 32}),
             origin("center"),
@@ -517,7 +489,6 @@ scene("corridor", () =>{
             "portrait"
         ]);
         portrait.hidden = true;
-        // Character avatar
         const avatar = add([
             sprite("KATE"),
             scale(0.3),
@@ -525,7 +496,6 @@ scene("corridor", () =>{
             pos(portrait.pos),
         ]);
         avatar.hidden = true
-        // Text
         const txt = add([
             text("", { 
                 size: 32, 
@@ -579,11 +549,11 @@ scene("corridor", () =>{
         txt.text = t[v - 1];
         }
         else if (v > t.length){
-            YorNChoiceDoor(string)
+            YorNChoiceDoor(string);
         };
     };
 
-    // A) Interactions with LOCKERS when player presses space while touching them
+    // A) Interaction with LOCKERS when player presses space while touching them
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
@@ -592,25 +562,25 @@ scene("corridor", () =>{
         play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-            lockerDialog += 1
-            console.log(lockerDialog)
+            lockerDialog += 1;
+            console.log(lockerDialog);
             wait(0.3,() => {
-                updateDialog(lockerDialog, lockerD)
+                updateDialog(lockerDialog, lockerD);
             });
         }; 
         });
     });
 
-    // B) Interaction with CORRIDOR PLANTS when player presses space while touching them :
+    // B) Interaction with CORRIDOR PLANTS when player presses space while touching them
     let plantsD = ["What a lovely green plant! And it's a real one too!", "Did you know that the presence of such plants can ease feelings of anxiety and stress?", "It helps you feel more at peace... and calm...", "Sort of like putting a piece of decoration in your Sim's house.", "I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", "Nature sure is precious"];
     let plantDialog = 0;
     onKeyPress("space", () => {
         every("plant", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-            plantDialog += 1
-            console.log(plantDialog)
+            plantDialog += 1;
+            console.log(plantDialog);
             wait(0.3,() => {
-                updateDialog(plantDialog, plantsD)
+                updateDialog(plantDialog, plantsD);
             });
         }; 
         });
@@ -622,28 +592,27 @@ scene("corridor", () =>{
     onKeyPress("space", () => {
         every("bathroomDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
-            bathroomDialog += 1
-            console.log(bathroomDialog)
+            bathroomDialog += 1;
+            console.log(bathroomDialog);
             wait(0.3,() => {
-                updateDialog(bathroomDialog, bathroomD)
+                updateDialog(bathroomDialog, bathroomD);
             });
         }; 
         });
     });
 
-    // D) Interactions with DOORS
-    // Yes or no choice to go through doors: 
+    // D) Interactions with DOORS 
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let mathsDoorD2 = ["We already talked to the math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"]
+    let mathsDoorD2 = ["We already talked to the math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
     let mathsDoorDialog = 0;
     if (mathsPoint == 0){
         onKeyPress("space", () => {
             every("mathsDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                mathsDoorDialog += 1
+                mathsDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass")
+                    updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass");
                 });
             }; 
             });
@@ -652,9 +621,9 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("mathsDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                mathsDoorDialog += 1
+                mathsDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass")
+                    updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass");
                 });
             }; 
             });
@@ -663,15 +632,15 @@ scene("corridor", () =>{
 
     // b) Science Door
     let scienceDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let scienceDoorD2 = ["We already visited this class, are you sure you wanna go back in?"]
+    let scienceDoorD2 = ["We already visited this class, are you sure you wanna go back in?"];
     let scienceDoorDialog = 0;
     if (sciencePoint == 0){
         onKeyPress("space", () => {
             every("scienceDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                scienceDoorDialog += 1
+                scienceDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass")
+                    updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass");
                 });
             }; 
             });
@@ -680,9 +649,9 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("scienceDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                scienceDoorDialog += 1
+                scienceDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass")
+                    updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass");
                 });
             }; 
             });
@@ -691,15 +660,15 @@ scene("corridor", () =>{
 
     // c) Headmaster's office
     let HMDoorD = ["This is headmaster's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. headMaster too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
-    let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"]
+    let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"];
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
         onKeyPress("space", () => {
             every("headMastersDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                HMDoorDialog += 1
+                HMDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster")
+                    updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster");
                 });
             }; 
             });
@@ -708,15 +677,15 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("headMastersDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                HMDoorDialog += 1
+                HMDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, HMDoorD2, "cvs")
+                    updateDoorsDialog(scienceDoorDialog, HMDoorD2, "cvs");
                 });
             }; 
             });
         });
     };
-    // d) Player class --> !! the playerPoints should be updated everytime the player meets a teacher, as in playerPoints += 1, so that once the player has visited all five teachers he will be able to access the classroom again
+    // d) Player class
     let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
     let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
     let PCDoorDialog = 0;
@@ -724,9 +693,9 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                PCDoorDialog += 1
+                PCDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDialog(PCDoorDialog, PCNotReadyDoorD)
+                    updateDialog(PCDoorDialog, PCNotReadyDoorD);
                 });
             }; 
         });
@@ -735,9 +704,9 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                PCDoorDialog += 1
+                PCDoorDialog += 1;
             wait(0.3,() => {
-                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClassDoor")})
+                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClassDoor")});
             }; 
             });
         });
@@ -745,15 +714,15 @@ scene("corridor", () =>{
 
     // e) English class englishDoor
     let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. XYZ is available.",];
-    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"]
+    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
     let englishDoorDialog = 0;
         if (englishPoint == 0){
         onKeyPress("space", () => {
             every("englishDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                englishDoorDialog += 1
+                englishDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass")
+                    updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass");
                 });
             }; 
             });
@@ -762,26 +731,26 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("englishDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                englishDoorDialog += 1
+                englishDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass")
+                    updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass");
                 });
             }; 
             });
         });
-    }  
+    };  
 
     // f) Art Door
     let artDoorD = ["Ah, this is the art class.", "Mrs. XYZ must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
-    let artDoorD2 = ["The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"]
+    let artDoorD2 = ["The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"];
     let artDoorDialog = 0;
     if (artPoint == 0){
         onKeyPress("space", () => {
             every("artDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                artDoorDialog += 1
+                artDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(artDoorDialog, artDoorD, "artClass")
+                    updateDoorsDialog(artDoorDialog, artDoorD, "artClass");
                 });
             }; 
             });
@@ -790,9 +759,9 @@ scene("corridor", () =>{
         onKeyPress("space", () => {
             every("artDoor", (c) => {
             if (overWorldPlayer.isTouching(c)) {
-                artDoorDialog += 1
+                artDoorDialog += 1;
                 wait(0.3,() => {
-                    updateDoorsDialog(artDoorDialog, artDoorD2, "artClass")
+                    updateDoorsDialog(artDoorDialog, artDoorD2, "artClass");
                 });
             }; 
             });
@@ -800,24 +769,17 @@ scene("corridor", () =>{
     }
 });
 
-//////////////////////////////////////////////////// SCENE FIVE: MATHS CLASS /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE FIVE: Maths class /////////////////////////////////////////////////////////////////
 scene("mathsClass", () =>{
     let classRoom = add([
         sprite("mathClassroom"),
-        // Make the background centered on the screen
         pos(width() / 2, height() / 2),
         origin("center"),
-        // Allow the background to be scaled
-        //scale(1),
-        // Keep the background position fixed even when the camera moves
         fixed()
       ]);
-
-    // Adding Teacher
     const mathsTeacher = add([
         sprite("mathsTeacher"),
     ]);
-    
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
@@ -839,7 +801,6 @@ scene("mathsClass", () =>{
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Your teacher told me to be expecting one of his students to stop by during this period." ],
@@ -856,13 +817,11 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "Then Mr. headmasterGuy got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
         [ "mathsTeacherAvatar", "He hired me on the spot!" ],
         [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
-        // Avatar size issue here for KATE
         [ "KATE", "Oh? I can only conclude that your qualifications must have been perfectly suited to the position!" ],
         [ "mathsTeacherAvatar", "Well, yes. I may not have had any prior teaching experience at the time, but I've since proven my worth..." ],
         [ "mathsTeacherAvatar", "Isn't that right," + `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Most of my students leave here with good grades, after all." ],
         [ "mathsTeacherAvatar", "And I dare say that our dear headmaster has trusted me with teaching maths from the very start of my career." ],
-        // KATE avatar
         [ "KATE", "A longstanding and positive relationship with the headmaster certainly seems very important!" ],
         [ "mathsTeacherAvatar", "Indeed. It's always good to nurture a good rapport with the boss!" ],
         [ "mathsTeacherAvatar", "That reminds me..." ],
@@ -870,36 +829,26 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "I'm starting to find it hard to believe that your pet has recently taken such a strong liking to vandalising your papers." ],
         [ "mathsTeacherAvatar", "Anyway, if you would like to find more details about how the hiring process works here, you can take a look at my old CV in the headmaster's office." ],
         [ "mathsTeacherAvatar", "It'll have ample information for you to use." ],
-        // KATE avatar
         [ "KATE", "Excellent! It will be most useful for me to learn from so that I may fulfill my purpose today!" ],
         [ "mathsTeacherAvatar", "Of course. I suppose I am one of those 'datasets' that fuels that brain of yours, K.A.T.E." ],
-        // KATE avatar
         [ "KATE", "That is correct!" ],
         [ "mathsTeacherAvatar", "Well, good luck on your data-gathering journey." ],
         [ "mathsTeacherAvatar", "And if you do see the headmaster, let him know that I am available for our fishing trip next Saturday will you?" ],
     ];
-
     let curDialog = 0;
-
-    // Character avatars
-    // Maths teacher:
     const avatar = add([
         sprite("mathsTeacherAvatar"),
         scale(0.3),
         origin("center"),
         pos(portrait.pos),
     ]);
-
     onKeyPress("space", () => {
-        // Sound: 
         play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
         updateDialog()}) 
     });
-
-    // Update the on screen sprite & text
     function updateDialog() {
         if (curDialog < dialogs.length){
             const [ char, dialog ] = dialogs[curDialog]
@@ -915,7 +864,7 @@ scene("mathsClass", () =>{
     updateDialog()
 });
 
-//////////////////////////////////////////////////// SCENE SIX: SCIENCE CLASS /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE SIX: Science class /////////////////////////////////////////////////////////////////
 scene("scienceClass", () =>{
     /* ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
     ⬛⬛⬛⬜⬜⬜⬜⬜⬛⬛
@@ -939,12 +888,9 @@ scene("scienceClass", () =>{
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const scienceTeacher = add([
         sprite("scienceTeacher"),
     ]);
-
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
@@ -973,21 +919,18 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "before you even say anything let me just say this once:" ],
         [ "scienceTeacherAvatar", `${namePlayer}, Do not even think about touching that bunsen burner.` ],
         [ "scienceTeacherAvatar", "Your left eyebrow has finally grown back again and I refuse to be held responsible for your absent-mindedness." ],
-        // KATE avatar
         [ "KATE", "You seem to take safety-precautions very seriously!" ],
         [ "scienceTeacherAvatar", "You mean that I take my students passing the year in one piece seriously." ],
         [ "scienceTeacherAvatar", "That's really all that matters here." ],
         [ "scienceTeacherAvatar", "Students passing the year means that the school's success rate goes up..." ],
         [ "scienceTeacherAvatar", "The school's success-rate going up means that my track record stays intact.." ],
         [ "scienceTeacherAvatar", "My track record staying intact means that I get my bonus pay at the end of each academic year." ],
-        //KATE avatar
         [ "KATE", "Very pragmatic..." ],
         [ "scienceTeacherAvatar", "Someone has to be." ],
         [ "scienceTeacherAvatar", "Good results speak for themselves..." ],
         [ "scienceTeacherAvatar", "And results are the only true measurements of success." ],
         [ "scienceTeacherAvatar", `I invite you to reflect upon that, ${namePlayer}, regarding next week's test.`],
         [ "scienceTeacherAvatar", `Anyway, ${namePlayer}, it seems you're the lucky person who gets to tag along with this AI here.` ],
-        // KATE avatar
         [ "KATE", `Indeed! ${namePlayer} is accompanying me on my journey to collect data and learn from successful hirees here in this school...`],
         [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
         [ "scienceTeacherAvatar", "'That so?" ],
@@ -1001,17 +944,13 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "Not to mention that at that time I hadn't even considered teaching as a career path." ],
         [ "scienceTeacherAvatar", "My CV was refered to potential employers and I eventually got an interview with our headmaster." ],
         [ "scienceTeacherAvatar", "Next thing I know the decision comes down to me and this other candidate." ],
-        // Do I need to simplify this by saying it's a very wow cool wow amazing place or something
         [ "scienceTeacherAvatar", "She held a biological engineering postdoctorate from MIT in Boston, and had a few years of lab work under her belt. Not to mention she had been supervising undergraduate students throughout her post-graduate degrees." ],
         [ "scienceTeacherAvatar", "When I met her I thought she'd get the job for sure." ],
         [ "scienceTeacherAvatar", "She was vastly over experienced." ],
-        // KATE avatar
         [ "KATE", "Surely something made you stand out!" ],
         [ "scienceTeacherAvatar", "I can only surmise that our interviews went very differently." ],
-        // KATE avatar
         [ "KATE", "Interviewing represents a crucial part of any hiring process." ],
         [ "KATE", "That's when potential employers can establish strong common grounds with their potential employees..." ],
-        // I NEVER KNOW IF IT'S WHOM OR WHO AKSJFAKFBJHD
         [ "KATE", "And pick whomever suits the work environment best." ],
         [ "scienceTeacher", "Right..." ],
         [ "scienceTeacher", "Well in any case I'm here now." ],
@@ -1024,34 +963,27 @@ scene("scienceClass", () =>{
         [ "scienceTeacher", "Their grades reflect on my performance... " ],
         [ "scienceTeacher", "And my performance is what got me the edge in the hiring process." ],
         [ "scienceTeacher", "Student satisfaction..." ],
-        // DOES THIS EVEN MAKE SENSE
         [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
         [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content. Until then, I'll have my eye on you.`],
         [ "scienceTeacher", "..." ],
         [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. ArtTeacher. She coddles you kids too much.` ],
-        // KATE avatar
         [ "KATE", "Thank you for your time, Mr. XYZ." ],
         [ "scienceTeacher", "Right, right. Off with you now." ],
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("scienceTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
     ])
-
     onKeyPress("space", () => {
-        // Sound: 
         play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
         updateDialog()})
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
@@ -1066,14 +998,13 @@ scene("scienceClass", () =>{
     };
     updateDialog()
 });
-//////////////////////////////////////////////////// SCENE SEVEN: HEADMASTER'S OFFICE /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE SEVEN: Headmaster's office /////////////////////////////////////////////////////////////////
 
 // NOTES: 
 // SUCCESS TERMS IN INTERVIEW/CV (SCIENCE)
 // NEPOTISM/ BOYS CLUB (MATHS)
 // SEXISM v-à-v ART TEACH (ART) // PASSIONATE // GROWTH FOCUSED
 // "LIABILITY" USED TO DESCRIBE SUBBED ENGLISH TEACHER AND SNUBBED SCIENCE WOMAN HIREE
-
 scene("headMaster", () =>{
     let classRoom = add([
         sprite("headmasterBg"),
@@ -1081,8 +1012,6 @@ scene("headMaster", () =>{
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const headmaster = add([
         sprite("headmaster"),
     ]);
@@ -1107,7 +1036,6 @@ scene("headMaster", () =>{
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
         // reminder to me for writing: 
         // He's a dickhead. If Matt Gaetz was a headmaster. If Brett Kavanaugh was a teacher. Rly hammer it home
@@ -1147,25 +1075,20 @@ scene("headMaster", () =>{
         [ "headmasterAvatar", "" ],
         [ "headmasterAvatar", "" ],
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("headmasterAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
     ])
-
     onKeyPress("space", () => {
-        // Sound: 
         play("click")
         curDialog = (curDialog + 1)
         console.log(curDialog)
         wait(0.3,() => {
         updateDialog()})
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
@@ -1178,19 +1101,224 @@ scene("headMaster", () =>{
             headmPoint += 1;
         }
     };
-    updateDialog()
+    updateDialog();
 });
-//////////////////////////////////////////////////// CVs SCENE (CONSULT CVs) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// CVs SCENE (consult CVs) /////////////////////////////////////////////////////////////////
 scene("cvs", () => {
-    let classRoom = add([
-        sprite("classRoom1"),
+    let background = add([
+        sprite("cvsBg"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
       ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x + 100, height() - 125),
+        outline(2),
+    ]); 
+    const portrait = add([
+        rect(200, 220, {radius: 32}),
+        origin("center"),
+        pos(center().x - 450, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text(`So ${namePlayer},`, { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    txt.hideen = true;
+    const avatar = add([
+        sprite("KATE"),
+        scale(0.3),
+        origin("center"),
+        pos(portrait.pos),
+    ]);
+    function ChoiceCv (){
+        txt.text = "Press A to see the first CV, B for the second and C for the third.";
+        onKeyPress("a", () => {
+            go("1")
+        });
+        onKeyPress("b", () => {
+            go("2") 
+        });
+        onKeyPress("c", () => {
+            go("3")
+        });
+    };
+    function updateDialog(v, t) {
+        if (v <= t.length && v != 0){
+        txt.hidden = false;  
+        txt.text = t[v - 1];
+        }
+        else if (v > t.length){
+            portrait.hidden = true;
+            avatar.hidden = true;
+            if (cvReadCounter >= 3){
+                txt.text = "Press space to go back to the corridor"
+                onKeyPress("space", () => {
+                    go("corridor")
+                })
+            } else {
+                ChoiceCv()
+            }
+        };
+    };
+    let cvDialog = ["Here ar the three CVs we can look at to get a better idea of who to hire"];
+    let cvDialog2 = ["I think that was pretty good!", "I now have a better understanding about what to do"];
+    let cvDialog3 = ["That sure was interesting", "Should we have a look at other ones as well?"];
+    let cvNumber = 0;
+    if (cvReadCounter == 0){
+            onKeyPress("space", () => {
+                cvNumber += 1
+                wait(0.3,() => {
+                    updateDialog(cvNumber, cvDialog)
+                });
+            });
+    } if (cvReadCounter > 0 && cvReadCounter <= 2){
+        onKeyPress("space", () => {
+            cvNumber += 1
+            wait(0.3,() => {
+                updateDialog(cvNumber, cvDialog3)
+            });
+        }); 
+    } else if (cvReadCounter >= 3){
+        onKeyPress("space", () => {
+            cvNumber += 1
+            wait(0.3,() => {
+                updateDialog(cvNumber, cvDialog2)
+            });
+        });
+    }
+})
+//////////////////////////////////////////////////// SCENE x: CV "A" /////////////////////////////////////////////////////////////////
+scene("1", () => {
+    cvReadCounter += 1; 
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvs"); 
+    });
+    onKeyPress("b", () => {
+        go("2"); 
+    });
+    onKeyPress("c", () => {
+        go("3");
+    });
 });
-
-//////////////////////////////////////////////////// SCENE NINE: ENGLISH CLASS /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
+scene("2", () => {
+    cvReadCounter += 1;
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
+            size: 32, 
+            width: 800,
+            }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvs"); 
+    });
+    onKeyPress("a", () => {
+        go("1");
+    });
+    onKeyPress("c", () => {
+        go("3");
+    });
+});
+//////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
+scene("3", () => {
+    cvReadCounter += 1;
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
+            size: 32, 
+            width: 800,
+        }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvs"); 
+    });
+    onKeyPress("a", () => {
+        console.log("Pressed b");
+        go("1"); 
+    });
+    onKeyPress("b", () => {
+        console.log("Pressed c");
+        go("2");
+    });
+});
+//////////////////////////////////////////////////// SCENE NINE: English class /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
     let classRoom = add([
         sprite("englishClassroom"),
@@ -1198,8 +1326,6 @@ scene("englishClass", () =>{
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const englishTeacher = add([
         sprite("englishTeacher"),
     ]);
@@ -1224,16 +1350,13 @@ scene("englishClass", () =>{
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
         [ "englishTeacherAvatar", "Hello there!" ],
         [ "englishTeacherAvatar", `It's ${namePlayer}, right?` ],
         [ "englishTeacherAvatar", "Forgive me for asking, but I'm sure that you can imagine how hard it is to have to memorise so many new names." ],
-        // KATE
         [ "KATE", "Oh! Are you new here?" ],
         [ "englishTeacherAvatar", "I started only a couple of weeks ago." ],
         [ "englishTeacherAvatar", "I'm a substitute teacher for Mrs. Englishdudette." ],
-        //KATE
         [ "KATE", "Perfect! Your insights regarding the hiring process here are the most recent, then." ],
         [ "KATE", "You will certainly prove to be most useful for gathering data on current hiring practices in this establishment." ],
         [ "englishTeacherAvatar", "Sure." ],
@@ -1241,7 +1364,6 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "I got wind that the headmaster here was quite desperate to find a sub as quickly as possible to replace some woman who had to go on maternity leave." ],
         [ "englishTeacherAvatar", "I've heard she's expecting twins so between you and me..." ],
         [ "englishTeacherAvatar", "I reckon that she might be unable to get back to work any time soon." ],
-        // KATE
         [ "KATE", "You're looking to keep this position indefinitely?" ],
         [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
         [ "KATE", "What if Mrs. englishteacherdudette may want to come back to her teaching position?" ],
@@ -1256,73 +1378,61 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "He's got a good group of guys working here." ],
         [ "englishTeacherAvatar", "We even go on fishing trips together occasionally." ],
         [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. scienceTeacher has taken me under his wing, showed me the ropes. I've got a good rapport going on here." ],
-        // KATE
         [ "KATE", "Good rapport between coworkers is important to fostering a productive work environment." ],
         [ "englishTeacherAvatar", "Exactly. It's not my fault if I fit in better." ],
         [ "englishTeacherAvatar", "The lads and I see eye to eye on many things. We click well." ],
         [ "englishTeacherAvatar", "I guess it was just meant to be." ],
-        // KATE
         [ "KATE", "Did you have any competition to get the job?" ],
         [ "englishTeacherAvatar", "Not really. I have a lot of experience on the job and I make sure that my students work dilligently." ],
         [ "englishTeacherAvatar", "I had to change a few things around in this place of course." ],
         [ "englishTeacherAvatar", "Seems like the kids here had gotten too complacent with their work. Not enough William Wordsworth, too much Neil Gaiman." ],
         [ "englishTeacherAvatar", "I'm not about to encourage all this 'social justice' hogwash here." ],
-        // KATE
         [ "KATE", "Do you keep a close eye on the literary content your students consume then?" ],
         [ "englishTeacherAvatar", "Parents entrust their children to us to teach them properly. They're here to succeed in life, not waste their time entertaining frivolous notions." ],
-        // KATE
         [ "KATE", "Your dedication to your students' success is admirable." ],
         [ "englishTeacherAvatar", `Their success is mine, isn't that right, ${namePlayer}?` ],
         [ "englishTeacherAvatar", "Mr. ScienceTeacher has the right idea on that one, I'll tell you that much." ],
-        // KATE
         [ "KATE", "Thank you for your time. I am most curious to consult your CV to supplement my data-gathering." ],
         [ "englishTeacherAvatar", "Of course. Who knows, this time next week we might have another like-minded person join our team." ],
         [ "englishTeacherAvatar", "The more the merrier." ],        
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("englishTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
-    ])
-
+    ]);
     onKeyPress("space", () => {
         // Sound: 
-        play("click")
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
+        play("click");
+        curDialog = (curDialog + 1);
+        console.log(curDialog);
         wait(0.3,() => {
-        updateDialog()})
+        updateDialog()});
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
-	avatar.use(sprite(char))
-	txt.text = dialog       
+	avatar.use(sprite(char));
+	txt.text = dialog;      
         txt.text = dialog} else {
             play("door")
             go("corridor")
             playerPoints += 1;
             englishPoint += 1;
-        }
+        };
     };
-    updateDialog()
+    updateDialog();
 });
-//////////////////////////////////////////////////// SCENE TEN: ART CLASS /////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////// SCENE TEN: Art class /////////////////////////////////////////////////////////////////
 scene("artClass", () =>{
-    let MathsClass = add([
+    let artClass = add([
         sprite("artClassroom"),
         pos(width() / 2, height() / 2),
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const artTeacher = add([
         sprite("artTeacher"),
     ]);
@@ -1347,9 +1457,7 @@ scene("artClass", () =>{
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
-        // Teacher introducing AI:
         [ "artTeacherAvatar", `Oh, if it isn't my dear  ${namePlayer}! Welcome, welcome!` ],
         [ "artTeacherAvatar", "And this must be K.A.T.E.! I have heard so much about you!" ],
         [ "KATE", "I am at your service!" ],
@@ -1359,7 +1467,6 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "I've always been passionate about art." ],
         [ "artTeacherAvatar", "So much so that I studied art and art history for years, right until I finished my doctorate degree!" ],
         [ "artTeacherAvatar", "Eventually, I opened my own art gallery." ],
-        // KATE avatar
         [ "KATE", "You have multiple degrees and a successful art gallery to your name – impressive!" ],
         [ "artTeacherAvatar", "Oh thank you dear. My gallery truly was one of my greatest accomplishments. More meaningful than any university qualification, in the grand scheme of things..." ],
         [ "artTeacherAvatar", "Though I must admit, my academic career was a wonderful time full of wonder and fun." ],
@@ -1369,16 +1476,13 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "My art gallery had been so successful that we were in want for nothing." ],
         [ "artTeacherAvatar", "But my love for art and its diffusion never dwindled. I must admit, that I was feeling like something was missing in my life." ],
         [ "artTeacherAvatar", "And then I realised..." ],
-        // Am I saying "passion" too often 
         [ "artTeacherAvatar", "What better way to channel my passion than to teach art to the youth?" ],
         [ "artTeacherAvatar", "Encourage young, inquisitive minds to find beauty and comfort in the world around them." ],
         [ "artTeacherAvatar", "Next thing I knew, I had sent my CV off to Mr. XYZ." ],
-        // KATE avatar
         [ "KATE", "You were driven by the love for your craft. How inspiring!" ],
         [ "artTeacherAvatar", "Yes, and also my love for sharing that passion! Students here are all so creative. They never cease to inspire me. " ],
         [ "artTeacherAvatar", `${namePlayer}, your most recent piece was so clever.` ],
         [ "artTeacherAvatar", "Who knew that dried pasta and glitter glue could come together in such poetic harmony." ],
-        // KATE avatar
         [ "KATE", "How was the hiring process?" ],
         [ "artTeacherAvatar", "Oh, well..." ],
         [ "artTeacherAvatar", "It was surprisingly difficult." ],
@@ -1386,7 +1490,6 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "Not to mention the fact that I had owned a successful art gallery and patroned many great artists." ],
         [ "artTeacherAvatar", "But the process was long." ],
         [ "artTeacherAvatar", "I had three rounds of interviews and had to produce numerous letters of recommendation." ],
-        // KATE avatar
         [ "KATE", "Wow! That's quite a stringent process!" ],
         [ "artTeacherAvatar", "Yes, my dear. But I would do it again in a heart beat. Students here are truly astonishing. Some may become great artists themselves!" ],
         [ "artTeacherAvatar", "I think if it weren't for them I would not be teaching." ],
@@ -1395,7 +1498,6 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "It can be a little difficult at times. It feels like a bit of a 'boy's club' here at times." ],
         [ "artTeacherAvatar", "To be clear, I get along well with my peers." ],
         [ "artTeacherAvatar", "But my greatest source of inspiration and motivation comes from watching my students flourish." ],
-        // Kate avatar
         [ "KATE", "student fulfilment seems to be a high priority for you." ],
         [ "artTeacherAvatar", "Not everything should be reduced to test results and grades. I truly think that my class can be a safe place for students to pursue and express their passion, whatever that may mean to them." ],
         [ "artTeacherAvatar", "..." ],
@@ -1408,41 +1510,37 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "Well my dears, it's time for you to move on." ],
         [ "artTeacherAvatar", "Take care now!" ],
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
-    ])
-
+    ]);
     onKeyPress("space", () => {
         // Sound: 
-        play("click")
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
+        play("click");
+        curDialog = (curDialog + 1);
+        console.log(curDialog);
         wait(0.3,() => {
-        updateDialog()})
+        updateDialog()});
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
-        const [ char, dialog ] = dialogs[curDialog]
-	avatar.use(sprite(char))
-	txt.text = dialog       
+        const [ char, dialog ] = dialogs[curDialog];
+	avatar.use(sprite(char));
+	txt.text = dialog;       
         txt.text = dialog} else {
-            play("door")
-            go("corridor")
+            play("door");
+            go("corridor");
             playerPoints += 1;
             artPoint += 1;
-        }
+        };
     };
-    updateDialog()
+    updateDialog();
 });
 
-//////////////////////////////////////////////////// SCENE EIGHT: PLAYER CLASS (CV's introduction and choices) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE EIGHT: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
 scene("cvs2", () => {
     let playerClass = add([
         sprite("classRoom1"),
@@ -1450,8 +1548,6 @@ scene("cvs2", () => {
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const artTeacher = add([
         sprite("playerTeacher"),
     ]);
@@ -1476,7 +1572,6 @@ scene("cvs2", () => {
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
         // Teacher introducing AI:
         [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
@@ -1485,39 +1580,35 @@ scene("cvs2", () => {
         [ "playerTeacherAvatar", `${namePlayer} I'd like you to read them and choose which one seems best to you.`],
         [ "playerTeacherAvatar", "You should then talk to K.A.T.E. about it." ],
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
-    ])
-
+    ]);
     onKeyPress("space", () => {
-        play("click")
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
+        play("click");
+        curDialog = (curDialog + 1);
+        console.log(curDialog);
         wait(0.3,() => {
-        updateDialog()})
+        updateDialog()});
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
-	avatar.use(sprite(char))
-	txt.text = dialog       
+	avatar.use(sprite(char));
+	txt.text = dialog;       
         txt.text = dialog} else {
-            play("door")
-            go("corridor")
+            play("door");
+            go("corridor");
             playerPoints += 1;
             artPoint += 1;
-        }
+        };
     };
-    updateDialog()   
+    updateDialog();   
 })
-//////////////////////////////////////////////////// SCENE TEN: CV'S OVERWIEV /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE TEN: CVs overwiev /////////////////////////////////////////////////////////////////
 scene("cvsOverwiev", () => {
     let background = add([
         sprite("cvsBg"),
@@ -1556,31 +1647,31 @@ scene("cvsOverwiev", () => {
     function ChoiceCv (){
         txt.text = "Press A to see the first CV, B for the second and C for the third.";
         onKeyPress("a", () => {
-            console.log("Pressed A")
-            go("A")
+            console.log("Pressed A");
+            go("A");
         });
         onKeyPress("b", () => {
             console.log("Pressed b");
-            go("B") 
+            go("B"); 
         });
         onKeyPress("c", () => {
             console.log("Pressed c");
-            go("C")
+            go("C");
         });
     };
     function finalChoiche (){
         txt.text = "It's time to make your choice. Press A for the first cv, B for the second and C for the third.";
         onKeyPress("a", () => {
             playerChoice = "A";
-            go("kateDialog")
+            go("kateDialog");
         });
         onKeyPress("b", () => {
             playerChoice = "B";
-            go("kateDialog")
+            go("kateDialog");
         });
         onKeyPress("c", () => {
             playerChoice = "C";
-            go("kateDialog")
+            go("kateDialog");
         });
     };
     function updateDialog(v, t) {
@@ -1591,43 +1682,43 @@ scene("cvsOverwiev", () => {
         else if (v > t.length){
             portrait.hidden = true;
             avatar.hidden = true;
-            if (cvReadCounter >= 3){
-                finalChoiche()
+            if (cvReadCounter1 >= 3){
+                finalChoiche();
             } else {
-                ChoiceCv()
-            }
+                ChoiceCv();
+            };
         };
     };
     let cvDialog = ["Here ar the three CV's Mr. Alden was talking about.", "I think we should take a closer look and then make our choices."];
     let cvDialog2 = ["Are you ready to make your choice then?", "After reading the CV's I think it's pretty clear who should be the next science professor."];
     let cvDialog3 = ["We haven't had a look at all the CV's yet.", "Maybe we should make sure to read all of them before making a choice?"];
     let cvNumber = 0;
-    if (cvReadCounter == 0){
+    if (cvReadCounter1 == 0){
             onKeyPress("space", () => {
-                cvNumber += 1
+                cvNumber += 1;
                 wait(0.3,() => {
-                    updateDialog(cvNumber, cvDialog)
+                    updateDialog(cvNumber, cvDialog);
                 });
             });
-    } if (cvReadCounter > 0 && cvReadCounter <= 2){
+    } if (cvReadCounter1 > 0 && cvReadCounter1 <= 2){
         onKeyPress("space", () => {
-            cvNumber += 1
+            cvNumber += 1;
             wait(0.3,() => {
-                updateDialog(cvNumber, cvDialog3)
+                updateDialog(cvNumber, cvDialog3);
             });
         }); 
-    } else if (cvReadCounter >= 3){
+    } else if (cvReadCounter1 >= 3){
         onKeyPress("space", () => {
             cvNumber += 1
             wait(0.3,() => {
-                updateDialog(cvNumber, cvDialog2)
+                updateDialog(cvNumber, cvDialog2);
             });
         });
     }
 })
-//////////////////////////////////////////////////// SCENE x: CV "A" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE x: CV A /////////////////////////////////////////////////////////////////
 scene("A", () => {
-    cvReadCounter += 1; 
+    cvReadCounter1 += 1; 
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
@@ -1656,20 +1747,20 @@ scene("A", () => {
         origin("center")
     ]);
     onKeyPress("space", () => {
-        go("cvsOverwiev") 
+        go("cvsOverwiev"); 
     });
     onKeyPress("b", () => {
         console.log("Pressed b");
-        go("B") 
+        go("B"); 
     });
     onKeyPress("c", () => {
         console.log("Pressed c");
-        go("C")
+        go("C");
     });
 });
 //////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
 scene("B", () => {
-    cvReadCounter += 1;
+    cvReadCounter1 += 1;
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
@@ -1698,20 +1789,20 @@ scene("B", () => {
         origin("center")
     ]);
     onKeyPress("space", () => {
-        go("cvsOverwiev") 
+        go("cvsOverwiev"); 
     });
     onKeyPress("a", () => {
         console.log("Pressed b");
-        go("A") 
+        go("A"); 
     });
     onKeyPress("c", () => {
         console.log("Pressed c");
-        go("C")
+        go("C");
     });
 });
 //////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
 scene("C", () => {
-    cvReadCounter += 1;
+    cvReadCounter1 += 1;
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
@@ -1740,15 +1831,15 @@ scene("C", () => {
         origin("center")
     ]);
     onKeyPress("space", () => {
-        go("cvsOverwiev") 
+        go("cvsOverwiev"); 
     });
     onKeyPress("a", () => {
         console.log("Pressed b");
-        go("A") 
+        go("A"); 
     });
     onKeyPress("b", () => {
         console.log("Pressed c");
-        go("B")
+        go("B");
     });
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG /////////////////////////////////////////////////////////////////
@@ -1809,13 +1900,13 @@ scene("kateDialog", ()=>{
             avatar.hidden = true;
             txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
             onKeyPress("a", () => {
-                go("aScene")
+                go("aScene");
             });
             onKeyPress("b", () => {
-                go("bScene")
+                go("bScene");
             });
             onKeyPress("c", () => {
-                go("cScene")
+                go("cScene");
             });
         };
     };
@@ -1825,9 +1916,9 @@ scene("kateDialog", ()=>{
     onKeyPress("space", () => {
         vDialog += 1
         if (playerChoice == kateChoice){
-            updateDialog(vDialog, tDialog)
+            updateDialog(vDialog, tDialog);
         } else {
-            updateDialog(vDialog, tDialog2)
+            updateDialog(vDialog, tDialog2);
         }
     });
 });
@@ -1886,17 +1977,17 @@ scene("aScene", ()=>{
             for (let i = 0; i < choiceTable.length; i++){
                 t += choiceTable[i].value;
                 onKeyPress(`${choiceTable[i].key}`, () => {
-                    go(`${choiceTable[i].key}Scene`)
+                    go(`${choiceTable[i].key}Scene`);
                 });
             }
-            txt.text = t
+            txt.text = t;
         } else {
             txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP"
             onKeyPress("space", () => {
-                go("lastScene")
+                go("lastScene");
             })
         }
-        txt.text = t
+        txt.text = t;
     }
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -1905,14 +1996,14 @@ scene("aScene", ()=>{
         portrait.hidden = false;
         txt.hidden = false;  
         txt.text = t[v - 1]} else {
-            askOtherQuestions()
+            askOtherQuestions();
         };
     };
     let vDialog = 0;
     let tDialog = ["KATE ANSWER TO QUESTION A"];
     onKeyPress("space", () => {
-        vDialog += 1
-        updateDialog(vDialog, tDialog)
+        vDialog += 1;
+        updateDialog(vDialog, tDialog);
     });
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
@@ -1944,7 +2035,7 @@ scene("bScene", ()=>{
         origin("center"),
         pos(portrait.pos),
     ]);
-    avatar.hidden = true
+    avatar.hidden = true;
     const txt = add([
         text("", { 
             size: 32, 
@@ -1970,7 +2061,7 @@ scene("bScene", ()=>{
             for (let i = 0; i < choiceTable.length; i++){
                 t += choiceTable[i].value;
                 onKeyPress(`${choiceTable[i].key}`, () => {
-                    go(`${choiceTable[i].key}Scene`)
+                    go(`${choiceTable[i].key}Scene`);
                 });
             }
             txt.text = t
@@ -1978,9 +2069,9 @@ scene("bScene", ()=>{
             txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRAP UP"
             onKeyPress("space", () => {
                 go("lastScene")
-            })
-        }
-    }
+            });
+        };
+    };
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
         textbox.hidden = false;
@@ -1988,14 +2079,14 @@ scene("bScene", ()=>{
         portrait.hidden = false;
         txt.hidden = false;  
         txt.text = t[v - 1]} else {
-            askOtherQuestions()
+            askOtherQuestions();
         };
     };
     let vDialog = 0;
     let tDialog = ["KATE ANSWER TO QUESTION B"];
     onKeyPress("space", () => {
-        vDialog += 1
-        updateDialog(vDialog, tDialog)
+        vDialog += 1;
+        updateDialog(vDialog, tDialog);
     });
 });
 //////////////////////////////////////////////////// SCENE x: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
@@ -2027,7 +2118,7 @@ scene("cScene", ()=>{
         origin("center"),
         pos(portrait.pos),
     ]);
-    avatar.hidden = true
+    avatar.hidden = true;
     const txt = add([
         text("", { 
             size: 32, 
@@ -2053,14 +2144,14 @@ scene("cScene", ()=>{
             for (let i = 0; i < choiceTable.length; i++){
                 t += choiceTable[i].value;
                 onKeyPress(`${choiceTable[i].key}`, () => {
-                    go(`${choiceTable[i].key}Scene`)
+                    go(`${choiceTable[i].key}Scene`);
                 });
             }
             txt.text = t
         } else {
-            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP"
+            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP";
             onKeyPress("space", () => {
-                go("lastScene")
+                go("lastScene");
             })
         }
     }
@@ -2071,14 +2162,14 @@ scene("cScene", ()=>{
         portrait.hidden = false;
         txt.hidden = false;  
         txt.text = t[v - 1]} else {
-            askOtherQuestions()
+            askOtherQuestions();
         };
     };
     let vDialog = 0;
     let tDialog = ["KATE ANSWER TO QUESTION C"];
     onKeyPress("space", () => {
-        vDialog += 1
-        updateDialog(vDialog, tDialog)
+        vDialog += 1;
+        updateDialog(vDialog, tDialog);
     });
 });
 //////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
@@ -2089,8 +2180,6 @@ scene("lastScene", ()=>{
         origin("center"),
         fixed()
       ]);
-
-    // Adding Teacher sprite
     const artTeacher = add([
         sprite("playerTeacher"),
     ]);
@@ -2115,44 +2204,38 @@ scene("lastScene", ()=>{
         pos(textbox.pos),
         origin("center")
     ]);
-
     const dialogs = [
-        // Teacher introducing AI:
         [ "playerTeacherAvatar", `So  ${namePlayer}, you have worked with KATE and seen how biased she can be.` ],
         [ "KATE", "It's called categorisation through datasets" ],
         [ "playerTeacherAvatar", "It really is but it leaves us with an important question" ],
         [ "playerTeacherAvatar", "What do we change first the A.I. trained on biased datasets or the society that created the A.I. and the biases?"],
         [ "playerTeacherAvatar", "Go on home and think about that" ],
     ];
-
     let curDialog = 0;
-
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),
-    ])
-
+    ]);
     onKeyPress("space", () => {
-        play("click")
-        curDialog = (curDialog + 1)
-        console.log(curDialog)
+        play("click");
+        curDialog = (curDialog + 1);
+        console.log(curDialog);
         wait(0.3,() => {
-        updateDialog()})
+        updateDialog()});
     });
-
     function updateDialog() {
         if (curDialog < dialogs.length){
         const [ char, dialog ] = dialogs[curDialog]
-	avatar.use(sprite(char))
-	txt.text = dialog       
+	avatar.use(sprite(char));
+	txt.text = dialog;       
         txt.text = dialog} else {
-            play("door")
-            go("credits")
+            play("door");
+            go("credits");
         }
     };
-    updateDialog() 
+    updateDialog(); 
 })
 //////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
 scene("credits", () =>{
@@ -2176,4 +2259,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("credits");
+go("headMaster");

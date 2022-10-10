@@ -1,3 +1,6 @@
+// Things to fix/keep in mind
+// 1. Change teachers names in dialogues 
+
 // Creating a kaboom scene
 kaboom({
     background: [0, 0, 0],
@@ -23,22 +26,22 @@ loadSprite("schoolMap","schoolMap.png");
 // 3) K.A.T.E.
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
-// 4) Player's teacher
+// 4) Player's teacher - John Alden
 loadSprite("playerTeacherAvatar", "playerTeacherCu.png");
 loadSprite("playerTeacher", "playerTeacher.png");
-// 5) Maths teacher
+// 5) Maths teacher - Ross Parker
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
-// 6) Arts teacher
+// 6) Arts teacher - Yvonne Lefebvre
 loadSprite("artTeacher", "artTeach.png");
 loadSprite("artTeacherAvatar", "artTeachCu.png");
-// 7) Science teacher
+// 7) Science teacher - Angus Mackenzie
 loadSprite("scienceTeacher", "scienceTeach.png");
 loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
-// 8) English teacher
+// 8) English teacher - James Moore
 loadSprite("englishTeacher", "englishTeach.png");
 loadSprite("englishTeacherAvatar", "englishTeachCu.png");
-// 9) Headmaster
+// 9) Headmaster - Atticus Carlton
 loadSprite("headmaster", "headmaster.png");
 loadSprite("headmasterAvatar", "headmasterCu.png");
 // Sounds
@@ -1061,17 +1064,7 @@ scene("headMaster", () =>{
         // that males are preferred over females (no maternity leave)
         // if not choice she picked she will ask why we picked them over her choice
         // and player will mention school ethics/vibe. 
-        
 
-        // Art teach name Yvonne Lefebvre
-        // english teach name James Moore
-        // science teach Angus Mackenzie
-        // maths teacher Ross Parker
-        // headmaster Atticus Carlton
-        // Player teacher John Alden
-        // Fix names in dialog
-
-        // 
         [ "headmasterAvatar", "" ],
         [ "headmasterAvatar", "" ],
     ];

@@ -810,14 +810,14 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "So you're the lucky student who got paired up with K.A.T.E., huh?" ],
         [ "mathsTeacherAvatar", "I understand that you're here to ask me about how I got hired here." ],
         [ "mathsTeacherAvatar", "It was quite a serendipitous to be honest." ],
-        [ "mathsTeacherAvatar", "You see, I've known Mr XYZ, our headmaster for quite a long time..." ],
+        [ "mathsTeacherAvatar", "You see, I've known Mr Umbridge, our headmaster, for quite a long time..." ],
         [ "mathsTeacherAvatar", "ever since I was a teenager, actually!" ],
         [ "mathsTeacherAvatar", "He used to live next door to my family." ],
         [ "mathsTeacherAvatar", "Dad and he became fast friends. They'd go on fishing trips together. I even tagged along a few times." ],
-        [ "mathsTeacherAvatar", "When I graduated from university Mr. headmasterGuy even wrote me a glowing letter of recommendation... as a personal favour of course." ],
+        [ "mathsTeacherAvatar", "When I graduated from university Mr. Umbridge even wrote me a glowing letter of recommendation... as a personal favour of course." ],
         [ "mathsTeacherAvatar", "Competition was tough back then." ],
         [ "mathsTeacherAvatar", "I spent a few months trying to get a teaching position, but alas, to no avail." ],
-        [ "mathsTeacherAvatar", "Then Mr. headmasterGuy got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
+        [ "mathsTeacherAvatar", "Then Mr. Umbridge got in touch to ask me how my job-searching was going. When I told him that I was having a difficult time..." ],
         [ "mathsTeacherAvatar", "He hired me on the spot!" ],
         [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
         [ "KATE", "Oh? I can only conclude that your qualifications must have been perfectly suited to the position!" ],
@@ -938,7 +938,7 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
         [ "scienceTeacherAvatar", "'That so?" ],
         [ "scienceTeacherAvatar", "Well then I'll keep my story brief." ],
-        [ "scienceTeacherAvatar", "I was hired by Mr. headmasterGuy straight out of university." ],
+        [ "scienceTeacherAvatar", "I was hired by Mr. Umbridge straight out of university." ],
         [ "scienceTeacherAvatar", "I had excellent grades throughout my time in university. They spoke for themselves" ],
         [ "scienceTeacherAvatar", "Practice and repeat, practice and repeat, practice and repeat..." ],
         [ "scienceTeacher", "That was my motto." ],
@@ -1065,7 +1065,14 @@ scene("headMaster", () =>{
         // if not choice she picked she will ask why we picked them over her choice
         // and player will mention school ethics/vibe. 
 
-        [ "headmasterAvatar", "" ],
+        [ "headmasterAvatar", `${namePlayer}! I take it that you're the lucky student who's been chosen to work with K.A.T.E. to test out our new hiring process, eh?` ],
+        [ "headmasterAvatar", "I'd argue that it all seems a little convoluted... after all my hiring track record is near perfect if I do say so myself. Bar the one odd... anomaly." ],
+        [ "headmasterAvatar", `But the school board believes that the school needs to "get with the times" so...` ],
+        [ "headmasterAvatar", "In any case your feedback at the the end of this little experiment will be of great use to us." ],
+        [ "KATE", "Thank you Mr. Umbridge!" ],
+        [ "headmasterAvatar", "Well, don't thank me yet. Let's see what your hiring recommendations are first. And do try to go about this logically won't you? I know that girls tend be emotional about things, but this school's success depends on sound hiring practices." ],
+        [ "KATE", "I can assure you sir that my recomendations will be picked with the utmost rationality. After all, I have spent all my time here observing and learning from your own hiree choices!" ],
+        [ "KATE", "(and I am not a girl, I'm an Artificial Intelligence!)" ],
         [ "headmasterAvatar", "" ],
     ];
     let curDialog = 0;

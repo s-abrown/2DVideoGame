@@ -935,13 +935,13 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", `I invite you to reflect upon that, ${namePlayer}, regarding next week's test.`],
         [ "scienceTeacherAvatar", `Anyway, ${namePlayer}, it seems you're the lucky person who gets to tag along with this AI here.` ],
         [ "KATE", `Indeed! ${namePlayer} is accompanying me on my journey to collect data and learn from successful hirees here in this school...`],
-        [ "scienceTeacherAvatar", "so that I may suggest the best possible candidate for the new science teacher opening." ],
+        [ "KATE", "so that I may suggest the best possible candidate for the new science teacher opening." ],
         [ "scienceTeacherAvatar", "'That so?" ],
         [ "scienceTeacherAvatar", "Well then I'll keep my story brief." ],
         [ "scienceTeacherAvatar", "I was hired by Mr. Umbridge straight out of university." ],
         [ "scienceTeacherAvatar", "I had excellent grades throughout my time in university. They spoke for themselves" ],
         [ "scienceTeacherAvatar", "Practice and repeat, practice and repeat, practice and repeat..." ],
-        [ "scienceTeacher", "That was my motto." ],
+        [ "scienceTeacherAvatar", "That was my motto." ],
         [ "scienceTeacherAvatar", "Sure, I didn't have any teaching experience by the time I finally got my degree." ],
         [ "scienceTeacherAvatar", "But that didn't matter, because I graduated within the top five percent in my year." ],
         [ "scienceTeacherAvatar", "Not to mention that at that time I hadn't even considered teaching as a career path." ],
@@ -949,7 +949,7 @@ scene("scienceClass", () =>{
         [ "scienceTeacherAvatar", "Next thing I know the decision comes down to me and this other candidate." ],
         [ "scienceTeacherAvatar", "She held a biological engineering postdoctorate from MIT in Boston, and had a few years of lab work under her belt. Not to mention she had been supervising undergraduate students throughout her post-graduate degrees." ],
         [ "scienceTeacherAvatar", "When I met her I thought she'd get the job for sure." ],
-        [ "scienceTeacherAvatar", "She was vastly over experienced." ],
+        [ "scienceTeacherAvatar", "She was vastly over-experienced." ],
         [ "KATE", "Surely something made you stand out!" ],
         [ "scienceTeacherAvatar", "I can only surmise that our interviews went very differently." ],
         [ "KATE", "Interviewing represents a crucial part of any hiring process." ],
@@ -957,10 +957,9 @@ scene("scienceClass", () =>{
         [ "KATE", "And pick whomever suits the work environment best." ],
         [ "scienceTeacher", "Right..." ],
         [ "scienceTeacher", "Well in any case I'm here now." ],
-        [ "scienceTeacher", "Probaly because the boss thought she was a liability." ],
-        [ "scienceTeacher", "Those were the headmaster's words not mine." ],
+        [ "scienceTeacher", `Apparently my fellow contender was "a potential future liability," according to Mr. Umbridge.` ],
         [ "scienceTeacher", "He later told me that it turned out that she had just gotten married. He didn't want to deal with a potential maternity leave." ],
-        [ "scienceTeacher", "Anyway... I got the job." ],
+        [ "scienceTeacher", "So... I got the job." ],
         [ "scienceTeacher", "Ever since then I've been proving my worth and our student's results in science have never been better." ],
         [ "KATE", "Student satisfaction and success seems important to you." ],
         [ "scienceTeacher", "Their grades reflect on my performance... " ],
@@ -969,8 +968,8 @@ scene("scienceClass", () =>{
         [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
         [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content. Until then, I'll have my eye on you.`],
         [ "scienceTeacher", "..." ],
-        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. ArtTeacher. She coddles you kids too much.` ],
-        [ "KATE", "Thank you for your time, Mr. XYZ." ],
+        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. Lefebvre. She coddles you kids too much.` ],
+        [ "KATE", "Thank you for your time, Mr. Mackenzie." ],
         [ "scienceTeacher", "Right, right. Off with you now." ],
     ];
     let curDialog = 0;
@@ -1040,8 +1039,6 @@ scene("headMaster", () =>{
         origin("center")
     ]);
     const dialogs = [
-        // reminder to me for writing: 
-        // He's a dickhead. If Matt Gaetz was a headmaster. If Brett Kavanaugh was a teacher. Rly hammer it home
         // Possible way of progressing thru the dialog: 
         // You go thru each teacher 1 by 1? 
         // To sum up each conversation as a refresher
@@ -1077,7 +1074,14 @@ scene("headMaster", () =>{
         [ "headmasterAvatar", "Hm what was that?" ],
         [ "headmasterAvatar", "Well anyway, it must not have been important." ],
         [ "headmasterAvatar", "Is there anything you'd like to know before you make your proposal for candidates, K.A.T.E.?" ],
+        // Maths teacher
         [ "headmasterAvatar", "" ],
+        // English teacher
+        [ "headmasterAvatar", "" ],
+        // Science teacher
+        [ "headmasterAvatar", "" ],
+        // Arts teacher
+        [ "KATE", "" ],
         
     ];
     let curDialog = 0;

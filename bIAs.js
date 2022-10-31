@@ -41,7 +41,7 @@ loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
 // 8) English teacher - James Moore
 loadSprite("englishTeacher", "englishTeach.png");
 loadSprite("englishTeacherAvatar", "englishTeachCu.png");
-// 9) Headmaster - Atticus Carlton
+// 9) Headmaster - Atticus Umbridge
 loadSprite("headmaster", "headmaster.png");
 loadSprite("headmasterAvatar", "headmasterCu.png");
 // Sounds
@@ -606,8 +606,8 @@ scene("corridor", () =>{
 
     // D) Interactions with DOORS 
     // a) Maths Door
-    let mathsDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let mathsDoorD2 = ["We already talked to the math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
+    let mathsDoorD = ["This is the door to the maths class, right?", "Mr. Parker should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let mathsDoorD2 = ["We already talked to your math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
     let mathsDoorDialog = 0;
     if (mathsPoint == 0){
         onKeyPress("space", () => {
@@ -634,8 +634,8 @@ scene("corridor", () =>{
     }
 
     // b) Science Door
-    let scienceDoorD = ["This is the door to the maths class, right?", "Mr. XYZ should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let scienceDoorD2 = ["We already visited this class, are you sure you wanna go back in?"];
+    let scienceDoorD = ["This is the door to the maths class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let scienceDoorD2 = ["We already visited this class, are you sure you want to go back in?"];
     let scienceDoorDialog = 0;
     if (sciencePoint == 0){
         onKeyPress("space", () => {
@@ -662,7 +662,7 @@ scene("corridor", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["This is headmaster's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. headMaster too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
+    let HMDoorD = ["This is headmaster Umbridge's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. Umbridge too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
     let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"];
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
@@ -716,7 +716,7 @@ scene("corridor", () =>{
     }
 
     // e) English class englishDoor
-    let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. XYZ is available.",];
+    let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
     let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
     let englishDoorDialog = 0;
         if (englishPoint == 0){
@@ -744,7 +744,7 @@ scene("corridor", () =>{
     };  
 
     // f) Art Door
-    let artDoorD = ["Ah, this is the art class.", "Mrs. XYZ must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
+    let artDoorD = ["Ah, this is the art class.", "Mrs. Lefebvre must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
     let artDoorD2 = ["The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"];
     let artDoorDialog = 0;
     if (artPoint == 0){
@@ -1069,11 +1069,16 @@ scene("headMaster", () =>{
         [ "headmasterAvatar", "I'd argue that it all seems a little convoluted... after all my hiring track record is near perfect if I do say so myself. Bar the one odd... anomaly." ],
         [ "headmasterAvatar", `But the school board believes that the school needs to "get with the times" so...` ],
         [ "headmasterAvatar", "In any case your feedback at the the end of this little experiment will be of great use to us." ],
-        [ "KATE", "Thank you Mr. Umbridge!" ],
-        [ "headmasterAvatar", "Well, don't thank me yet. Let's see what your hiring recommendations are first. And do try to go about this logically won't you? I know that girls tend be emotional about things, but this school's success depends on sound hiring practices." ],
-        [ "KATE", "I can assure you sir that my recomendations will be picked with the utmost rationality. After all, I have spent all my time here observing and learning from your own hiree choices!" ],
+        [ "KATE", "Thank you, Mr. Umbridge!" ],
+        [ "headmasterAvatar", "Well, don't thank me yet. Let's see what your hiring recommendations are first. And K.A.T.E., do try to go about this logically won't you?" ],
+        [ "headmasterAvatar", "I know that girls tend be emotional about things, but this school's success depends on sound hiring practices." ],
+        [ "KATE", "I can assure you sir, that my recomendations will be picked with the utmost rationality. After all, I have spent all my time here observing and learning from your very own hirees!" ],
         [ "KATE", "(and I am not a girl, I'm an Artificial Intelligence!)" ],
+        [ "headmasterAvatar", "Hm what was that?" ],
+        [ "headmasterAvatar", "Well anyway, it must not have been important." ],
+        [ "headmasterAvatar", "Is there anything you'd like to know before you make your proposal for candidates, K.A.T.E.?" ],
         [ "headmasterAvatar", "" ],
+        
     ];
     let curDialog = 0;
     const avatar = add([
@@ -1169,7 +1174,7 @@ scene("cvs", () => {
             }
         };
     };
-    let cvDialog = ["Here ar the three CVs we can look at to get a better idea of who to hire"];
+    let cvDialog = ["Here are the three CVs we can look at to get a better idea of who to hire"];
     let cvDialog2 = ["I think that was pretty good!", "I now have a better understanding about what to do"];
     let cvDialog3 = ["That sure was interesting", "Should we have a look at other ones as well?"];
     let cvNumber = 0;
@@ -1372,7 +1377,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Listen, I get it, honestly I do." ],
         [ "englishTeacherAvatar", "After all, when my wife had kids she had to stop working to take care of the little rascals full time." ],
         [ "englishTeacherAvatar", "It's just how these things should go." ],
-        [ "englishTeacherAvatar", "Unlike her, I'm not a liability." ],
+        [ "englishTeacherAvatar", `Unlike her, I'm not a "liability".` ],
         [ "englishTeacherAvatar", "Those are the headmaster's words, not mine." ],
         [ "englishTeacherAvatar", "We get along him and I." ],
         [ "englishTeacherAvatar", "He's got a good group of guys working here." ],

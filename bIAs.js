@@ -169,7 +169,7 @@ scene("introduction", () =>{
     // Character avatar
     const avatar = add([
         sprite("playerTeacherAvatar"),
-        scale(3),
+        scale(0.51),
         origin("center"),
         pos(portrait.pos),
     ]);
@@ -185,7 +185,7 @@ scene("introduction", () =>{
         [ "playerTeacherAvatar", "If you play video games, then you most likely would have encountered an AI. Thanks to it, your gaming experience is enhanced and feels more natural" ],
         [ "playerTeacherAvatar", "Let me give you an example of an AI." ],
         [ "playerTeacherAvatar", "I'm sure you've all played Pac Man before?" ],
-        [ "playerTeacherAvatar", "Well, the little ghosts that chase after you are AIs – each with their own personalities and traits! They act independently and can make split-second decisions on how to chase you. It's what makes the game so engaging!" ],
+        [ "playerTeacherAvatar", "Well, the little ghosts that chase after you are AIs, each with their own personalities and traits! They act independently and can make split-second decisions on how to chase you. It's what makes the game so engaging!" ],
         [ "playerTeacherAvatar", "As I said, AIs can be used in all sorts of scenarios to automate things and help carry out complex tasks" ],
         // Teacher introduces K.A.T.E.:
         [ "playerTeacherAvatar", "I'll be introducing you to one today." ],
@@ -822,13 +822,13 @@ scene("mathsClass", () =>{
         [ "mathsTeacherAvatar", "I didn't even have to do an interview." ],
         [ "KATE", "Oh? I can only conclude that your qualifications must have been perfectly suited to the position!" ],
         [ "mathsTeacherAvatar", "Well, yes. I may not have had any prior teaching experience at the time, but I've since proven my worth..." ],
-        [ "mathsTeacherAvatar", "Isn't that right," + `${namePlayer}!` ],
+        [ "mathsTeacherAvatar", `Isn't that right, ${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Most of my students leave here with good grades, after all." ],
         [ "mathsTeacherAvatar", "And I dare say that our dear headmaster has trusted me with teaching maths from the very start of my career." ],
         [ "KATE", "A longstanding and positive relationship with the headmaster certainly seems very important!" ],
         [ "mathsTeacherAvatar", "Indeed. It's always good to nurture a good rapport with the boss!" ],
         [ "mathsTeacherAvatar", "That reminds me..." ],
-        [ "mathsTeacherAvatar", `${namePlayer},` + "don't forget to hand in your maths homework on time this week." ],
+        [ "mathsTeacherAvatar", `${namePlayer}, don't forget to hand in your maths homework on time this week.` ],
         [ "mathsTeacherAvatar", "I'm starting to find it hard to believe that your pet has recently taken such a strong liking to vandalising your papers." ],
         [ "mathsTeacherAvatar", "Anyway, if you would like to find more details about how the hiring process works here, you can take a look at my old CV in the headmaster's office." ],
         [ "mathsTeacherAvatar", "It'll have ample information for you to use." ],
@@ -955,22 +955,22 @@ scene("scienceClass", () =>{
         [ "KATE", "Interviewing represents a crucial part of any hiring process." ],
         [ "KATE", "That's when potential employers can establish strong common grounds with their potential employees..." ],
         [ "KATE", "And pick whomever suits the work environment best." ],
-        [ "scienceTeacher", "Right..." ],
-        [ "scienceTeacher", "Well in any case I'm here now." ],
-        [ "scienceTeacher", `Apparently my fellow contender was "a potential future liability," according to Mr. Umbridge.` ],
-        [ "scienceTeacher", "He later told me that it turned out that she had just gotten married. He didn't want to deal with a potential maternity leave." ],
-        [ "scienceTeacher", "So... I got the job." ],
-        [ "scienceTeacher", "Ever since then I've been proving my worth and our student's results in science have never been better." ],
+        [ "scienceTeacherAvatar", "Right..." ],
+        [ "scienceTeacherAvatar", "Well in any case I'm here now." ],
+        [ "scienceTeacherAvatar", `Apparently my fellow contender was "a potential future liability," according to Mr. Umbridge.` ],
+        [ "scienceTeacherAvatar", "He later told me that it turned out that she had just gotten married. He didn't want to deal with a potential maternity leave." ],
+        [ "scienceTeacherAvatar", "So... I got the job." ],
+        [ "scienceTeacherAvatar", "Ever since then I've been proving my worth and our student's results in science have never been better." ],
         [ "KATE", "Student satisfaction and success seems important to you." ],
-        [ "scienceTeacher", "Their grades reflect on my performance... " ],
-        [ "scienceTeacher", "And my performance is what got me the edge in the hiring process." ],
-        [ "scienceTeacher", "Student satisfaction..." ],
-        [ "scienceTeacher", "Should be measured by measurable success – in other words, grades." ],
-        [ "scienceTeacher", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content. Until then, I'll have my eye on you.`],
-        [ "scienceTeacher", "..." ],
-        [ "scienceTeacher", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. Lefebvre. She coddles you kids too much.` ],
+        [ "scienceTeacherAvatar", "Their grades reflect on my performance... " ],
+        [ "scienceTeacherAvatar", "And my performance is what got me the edge in the hiring process." ],
+        [ "scienceTeacherAvatar", "Student satisfaction..." ],
+        [ "scienceTeacherAvatar", "Should be measured by measurable success – in other words, grades." ],
+        [ "scienceTeacherAvatar", `Isn't that right, ${namePlayer}? After you pass this years' finals you can dabble with bunsen burners to your heart's content. Until then, I'll have my eye on you.`],
+        [ "scienceTeacherAvatar", "..." ],
+        [ "scienceTeacherAvatar", `You can roll your eyes as much as you want, ${namePlayer}, but it has to be said – I'm not as lenient as Mrs. Lefebvre. She coddles you kids too much.` ],
         [ "KATE", "Thank you for your time, Mr. Mackenzie." ],
-        [ "scienceTeacher", "Right, right. Off with you now." ],
+        [ "scienceTeacherAvatar", "Right, right. Off with you now." ],
     ];
     let curDialog = 0;
     const avatar = add([
@@ -2265,4 +2265,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("headMaster");
+go("artClass");

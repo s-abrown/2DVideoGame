@@ -26,25 +26,27 @@ loadSprite("schoolMap","schoolMap.png");
 // 3) K.A.T.E.
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
-// 4) Player's teacher - John Alden
+// 4) Student and K.A.T.E
+loadBean("student", "student_sprite.png")
+// 5) Player's teacher - John Alden
 loadSprite("playerTeacherAvatar", "playerTeacherCu.png");
 loadSprite("playerTeacher", "playerTeacher.png");
-// 5) Maths teacher - Ross Parker
+// 6) Maths teacher - Ross Parker
 loadSprite("mathsTeacherAvatar", "oldTeachCu.png");
 loadSprite("mathsTeacher", "oldTeach.png");
-// 6) Arts teacher - Yvonne Lefebvre
+// 7) Arts teacher - Yvonne Lefebvre
 loadSprite("artTeacher", "artTeach.png");
 loadSprite("artTeacherAvatar", "artTeachCu.png");
-// 7) Science teacher - Angus Mackenzie
+// 8) Science teacher - Angus Mackenzie
 loadSprite("scienceTeacher", "scienceTeach.png");
 loadSprite("scienceTeacherAvatar", "scienceTeachCu.png");
-// 8) English teacher - James Moore
+// 9) English teacher - James Moore
 loadSprite("englishTeacher", "englishTeach.png");
 loadSprite("englishTeacherAvatar", "englishTeachCu.png");
-// 9) Headmaster - Atticus Umbridge
+// 10) Headmaster - Atticus Umbridge
 loadSprite("headmaster", "headmaster.png");
 loadSprite("headmasterAvatar", "headmasterCu.png");
-// Sounds
+// 11) Sounds
 loadSound("corridorAmbient", "corridor.mp3");
 loadSound("spacePress", "spacePress.mp3");
 loadSound("soCold", "soCold.mp3");
@@ -52,7 +54,7 @@ loadSound("door", "door.mp3");
 loadSound("bigshot", "bigshot.mp3");
 loadSound("click", "click.mp3");
 // bean placeholder
-loadBean("bean");
+//loadBean("bean");
 
 ///////////// VARIABLES /////////////
 let placeHolder = "My name: ";
@@ -438,7 +440,7 @@ scene("corridor", () =>{
     // PLAYER AND PLAYER MOVEMENT
     // Adding player into the over world : 
     let overWorldPlayer = add([
-        sprite("bean"),
+        sprite("student"),
         pos(325, 325),
         origin("center"),
         area({
@@ -448,16 +450,7 @@ scene("corridor", () =>{
         scale(0.2),
         solid(),
         color([32, 110, 19])
-        // Animation for the player sprite (walking) will go here :
-        //
-        //
         ]);
-
-    // Adding KATE sprite into the overworld to follow player:
-    //
-    //
-    //
-    //
 
     overWorldPlayer.onUpdate(() => {
     });
@@ -2292,4 +2285,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvsOverwiev");
+go("corridor");

@@ -1365,7 +1365,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Forgive me for asking, but I'm sure that you can imagine how hard it is to have to memorise so many new names." ],
         [ "KATE", "Oh! Are you new here?" ],
         [ "englishTeacherAvatar", "I started only a couple of weeks ago." ],
-        [ "englishTeacherAvatar", "I'm a substitute teacher for Mrs. Englishdudette." ],
+        [ "englishTeacherAvatar", "I'm a substitute teacher for Mrs. Lefebvre." ],
         [ "KATE", "Perfect! Your insights regarding the hiring process here are the most recent, then." ],
         [ "KATE", "You will certainly prove to be most useful for gathering data on current hiring practices in this establishment." ],
         [ "englishTeacherAvatar", "Sure." ],
@@ -1386,7 +1386,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "We get along him and I." ],
         [ "englishTeacherAvatar", "He's got a good group of guys working here." ],
         [ "englishTeacherAvatar", "We even go on fishing trips together occasionally." ],
-        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. scienceTeacher has taken me under his wing, showed me the ropes. I've got a good rapport going on here." ],
+        [ "englishTeacherAvatar", "We see eye to eye. I already feel like I fit right in here. Mr. Mackenzie has taken me under his wing, showed me the ropes. I've got a good rapport going on here." ],
         [ "KATE", "Good rapport between coworkers is important to fostering a productive work environment." ],
         [ "englishTeacherAvatar", "Exactly. It's not my fault if I fit in better." ],
         [ "englishTeacherAvatar", "The lads and I see eye to eye on many things. We click well." ],
@@ -1400,7 +1400,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "Parents entrust their children to us to teach them properly. They're here to succeed in life, not waste their time entertaining frivolous notions." ],
         [ "KATE", "Your dedication to your students' success is admirable." ],
         [ "englishTeacherAvatar", `Their success is mine, isn't that right, ${namePlayer}?` ],
-        [ "englishTeacherAvatar", "Mr. ScienceTeacher has the right idea on that one, I'll tell you that much." ],
+        [ "englishTeacherAvatar", "Mr. Mackenzie has the right idea on that one, I'll tell you that much." ],
         [ "KATE", "Thank you for your time. I am most curious to consult your CV to supplement my data-gathering." ],
         [ "englishTeacherAvatar", "Of course. Who knows, this time next week we might have another like-minded person join our team." ],
         [ "englishTeacherAvatar", "The more the merrier." ],        
@@ -1487,7 +1487,7 @@ scene("artClass", () =>{
         [ "artTeacherAvatar", "And then I realised..." ],
         [ "artTeacherAvatar", "What better way to channel my passion than to teach art to the youth?" ],
         [ "artTeacherAvatar", "Encourage young, inquisitive minds to find beauty and comfort in the world around them." ],
-        [ "artTeacherAvatar", "Next thing I knew, I had sent my CV off to Mr. XYZ." ],
+        [ "artTeacherAvatar", "Next thing I knew, I had sent my CV off to Mr. Umbridge." ],
         [ "KATE", "You were driven by the love for your craft. How inspiring!" ],
         [ "artTeacherAvatar", "Yes, and also my love for sharing that passion! Students here are all so creative. They never cease to inspire me. " ],
         [ "artTeacherAvatar", `${namePlayer}, your most recent piece was so clever.` ],
@@ -1695,7 +1695,7 @@ scene("cvsOverwiev", () => {
             };
         };
     };
-    let cvDialog = ["Here ar the three CV's Mr. Alden was talking about.", "I think we should take a closer look and then make our choices."];
+    let cvDialog = ["Here ar the three CV's Mr. Umbridge was talking about.", "I think we should take a closer look and then make our choices."];
     let cvDialog2 = ["Are you ready to make your choice then?", "After reading the CV's I think it's pretty clear who should be the next science professor."];
     let cvDialog3 = ["We haven't had a look at all the CV's yet.", "Maybe we should make sure to read all of them before making a choice?"];
     let cvNumber = 0;

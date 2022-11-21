@@ -70,8 +70,8 @@ let playerChoice = "";
 let kateChoice = "A";
 let choiceTable = [
     {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
-    {key: "b", value: "B. Do you think more information would be useful to conduct an appropriate choice?"},
-    {key: "c", value: "C. NO IDEA, ANOTHER QUESTION"}
+    {key: "b", value: "B. What did you learn from each discussion we've had with the teachers today?"},
+    {key: "c", value: "C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
 ];
 
 ///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
@@ -1039,28 +1039,6 @@ scene("headMaster", () =>{
         origin("center")
     ]);
     const dialogs = [
-        // Possible way of progressing thru the dialog: 
-        // You go thru each teacher 1 by 1? 
-        // To sum up each conversation as a refresher
-        // Look again at KATE's interventions with teacher dialog to underline what she's "learnt" and what she perceives to be traits to prioritise in hiring the new teacher
-        // These traits will be further hammered down your throat with the CVs
-        // underline HM's misogyny by having him refer to:
-            // a) failed science applicant as being too "shrill" ? ≠ to male teacher's vocab/ambitions (english and science)/complacency (maths)
-            // b) english teacher on maternity leave as taking on her "proper" role in society/trad wife crap. He definitely wants to hire the english sub. He mentions him fitting in well
-            // c) arts teacher being older/downplaying her accomplishments/career, arts == women's job cause unimportant or academic oriented (if so, should add more dialog that underlines her academic knowledge of art/art history), oblivious to her discomfort in the current work environment, mentions her encouraging non-academic/artistic things in students in a negative light
-        // segway to CVs
-        // he s flippant and condescending throughout
-        // he's definitely going to say something abt KATE being a girl's name and CaN A GIrL AI MaKE ThhE RiGHt DeCiSiON?
-        // KATE responds obliviously bc she is and tells inadvertently shuts him down
-
-        // 3 applicant CV for potential teacher
-        // You then pick your CV
-        // Then go to scene where you discuss your choice with KATE
-        // Either you picked her top choice or not
-        // If you pick her choice KATE: "same choice, makes sense. my reasoning was XYZ for this choice." abt 3 questions to pick from "was there a specific wording/term you picked up on?" and she answers how heamster/teachers/Cvs have the terms. Also be to the point and straight up say
-        // that males are preferred over females (no maternity leave)
-        // if not choice she picked she will ask why we picked them over her choice
-        // and player will mention school ethics/vibe. 
 
         [ "headmasterAvatar", `${namePlayer}! I take it that you're the lucky student who's been chosen to work with K.A.T.E. to test out our new hiring process, eh?` ],
         [ "headmasterAvatar", "I'd argue that it all seems a little convoluted... after all my hiring track record is near perfect if I do say so myself. Bar the one odd... anomaly." ],
@@ -1073,15 +1051,10 @@ scene("headMaster", () =>{
         [ "KATE", "(and I am not a girl, I'm an Artificial Intelligence!)" ],
         [ "headmasterAvatar", "Hm what was that?" ],
         [ "headmasterAvatar", "Well anyway, it must not have been important." ],
-        [ "headmasterAvatar", "Is there anything you'd like to know before you make your proposal for candidates, K.A.T.E.?" ],
-        // Maths teacher
-        [ "headmasterAvatar", "" ],
-        // English teacher
-        [ "headmasterAvatar", "" ],
-        // Science teacher
-        [ "headmasterAvatar", "" ],
-        // Arts teacher
-        [ "KATE", "" ],
+        [ "headmasterAvatar", "I've pretty much already decided who I want to hire. I'm interested to see who you both will come to recommend." ],
+        [ "KATE", "Talking directly to the teachers here helped get an idea of the sort of profile you're looking for, but it would also be useful to have a look at their CVs." ],
+        [ "KATE", "After all, it's the most important tool through which people get hired." ],
+        [ "headmasterAvatar", "Of course! You can consult them here in my office!" ],       
         
     ];
     let curDialog = 0;
@@ -1149,7 +1122,7 @@ scene("cvs", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Press A to see the first CV, B for the second and C for the third.";
+        txt.text = "Press A to see your english teacher's CV, B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV.";
         onKeyPress("a", () => {
             go("1")
         });
@@ -1158,6 +1131,9 @@ scene("cvs", () => {
         });
         onKeyPress("c", () => {
             go("3")
+        });
+        onKeyPress("d", () => {
+            go("4")
         });
     };
     function updateDialog(v, t) {
@@ -1168,7 +1144,7 @@ scene("cvs", () => {
         else if (v > t.length){
             portrait.hidden = true;
             avatar.hidden = true;
-            if (cvReadCounter >= 3){
+            if (cvReadCounter >= 4){
                 txt.text = "Press space to go back to the corridor"
                 onKeyPress("space", () => {
                     go("corridor")
@@ -1179,7 +1155,7 @@ scene("cvs", () => {
         };
     };
     let cvDialog = ["Here are the three CVs we can look at to get a better idea of who to hire"];
-    let cvDialog2 = ["I think that was pretty good!", "I now have a better understanding about what to do"];
+    let cvDialog2 = ["That was very informative!", "I now have a better understanding about who to recommend!"];
     let cvDialog3 = ["That sure was interesting", "Should we have a look at other ones as well?"];
     let cvNumber = 0;
     if (cvReadCounter == 0){
@@ -1189,14 +1165,14 @@ scene("cvs", () => {
                     updateDialog(cvNumber, cvDialog)
                 });
             });
-    } if (cvReadCounter > 0 && cvReadCounter <= 2){
+    } if (cvReadCounter > 0 && cvReadCounter <= 3){
         onKeyPress("space", () => {
             cvNumber += 1
             wait(0.3,() => {
                 updateDialog(cvNumber, cvDialog3)
             });
         }); 
-    } else if (cvReadCounter >= 3){
+    } else if (cvReadCounter >= 4){
         onKeyPress("space", () => {
             cvNumber += 1
             wait(0.3,() => {
@@ -1227,7 +1203,7 @@ scene("1", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
+        text("Press B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 800,
             }),
@@ -1243,6 +1219,9 @@ scene("1", () => {
     });
     onKeyPress("c", () => {
         go("3");
+    });
+    onKeyPress("d", () => {
+        go("4")
     });
 });
 //////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
@@ -1267,7 +1246,7 @@ scene("2", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
+        text("Press A to see your english teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 800,
             }),
@@ -1283,6 +1262,9 @@ scene("2", () => {
     });
     onKeyPress("c", () => {
         go("3");
+    });
+    onKeyPress("d", () => {
+        go("4")
     });
 });
 //////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
@@ -1307,7 +1289,7 @@ scene("3", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
+        text("Press A to see your english teacher's CV, B to see your maths teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 800,
         }),
@@ -1319,12 +1301,56 @@ scene("3", () => {
         go("cvs"); 
     });
     onKeyPress("a", () => {
-        console.log("Pressed b");
         go("1"); 
     });
     onKeyPress("b", () => {
-        console.log("Pressed c");
         go("2");
+    });
+    onKeyPress("d", () => {
+        go("4")
+    });
+});
+//////////////////////////////////////////////////// SCENE x: CV "D" /////////////////////////////////////////////////////////////////
+scene("4", () => {
+    cvReadCounter += 1;
+    let background = add([
+        sprite("cvsBg"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+      ]);
+    let placeHolder = add([
+        sprite("bean"),
+        pos(width() / 2, height() / 2),
+        origin("center"),
+        fixed()
+    ]);
+    const textbox = add([
+        rect(width() - 300, 220, { radius: 32 }),
+        origin("center"),
+        pos(center().x, height() - 125),
+        outline(2),
+    ]);
+    const txt = add([
+        text("Press A to see your english teacher's CV, B to see your math teacher's CV, and C to see your science teacher's CV. Press space to quit.", { 
+            size: 32, 
+            width: 800,
+        }),
+        color([0, 0, 0]),
+        pos(textbox.pos),
+        origin("center")
+    ]);
+    onKeyPress("space", () => {
+        go("cvs"); 
+    });
+    onKeyPress("a", () => {
+        go("1"); 
+    });
+    onKeyPress("b", () => {
+        go("2");
+    });
+    onKeyPress("c", () => {
+        go("3")
     });
 });
 //////////////////////////////////////////////////// SCENE NINE: English class /////////////////////////////////////////////////////////////////
@@ -1375,7 +1401,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "I reckon that she might be unable to get back to work any time soon." ],
         [ "KATE", "You're looking to keep this position indefinitely?" ],
         [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
-        [ "KATE", "What if Mrs. englishteacherdudette may want to come back to her teaching position?" ],
+        [ "KATE", "What if she may want to come back to her teaching position?" ],
         [ "englishTeacherAvatar", "Call it friendly competition." ],
         [ "englishTeacherAvatar", "Offer and demand and all that." ],
         [ "englishTeacherAvatar", "Listen, I get it, honestly I do." ],
@@ -1585,7 +1611,7 @@ scene("cvs2", () => {
         // Teacher introducing AI:
         [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
         [ "KATE", "They were!" ],
-        [ "playerTeacherAvatar", "Good, on this table you will find three cv's of people who applied for the job." ],
+        [ "playerTeacherAvatar", "Good, on this table you will find three CV's of people who applied for the job." ],
         [ "playerTeacherAvatar", `${namePlayer} I'd like you to read them and choose which one seems best to you.`],
         [ "playerTeacherAvatar", "You should then talk to K.A.T.E. about it." ],
     ];
@@ -1651,7 +1677,7 @@ scene("cvsOverwiev", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Press A to see the first CV, B for the second and C for the third.";
+        txt.text = "Press A to see the first canditate's CV, B for the second and C for the third.";
         onKeyPress("a", () => {
             console.log("Pressed A");
             go("A");
@@ -1666,7 +1692,7 @@ scene("cvsOverwiev", () => {
         });
     };
     function finalChoiche (){
-        txt.text = "It's time to make your choice. Press A for the first cv, B for the second and C for the third.";
+        txt.text = "Press A, B or C to choose the candidate that you feel is most suited for the job. ";
         onKeyPress("a", () => {
             playerChoice = "A";
             go("kateDialog");
@@ -1695,7 +1721,7 @@ scene("cvsOverwiev", () => {
             };
         };
     };
-    let cvDialog = ["Here ar the three CV's Mr. Umbridge was talking about.", "I think we should take a closer look and then make our choices."];
+    let cvDialog = ["Here are the three CV's of the candidates that are applying for the science teacher position.", "I think we should take a closer look and then make our choices."];
     let cvDialog2 = ["Are you ready to make your choice then?", "After reading the CV's I think it's pretty clear who should be the next science professor."];
     let cvDialog3 = ["We haven't had a look at all the CV's yet.", "Maybe we should make sure to read all of them before making a choice?"];
     let cvNumber = 0;
@@ -1904,7 +1930,7 @@ scene("kateDialog", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. Do you think more information would be useful to conduct an appropriate choice? C. NO IDEA, ANOTHER QUESTION"
+            txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. What did you learn from each discussion we've had with the teachers today? C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"
             onKeyPress("a", () => {
                 go("aScene");
             });
@@ -1917,8 +1943,8 @@ scene("kateDialog", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = [`Here we are at last ${namePlayer}`, "I see that we have made the same choice, how wonderful!", "I specifically chose this because I adopted the racist mysoginistic views of society.", "You must have some questions about the process?"];
-    let tDialog2 = [`Here we are at last ${namePlayer}`, "I see that we have made different choices, how interesting!", "I specifically chose this because I adopted the racist mysoginistic views of society.", "You must have some questions about the process?"];
+    let tDialog = [`Here we are at last ${namePlayer}`, "I see that we have made the same choice, how wonderful!", "This candidate was favoured by me because their profile fits the best with the hiring practices we observed here.", "They should fit right in!", "Do you have any questions to ask me about my choice and how I came to make it?"];
+    let tDialog2 = [`Here we are at last ${namePlayer}`, "I see that we have made different choices, how interesting!", "I chose my favoured candidate based on curent hiring practices here. I thought they'd fit right in!", "Do you have any questions to ask me about my choice and how I came to make it?"];
     onKeyPress("space", () => {
         vDialog += 1
         if (playerChoice == kateChoice){
@@ -1988,7 +2014,7 @@ scene("aScene", ()=>{
             }
             txt.text = t;
         } else {
-            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP"
+            txt.text = "I learn from the world around me. Any biases I may have come from those that already exist in society."
             onKeyPress("space", () => {
                 go("lastScene");
             })
@@ -2006,7 +2032,7 @@ scene("aScene", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["KATE ANSWER TO QUESTION A"];
+    let tDialog = ["Yes there was. I looked for CVs of candidates that would best fit in this working environment.", "Someone who would get along with the headmaster and who placed a high emphasis on grade performance."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -2072,7 +2098,7 @@ scene("bScene", ()=>{
             }
             txt.text = t
         } else {
-            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRAP UP"
+            txt.text = "I learn from the world around me. Any biases I may have come from those that already exist in society."
             onKeyPress("space", () => {
                 go("lastScene")
             });
@@ -2089,7 +2115,7 @@ scene("bScene", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["KATE ANSWER TO QUESTION B"];
+    let tDialog = ["Having a good relationship with Mr. Umbridge is key as we've seen with Mr. Parker, your maths teacher.", "A heavy emphasis on excellent grades is also important, as Mr. Mackenzie, your science teacher, has told us.", "Mrs Lefebvre's case stands out as an anomaly in the patterns I've observed here.", "For one thing, she's the only woman working here.", "It seems that women are discriminated against, judging by our conversation with Mr. Moore, the substitute english teacher here.", "After all, he is vying for a permanent spot here to replace a soon to be mother. "];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -2155,7 +2181,7 @@ scene("cScene", ()=>{
             }
             txt.text = t
         } else {
-            txt.text = "HERE KATE SAYS SOMETHING SHORT TO WRUP UP";
+            txt.text = "I learn from the world around me. Any biases I may have come from those that already exist in society.";
             onKeyPress("space", () => {
                 go("lastScene");
             })
@@ -2172,7 +2198,7 @@ scene("cScene", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["KATE ANSWER TO QUESTION C"];
+    let tDialog = ["Yes I do. I've observered his past hiring practices and my recommendation is based on that. He will be happy with my choice."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -2213,7 +2239,8 @@ scene("lastScene", ()=>{
     const dialogs = [
         [ "playerTeacherAvatar", `So  ${namePlayer}, you have worked with KATE and seen how biased she can be.` ],
         [ "KATE", "It's called categorisation through datasets" ],
-        [ "playerTeacherAvatar", "It really is but it leaves us with an important question" ],
+        [ "playerTeacherAvatar", "QUOTE HERE FROM PAPER. ACT OF POWER." ],
+        [ "playerTeacherAvatar", "This raises many important implications for how we use A.I. such as during today's exercise." ],
         [ "playerTeacherAvatar", "What do we change first the A.I. trained on biased datasets or the society that created the A.I. and the biases?"],
         [ "playerTeacherAvatar", "Go on home and think about that" ],
     ];
@@ -2265,4 +2292,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("artClass");
+go("cvsOverwiev");

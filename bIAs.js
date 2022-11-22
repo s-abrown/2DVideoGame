@@ -1,3 +1,5 @@
+// TO ADD --> WHEN DIALOG WITH DOORS OR WITH INANIMATE OBJS STARTS PLAYER MOVEMENT NOT POSSIBLE
+
 // Creating a kaboom scene
 kaboom({
     background: [0, 0, 0],
@@ -22,7 +24,7 @@ loadSprite("schoolMap","schoolMap.png");
 loadSprite("KATE", "KATEcu2.png");
 loadSprite("overWorldKATE", "KATE1.png");
 // 4) Student and K.A.T.E
-loadBean("student", "student_sprite.png")
+loadSprite("student", "student_sprite.png")
 // 5) Player's teacher - John Alden
 loadSprite("playerTeacherAvatar", "playerTeacherCu.png");
 loadSprite("playerTeacher", "playerTeacher.png");
@@ -435,15 +437,14 @@ scene("corridor", () =>{
     // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
-        pos(325, 325),
+        pos(325, 320),
         origin("center"),
         area({
             width : 80,
             height : 80,
         }),
-        scale(0.2),
+        scale(0.15),
         solid(),
-        color([32, 110, 19])
         ]);
 
     overWorldPlayer.onUpdate(() => {

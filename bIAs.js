@@ -1,6 +1,3 @@
-// Things to fix/keep in mind
-// 1. Change teachers names in dialogues 
-
 // Creating a kaboom scene
 kaboom({
     background: [0, 0, 0],
@@ -9,9 +6,7 @@ kaboom({
 });
 
 ///////////// ASSETS /////////////
-
 loadRoot("assets/");
-
 // Sprites
 // 1) Backgrounds
 loadSprite("classRoom1","classroomBg.png");
@@ -21,7 +16,7 @@ loadSprite("mathClassroom","mathClassroomBg.png");
 loadSprite("artClassroom","artClassroomBg.png");
 loadSprite("scienceClassroom","scienceBg.png");
 loadSprite("englishClassroom","englishBg.png");
-// 2) Corridor
+// 2) School map
 loadSprite("schoolMap","schoolMap.png");
 // 3) K.A.T.E.
 loadSprite("KATE", "KATEcu2.png");
@@ -76,7 +71,7 @@ let choiceTable = [
     {key: "c", value: "C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
 ];
 
-///////////////////////////////////////////////////////////////// SCENE ONE: Start Screen //////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// SCENE 1: Start Screen //////////////////////////////////////////////////////////////////////////////
 scene("accueil", () =>{
     add([
         text(`   
@@ -92,12 +87,11 @@ A game by Sophie and Tessa`, {
         pos (100, 200),
     ]);
 
-    // Ajouter un évennement quand j'appuie sur une touche
     onKeyPress("space", () =>{
         go("nameInput");
     });
 });
-///////////////////////////////////////////////////////////////// SCENE TWO: Name input ////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// SCENE 2: Name input ////////////////////////////////////////////////////
 scene("nameInput", () => {
     add([
         pos(150, 200),
@@ -133,7 +127,7 @@ scene("nameInput", () => {
     });
 });
 
-///////////////////////////////////////////////////////////////// SCENE THREE: Introduction /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// SCENE 3: Introduction /////////////////////////////////////////////////////////////////
 scene("introduction", () =>{
     // Adding the background image of the scene
     let classRoom = add([
@@ -214,7 +208,6 @@ scene("introduction", () =>{
         [ "playerTeacherAvatar", "Two..." ],
         [ "playerTeacherAvatar", "Three..." ],
         [ "playerTeacherAvatar", "..." ],
-        // Make constant to allow the student to put their name in at the start of the game?
         [ "playerTeacherAvatar", `${namePlayer}!` ],
         [ "playerTeacherAvatar", "You will be K.A.T.E.'s companion!" ],
         [ "playerTeacherAvatar", "Take her around to talk to some teachers and gather information about them and understand what it is about them that helped them successfully get a teaching position here." ],
@@ -244,10 +237,11 @@ scene("introduction", () =>{
             go("corridor")
         };
     };
+    // Initialising the dialogue
     updateDialog();
 });
 
-//////////////////////////////////////////////////// SCENE FOUR: corridor /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 4: corridor /////////////////////////////////////////////////////////////////
 scene("corridor", () =>{
     play("corridorAmbient") 
         let map = add([
@@ -438,7 +432,7 @@ scene("corridor", () =>{
     ]);
 
     // PLAYER AND PLAYER MOVEMENT
-    // Adding player into the over world : 
+    // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
         pos(325, 325),
@@ -553,8 +547,6 @@ scene("corridor", () =>{
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
-        //Testing sound
-        // /!\ For some reason spacePress plays if you press space even when not interacting with a locker hmmm
         play("spacePress")
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
@@ -708,7 +700,7 @@ scene("corridor", () =>{
         });
     }
 
-    // e) English class englishDoor
+    // e) English class
     let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
     let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
     let englishDoorDialog = 0;
@@ -765,7 +757,7 @@ scene("corridor", () =>{
     }
 });
 
-//////////////////////////////////////////////////// SCENE FIVE: Maths class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 5: Maths class /////////////////////////////////////////////////////////////////
 scene("mathsClass", () =>{
     let classRoom = add([
         sprite("mathClassroom"),
@@ -860,7 +852,7 @@ scene("mathsClass", () =>{
     updateDialog()
 });
 
-//////////////////////////////////////////////////// SCENE SIX: Science class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 6: Science class /////////////////////////////////////////////////////////////////
 scene("scienceClass", () =>{
     let classRoom = add([
         sprite("scienceClassroom"),
@@ -977,13 +969,7 @@ scene("scienceClass", () =>{
     };
     updateDialog()
 });
-//////////////////////////////////////////////////// SCENE SEVEN: Headmaster's office /////////////////////////////////////////////////////////////////
-
-// NOTES: 
-// SUCCESS TERMS IN INTERVIEW/CV (SCIENCE)
-// NEPOTISM/ BOYS CLUB (MATHS)
-// SEXISM v-à-v ART TEACH (ART) // PASSIONATE // GROWTH FOCUSED
-// "LIABILITY" USED TO DESCRIBE SUBBED ENGLISH TEACHER AND SNUBBED SCIENCE WOMAN HIREE
+//////////////////////////////////////////////////// SCENE 7: Headmaster's office /////////////////////////////////////////////////////////////////
 scene("headMaster", () =>{
     let classRoom = add([
         sprite("headmasterBg"),
@@ -1062,7 +1048,7 @@ scene("headMaster", () =>{
     };
     updateDialog();
 });
-//////////////////////////////////////////////////// CVs SCENE (consult CVs) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1 - CVs SCENE (consult CVs) /////////////////////////////////////////////////////////////////
 scene("cvs", () => {
     let background = add([
         sprite("cvsBg"),
@@ -1158,7 +1144,7 @@ scene("cvs", () => {
         });
     }
 })
-//////////////////////////////////////////////////// SCENE x: CV "A" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.1: CV "A" /////////////////////////////////////////////////////////////////
 scene("1", () => {
     cvReadCounter += 1; 
     let background = add([
@@ -1201,7 +1187,7 @@ scene("1", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.2: CV "B" /////////////////////////////////////////////////////////////////
 scene("2", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1244,7 +1230,7 @@ scene("2", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.3: CV "C" /////////////////////////////////////////////////////////////////
 scene("3", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1287,7 +1273,7 @@ scene("3", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE x: CV "D" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.4: CV "D" /////////////////////////////////////////////////////////////////
 scene("4", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1330,7 +1316,7 @@ scene("4", () => {
         go("3")
     });
 });
-//////////////////////////////////////////////////// SCENE NINE: English class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 8: English class /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
     let classRoom = add([
         sprite("englishClassroom"),
@@ -1437,7 +1423,7 @@ scene("englishClass", () =>{
     };
     updateDialog();
 });
-//////////////////////////////////////////////////// SCENE TEN: Art class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 9: Art class /////////////////////////////////////////////////////////////////
 scene("artClass", () =>{
     let artClass = add([
         sprite("artClassroom"),
@@ -1552,7 +1538,7 @@ scene("artClass", () =>{
     updateDialog();
 });
 
-//////////////////////////////////////////////////// SCENE EIGHT: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 10: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
 scene("cvs2", () => {
     let playerClass = add([
         sprite("classRoom1"),
@@ -1617,7 +1603,7 @@ scene("cvs2", () => {
     };
     updateDialog();   
 })
-//////////////////////////////////////////////////// SCENE TEN: CVs overwiev /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 11: CVs overwiev /////////////////////////////////////////////////////////////////
 scene("cvsOverwiev", () => {
     let background = add([
         sprite("cvsBg"),
@@ -1725,7 +1711,7 @@ scene("cvsOverwiev", () => {
         });
     }
 })
-//////////////////////////////////////////////////// SCENE x: CV A /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 11.1: CV A /////////////////////////////////////////////////////////////////
 scene("A", () => {
     cvReadCounter1 += 1; 
     let background = add([
@@ -1767,7 +1753,7 @@ scene("A", () => {
         go("C");
     });
 });
-//////////////////////////////////////////////////// SCENE x: CV "B" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 11.2: CV "B" /////////////////////////////////////////////////////////////////
 scene("B", () => {
     cvReadCounter1 += 1;
     let background = add([
@@ -1809,7 +1795,7 @@ scene("B", () => {
         go("C");
     });
 });
-//////////////////////////////////////////////////// SCENE x: CV "C" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 11.3: CV "C" /////////////////////////////////////////////////////////////////
 scene("C", () => {
     cvReadCounter1 += 1;
     let background = add([
@@ -1851,7 +1837,7 @@ scene("C", () => {
         go("B");
     });
 });
-//////////////////////////////////////////////////// SCENE x: KATE DIALOG /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 12: KATE DIALOG /////////////////////////////////////////////////////////////////
 scene("kateDialog", ()=>{
     playerChoice = "A";
     const KATE = add([
@@ -1931,7 +1917,7 @@ scene("kateDialog", ()=>{
         }
     });
 });
-//////////////////////////////////////////////////// SCENE x: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 12.1: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
 scene("aScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "a")
     const KATE = add([
@@ -2015,7 +2001,7 @@ scene("aScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE x: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 12.2: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
 scene("bScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "b")
     const KATE = add([
@@ -2098,7 +2084,7 @@ scene("bScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE x: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 12.3: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
 scene("cScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "c")
     const KATE = add([
@@ -2181,7 +2167,7 @@ scene("cScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 13: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
 scene("lastScene", ()=>{
     let playerClass = add([
         sprite("classRoom1"),
@@ -2247,7 +2233,7 @@ scene("lastScene", ()=>{
     };
     updateDialog(); 
 })
-//////////////////////////////////////////////////// SCENE x: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 14: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
 scene("credits", () =>{
     add([
         text(`bIAs was developed as part of the course
@@ -2269,4 +2255,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvs");
+go("corridor");

@@ -7,7 +7,7 @@ kaboom({
     height: 800,
 });
 
-///////////// ASSETS /////////////
+///////////// Assets /////////////
 loadRoot("assets/");
 // Sprites
 // 1) Backgrounds
@@ -63,8 +63,17 @@ loadSprite("englishTeachCV2", "englishTeach2.png");
 loadSprite("scienceTeachCV", "scienceTeachCV.png");
 loadSprite("scienceTeachCV1", "scienceTeachCV1.png");
 loadSprite("scienceTeachCV2", "scienceTeachCV2.png");
+loadSprite("EvansCV", "EvansCV.png");
+loadSprite("EvansCV1", "EvansCV1.png");
+loadSprite("EvansCV2", "EvansCV2.png");
+loadSprite("LaurenCV", "LaurenCV.png");
+loadSprite("LaurenCV1", "LaurenCV1.png");
+loadSprite("LaurenCV2", "LaurenCV2.png");
+loadSprite("JohCV", "JohCV.png");
+loadSprite("JohCV1", "JohCV1.png");
+loadSprite("JohCV2", "JohCV2.png");
 
-///////////// VARIABLES /////////////
+///////////// Variables /////////////
 let placeHolder = "My name: ";
 let namePlayer = "";
 const pad = 24;
@@ -84,7 +93,7 @@ let choiceTable = [
     {key: "c", value: "C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
 ];
 
-///////////////////////////////////////////////////////////////// SCENE 1: Start Screen //////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// Scene 1: Start Screen //////////////////////////////////////////////////////////////////////////////
 scene("accueil", () =>{
     add([
         text(`   
@@ -104,7 +113,7 @@ A game by Sophie and Tessa`, {
         go("nameInput");
     });
 });
-///////////////////////////////////////////////////////////////// SCENE 2: Name input ////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// Scene 2: Name input ////////////////////////////////////////////////////
 scene("nameInput", () => {
     add([
         pos(150, 200),
@@ -140,7 +149,7 @@ scene("nameInput", () => {
     });
 });
 
-///////////////////////////////////////////////////////////////// SCENE 3: Introduction /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// Scene 3: Introduction /////////////////////////////////////////////////////////////////
 scene("introduction", () =>{
     // Adding the background image of the scene
     let classRoom = add([
@@ -254,7 +263,7 @@ scene("introduction", () =>{
     updateDialog();
 });
 
-//////////////////////////////////////////////////// SCENE 4: corridor /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 4: corridor /////////////////////////////////////////////////////////////////
 scene("corridor", () =>{
     play("corridorAmbient") 
         let map = add([
@@ -263,7 +272,7 @@ scene("corridor", () =>{
         origin("center"),
         fixed()
     ]);
-    // I. PERIMETERS
+    // I. Perimeters
     // Setting up wall, lockers and mics positions
     // 1) Walls (red)
         let corridorWallDown = add([
@@ -444,7 +453,7 @@ scene("corridor", () =>{
         "plant",
     ]);
 
-    // PLAYER AND PLAYER MOVEMENT
+    // Player and player movement
     // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
@@ -475,7 +484,7 @@ scene("corridor", () =>{
             overWorldPlayer.move(0, +playerSpeed)
     });
 
-    // III. CORRIDOR INTERACTIONS
+    // III. Corridor interactions
         const textbox = add([
             rect(width() - 300, 120, { radius: 32 }),
             origin("center"),
@@ -769,7 +778,7 @@ scene("corridor", () =>{
     }
 });
 
-//////////////////////////////////////////////////// SCENE 5: Maths class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 5: Maths class /////////////////////////////////////////////////////////////////
 scene("mathsClass", () =>{
     let classRoom = add([
         sprite("mathClassroom"),
@@ -864,7 +873,7 @@ scene("mathsClass", () =>{
     updateDialog()
 });
 
-//////////////////////////////////////////////////// SCENE 6: Science class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 6: Science class /////////////////////////////////////////////////////////////////
 scene("scienceClass", () =>{
     let classRoom = add([
         sprite("scienceClassroom"),
@@ -981,7 +990,7 @@ scene("scienceClass", () =>{
     };
     updateDialog()
 });
-//////////////////////////////////////////////////// SCENE 7: Headmaster's office /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7: Headmaster's office /////////////////////////////////////////////////////////////////
 scene("headMaster", () =>{
     let classRoom = add([
         sprite("headmasterBg"),
@@ -1060,7 +1069,7 @@ scene("headMaster", () =>{
     };
     updateDialog();
 });
-//////////////////////////////////////////////////// SCENE 7.1 - CVs SCENE (consult CVs) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7.1 - Consult CV's of  current teachers /////////////////////////////////////////////////////////////////
 scene("cvs", () => {
     let background = add([
         sprite("cvsBg"),
@@ -1184,7 +1193,7 @@ scene("cvs", () => {
         });
     }
 })
-//////////////////////////////////////////////////// SCENE 7.1.1: A - English teacher CV /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7.1.1: A - English teacher CV /////////////////////////////////////////////////////////////////
 scene("1", () => {
     cvReadCounter += 1; 
     let background = add([
@@ -1237,7 +1246,7 @@ scene("1", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.2: CV B - Math Teacher CV /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7.1.2: CV B - Math Teacher CV /////////////////////////////////////////////////////////////////
 scene("2", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1290,7 +1299,7 @@ scene("2", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.3: CV C - Science Teach CV /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7.1.3: CV C - Science Teach CV /////////////////////////////////////////////////////////////////
 scene("3", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1343,7 +1352,7 @@ scene("3", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.4: CV D - Art Teacher CV /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 7.1.4: CV D - Art Teacher CV /////////////////////////////////////////////////////////////////
 scene("4", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1396,7 +1405,7 @@ scene("4", () => {
         go("3")
     });
 });
-//////////////////////////////////////////////////// SCENE 8: English class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 8: English class /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
     let classRoom = add([
         sprite("englishClassroom"),
@@ -1503,7 +1512,7 @@ scene("englishClass", () =>{
     };
     updateDialog();
 });
-//////////////////////////////////////////////////// SCENE 9: Art class /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 9: Art class /////////////////////////////////////////////////////////////////
 scene("artClass", () =>{
     let artClass = add([
         sprite("artClassroom"),
@@ -1618,7 +1627,7 @@ scene("artClass", () =>{
     updateDialog();
 });
 
-//////////////////////////////////////////////////// SCENE 10: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 10: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
 scene("cvs2", () => {
     let playerClass = add([
         sprite("classRoom1"),
@@ -1683,7 +1692,7 @@ scene("cvs2", () => {
     };
     updateDialog();   
 })
-//////////////////////////////////////////////////// SCENE 11: CVs overwiev /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 11: Overwiev of candidate's CVs /////////////////////////////////////////////////////////////////
 scene("cvsOverwiev", () => {
     let background = add([
         sprite("cvsBg"),
@@ -1691,6 +1700,27 @@ scene("cvsOverwiev", () => {
         origin("center"),
         fixed()
       ]);
+    let EvansCV = add([
+        sprite("EvansCV"),
+        pos(320, height()/2),
+        scale(0.17),
+        origin("center"),
+        fixed()
+    ]);
+    let LaurenCV = add([
+        sprite("LaurenCV"),
+        pos(550, height()/2),
+        scale(0.18),
+        origin("center"),
+        fixed()
+    ]);
+    let JohCV = add([
+        sprite("JohCV"),
+        pos(800, height()/2),
+        scale(0.15),
+        origin("center"),
+        fixed()
+    ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
@@ -1791,7 +1821,7 @@ scene("cvsOverwiev", () => {
         });
     }
 })
-//////////////////////////////////////////////////// SCENE 11.1: CV A /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 11.1: A - Evans' CV (K.A.T.E.'s choice) /////////////////////////////////////////////////////////////////
 scene("A", () => {
     cvReadCounter1 += 1; 
     let background = add([
@@ -1800,16 +1830,26 @@ scene("A", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+      let CV1 = add([
+        sprite("EvansCV1"),
+        pos(350, height()/2 - 50),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("EvansCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
@@ -1833,7 +1873,7 @@ scene("A", () => {
         go("C");
     });
 });
-//////////////////////////////////////////////////// SCENE 11.2: CV "B" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 11.2: B - Lauren's CV /////////////////////////////////////////////////////////////////
 scene("B", () => {
     cvReadCounter1 += 1;
     let background = add([
@@ -1842,16 +1882,26 @@ scene("B", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+      let CV1 = add([
+        sprite("LaurenCV1"),
+        pos(350, height()/2 - 50),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("LaurenCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
@@ -1875,7 +1925,7 @@ scene("B", () => {
         go("C");
     });
 });
-//////////////////////////////////////////////////// SCENE 11.3: CV "C" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 11.3: C - Johansson's CV /////////////////////////////////////////////////////////////////
 scene("C", () => {
     cvReadCounter1 += 1;
     let background = add([
@@ -1884,16 +1934,26 @@ scene("C", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+      let CV1 = add([
+        sprite("JohCV1"),
+        pos(350, height()/2 - 50),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("JohCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
@@ -1917,9 +1977,9 @@ scene("C", () => {
         go("B");
     });
 });
-//////////////////////////////////////////////////// SCENE 12: KATE DIALOG /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 12: Final dialogue with K.A.T.E /////////////////////////////////////////////////////////////////
 scene("kateDialog", ()=>{
-    playerChoice = "A";
+    // playerChoice = "A";
     const KATE = add([
         sprite("overWorldKATE"),
         scale(0.3),
@@ -1997,7 +2057,7 @@ scene("kateDialog", ()=>{
         }
     });
 });
-//////////////////////////////////////////////////// SCENE 12.1: KATE DIALOG A CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 12.1: Answer to question A /////////////////////////////////////////////////////////////////
 scene("aScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "a")
     const KATE = add([
@@ -2081,7 +2141,7 @@ scene("aScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE 12.2: KATE DIALOG B CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 12.2: Answer to question B /////////////////////////////////////////////////////////////////
 scene("bScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "b")
     const KATE = add([
@@ -2164,7 +2224,7 @@ scene("bScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE 12.3: KATE DIALOG C CHOICE/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 12.3: Answer to question C /////////////////////////////////////////////////////////////////
 scene("cScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "c")
     const KATE = add([
@@ -2247,7 +2307,7 @@ scene("cScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
-//////////////////////////////////////////////////// SCENE 13: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 13: Last scene, the player listens to the wise words of his teacher /////////////////////////////////////////////////////////////////
 scene("lastScene", ()=>{
     let playerClass = add([
         sprite("classRoom1"),
@@ -2313,7 +2373,7 @@ scene("lastScene", ()=>{
     };
     updateDialog(); 
 })
-//////////////////////////////////////////////////// SCENE 14: LAST SCENE, THE PLAYER LISTENS TO THE WISE WORDS OF HIS TEACHER/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// Scene 14: Credits /////////////////////////////////////////////////////////////////
 scene("credits", () =>{
     add([
         text(`bIAs was developed as part of the course
@@ -2329,10 +2389,10 @@ Press space to play again`, {
         pos (100, 250),
     ]);
 
-    // Ajouter un évennement quand j'appuie sur une touche
+    // If key space is pressed the game starts over
     onKeyPress("space", () =>{
         go("nameInput");
     });
 });
 // Initialize game 
-go("2");
+go("cvsOverwiev");

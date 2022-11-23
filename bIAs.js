@@ -50,8 +50,19 @@ loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
 loadSound("bigshot", "bigshot.mp3");
 loadSound("click", "click.mp3");
-// bean placeholder
-//loadBean("bean");
+// 12) CV's
+loadSprite("mathTeachCV", "mathTeachCV.png");
+loadSprite("mathTeachCV1", "mathTeachCV1.png");
+loadSprite("mathTeachCV2", "mathTeachCV2.png");
+loadSprite("ArtteachCV", "ArtteachCV.png");
+loadSprite("artTeachCV1", "artTeachCV1.png");
+loadSprite("artTeachCV2", "artTeachCV2.png");
+loadSprite("englishTeachCV", "englishTeachCV.png");
+loadSprite("englishTeachCV1", "englishTeach1.png");
+loadSprite("englishTeachCV2", "englishTeach2.png");
+loadSprite("scienceTeachCV", "scienceTeachCV.png");
+loadSprite("scienceTeachCV1", "scienceTeachCV1.png");
+loadSprite("scienceTeachCV2", "scienceTeachCV2.png");
 
 ///////////// VARIABLES /////////////
 let placeHolder = "My name: ";
@@ -1057,6 +1068,34 @@ scene("cvs", () => {
         origin("center"),
         fixed()
       ]);
+    let artCV = add([
+        sprite("ArtteachCV"),
+        pos(300, height()/2),
+        scale(0.15),
+        origin("center"),
+        fixed()
+    ]);
+    let mathCV = add([
+        sprite("mathTeachCV"),
+        pos(430, height()/2),
+        scale(0.17),
+        origin("center"),
+        fixed()
+    ]);
+    let scienceCV = add([
+        sprite("scienceTeachCV"),
+        pos(670, height()/2),
+        scale(0.18),
+        origin("center"),
+        fixed()
+    ]);
+    let englishCV = add([
+        sprite("englishTeachCV"),
+        pos(850, height()/2),
+        scale(0.19),
+        origin("center"),
+        fixed()
+    ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
         origin("center"),
@@ -1118,7 +1157,7 @@ scene("cvs", () => {
             }
         };
     };
-    let cvDialog = ["Here are the three CVs we can look at to get a better idea of who to hire"];
+    let cvDialog = ["Here are the four CVs we can look at to get a better idea of who to hire"];
     let cvDialog2 = ["That was very informative!", "I now have a better understanding about who to recommend!"];
     let cvDialog3 = ["That sure was interesting", "Should we have a look at other ones as well?"];
     let cvNumber = 0;
@@ -1145,7 +1184,7 @@ scene("cvs", () => {
         });
     }
 })
-//////////////////////////////////////////////////// SCENE 7.1.1: CV "A" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.1: A - English teacher CV /////////////////////////////////////////////////////////////////
 scene("1", () => {
     cvReadCounter += 1; 
     let background = add([
@@ -1154,22 +1193,32 @@ scene("1", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+    let CV1 = add([
+        sprite("englishTeachCV1"),
+        pos(350, height()/2 - 50),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("englishTeachCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
         text("Press B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
-            width: 800,
+            width: 1000,
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1188,7 +1237,7 @@ scene("1", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.2: CV "B" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.2: CV B - Math Teacher CV /////////////////////////////////////////////////////////////////
 scene("2", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1197,22 +1246,32 @@ scene("2", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+      let CV1 = add([
+        sprite("mathTeachCV1"),
+        pos(400, height()/2),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("mathTeachCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
         text("Press A to see your english teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
-            width: 800,
+            width: 1000,
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1231,7 +1290,7 @@ scene("2", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.3: CV "C" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.3: CV C - Science Teach CV /////////////////////////////////////////////////////////////////
 scene("3", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1240,22 +1299,32 @@ scene("3", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+      let CV1 = add([
+        sprite("scienceTeachCV1"),
+        pos(400, height()/2),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("scienceTeachCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
         text("Press A to see your english teacher's CV, B to see your maths teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
-            width: 800,
+            width: 1000,
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1274,7 +1343,7 @@ scene("3", () => {
         go("4")
     });
 });
-//////////////////////////////////////////////////// SCENE 7.1.4: CV "D" /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// SCENE 7.1.4: CV D - Art Teacher CV /////////////////////////////////////////////////////////////////
 scene("4", () => {
     cvReadCounter += 1;
     let background = add([
@@ -1283,22 +1352,32 @@ scene("4", () => {
         origin("center"),
         fixed()
       ]);
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
+    let CV1 = add([
+        sprite("artTeachCV1"),
+        pos(350, height()/2 - 50),
+        rotate(-30),
+        scale(0.25),
+        origin("center"),
+        color([242, 242, 242]),
+        fixed()
+    ]);
+    let CV2 = add([
+        sprite("artTeachCV2"),
+        pos(700, height()/2 - 50),
+        scale(0.25),
         origin("center"),
         fixed()
     ]);
     const textbox = add([
-        rect(width() - 300, 220, { radius: 32 }),
+        rect(width() - 100, 160, { radius: 32 }),
         origin("center"),
-        pos(center().x, height() - 125),
+        pos(center().x, height() - 100),
         outline(2),
     ]);
     const txt = add([
         text("Press A to see your english teacher's CV, B to see your math teacher's CV, and C to see your science teacher's CV. Press space to quit.", { 
             size: 32, 
-            width: 800,
+            width: 1000,
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2256,4 +2335,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("corridor");
+go("2");

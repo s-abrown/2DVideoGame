@@ -1,3 +1,5 @@
+![](assets/KATE1.png)
+
 # b.I.A.s
 
 ## Project description

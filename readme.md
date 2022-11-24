@@ -28,4 +28,4 @@ Art background pictures --> britannica
 - This project was a collaborative effort produced in-person and using Visual Studio Code's Live Share extension. Commit rates are therefore not representative of the overall work distribution as they were made by whomever hosted the Live Share during collaboration sessions. 
 
 ## Development context
-This project was developed as part of the course "Jeu vidéo 2D" (Spring 2022) taught by Isaac Pante (SLI, Lettres, UNIL)
+This project was developed as part of the course "Jeu vidéo 2D" (Spring 2022) taught by Prof. Isaac Pante (SLI, Lettres, UNIL)

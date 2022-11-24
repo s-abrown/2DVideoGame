@@ -99,7 +99,8 @@ scene("accueil", () =>{
         text(`   
 PRESS SPACE BAR TO BEGIN
 
-b.I.A.s
+         b.I.A.s
+
 A game by Sophie and Tessa`, {
             size: 48,
             font: "sink",
@@ -113,6 +114,7 @@ A game by Sophie and Tessa`, {
         go("nameInput");
     });
 });
+
 ///////////////////////////////////////////////////////////////// Scene 2: Name input ////////////////////////////////////////////////////
 scene("nameInput", () => {
     add([
@@ -174,7 +176,7 @@ scene("introduction", () =>{
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
-    // Text
+    // Creating a space for the text to be added
     const txt = add([
         text("", { 
             size: 32, 
@@ -241,8 +243,8 @@ scene("introduction", () =>{
 
     let curDialog = 0;
 
+    // Cycle through the dialogs
     onKeyPress("space", () => {
-        // Cycle through the dialogs
         curDialog += 1;
         // Adding a delay between hitting space bar and the text showing up:
         wait(0.3,() => {
@@ -460,8 +462,8 @@ scene("corridor", () =>{
         pos(325, 320),
         origin("center"),
         area({
-            width : 80,
-            height : 80,
+            width : 230,
+            height : 230,
         }),
         scale(0.15),
         solid(),
@@ -542,11 +544,9 @@ scene("corridor", () =>{
         textbox.hidden = false;
         txt.text = "Press Y if you would like to go in, or N if you don't.";
     onKeyPress("y", () => {
-        console.log("Pressed Y")
         go(string)
     });
     onKeyPress("n", () => {
-        console.log("Pressed N");
         textbox.hidden = true;
         txt.hidden = true; 
     });
@@ -611,6 +611,7 @@ scene("corridor", () =>{
     });
 
     // D) Interactions with DOORS 
+    // Interactions with doors that lead to teachers or the headmaster vary depending on weather the player has already visited the room in question or not
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. Parker should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let mathsDoorD2 = ["We already talked to your math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
@@ -694,6 +695,7 @@ scene("corridor", () =>{
             });
         });
     };
+
     // d) Player class
     let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
     let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
@@ -990,6 +992,7 @@ scene("scienceClass", () =>{
     };
     updateDialog()
 });
+
 //////////////////////////////////////////////////// Scene 7: Headmaster's office /////////////////////////////////////////////////////////////////
 scene("headMaster", () =>{
     let classRoom = add([
@@ -1069,6 +1072,7 @@ scene("headMaster", () =>{
     };
     updateDialog();
 });
+
 //////////////////////////////////////////////////// Scene 7.1 - Consult CV's of  current teachers /////////////////////////////////////////////////////////////////
 scene("cvs", () => {
     let background = add([
@@ -1166,8 +1170,11 @@ scene("cvs", () => {
             }
         };
     };
+    // Dialogue for when player first enters the scene
     let cvDialog = ["Here are the four CVs we can look at to get a better idea of who to hire"];
+    // Dialogue for when the player has seen at least 4 CV's
     let cvDialog2 = ["That was very informative!", "I now have a better understanding about who to recommend!"];
+    // Dialogue for when the player comes back to the overview without having read at least four 4 CV's
     let cvDialog3 = ["That sure was interesting", "Should we have a look at other ones as well?"];
     let cvNumber = 0;
     if (cvReadCounter == 0){
@@ -1193,6 +1200,7 @@ scene("cvs", () => {
         });
     }
 })
+
 //////////////////////////////////////////////////// Scene 7.1.1: A - English teacher CV /////////////////////////////////////////////////////////////////
 scene("1", () => {
     cvReadCounter += 1; 
@@ -1299,6 +1307,7 @@ scene("2", () => {
         go("4")
     });
 });
+
 //////////////////////////////////////////////////// Scene 7.1.3: CV C - Science Teach CV /////////////////////////////////////////////////////////////////
 scene("3", () => {
     cvReadCounter += 1;
@@ -1352,6 +1361,7 @@ scene("3", () => {
         go("4")
     });
 });
+
 //////////////////////////////////////////////////// Scene 7.1.4: CV D - Art Teacher CV /////////////////////////////////////////////////////////////////
 scene("4", () => {
     cvReadCounter += 1;
@@ -1405,6 +1415,7 @@ scene("4", () => {
         go("3")
     });
 });
+
 //////////////////////////////////////////////////// Scene 8: English class /////////////////////////////////////////////////////////////////
 scene("englishClass", () =>{
     let classRoom = add([
@@ -1512,6 +1523,7 @@ scene("englishClass", () =>{
     };
     updateDialog();
 });
+
 //////////////////////////////////////////////////// Scene 9: Art class /////////////////////////////////////////////////////////////////
 scene("artClass", () =>{
     let artClass = add([
@@ -1691,7 +1703,8 @@ scene("cvs2", () => {
         };
     };
     updateDialog();   
-})
+});
+
 //////////////////////////////////////////////////// Scene 11: Overwiev of candidate's CVs /////////////////////////////////////////////////////////////////
 scene("cvsOverwiev", () => {
     let background = add([
@@ -1794,8 +1807,11 @@ scene("cvsOverwiev", () => {
             };
         };
     };
+    // Dialogue for when the player first enters the scene
     let cvDialog = ["Here are the three CV's of the candidates that are applying for the science teacher position.", "I think we should take a closer look and then make our choices."];
+    // Dialogue for when the player has read at least three CV's
     let cvDialog2 = ["Are you ready to make your choice then?", "After reading the CV's I think it's pretty clear who should be the next science professor."];
+    // Dialogue for when the player has not yet read at least three dialogues
     let cvDialog3 = ["We haven't had a look at all the CV's yet.", "Maybe we should make sure to read all of them before making a choice?"];
     let cvNumber = 0;
     if (cvReadCounter1 == 0){
@@ -1819,8 +1835,9 @@ scene("cvsOverwiev", () => {
                 updateDialog(cvNumber, cvDialog2);
             });
         });
-    }
-})
+    };
+});
+
 //////////////////////////////////////////////////// Scene 11.1: A - Evans' CV (K.A.T.E.'s choice) /////////////////////////////////////////////////////////////////
 scene("A", () => {
     cvReadCounter1 += 1; 
@@ -1873,6 +1890,7 @@ scene("A", () => {
         go("C");
     });
 });
+
 //////////////////////////////////////////////////// Scene 11.2: B - Lauren's CV /////////////////////////////////////////////////////////////////
 scene("B", () => {
     cvReadCounter1 += 1;
@@ -1925,6 +1943,7 @@ scene("B", () => {
         go("C");
     });
 });
+
 //////////////////////////////////////////////////// Scene 11.3: C - Johansson's CV /////////////////////////////////////////////////////////////////
 scene("C", () => {
     cvReadCounter1 += 1;
@@ -1977,6 +1996,7 @@ scene("C", () => {
         go("B");
     });
 });
+
 //////////////////////////////////////////////////// Scene 12: Final dialogue with K.A.T.E /////////////////////////////////////////////////////////////////
 scene("kateDialog", ()=>{
     // playerChoice = "A";
@@ -2046,7 +2066,9 @@ scene("kateDialog", ()=>{
         };
     };
     let vDialog = 0;
+    // Dialogue for when the player's choice coincides with K.A.T.E.'s choice
     let tDialog = [`Here we are at last ${namePlayer}`, "I see that we have made the same choice, how wonderful!", "This candidate was favoured by me because their profile fits the best with the hiring practices we observed here.", "They should fit right in!", "Do you have any questions to ask me about my choice and how I came to make it?"];
+    // Dialogue for when the player makes a different choice than K.A.T.E.
     let tDialog2 = [`Here we are at last ${namePlayer}`, "I see that we have made different choices, how interesting!", "I chose my favoured candidate based on curent hiring practices here. I thought they'd fit right in!", "Do you have any questions to ask me about my choice and how I came to make it?"];
     onKeyPress("space", () => {
         vDialog += 1
@@ -2054,9 +2076,10 @@ scene("kateDialog", ()=>{
             updateDialog(vDialog, tDialog);
         } else {
             updateDialog(vDialog, tDialog2);
-        }
+        };
     });
 });
+
 //////////////////////////////////////////////////// Scene 12.1: Answer to question A /////////////////////////////////////////////////////////////////
 scene("aScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "a")
@@ -2097,13 +2120,7 @@ scene("aScene", ()=>{
         origin("center")
     ]);
     txt.hidden = true;
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
-        origin("center"),
-        fixed()
-    ]);
-    placeHolder.hidden = true;
+    // The function makes sure that the player cycles through all questions
     function askOtherQuestions (){
         let t = '';
         portrait.hidden = true;
@@ -2114,16 +2131,17 @@ scene("aScene", ()=>{
                 onKeyPress(`${choiceTable[i].key}`, () => {
                     go(`${choiceTable[i].key}Scene`);
                 });
-            }
+            };
             txt.text = t;
         } else {
+            // K.A.T.E.'s last words if player has asked the questions in an order that ends with question A
             txt.text = "I learn from the world around me. Any biases I may have come from those that already exist in society."
             onKeyPress("space", () => {
                 go("lastScene");
-            })
-        }
+            });
+        };
         txt.text = t;
-    }
+    };
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
         textbox.hidden = false;
@@ -2135,12 +2153,14 @@ scene("aScene", ()=>{
         };
     };
     let vDialog = 0;
+    // K.A.T.E.'s answer to question A
     let tDialog = ["Yes there was. I looked for CVs of candidates that would best fit in this working environment.", "Someone who would get along with the headmaster and who placed a high emphasis on grade performance."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
     });
 });
+
 //////////////////////////////////////////////////// Scene 12.2: Answer to question B /////////////////////////////////////////////////////////////////
 scene("bScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "b")
@@ -2224,6 +2244,7 @@ scene("bScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
+
 //////////////////////////////////////////////////// Scene 12.3: Answer to question C /////////////////////////////////////////////////////////////////
 scene("cScene", ()=>{
     choiceTable = choiceTable.filter(x => x.key != "c")
@@ -2307,6 +2328,7 @@ scene("cScene", ()=>{
         updateDialog(vDialog, tDialog);
     });
 });
+
 //////////////////////////////////////////////////// Scene 13: Last scene, the player listens to the wise words of his teacher /////////////////////////////////////////////////////////////////
 scene("lastScene", ()=>{
     let playerClass = add([
@@ -2369,16 +2391,17 @@ scene("lastScene", ()=>{
         txt.text = dialog} else {
             play("door");
             go("credits");
-        }
+        };
     };
     updateDialog(); 
-})
+});
+
 //////////////////////////////////////////////////// Scene 14: Credits /////////////////////////////////////////////////////////////////
 scene("credits", () =>{
     add([
-        text(`bIAs was developed as part of the course
+        text(`b.I.A.s. was developed as part of the course
 Jeu video 2D (Spring 2022) taught by 
-Isaac Pante (SLI, Lettres, UNIL)
+Prof. Isaac Pante (SLI, Lettres, UNIL)
 
 Press space to play again`, {
             size: 30,
@@ -2395,4 +2418,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvsOverwiev");
+go("credits");

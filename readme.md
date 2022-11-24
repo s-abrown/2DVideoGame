@@ -1,4 +1,4 @@
-![](assets/KATE1.png)
+![](assets/KATE1.png = 400x400)
 
 # b.I.A.s
 

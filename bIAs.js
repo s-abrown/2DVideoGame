@@ -87,6 +87,7 @@ let cvReadCounter = 0;
 let cvReadCounter1 = 0;
 let playerChoice = "";
 let kateChoice = "A";
+let playerPos = [325, 320];
 let choiceTable = [
     {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
     {key: "b", value: "B. What did you learn from each discussion we've had with the teachers today?"},
@@ -459,8 +460,8 @@ scene("corridor", () =>{
     // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
-        pos(325, 320),
         origin("center"),
+        pos(playerPos),
         area(),
         scale(0.10),
         solid(),
@@ -634,7 +635,7 @@ scene("corridor", () =>{
             }; 
             });
         });
-    }
+    };
 
     // b) Science Door
     let scienceDoorD = ["This is the door to the Science class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
@@ -717,7 +718,7 @@ scene("corridor", () =>{
             }; 
             });
         });
-    }
+    };
 
     // e) English class
     let englishDoorD = ["This is the English class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
@@ -865,6 +866,7 @@ scene("mathsClass", () =>{
             go("corridor")
             playerPoints += 1;
             mathsPoint += 1;
+            playerPos = [316, 255];
         };
     };
     updateDialog()
@@ -982,6 +984,7 @@ scene("scienceClass", () =>{
             go("corridor")
             playerPoints += 1;
             sciencePoint += 1;
+            playerPos = [818, 255];
         }
     };
     updateDialog()
@@ -1057,7 +1060,6 @@ scene("headMaster", () =>{
 	avatar.use(sprite(char))
 	txt.text = dialog       
         txt.text = dialog} else {
-            play("door")
             go("cvs")
             playerPoints += 1;
             headmPoint += 1;
@@ -1156,7 +1158,9 @@ scene("cvs", () => {
             if (cvReadCounter >= 4){
                 txt.text = "Press space to go back to the corridor"
                 onKeyPress("space", () => {
+                    play("door")
                     go("corridor")
+                    playerPos = [318, 324];
                 })
             } else {
                 ChoiceCv()
@@ -1511,6 +1515,7 @@ scene("englishClass", () =>{
             go("corridor")
             playerPoints += 1;
             englishPoint += 1;
+            playerPos = [605, 324];
         };
     };
     updateDialog();
@@ -1625,6 +1630,7 @@ scene("artClass", () =>{
             go("corridor");
             playerPoints += 1;
             artPoint += 1;
+            playerPos = [818, 324];
         };
     };
     updateDialog();
@@ -1663,7 +1669,6 @@ scene("cvs2", () => {
         origin("center")
     ]);
     const dialogs = [
-        // Teacher introducing AI:
         [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
         [ "KATE", "They were!" ],
         [ "playerTeacherAvatar", "Good, on this table you will find three CV's of people who applied for the job." ],
@@ -2380,4 +2385,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("corridor");
+go("mathsClass");

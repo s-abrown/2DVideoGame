@@ -461,18 +461,15 @@ scene("corridor", () =>{
         sprite("student"),
         pos(325, 320),
         origin("center"),
-        area({
-            width : 230,
-            height : 230,
-        }),
-        scale(0.15),
+        area(),
+        scale(0.10),
         solid(),
         ]);
 
     overWorldPlayer.onUpdate(() => {
     });
     // Adding movements to the player:
-    const playerSpeed = 400
+    let playerSpeed = 300
     onKeyDown("left", () => {
             overWorldPlayer.move(-playerSpeed, 0)        
     });
@@ -525,6 +522,7 @@ scene("corridor", () =>{
         avatar.hidden = true; 
         portrait.hidden = true;
         txt.hidden = true
+        playerSpeed = 300
     };
     // A function to update the dialogues (for objects with minimal interaction)
     function updateDialog(v, t) {
@@ -533,7 +531,8 @@ scene("corridor", () =>{
         avatar.hidden = false; 
         portrait.hidden = false;
         txt.hidden = false;  
-        txt.text = t[v - 1]} else {
+        txt.text = t[v - 1];
+        playerSpeed = 0} else {
             deleEverything()
         };
     };
@@ -572,7 +571,6 @@ scene("corridor", () =>{
         every("locker", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             lockerDialog += 1;
-            console.log(lockerDialog);
             wait(0.3,() => {
                 updateDialog(lockerDialog, lockerD);
             });
@@ -587,7 +585,6 @@ scene("corridor", () =>{
         every("plant", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             plantDialog += 1;
-            console.log(plantDialog);
             wait(0.3,() => {
                 updateDialog(plantDialog, plantsD);
             });
@@ -602,7 +599,6 @@ scene("corridor", () =>{
         every("bathroomDoor", (c) => {
         if (overWorldPlayer.isTouching(c)) {
             bathroomDialog += 1;
-            console.log(bathroomDialog);
             wait(0.3,() => {
                 updateDialog(bathroomDialog, bathroomD);
             });
@@ -641,7 +637,7 @@ scene("corridor", () =>{
     }
 
     // b) Science Door
-    let scienceDoorD = ["This is the door to the maths class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
+    let scienceDoorD = ["This is the door to the Science class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let scienceDoorD2 = ["We already visited this class, are you sure you want to go back in?"];
     let scienceDoorDialog = 0;
     if (sciencePoint == 0){
@@ -724,8 +720,8 @@ scene("corridor", () =>{
     }
 
     // e) English class
-    let englishDoorD = ["This is the english class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
-    let englishDoorD2 = ["Back to the english classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
+    let englishDoorD = ["This is the English class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
+    let englishDoorD2 = ["Back to the English classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
     let englishDoorDialog = 0;
         if (englishPoint == 0){
         onKeyPress("space", () => {
@@ -856,7 +852,6 @@ scene("mathsClass", () =>{
     onKeyPress("space", () => {
         play("click")
         curDialog = (curDialog + 1)
-        console.log(curDialog)
         wait(0.3,() => {
         updateDialog()}) 
     });
@@ -974,7 +969,6 @@ scene("scienceClass", () =>{
     onKeyPress("space", () => {
         play("click")
         curDialog = (curDialog + 1)
-        console.log(curDialog)
         wait(0.3,() => {
         updateDialog()})
     });
@@ -1054,7 +1048,6 @@ scene("headMaster", () =>{
     onKeyPress("space", () => {
         play("click")
         curDialog = (curDialog + 1)
-        console.log(curDialog)
         wait(0.3,() => {
         updateDialog()})
     });
@@ -1463,7 +1456,7 @@ scene("englishClass", () =>{
         [ "englishTeacherAvatar", "I've heard she's expecting twins so between you and me..." ],
         [ "englishTeacherAvatar", "I reckon that she might be unable to get back to work any time soon." ],
         [ "KATE", "You're looking to keep this position indefinitely?" ],
-        [ "englishTeacherAvatar", "I mean – no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
+        [ "englishTeacherAvatar", "I mean... no one made her have children. It's only fair that I get a shot at getting the job permanently." ],
         [ "KATE", "What if she may want to come back to her teaching position?" ],
         [ "englishTeacherAvatar", "Call it friendly competition." ],
         [ "englishTeacherAvatar", "Offer and demand and all that." ],
@@ -1505,7 +1498,6 @@ scene("englishClass", () =>{
         // Sound: 
         play("click");
         curDialog = (curDialog + 1);
-        console.log(curDialog);
         wait(0.3,() => {
         updateDialog()});
     });
@@ -1620,7 +1612,6 @@ scene("artClass", () =>{
         // Sound: 
         play("click");
         curDialog = (curDialog + 1);
-        console.log(curDialog);
         wait(0.3,() => {
         updateDialog()});
     });
@@ -1689,7 +1680,6 @@ scene("cvs2", () => {
     onKeyPress("space", () => {
         play("click");
         curDialog = (curDialog + 1);
-        console.log(curDialog);
         wait(0.3,() => {
         updateDialog()});
     });
@@ -1765,15 +1755,12 @@ scene("cvsOverwiev", () => {
     function ChoiceCv (){
         txt.text = "Press A to see the first canditate's CV, B for the second and C for the third.";
         onKeyPress("a", () => {
-            console.log("Pressed A");
             go("A");
         });
         onKeyPress("b", () => {
-            console.log("Pressed b");
             go("B"); 
         });
         onKeyPress("c", () => {
-            console.log("Pressed c");
             go("C");
         });
     };
@@ -1882,11 +1869,9 @@ scene("A", () => {
         go("cvsOverwiev"); 
     });
     onKeyPress("b", () => {
-        console.log("Pressed b");
         go("B"); 
     });
     onKeyPress("c", () => {
-        console.log("Pressed c");
         go("C");
     });
 });
@@ -1935,11 +1920,9 @@ scene("B", () => {
         go("cvsOverwiev"); 
     });
     onKeyPress("a", () => {
-        console.log("Pressed b");
         go("A"); 
     });
     onKeyPress("c", () => {
-        console.log("Pressed c");
         go("C");
     });
 });
@@ -1988,11 +1971,9 @@ scene("C", () => {
         go("cvsOverwiev"); 
     });
     onKeyPress("a", () => {
-        console.log("Pressed b");
         go("A"); 
     });
     onKeyPress("b", () => {
-        console.log("Pressed c");
         go("B");
     });
 });
@@ -2037,12 +2018,6 @@ scene("kateDialog", ()=>{
         origin("center")
     ]);
     txt.hidden = true;
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
-        origin("center"),
-        fixed()
-    ]);
     placeHolder.hidden = true;
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -2201,12 +2176,6 @@ scene("bScene", ()=>{
         origin("center")
     ]);
     txt.hidden = true;
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
-        origin("center"),
-        fixed()
-    ]);
     placeHolder.hidden = true;
     function askOtherQuestions (){
         let t = '';
@@ -2285,12 +2254,6 @@ scene("cScene", ()=>{
         origin("center")
     ]);
     txt.hidden = true;
-    let placeHolder = add([
-        sprite("bean"),
-        pos(width() / 2, height() / 2),
-        origin("center"),
-        fixed()
-    ]);
     placeHolder.hidden = true;
     function askOtherQuestions (){
         let t = '';
@@ -2379,7 +2342,6 @@ scene("lastScene", ()=>{
     onKeyPress("space", () => {
         play("click");
         curDialog = (curDialog + 1);
-        console.log(curDialog);
         wait(0.3,() => {
         updateDialog()});
     });
@@ -2418,4 +2380,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("credits");
+go("corridor");

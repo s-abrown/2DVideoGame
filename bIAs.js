@@ -1,5 +1,3 @@
-// TO ADD --> WHEN DIALOG WITH DOORS OR WITH INANIMATE OBJS STARTS PLAYER MOVEMENT NOT POSSIBLE
-
 // Creating a kaboom scene
 kaboom({
     background: [0, 0, 0],
@@ -83,11 +81,11 @@ let sciencePoint = 0;
 let headmPoint = 0;
 let englishPoint = 0; 
 let artPoint = 0;
+let playerPos = [325, 320];
 let cvReadCounter = 0;
 let cvReadCounter1 = 0;
 let playerChoice = "";
 let kateChoice = "A";
-let playerPos = [325, 320];
 let choiceTable = [
     {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
     {key: "b", value: "B. What did you learn from each discussion we've had with the teachers today?"},

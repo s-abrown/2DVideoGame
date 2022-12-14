@@ -44,9 +44,7 @@ loadSprite("headmasterAvatar", "headmasterCu.png");
 // 11) Sounds
 loadSound("corridorAmbient", "corridor.mp3");
 loadSound("spacePress", "spacePress.mp3");
-loadSound("soCold", "soCold.mp3");
 loadSound("door", "door.mp3");
-loadSound("bigshot", "bigshot.mp3");
 loadSound("click", "click.mp3");
 // 12) CV's
 loadSprite("mathTeachCV", "mathTeachCV.png");
@@ -2352,4 +2350,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvs");
+go("corridor");

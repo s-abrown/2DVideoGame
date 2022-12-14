@@ -1,4 +1,3 @@
-![](assets/banner2.png)
 ![](assets/kateBanner.png)
 
 

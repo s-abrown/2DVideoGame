@@ -1,4 +1,6 @@
+![](assets/banner2.png)
 ![](assets/kateBanner.png)
+
 
 # b.I.A.s
 

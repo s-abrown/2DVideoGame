@@ -541,8 +541,7 @@ scene("corridor", () =>{
         go(string)
     });
     onKeyPress("n", () => {
-        textbox.hidden = true;
-        txt.hidden = true; 
+        deleEverything();
     });
     };
     function updateDoorsDialog(v, t, string) {
@@ -552,10 +551,11 @@ scene("corridor", () =>{
         portrait.hidden = false;
         txt.hidden = false;  
         txt.text = t[v - 1];
+        playerSpeed = 0;
         }
         else if (v > t.length){
-            YorNChoiceDoor(string);
             v = 0;
+            YorNChoiceDoor(string);
         };
     };
 

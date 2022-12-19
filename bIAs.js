@@ -3,6 +3,7 @@ kaboom({
     background: [0, 0, 0],
     width: 1200,
     height: 800,
+    pos: [100, 0]
 });
 
 ///////////// Assets /////////////
@@ -94,11 +95,11 @@ let choiceTable = [
 scene("accueil", () =>{
     add([
         text(`   
-PRESS SPACE BAR TO BEGIN
+        b.I.A.s
 
-         b.I.A.s
+A game by Sophie and Tessa
 
-A game by Sophie and Tessa`, {
+PRESS SPACE BAR TO BEGIN`, {
             size: 48,
             font: "sink",
             lineSpacing: 10,
@@ -516,6 +517,7 @@ scene("corridor", () =>{
         txt.hidden = true
         playerSpeed = 300
     };
+
     // A function to update the dialogues (for objects with minimal interaction)
     function updateDialog(v, t) {
         if (v <= t.length && v != 0){
@@ -525,7 +527,8 @@ scene("corridor", () =>{
         txt.hidden = false;  
         txt.text = t[v - 1];
         playerSpeed = 0} else {
-            deleEverything()
+            deleEverything();
+            v = 0
         };
     };
     // Two functions to update the dialogues (for doors from which to access the teachers)
@@ -552,6 +555,7 @@ scene("corridor", () =>{
         }
         else if (v > t.length){
             YorNChoiceDoor(string);
+            v = 0;
         };
     };
 
@@ -705,7 +709,7 @@ scene("corridor", () =>{
             if (overWorldPlayer.isTouching(c)) {
                 PCDoorDialog += 1;
             wait(0.3,() => {
-                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClassDoor")});
+                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClass")});
             }; 
             });
         });
@@ -1597,7 +1601,7 @@ scene("artClass", () =>{
 });
 
 //////////////////////////////////////////////////// Scene 10: Player class (CV's introduction and choices) /////////////////////////////////////////////////////////////////
-scene("cvs2", () => {
+scene("playerClass", () => {
     let playerClass = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),

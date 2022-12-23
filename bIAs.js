@@ -80,7 +80,7 @@ let sciencePoint = 0;
 let headmPoint = 0;
 let englishPoint = 0; 
 let artPoint = 0;
-let playerPos = [325, 320];
+let playerPos = [319, 324];
 let cvReadCounter = 0;
 let cvReadCounter1 = 0;
 let playerChoice = "";
@@ -159,7 +159,10 @@ scene("introduction", () =>{
         origin("center"),
         fixed()
       ]);
-
+    // Adding the player's teacher to the background
+    const playerTeacher = add([
+        sprite("playerTeacher"),
+    ]);
     // Adding the dialog/text box at the bottom of the screen
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
@@ -260,8 +263,10 @@ scene("introduction", () =>{
 
 //////////////////////////////////////////////////// Scene 4: corridor /////////////////////////////////////////////////////////////////
 scene("corridor", () =>{
-    play("corridorAmbient") 
-        let map = add([
+    const music = play("corridorAmbient", {
+        loop:true
+    }); 
+    let map = add([
         sprite("schoolMap"),
         pos(width() / 2, height() / 2),
         origin("center"),
@@ -1139,11 +1144,11 @@ scene("cvs", () => {
                 onKeyPress("space", () => {
                     play("door")
                     go("corridor")
-                    playerPos = [318, 324];
+                    playerPos = [151, 326]
                 })
             } else {
                 ChoiceCv()
-            }
+            };
         };
     };
     // Dialogue for when player first enters the scene
@@ -1174,8 +1179,8 @@ scene("cvs", () => {
                 updateDialog(cvNumber, cvDialog2)
             });
         });
-    }
-})
+    };
+});
 
 //////////////////////////////////////////////////// Scene 7.1.1: A - English teacher CV /////////////////////////////////////////////////////////////////
 scene("1", () => {
@@ -2269,7 +2274,7 @@ scene("lastScene", ()=>{
         origin("center"),
         fixed()
       ]);
-    const artTeacher = add([
+    const playerTeacher = add([
         sprite("playerTeacher"),
     ]);
     const textbox = add([
@@ -2308,7 +2313,7 @@ scene("lastScene", ()=>{
     ];
     let curDialog = 0;
     const avatar = add([
-    sprite("artTeacherAvatar"),
+    sprite("playerTeacher"),
     scale(0.3),
     origin("center"),
     pos(portrait.pos),

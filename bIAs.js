@@ -559,7 +559,6 @@ scene("corridor", () =>{
         playerSpeed = 0;
         }
         else if (v > t.length){
-            v = 0;
             YorNChoiceDoor(string);
         };
     };
@@ -616,23 +615,30 @@ scene("corridor", () =>{
     if (mathsPoint == 0){
         onKeyPress("space", () => {
             every("mathsDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                mathsDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass");
-                });
+            if (mathsDoorDialog <= mathsDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    mathsDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass");
+                        console.log(mathsDoorDialog)
+                    });
+                };
+            } else {
+                mathsDoorDialog = 0
             }; 
             });
         });
     } else if (mathsPoint > 0) {
         onKeyPress("space", () => {
             every("mathsDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                mathsDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass");
-                });
-            }; 
+            if (mathsDoorDialog <= mathsDoorD2.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    mathsDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass");
+                    });
+                };
+            } else {mathsDoorDialog = 0} 
             });
         });
     };
@@ -644,23 +650,31 @@ scene("corridor", () =>{
     if (sciencePoint == 0){
         onKeyPress("space", () => {
             every("scienceDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                scienceDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass");
-                });
-            }; 
+            if (scienceDoorDialog <= scienceDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    scienceDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClass");
+                    });
+                }; 
+            } else {
+                scienceDoorDialog = 0;
+            };
             });
         });
     } else if (sciencePoint > 0){
         onKeyPress("space", () => {
             every("scienceDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                scienceDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass");
-                });
-            }; 
+            if (scienceDoorDialog <= scienceDoorD2.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    scienceDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass");
+                    });
+                }; 
+            } else {
+                scienceDoorDialog = 0;
+            };
             });
         }); 
     };
@@ -672,23 +686,31 @@ scene("corridor", () =>{
     if (headmPoint == 0) {
         onKeyPress("space", () => {
             every("headMastersDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                HMDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster");
-                });
-            }; 
+            if (HMDoorDialog <= HMDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    HMDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster");
+                    });
+                }; 
+            } else {
+                HMDoorDialog = 0;
+            };
             });
         });
     } else if (headmPoint > 0){
         onKeyPress("space", () => {
             every("headMastersDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                HMDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(scienceDoorDialog, HMDoorD2, "cvs");
-                });
-            }; 
+            if (HMDoorDialog <= HMDoorD2.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    HMDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(scienceDoorDialog, HMDoorD2, "cvs");
+                    });
+                }; 
+            } else {
+                HMDoorDialog = 0;
+            };
             });
         });
     };
@@ -700,22 +722,26 @@ scene("corridor", () =>{
     if (playerPoints < 5){
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                PCDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDialog(PCDoorDialog, PCNotReadyDoorD);
-                });
-            }; 
+                if (overWorldPlayer.isTouching(c)) {
+                    PCDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDialog(PCDoorDialog, PCNotReadyDoorD);
+                    });
+                }; 
         });
     });
     } else {
         onKeyPress("space", () => {
             every("playerClassDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                PCDoorDialog += 1;
-            wait(0.3,() => {
-                updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClass")});
-            }; 
+            if (PCDoorDialog <= PCReadyDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    PCDoorDialog += 1;
+                wait(0.3,() => {
+                    updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClass")});
+                };
+            } else {
+                PCDoorDialog = 0;
+            };
             });
         });
     };
@@ -727,23 +753,31 @@ scene("corridor", () =>{
         if (englishPoint == 0){
         onKeyPress("space", () => {
             every("englishDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                englishDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass");
-                });
+            if (englishDoorDialog <= englishDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    englishDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass");
+                    });
+                };
+            } else {
+                englishDoorDialog = 0;
             }; 
             });
         }); 
     } else if (englishPoint > 0){
         onKeyPress("space", () => {
             every("englishDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                englishDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass");
-                });
-            }; 
+            if (englishDoorDialog <= englishDoorD2.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    englishDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass");
+                    });
+                }; 
+            } else {
+                englishDoorDialog = 0;
+            };
             });
         });
     };  
@@ -755,22 +789,30 @@ scene("corridor", () =>{
     if (artPoint == 0){
         onKeyPress("space", () => {
             every("artDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                artDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(artDoorDialog, artDoorD, "artClass");
-                });
+            if (artDoorDialog <= artDoorD.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    artDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(artDoorDialog, artDoorD, "artClass");
+                    });
+                };
+            } else {
+                artDoorDialog = 0;
             }; 
             });
         }); 
     } else if (artPoint > 0){
         onKeyPress("space", () => {
             every("artDoor", (c) => {
-            if (overWorldPlayer.isTouching(c)) {
-                artDoorDialog += 1;
-                wait(0.3,() => {
-                    updateDoorsDialog(artDoorDialog, artDoorD2, "artClass");
-                });
+            if (artDoorDialog <= artDoorD2.length){
+                if (overWorldPlayer.isTouching(c)) {
+                    artDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(artDoorDialog, artDoorD2, "artClass");
+                    });
+                };
+            } else {
+                artDoorDialog = 0;
             }; 
             });
         });  

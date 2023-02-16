@@ -183,7 +183,6 @@ scene("introduction", () =>{
             size: 32, 
             width: 800,
             font: "apl386",
-            font: "apl386"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -510,6 +509,7 @@ scene("corridor", () =>{
             text("", { 
                 size: 32, 
                 width: 800,
+                font: "apl386",
                 }),
             color([0, 0, 0]),
             pos(textbox.pos),
@@ -1055,6 +1055,7 @@ scene("headMaster", () =>{
         pos(textbox.pos),
         origin("center")
     ]);
+
     const dialogs = [
         [ "headmasterAvatar", `${namePlayer}! I take it that you're the lucky student who's been chosen to work with K.A.T.E. to test out our new hiring process, eh?` ],
         [ "headmasterAvatar", "I'd argue that it all seems a little convoluted... after all my hiring track record is near perfect if I do say so myself. Bar the one odd... anomaly." ],
@@ -1151,6 +1152,7 @@ scene("cvs", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1264,6 +1266,7 @@ scene("1", () => {
         text("Press B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 1000,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1317,6 +1320,7 @@ scene("2", () => {
         text("Press A to see your english teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 1000,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1371,6 +1375,7 @@ scene("3", () => {
         text("Press A to see your english teacher's CV, B to see your maths teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 1000,
+            font: "apl386",
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1425,6 +1430,7 @@ scene("4", () => {
         text("Press A to see your english teacher's CV, B to see your math teacher's CV, and C to see your science teacher's CV. Press space to quit.", { 
             size: 32, 
             width: 1000,
+            font: "apl386",
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1764,6 +1770,7 @@ scene("cvsOverwiev", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1884,6 +1891,7 @@ scene("A", () => {
         text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1892,11 +1900,11 @@ scene("A", () => {
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
     });
-    onKeyPress("b", () => {
-        go("B"); 
+    onKeyPress("2", () => {
+        go("b"); 
     });
-    onKeyPress("c", () => {
-        go("C");
+    onKeyPress("3", () => {
+        go("c");
     });
 });
 
@@ -1935,6 +1943,7 @@ scene("B", () => {
         text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1986,6 +1995,7 @@ scene("C", () => {
         text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
             size: 32, 
             width: 800,
+            font: "apl386",
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2414,4 +2424,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("accueil");
+go("cvsOverwiev");

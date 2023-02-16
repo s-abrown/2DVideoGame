@@ -101,7 +101,7 @@ A game by Sophie and Tessa
 
 PRESS SPACE BAR TO BEGIN`, {
             size: 48,
-            font: "sink",
+            font: "apl386",
             lineSpacing: 10,
             
         }),
@@ -118,7 +118,7 @@ scene("nameInput", () => {
     add([
         pos(150, 200),
         text("Type your name and press enter", {
-            font: "sink",
+            font: "apl386",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -128,7 +128,7 @@ scene("nameInput", () => {
     const input = add([
         pos(250, 250),
         text(`${placeHolder}`, {
-            font: "sink",
+            font: "apl386",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -182,6 +182,8 @@ scene("introduction", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
+            font: "apl386"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -846,6 +848,7 @@ scene("mathsClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -941,6 +944,7 @@ scene("scienceClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1045,6 +1049,7 @@ scene("headMaster", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1466,6 +1471,7 @@ scene("englishClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1567,6 +1573,7 @@ scene("artClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -1674,6 +1681,7 @@ scene("playerClass", () => {
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2028,6 +2036,7 @@ scene("kateDialog", ()=>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2105,6 +2114,7 @@ scene("aScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2186,6 +2196,7 @@ scene("bScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2264,6 +2275,7 @@ scene("cScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2335,6 +2347,7 @@ scene("lastScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
+            font: "apl386",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
@@ -2388,7 +2401,7 @@ Prof. Isaac Pante (SLI, Lettres, UNIL)
 
 Press space to play again`, {
             size: 30,
-            font: "sink",
+            font: "apl386",
             lineSpacing: 10,
             align: center,
         }),
@@ -2401,4 +2414,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("corridor");
+go("accueil");

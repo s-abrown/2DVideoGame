@@ -1796,16 +1796,16 @@ scene("cvsOverwiev", () => {
         });
     };
     function finalChoiche (){
-        txt.text = "Press A, B or C to choose the candidate that you feel is most suited for the job. ";
-        onKeyPress("a", () => {
+        txt.text = "Press 1, 2 or 3 to choose the candidate that you feel is most suited for the job. ";
+        onKeyPress("1", () => {
             playerChoice = "A";
             go("kateDialog");
         });
-        onKeyPress("b", () => {
+        onKeyPress("2", () => {
             playerChoice = "B";
             go("kateDialog");
         });
-        onKeyPress("c", () => {
+        onKeyPress("3", () => {
             playerChoice = "C";
             go("kateDialog");
         });
@@ -1900,11 +1900,11 @@ scene("A", () => {
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
     });
-    onKeyPress("2", () => {
-        go("b"); 
+    onKeyPress("b", () => {
+        go("B"); 
     });
-    onKeyPress("3", () => {
-        go("c");
+    onKeyPress("c", () => {
+        go("C");
     });
 });
 
@@ -2424,4 +2424,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvsOverwiev");
+go("accueil");

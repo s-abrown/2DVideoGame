@@ -296,9 +296,9 @@ scene("corridor", () =>{
             pos(6, 238),
             rect(4, 110),
             opacity(0),
-            color(255, 0, 0),
+            color(255, 255, 0),
             area(),
-            solid()
+            solid(),
         ]);
         let corridorWallRight = add([
             pos(1150, 225),

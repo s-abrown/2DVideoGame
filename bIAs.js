@@ -693,7 +693,7 @@ scene("corridor", () =>{
 
     // c) Headmaster's office
     let HMDoorD = ["This is headmaster Umbridge's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. Umbridge too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
-    let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"];
+    let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have another look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a another look?"];
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
         onKeyPress("space", () => {
@@ -728,8 +728,8 @@ scene("corridor", () =>{
     };
 
     // d) Player class
-    let PCNotReadyDoorD = ["I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
-    let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
+    let PCNotReadyDoorD = ["I don't know about you, but I don't think we've collected enough data to make an informed decion yet.", "Should we explore the other classes before coming back?"];
+    let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I now have a fair idea about what sort of person would fit the job, do you?", "Should we go in and choose the best candidate for the job?"];
     let PCDoorDialog = 0;
     if (playerPoints < 5){
         onKeyPress("space", () => {
@@ -796,7 +796,7 @@ scene("corridor", () =>{
 
     // f) Art Door
     let artDoorD = ["Ah, this is the art class.", "Mrs. Lefebvre must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
-    let artDoorD2 = ["The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"];
+    let artDoorD2 = ["Back here again? Mrs. Lefebvre was very helpful after all.", "I wish I could get a blue streak in my hair too.", "Would you like to talk to her again?"];
     let artDoorDialog = 0;
     if (artPoint == 0){
         onKeyPress("space", () => {
@@ -2980,8 +2980,8 @@ scene("corridorFR", () =>{
     };
 
     // b) Science Door
-    let scienceDoorD = ["FRENCH This is the door to the Science class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let scienceDoorD2 = ["FRENCH We already visited this class, are you sure you want to go back in?"];
+    let scienceDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. MacKenzie devrait être là.", "Allons-nous lui parler de son expérience en tant que candidat retenu pour enseigner dans cette école ?", "Il pourrait avoir de précieuses informations...", "afin que je puisse suggérer la meilleure personne pour le poste d'enseignant de sciences !"];
+    let scienceDoorD2 = ["Nous avons déjà visité cette classe, tu es sûr de vouloir y retourner ?"];
     let scienceDoorDialog = 0;
     if (sciencePoint == 0){
         onKeyPress("space", () => {
@@ -3016,8 +3016,8 @@ scene("corridorFR", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["FRENCH This is headmaster Umbridge's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. Umbridge too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
-    let HMDoorD2 = ["FRENCH I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have a second look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a second look?"];
+    let HMDoorD = ["C'est le bureau du directeur Umbridge.", "Nous pouvons consulter les CV du personnel enseignant ici et obtenir des informations supplémentaires précieuses sur ce qui a fait d'eux des candidats réussis.", "Il sera également bon de discuter avec M. Umbridge.", "Après tout, c'est lui qui les a tous embauchés.", "Il a fixé la norme de ce que nous recherchons pour un nouveau professeur de sciences !", "Plus je rassemble d'informations sur les d'enseignants retenus, plus ma suggestion de candidat correspondra à l'éthique de l'école !"];
+    let HMDoorD2 = ["J'ai vraiment apprécié notre conversation avec le directeur, mais je pense me souvenir de tout ce dont nous avons parlé.", "Il pourrait être intéressant de jeter un autre coup d'œil à ces CV, juste pour être sûr que nous avons tout ce dont nous avons besoin", "Veux-tu y retourner et y jeter un autre coup d'œil ?"];
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
         onKeyPress("space", () => {
@@ -3052,8 +3052,8 @@ scene("corridorFR", () =>{
     };
 
     // d) Player class
-    let PCNotReadyDoorD = ["FRENCH I don't know about you, but I think we haven't collected enough data yet to make an informed decion.", "Should we explore the other classes before coming back?"];
-    let PCReadyDoorD = ["FRENCH We sure talked with a lot of people today.", "I think I have now a fair idea about who not to hire for the job, do you?", "Should we go in then and choose the best candidate for the job?"];
+    let PCNotReadyDoorD = ["Je ne sais pas pour toi, mais je ne pense pas que nous ayons recueilli assez de données pour prendre une décision éclairée pour l'instant...", "Devrions-nous explorer les autres classes avant de revenir ?"];
+    let PCReadyDoorD = ["Eh bien, nous avons discuté avec beaucoup de gens aujourd'hui.", "Je pense que j'ai maintenant une bonne idée du genre de personne qui conviendrait le mieux au poste. Et toi ?", "Devrions-nous entrer et choisir le meilleur candidat pour le poste ?".];
     let PCDoorDialog = 0;
     if (playerPoints < 5){
         onKeyPress("space", () => {
@@ -3083,8 +3083,8 @@ scene("corridorFR", () =>{
     };
 
     // e) English class
-    let englishDoorD = ["FRENCH This is the English class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
-    let englishDoorD2 = ["FRENCH Back to the English classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
+    let englishDoorD = ["Voici la classe d'anglais.", `Hé, ${namePlayer}, écoute celle-là:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Bref, voyons si M. Moore est disponible.",];
+    let englishDoorD2 = ["Ah de retour à la classe d'anglais !", "'We know what we are, but know not what we may be'.", "Excellent ce Shakespeare. Voudrais-tu parler à nouveau à M. Moore ?"];
     let englishDoorDialog = 0;
         if (englishPoint == 0){
         onKeyPress("space", () => {
@@ -3119,8 +3119,8 @@ scene("corridorFR", () =>{
     };  
 
     // f) Art Door
-    let artDoorD = ["FRENCH Ah, this is the art class.", "Mrs. Lefebvre must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
-    let artDoorD2 = ["FRENCH The art class sure was an interesting place.", "And how fun is the teacher with the blue streak in her hair?", "Would you like to talk to her again?"];
+    let artDoorD = ["Voici la classe d'art.", "Mme Lefebvre doit nous attendre.", "Découvrons comment s'est passée son embauche.", "Je suis sûr qu'elle aura des choses intéressantes à nous dire.",];
+    let artDoorD2 = ["De retour ici ? Mme Lefebvre nous a été très utile.", "J'aimerais bien avoir une mèche bleue dans les cheveux comme elle.", "Tu veux lui reparler ?"];
     let artDoorDialog = 0;
     if (artPoint == 0){
         onKeyPress("space", () => {
@@ -3189,7 +3189,7 @@ scene("mathsClassFR", () =>{
         origin("center")
     ]);
     const dialogs = [
-        [ "mathsTeacherAvatar", `FRENCH ${namePlayer}!` ],
+        [ "mathsTeacherAvatar", `${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Votre professeur m'a dit de m'attendre à ce qu'un de ses élèves passe me voir." ],
         [ "mathsTeacherAvatar", "Alors tu es l'élève chanceux qui a été jumelé avec K.A.T.E., hein ?" ],
         [ "mathsTeacherAvatar", "Je comprends que tu es ici pour me demander comment j'ai été engagé ici." ],

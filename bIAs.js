@@ -622,7 +622,7 @@ scene("corridor", () =>{
     // Interactions with doors that lead to teachers or the headmaster vary depending on weather the player has already visited the room in question or not
     // a) Maths Door
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. Parker should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let mathsDoorD2 = ["We already talked to your math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
+    let mathsDoorD2 = ["We've already talked to your maths teacher, remember?", "I'm quite a fan of his red glasses.", "Are you sure you want to visit him again?"];
     let mathsDoorDialog = 0;
     if (mathsPoint == 0){
         onKeyPress("space", () => {
@@ -2540,10 +2540,10 @@ scene("introductionFR", () =>{
         [ "playerTeacherAvatar", "Si vous jouez à des jeux vidéo, il est fort probable que vous ayez déjà rencontré une IA. Elle contribue aux expériences de jeu en les rendant plus naturelles." ],
         [ "playerTeacherAvatar", "En bref, les IA peuvent être utilisées dans toutes sortes de scénarios pour automatiser les choses et aider à réaliser des tâches complexes." ],
         // Teacher introduces K.A.T.E.:
-        [ "playerTeacherAvatar", "Je vais vous en présenter une aujourd'hui." ],
-        [ "playerTeacherAvatar", "Elle s'appelle K.A.T.E. Son nom est l'abréviation de 'Kind Artifical Teaching Enrichment Tool'. " ], 
+        [ "playerTeacherAvatar", "Je vais vous présenter une IA aujourd'hui." ],
+        [ "playerTeacherAvatar", "Voici K.A.T.E. Son nom est l'abréviation de 'Kind Artifical Teaching Enrichment Tool'. " ], 
         [ "playerTeacherAvatar", "Son travail consiste à aider les écoles à trouver les meilleurs enseignants à embaucher et à suggérer qui, selon elle, sera le candidat le plus approprié." ],
-        [ "playerTeacherAvatar", "Naturellement, notre directeur s'est intéressé à elle. Je suis sûr que vous avez tous entendu dire que l'école cherche un nouveau professeur de sciences." ],
+        [ "playerTeacherAvatar", "Naturellement, notre directeur s'y est intéressé. Je suis sûr que vous avez tous entendu dire que l'école est à la recherche d'un nouveau professeur de sciences." ],
         [ "playerTeacherAvatar", "Quel meilleur moment pour faire appel à K.A.T.E. pour nous aider à vous trouver un formidable nouveau professeur?" ],
         [ "playerTeacherAvatar", "Cependant, nous ne voulons pas lui laisser le dernier mot sur le choix de la personne qui sera engagée pour vous enseigner." ],
         [ "playerTeacherAvatar", "Après tout, tout comme vous ou moi, elle peut faire des erreurs !" ],
@@ -2554,12 +2554,12 @@ scene("introductionFR", () =>{
         [ "playerTeacherAvatar", "Puisque notre directeur souhaite que notre nouvelle recrue s'intègre rapidement dans notre école, K.A.T.E. va recueillir ses informations auprès d'anciens candidats. En d'autres termes, elle fera la connaissance d'autres enseignants et découvrira leur expérience d'embauche." ],
         [ "playerTeacherAvatar", "Leur parcours, leur expérience professionnelle, leurs opinions personnelles et leurs points de vue..." ],
         [ "playerTeacherAvatar", "Elle consultera même leur CV !" ],
-        [ "playerTeacherAvatar", "Une fois qu'elle aura rassemblé toutes les informations dont elle a besoin, elle sera en mesure de nous dire qui, selon elle, est le meilleur candidat pour le poste de professeur de sciences." ],
+        [ "playerTeacherAvatar", "Une fois que K.A.T.E. aura rassemblé toutes les informations nécessaire, elle sera en mesure de nous dire qui, selon elle, est le meilleur candidat pour le poste de professeur de sciences." ],
         [ "playerTeacherAvatar", "L'élève qui accompagnera K.A.T.E. devra apprendre à ses côtés et aura la possibilité de donner son avis sur le meilleur candidat." ],
         [ "playerTeacherAvatar", "De cette façon, nous pourrons comparer l'évaluation de K.A.T.E. à celle d'un élève !" ],
         [ "playerTeacherAvatar", "Je me demande si elles seront différentes." ],
-        [ "playerTeacherAvatar", "J'ai un bol ici avec tous vos noms écrits sur des bouts de papier différents" ],
-        [ "playerTeacherAvatar", "J'en choisirai un au hasard, et l'heureux gagnant sera choisi pour être le compagnon de K.A.T.E. !" ],
+        [ "playerTeacherAvatar", "J'ai ici un bol avec tous vos noms écrits sur des bouts de papier différents." ],
+        [ "playerTeacherAvatar", "J'en choisirai un au hasard et l'heureux gagnant sera choisi pour être le compagnon de K.A.T.E. !" ],
         [ "playerTeacherAvatar", "Très bien! Un... " ],
         [ "playerTeacherAvatar", "Deux..." ],
         [ "playerTeacherAvatar", "Trois..." ],
@@ -2569,7 +2569,7 @@ scene("introductionFR", () =>{
         [ "playerTeacherAvatar", "Emmène-la faire un tour pour parler à des enseignants et recueillir des informations sur eux. Qu'est-ce qui les a aidés à être des candidats performants ici ?" ],
         [ "playerTeacherAvatar", "Prends ton temps!" ],
         [ "playerTeacherAvatar", "Une fois que toi et K.A.T.E. aurez rassemblé toutes les informations nécessaires pour prendre une décision éclairée, reviens ici et nous verrons ce qu'elle suggère..." ],
-        [ "playerTeacherAvatar", "Et si tu es d'accord avec elle!" ],
+        [ "playerTeacherAvatar", "et si tu es d'accord avec elle!" ],
     ];
 
     let curDialog = 0;
@@ -2877,7 +2877,7 @@ scene("corridorFR", () =>{
         portrait.hidden = true;
         avatar.hidden = true;
         textbox.hidden = false;
-        txt.text = "Appuyez sur Y si vous voulez entrer, ou N si vous ne voulez pas.";
+        txt.text = "Appuyez sur [Y] si vous voulez entrer, ou [N] si vous ne voulez pas.";
     onKeyPress("y", () => {
         go(string)
     });
@@ -2900,7 +2900,7 @@ scene("corridorFR", () =>{
     };
 
     // A) Interaction with LOCKERS when player presses space while touching them
-    let lockerD = [" FRENCH Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
+    let lockerD = ["Oh, est-ce qu'on cherche des professeurs cachés dans des casiers ? Quels farceurs!", "C'est une tradition à l'école que les professeurs s'enferment là-dedans ?", "Peut-être que c'est leur coin tranquille ?", "En tout cas, on dirait qu'il n'y a personne là-dedans.", "On continue ?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
         play("spacePress")
@@ -2915,7 +2915,7 @@ scene("corridorFR", () =>{
     });
 
     // B) Interaction with CORRIDOR PLANTS when player presses space while touching them
-    let plantsD = ["FRENCH What a lovely green plant! And it's a real one too!", "Did you know that the presence of such plants can ease feelings of anxiety and stress?", "It helps you feel more at peace... and calm...", "Sort of like putting a piece of decoration in your Sim's house.", "I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", "Nature sure is precious"];
+    let plantsD = ["Quelle belle plante verte ! Et c'est une vraie en plus !", "Sais-tu que la présence de telles plantes peut atténuer les sentiments d'anxiété et de stress ?", "Cela peut aider à se sentir plus en paix... et plus calme...", "C'est un peu comme mettre une décoration dans la maison de tes Sims.", "Je suppose que si un moment de calme dans un casier n'aide pas, une plante verte peut sûrement apaiser tes professeurs.", "La nature est précieuse."];
     let plantDialog = 0;
     onKeyPress("space", () => {
         every("plant", (c) => {
@@ -2929,7 +2929,7 @@ scene("corridorFR", () =>{
     });
 
     // C) Interaction with BATHROOM DOOR when player presses space when touching it
-    let bathroomD = ["FRENCH Oh, do you need to go to the bathroom?", "Go on, I'll wait for you here then", "...", "...", "...", "All done? Awesome! Let's go"];
+    let bathroomD = ["Oh, tu as besoin d'aller aux WC ?", "Vas-y, je t'attends ici alors.", "...", "...", "...", "Ok? Allons-y !"];
     let bathroomDialog = 0;
     onKeyPress("space", () => {
         every("bathroomDoor", (c) => {
@@ -2945,8 +2945,8 @@ scene("corridorFR", () =>{
     // D) Interactions with DOORS 
     // Interactions with doors that lead to teachers or the headmaster vary depending on weather the player has already visited the room in question or not
     // a) Maths Door
-    let mathsDoorD = ["FRENCH This is the door to the maths class, right?", "Mr. Parker should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
-    let mathsDoorD2 = ["FRENCH We already talked to your math's teacher, remember?", "He has quite the round face and red glasses.", "Are you sure you wanna visit him again?"];
+    let mathsDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. Parker devrait être là.", "Allons-nous lui parler de son expérience en tant que candidat retenu pour enseigner dans cette école ?", "Il pourrait avoir de précieuses informations...", "afin que je puisse suggérer la meilleure personne pour le poste d'enseignant de sciences !"];
+    let mathsDoorD2 = ["Nous avons déjà parlé à ton professeur de maths, tu te souviens ?", "J'aime bien ses lunettes rouges.", "Tu es sûr de vouloir lui rendre visite à nouveau ?"];
     let mathsDoorDialog = 0;
     if (mathsPoint == 0){
         onKeyPress("space", () => {
@@ -4026,10 +4026,10 @@ scene("playerClassFR", () => {
         origin("center")
     ]);
     const dialogs = [
-        [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et  de K.A.T.E. J'espère que vos discussions ont été productives.` ],
+        [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et de K.A.T.E. J'espère que vos discussions ont été productives.` ],
         [ "KATE", "Elle l'ont été !" ],
         [ "playerTeacherAvatar", `Excellent. ${namePlayer}, tu trouveras sur cette table les CV de trois condidat qui ont postulé pour le poste de professeur de sciences.`],
-        [ "playerTeacherAvatar", "Choisi le candidat qui te semble le meilleur, puis disute de ton choix avec K.A.T.E." ],
+        [ "playerTeacherAvatar", "Choisi le candidat qui te semble le meilleur, puis discute de ton choix avec K.A.T.E." ],
     ];
     let curDialog = 0;
     const avatar = add([
@@ -4115,7 +4115,7 @@ scene("cvsOverwievFR", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Appuyez sur [A] pour consulter le CV du premier canditate, [B] pour le deuxième et [C] pour le troisième.";
+        txt.text = "Appuyez sur [A] pour consulter le CV du premier canditat, [B] pour le deuxième et [C] pour le troisième.";
         onKeyPress("a", () => {
             go("AFR");
         });
@@ -4394,7 +4394,7 @@ scene("kateDialogFR", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "Appuyez sur un bouton pour poser une question : [A]. Y a-t-il quelque chose de spécifique que tu recherches dans un CV ? [B]. Qu'as-tu appris de chaque discussion que nous avons eue avec les professeurs aujourd'hui ? [C]. Penses-tu que M. Umbridge sera d'accord avec ce choix, K.A.T.E. ?"
+            txt.text = "Appuyez sur un bouton pour poser une question : [A]. Y a-t-il quelque chose de spécifique que tu recherches dans un CV ? [B]. Qu'as-tu appris de chaque discussion que nous avons eue avec les professeurs aujourd'hui ? [C]. Penses-tu que M. Umbridge sera d'accord avec ton choix, K.A.T.E. ?"
             onKeyPress("a", () => {
                 go("aSceneFR");
             });
@@ -4408,7 +4408,7 @@ scene("kateDialogFR", ()=>{
     };
     let vDialog = 0;
     // Dialogue for when the player's choice coincides with K.A.T.E.'s choice
-    let tDialog = [`Nous voilà enfin, ${namePlayer}.`, "I see that we have made the same choice, how wonderful!", "Je vois que nous avons fait le même choix, c'est merveilleux !", "J'ai privilégié cette personne car son profil correspond le mieux aux pratiques de recrutement que nous avons observées ici.", "Elle devrait s'intégrer parfaitement !", "As-tu des questions à me poser sur mon choix et sur la façon dont je l'ai fait ?"];
+    let tDialog = [`Nous voilà enfin, ${namePlayer}.`, "Je vois que nous avons fait le même choix, c'est merveilleux !", "J'ai privilégié cette personne car son profil correspond le mieux aux pratiques de recrutement que j'ai observé ici.", "Elle devrait s'intégrer parfaitement !", "As-tu des questions à me poser sur mon choix et sur la façon dont je l'ai fait ?"];
     // Dialogue for when the player makes a different choice than K.A.T.E.
     let tDialog2 = [`Nous voilà enfin, ${namePlayer}`, "Je vois que nous avons choisi des candidats différents, comme c'est intéressant !", "J'ai choisi mon candidat préféré en fonction des pratiques d'embauche actuelles ici. Je pensais qu'ils s'adapteraient parfaitement !", "Avez-vous des questions à me poser sur mon choix et sur la façon dont je l'ai fait ?"];
     onKeyPress("space", () => {
@@ -4654,7 +4654,7 @@ scene("cSceneFR", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["Oui, je le sais. J'ai observé ses pratiques d'embauche passées et ma recommandation est basée sur cela. Je pense qu'il sera satisfait de mon choix."];
+    let tDialog = ["Je pense que oui. J'ai observé ses pratiques d'embauche passées et ma recommandation est basée sur cela. Je pense qu'il sera satisfait de mon choix."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);

@@ -4029,7 +4029,7 @@ scene("playerClassFR", () => {
         [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et  de K.A.T.E. J'espère que vos discussions ont été productives.` ],
         [ "KATE", "Elle l'ont été !" ],
         [ "playerTeacherAvatar", `Excellent. ${namePlayer}, tu trouveras sur cette table les CV de trois condidat qui ont postulé pour le poste de professeur de sciences.`],
-        [ "playerTeacherAvatar", "Choisi Choisissez le candidat qui te semble le meilleur, puis disute de ton choix avec K.A.T.E." ],
+        [ "playerTeacherAvatar", "Choisissez le candidat qui te semble le meilleur, puis disute de ton choix avec K.A.T.E." ],
     ];
     let curDialog = 0;
     const avatar = add([
@@ -4736,11 +4736,11 @@ scene("lastSceneFR", ()=>{
 //////////////////////////////////////////////////// Scene 14: Credits /////////////////////////////////////////////////////////////////
 scene("creditsFR", () =>{
     add([
-        text(`FRENCH b.I.A.s. was developed as part of the course
-Jeu video 2D (Spring 2022) taught by 
-Prof. Isaac Pante (SLI, Lettres, UNIL)
+        text(`b.I.A.s. a été développé dans le cadre du cours
+        Jeu vidéo 2D (printemps 2022) enseigné par
+        Prof. Isaac Pante (SLI, Lettres, UNIL)
 
-Press space to play again`, {
+Appuyez sur la barre espace pour rejouer`, {
             size: 30,
             font: "apl386",
             lineSpacing: 10,
@@ -4755,4 +4755,4 @@ Press space to play again`, {
     });
 });
 // Initialize game 
-go("cvsOverwiev");
+go("playerClassFR");

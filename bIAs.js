@@ -4029,7 +4029,7 @@ scene("playerClassFR", () => {
         [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et  de K.A.T.E. J'espère que vos discussions ont été productives.` ],
         [ "KATE", "Elle l'ont été !" ],
         [ "playerTeacherAvatar", `Excellent. ${namePlayer}, tu trouveras sur cette table les CV de trois condidat qui ont postulé pour le poste de professeur de sciences.`],
-        [ "playerTeacherAvatar", "Choisissez le candidat qui te semble le meilleur, puis disute de ton choix avec K.A.T.E." ],
+        [ "playerTeacherAvatar", "Choisi le candidat qui te semble le meilleur, puis disute de ton choix avec K.A.T.E." ],
     ];
     let curDialog = 0;
     const avatar = add([

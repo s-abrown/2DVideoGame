@@ -106,7 +106,7 @@ scene("accueil", () =>{
 
 PRESS ENTER TO BEGIN
 APPUYER SUR LA BARRE 
-D'ESPACE POUR COMMENCER`, {
+ESPACE POUR COMMENCER`, {
             size: 48,
             font: "apl386",
             lineSpacing: 10,
@@ -3053,7 +3053,7 @@ scene("corridorFR", () =>{
 
     // d) Player class
     let PCNotReadyDoorD = ["Je ne sais pas pour toi, mais je ne pense pas que nous ayons recueilli assez de données pour prendre une décision éclairée pour l'instant...", "Devrions-nous explorer les autres classes avant de revenir ?"];
-    let PCReadyDoorD = ["Eh bien, nous avons discuté avec beaucoup de gens aujourd'hui.", "Je pense que j'ai maintenant une bonne idée du genre de personne qui conviendrait le mieux au poste. Et toi ?", "Devrions-nous entrer et choisir le meilleur candidat pour le poste ?".];
+    let PCReadyDoorD = ["Eh bien, nous avons discuté avec beaucoup de gens aujourd'hui.", "Je pense que j'ai maintenant une bonne idée du genre de personne qui conviendrait le mieux au poste. Et toi ?", "Devrions-nous entrer et choisir le meilleur candidat pour le poste ?"];
     let PCDoorDialog = 0;
     if (playerPoints < 5){
         onKeyPress("space", () => {
@@ -4755,4 +4755,4 @@ Appuyez sur la barre espace pour rejouer`, {
     });
 });
 // Initialize game 
-go("playerClassFR");
+go("accueil");

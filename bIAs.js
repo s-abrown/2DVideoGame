@@ -87,14 +87,14 @@ let cvReadCounter1 = 0;
 let playerChoice = "";
 let kateChoice = "A";
 let choiceTable = [
-    {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
-    {key: "b", value: "B. What did you learn from each discussion we've had with the teachers today?"},
-    {key: "c", value: "C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
+    {key: "a", value: "[A]. Was there something specifc you looked for in a CV?"},
+    {key: "b", value: "[B]. What did you learn from each discussion we've had with the teachers today?"},
+    {key: "c", value: "[C]. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
 ];
 let choiceTableFR = [
-    {key: "a", value: "A. Was there something specifc you looked for in a CV?"},
-    {key: "b", value: "B. What did you learn from each discussion we've had with the teachers today?"},
-    {key: "c", value: "C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
+    {key: "a", value: "[A]. Was there something specifc you looked for in a CV?"},
+    {key: "b", value: "[B]. What did you learn from each discussion we've had with the teachers today?"},
+    {key: "c", value: "[C]. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"}
 ];
 
 ///////////////////////////////////////////////////////////////// Scene 1: Start Screen //////////////////////////////////////////////////////////////////////////////
@@ -1273,7 +1273,7 @@ scene("1", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
+        text("Press [B] to see your maths teacher's CV, [C] to see your science teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -1327,7 +1327,7 @@ scene("2", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press A to see your english teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
+        text("Press [A] to see your english teacher's CV, [C] to see your science teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -1382,7 +1382,7 @@ scene("3", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press A to see your english teacher's CV, B to see your maths teacher's CV, and D to see your arts teacher's CV. Press space to quit.", { 
+        text("Press [A] to see your english teacher's CV, [B] to see your maths teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -1437,7 +1437,7 @@ scene("4", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press A to see your english teacher's CV, B to see your math teacher's CV, and C to see your science teacher's CV. Press space to quit.", { 
+        text("Press [A] to see your english teacher's CV, [B] to see your math teacher's CV, and [C] to see your science teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -2073,7 +2073,7 @@ scene("kateDialog", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "Press button to ask question: A. Was there something specifc you looked for in a CV? B. What did you learn from each discussion we've had with the teachers today? C. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"
+            txt.text = "Press button to ask question: [A]. Was there something specifc you looked for in a CV? [B]. What did you learn from each discussion we've had with the teachers today? [C]. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"
             onKeyPress("a", () => {
                 go("aScene");
             });
@@ -3194,7 +3194,7 @@ scene("mathsClassFR", () =>{
         [ "mathsTeacherAvatar", "Alors tu es l'élève chanceux qui a été jumelé avec K.A.T.E., hein ?" ],
         [ "mathsTeacherAvatar", "Je comprends que tu es ici pour me demander comment j'ai été engagé ici." ],
         [ "mathsTeacherAvatar", "C'était plutôt un heureux hasard pour être honnête." ],
-        [ "mathsTeacherAvatar", "Vous voyez, je connais M. Umbridge, notre proviseur, depuis un bon moment..." ],
+        [ "mathsTeacherAvatar", "Je connais M. Umbridge, notre directeur, depuis un bon moment..." ],
         [ "mathsTeacherAvatar", "depuis que je suis adolescent, en fait !" ],
         [ "mathsTeacherAvatar", "Il était mon voisin." ],
         [ "mathsTeacherAvatar", "Papa et lui sont devenus très amis. Ils allaient à la pêche ensemble. Je les ai même accompagnés quelques fois." ],
@@ -3209,16 +3209,16 @@ scene("mathsClassFR", () =>{
         [ "mathsTeacherAvatar", `N'est-ce pas, ${namePlayer}!` ],
         [ "mathsTeacherAvatar", "Après tout, la plupart de mes étudiants obtiennent de bonnes notes." ],
         [ "mathsTeacherAvatar", "Et j'ose dire que notre cher directeur m'a fait confiance pour vous enseigner les maths dès le début de ma carrière." ],
-        [ "KATE", "Une relation positive et de longue date avec le directeur semble donc très importante !" ],
-        [ "mathsTeacherAvatar", "En effet. Il est toujours bon d'entretenir de bons rapports avec le patron !" ],
+        [ "KATE", "Une relation positive et de longue date avec le directeur semble donc être un facteur très important !" ],
+        [ "mathsTeacherAvatar", "Hm. Il est toujours bon d'entretenir de bons rapports avec le patron !" ],
         [ "mathsTeacherAvatar", "Cela me fait penser..." ],
-        [ "mathsTeacherAvatar", `${namePlayer}, n'oublies pas de rendre tes devoirs de maths à temps cette semaine.` ],
+        [ "mathsTeacherAvatar", `${namePlayer}, n'oublie pas de rendre tes devoirs de maths à temps cette semaine.` ],
         [ "mathsTeacherAvatar", "Je commence à avoir du mal à croire que ton animal de compagnie a récemment pris un tel goût pour vandaliser tes travaux." ],
-        [ "mathsTeacherAvatar", "Quoi qu'il en soit, si vous souhaitez obtenir plus de détails sur le processus d'embauche ici, vous pouvez consulter mon ancien CV dans le bureau du directeur." ],
+        [ "mathsTeacherAvatar", "Quoi qu'il en soit, si vous souhaitez obtenir plus de détails sur le processus d'embauche vous pouvez consulter mon ancien CV dans le bureau du directeur." ],
         [ "mathsTeacherAvatar", "Il contiendra de plus amples informations." ],
         [ "KATE", "Excellent ! Il me sera très utile pour apprendre et remplir ma mission aujourd'hui !" ],
         [ "mathsTeacherAvatar", "Bien sûr. Je suppose que je compte parmi les 'ensembles de données' qui alimentent ton cerveau, K.A.T.E." ],
-        [ "KATE", "That is correct!" ],
+        [ "KATE", "Correct !" ],
         [ "mathsTeacherAvatar", "Eh bien, je vous souhaite bonne chance." ],
         [ "mathsTeacherAvatar", "Et si vous voyez le directeur, dites-lui que je suis disponible pour notre partie de pêche samedi prochain, d'accord ?" ],
     ];
@@ -3288,8 +3288,8 @@ scene("scienceClassFR", () =>{
     const dialogs = [
         [ "scienceTeacherAvatar", `Eh bien, si ce n'est pas ${namePlayer}.` ],
         [ "scienceTeacherAvatar", "hop hop hop... " ],
-        [ "scienceTeacherAvatar", "Avant que tu ne dises quoi que ce soit, laisse-moi juste dire ceci une fois:" ],
-        [ "scienceTeacherAvatar", `${namePlayer}, ne penses même pas à toucher ce bec bunsen.` ],
+        [ "scienceTeacherAvatar", "Avant que tu ne dises quoi que ce soit, laisse-moi juste dire ceci une fois bonne fois pour toute :" ],
+        [ "scienceTeacherAvatar", `${namePlayer}, ne penses même pas à toucher ce bec Bunsen.` ],
         [ "scienceTeacherAvatar", "Ton sourcil gauche a enfin repoussé et je refuse d'être tenu responsable de ton étourderie." ],
         [ "KATE", "Vous semblez prendre les précautions de sécurité très au sérieux !" ],
         [ "scienceTeacherAvatar", "Tu veux dire que je prends au sérieux le fait que mes élèves passent l'année en un seul morceau." ],
@@ -3298,8 +3298,8 @@ scene("scienceClassFR", () =>{
         [ "scienceTeacherAvatar", "Et si mon palmarès reste intact, j'obtiens mon bonus à la fin de chaque année scolaire." ],
         [ "KATE", "Très pragmatique..." ],
         [ "scienceTeacherAvatar", "Les résultats sont les seules vraies mesures du succès." ],
-        [ "scienceTeacherAvatar", `Je vous invite à réfléchir à cela, ${namePlayer}, en ce qui concerne le test de la semaine prochaine.`],
-        [ "KATE", `${namePlayer} m'accompagne dans mon voyage pour collecter des données et apprendre des personnes embauchées avec succès dans cette école...`],
+        [ "scienceTeacherAvatar", `Je t'invite à réfléchir à cela, ${namePlayer}, concernant le test de la semaine prochaine.`],
+        [ "KATE", `${namePlayer} m'accompagne dans ma mission pour collecter des données et apprendre des personnes embauchées avec succès dans cette école...`],
         [ "KATE", "afin que je puisse suggérer le meilleur candidat possible pour le poste du nouveau professeur de sciences." ],
         [ "scienceTeacherAvatar", "'C'est tout ? Bien, alors je vais garder mon histoire brève." ],
         [ "scienceTeacherAvatar", "J'ai été embauché par M. Umbridge à la sortie de l'université." ],
@@ -3321,7 +3321,7 @@ scene("scienceClassFR", () =>{
         [ "KATE", "La satisfaction et le succès des étudiants semblent importants pour vous." ],
         [ "scienceTeacherAvatar", "Leurs notes reflètent mes performances... Et mes performances sont ce qui compte pour moi." ],
         [ "scienceTeacherAvatar", "La satisfaction des élèves... compte moins pour moi que les notes." ],
-        [ "scienceTeacherAvatar", `T'as compris, ${namePlayer}? Si tu passes l'année tu pourras jouer avec les becs bunsen à ta guise. D'ici là, je te surveille.`],
+        [ "scienceTeacherAvatar", `T'as compris, ${namePlayer}? Si tu passes l'année tu pourras jouer avec les becs Bunsen à ta guise. D'ici là, je te surveille.`],
         [ "scienceTeacherAvatar", "..." ],
         [ "scienceTeacherAvatar", `Tu peux rouler des yeux autant que tu veux, ${namePlayer}, mais ça doit être dit : je ne suis pas aussi indulgent que Mme Lefebvre. Elle dorlote trop ses élèves. ` ],
         [ "KATE", "Merci pour votre temps, M. Mackenzie." ],
@@ -3393,7 +3393,7 @@ scene("headMasterFR", () =>{
     const dialogs = [
         [ "headmasterAvatar", `${namePlayer}! Je suppose que tu as été choisi pour travailler avec K.A.T.E. afin de tester notre nouveau processus d'embauche, hein ?` ],
         [ "headmasterAvatar", "Je dirais que tout cela semble un peu alambiqué... après tout, mes décisions en matière d'embauche sont presque toujours correctes, si je peux me permettre." ],
-        [ "headmasterAvatar", `Mais le conseil d'administration de l'école pense que l'école doit "s'adapter à son temps" donc...` ],
+        [ "headmasterAvatar", `Mais le conseil d'administration de l'école pense qu'on doit "s'adapter à son temps" donc...` ],
         [ "headmasterAvatar", "dans tous les cas, tes commentaires à la fin de cette petite expérience nous seront d'une grande utilité." ],
         [ "KATE", "Merci, Mr. Umbridge!" ],
         [ "headmasterAvatar", "Eh bien, ne me remerciez pas encore. Voyons d'abord quelles sont vos recommandations d'embauche. Et K.A.T.E., essaye de t'y prendre logiquement, d'accord ?" ],

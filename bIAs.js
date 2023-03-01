@@ -2451,7 +2451,8 @@ Press space to play again`, {
 scene("nameInputFR", () => {
     add([
         pos(150, 200),
-        text("Tapez votre prénom puis appuyez sur enter", {
+        text("Tapez votre prenom puis appuyez sur enter", {
+            //font: "apl386",
             font: "apl386",
             width: width() - pad * 2,
             size: 32,
@@ -2468,7 +2469,6 @@ scene("nameInputFR", () => {
             lineSpacing: 8,
             letterSpacing: 4,
         }),
-
     ]);
     onCharInput((ch) => {
         input.text += ch
@@ -2532,43 +2532,44 @@ scene("introductionFR", () =>{
 
     const dialogs = [
         // Teacher introducing AI:
-        [ "playerTeacherAvatar", "Bonjour à tous."],
-        [ "playerTeacherAvatar", "Aujourd'hui, nous allons nous familiariser avec l'intelligence artificielle, ou 'IA' en abrégé." ],
-        [ "playerTeacherAvatar", "L'IA permet aux ordinateurs d'apprendre et de se développer, un peu comme le développement du cerveau." ],
-        [ "playerTeacherAvatar", "Tout comme vous et moi, une IA peut comprendre le langage, planifier des choses, résoudre des problèmes, penser et faire preuve d'intelligence." ],
-        [ "playerTeacherAvatar", "C'est un excellent moyen de faire en sorte que les ordinateurs exécutent des tâches à notre place et nous aident dans notre vie quotidienne !" ],
-        [ "playerTeacherAvatar", "Si vous jouez à des jeux vidéo, il est fort probable que vous ayez déjà rencontré une IA. Elle contribue aux expériences de jeu en les rendant plus naturelles." ],
-        [ "playerTeacherAvatar", "En bref, les IA peuvent être utilisées dans toutes sortes de scénarios pour automatiser les choses et aider à réaliser des tâches complexes." ],
+        [ "playerTeacherAvatar", "Bonjour a tous."],
+        [ "playerTeacherAvatar", "Aujourd'hui, nous allons nous familiariser avec l'intelligence artificielle, ou 'IA' en abrege." ],
+        [ "playerTeacherAvatar", "L'IA permet aux ordinateurs d'apprendre et de se developper, un peu comme le developpement du cerveau." ],
+        [ "playerTeacherAvatar", "Tout comme vous et moi, une IA peut comprendre le langage, planifier des choses, resoudre des problemes, penser et faire preuve d'intelligence." ],
+        [ "playerTeacherAvatar", "C'est un excellent moyen de faire en sorte que les ordinateurs executent des taches a notre place et nous aident dans notre vie quotidienne !" ],
+        [ "playerTeacherAvatar", "Si vous jouez a des jeux video, il est fort probable que vous ayez deja rencontre une IA. Elle contribue aux experiences de jeu en les rendant plus naturelles." ],
+        [ "playerTeacherAvatar", "En bref, les IA peuvent etre utiles dans toutes sortes de scenarios pour automatiser les choses et aider a realiser des taches complexes." ],
         // Teacher introduces K.A.T.E.:
-        [ "playerTeacherAvatar", "Je vais vous présenter une IA aujourd'hui." ],
-        [ "playerTeacherAvatar", "Voici K.A.T.E. Son nom est l'abréviation de 'Kind Artifical Teaching Enrichment Tool'. " ], 
-        [ "playerTeacherAvatar", "Son travail consiste à aider les écoles à trouver les meilleurs enseignants à embaucher et à suggérer qui, selon elle, sera le candidat le plus approprié." ],
-        [ "playerTeacherAvatar", "Naturellement, notre directeur s'y est intéressé. Je suis sûr que vous avez tous entendu dire que l'école est à la recherche d'un nouveau professeur de sciences." ],
-        [ "playerTeacherAvatar", "Quel meilleur moment pour faire appel à K.A.T.E. pour nous aider à vous trouver un formidable nouveau professeur?" ],
-        [ "playerTeacherAvatar", "Cependant, nous ne voulons pas lui laisser le dernier mot sur le choix de la personne qui sera engagée pour vous enseigner." ],
-        [ "playerTeacherAvatar", "Après tout, tout comme vous ou moi, elle peut faire des erreurs !" ],
-        [ "playerTeacherAvatar", "C'est là que vous, les enfants, intervenez !" ],
+        [ "playerTeacherAvatar", "Je vais vous presenter une IA aujourd'hui." ],
+        [ "playerTeacherAvatar", "Voici K.A.T.E. Son nom est l'abreviation de 'Kind Artifical Teaching Enrichment Tool'. " ], 
+        [ "playerTeacherAvatar", "Son travail consiste a aider les ecoles a trouver les meilleurs enseignants a embaucher et a suggerer qui, selon elle, sera le candidat le plus approprie." ],
+        [ "playerTeacherAvatar", "Naturellement, notre directeur s'y est interesse. Je suis sûr que vous avez tous entendu dire que l'ecole est a la recherche d'un nouveau professeur de sciences." ],
+        [ "playerTeacherAvatar", "Quel meilleur moment pour faire appel a K.A.T.E. pour nous aider a vous trouver un formidable nouveau professeur?" ],
+        [ "playerTeacherAvatar", "Cependant, nous ne voulons pas lui laisser le dernier mot sur le choix de la personne qui sera engagee pour vous enseigner." ],
+        [ "playerTeacherAvatar", "Apres tout, tout comme vous ou moi, elle peut faire des erreurs !" ],
+        [ "playerTeacherAvatar", "C'est la que vous, les enfants, intervenez !" ],
         [ "playerTeacherAvatar", "Aujourd'hui, l'un d'entre vous sera choisi pour passer un peu de temps avec K.A.T.E. pour que vous puissiez voir et comprendre comment elle travaille." ],
-        [ "playerTeacherAvatar", "Les IA ont besoin de collecter des informations pour apprendre avant de pouvoir faire des suggestions éclairées." ],
-        [ "playerTeacherAvatar", "Pour cette raison, la personne choisie accompagnera K.A.T.E. dans son voyage de collecte de données !" ],
-        [ "playerTeacherAvatar", "Puisque notre directeur souhaite que notre nouvelle recrue s'intègre rapidement dans notre école, K.A.T.E. va recueillir ses informations auprès d'anciens candidats. En d'autres termes, elle fera la connaissance d'autres enseignants et découvrira leur expérience d'embauche." ],
-        [ "playerTeacherAvatar", "Leur parcours, leur expérience professionnelle, leurs opinions personnelles et leurs points de vue..." ],
-        [ "playerTeacherAvatar", "Elle consultera même leur CV !" ],
-        [ "playerTeacherAvatar", "Une fois que K.A.T.E. aura rassemblé toutes les informations nécessaire, elle sera en mesure de nous dire qui, selon elle, est le meilleur candidat pour le poste de professeur de sciences." ],
-        [ "playerTeacherAvatar", "L'élève qui accompagnera K.A.T.E. devra apprendre à ses côtés et aura la possibilité de donner son avis sur le meilleur candidat." ],
-        [ "playerTeacherAvatar", "De cette façon, nous pourrons comparer l'évaluation de K.A.T.E. à celle d'un élève !" ],
-        [ "playerTeacherAvatar", "Je me demande si elles seront différentes." ],
-        [ "playerTeacherAvatar", "J'ai ici un bol avec tous vos noms écrits sur des bouts de papier différents." ],
-        [ "playerTeacherAvatar", "J'en choisirai un au hasard et l'heureux gagnant sera choisi pour être le compagnon de K.A.T.E. !" ],
-        [ "playerTeacherAvatar", "Très bien! Un... " ],
+        [ "playerTeacherAvatar", "Les IA ont besoin de collecter des informations pour apprendre avant de pouvoir faire des suggestions eclairees." ],
+        [ "playerTeacherAvatar", "Pour cette raison, la personne choisie accompagnera K.A.T.E. dans son voyage de collecte de donnees !" ],
+        [ "playerTeacherAvatar", "Puisque notre directeur souhaite que notre nouvelle recrue s'integre rapidement dans notre ecole, K.A.T.E. va recueillir ses informations aupres d'anciens candidats." ],
+        [ "playerTeacherAvatar", "En d'autres termes, elle fera la connaissance d'autres enseignants et decouvrira leur experience d'embauche." ],
+        [ "playerTeacherAvatar", "Leur parcours, leur experience professionnelle, leurs opinions personnelles et leurs points de vue..." ],
+        [ "playerTeacherAvatar", "Elle consultera meme leur CV !" ],
+        [ "playerTeacherAvatar", "Une fois que K.A.T.E. aura rassemble toutes les informations necessaire, elle sera en mesure de nous dire qui, selon elle, est le meilleur candidat pour le poste de professeur de sciences." ],
+        [ "playerTeacherAvatar", "L'eleve qui accompagnera K.A.T.E. devra apprendre a ses côtes et aura la possibilite de donner son avis sur le meilleur candidat." ],
+        [ "playerTeacherAvatar", "De cette façon, nous pourrons comparer l'evaluation de K.A.T.E. a celle d'un eleve !" ],
+        [ "playerTeacherAvatar", "Je me demande si elles seront differentes." ],
+        [ "playerTeacherAvatar", "J'ai ici un bol avec tous vos noms ecrits sur des bouts de papier differents." ],
+        [ "playerTeacherAvatar", "J'en choisirai un au hasard et l'heureux gagnant sera choisi pour etre le compagnon de K.A.T.E. !" ],
+        [ "playerTeacherAvatar", "Tres bien! Un... " ],
         [ "playerTeacherAvatar", "Deux..." ],
         [ "playerTeacherAvatar", "Trois..." ],
         [ "playerTeacherAvatar", "..." ],
         [ "playerTeacherAvatar", `${namePlayer}!` ],
         [ "playerTeacherAvatar", "Tu accompagneras K.A.T.E. !" ],
-        [ "playerTeacherAvatar", "Emmène-la faire un tour pour parler à des enseignants et recueillir des informations sur eux. Qu'est-ce qui les a aidés à être des candidats performants ici ?" ],
+        [ "playerTeacherAvatar", "Emmene-la faire un tour pour parler a des enseignants et recueillir des informations sur eux. Qu'est-ce qui les a aides a etre des candidats performants ici ?" ],
         [ "playerTeacherAvatar", "Prends ton temps!" ],
-        [ "playerTeacherAvatar", "Une fois que toi et K.A.T.E. aurez rassemblé toutes les informations nécessaires pour prendre une décision éclairée, reviens ici et nous verrons ce qu'elle suggère..." ],
+        [ "playerTeacherAvatar", "Une fois que toi et K.A.T.E. aurez rassemble toutes les informations necessaires pour prendre une decision eclairee, reviens ici et nous verrons ce qu'elle suggere..." ],
         [ "playerTeacherAvatar", "et si tu es d'accord avec elle!" ],
     ];
 
@@ -2900,7 +2901,7 @@ scene("corridorFR", () =>{
     };
 
     // A) Interaction with LOCKERS when player presses space while touching them
-    let lockerD = ["Oh, est-ce qu'on cherche des professeurs cachés dans des casiers ? Quels farceurs!", "C'est une tradition à l'école que les professeurs s'enferment là-dedans ?", "Peut-être que c'est leur coin tranquille ?", "En tout cas, on dirait qu'il n'y a personne là-dedans.", "On continue ?"];
+    let lockerD = ["Oh, est-ce qu'on cherche des professeurs caches dans des casiers ? Quels farceurs!", "C'est une tradition a l'ecole que les professeurs s'enferment la-dedans ?", "Peut-etre que c'est leur coin tranquille ?", "En tout cas, on dirait qu'il n'y a personne la-dedans.", "On continue ?"];
     let lockerDialog = 0;
     onKeyPress("space", () => {
         play("spacePress")
@@ -2915,7 +2916,7 @@ scene("corridorFR", () =>{
     });
 
     // B) Interaction with CORRIDOR PLANTS when player presses space while touching them
-    let plantsD = ["Quelle belle plante verte ! Et c'est une vraie en plus !", "Sais-tu que la présence de telles plantes peut atténuer les sentiments d'anxiété et de stress ?", "Cela peut aider à se sentir plus en paix... et plus calme...", "C'est un peu comme mettre une décoration dans la maison de tes Sims.", "Je suppose que si un moment de calme dans un casier n'aide pas, une plante verte peut sûrement apaiser tes professeurs.", "La nature est précieuse."];
+    let plantsD = ["Quelle belle plante verte ! Et c'est une vraie en plus !", "Sais-tu que la presence de telles plantes peut attenuer les sentiments d'anxiete et de stress ?", "Cela peut aider a se sentir plus en paix... et plus calme...", "C'est un peu comme mettre une decoration dans la maison de tes Sims.", "Je suppose que si un moment de calme dans un casier n'aide pas, une plante verte peut sûrement apaiser tes professeurs.", "La nature est precieuse."];
     let plantDialog = 0;
     onKeyPress("space", () => {
         every("plant", (c) => {
@@ -2945,8 +2946,8 @@ scene("corridorFR", () =>{
     // D) Interactions with DOORS 
     // Interactions with doors that lead to teachers or the headmaster vary depending on weather the player has already visited the room in question or not
     // a) Maths Door
-    let mathsDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. Parker devrait être là.", "Allons-nous lui parler de son expérience en tant que candidat retenu pour enseigner dans cette école ?", "Il pourrait avoir de précieuses informations...", "afin que je puisse suggérer la meilleure personne pour le poste d'enseignant de sciences !"];
-    let mathsDoorD2 = ["Nous avons déjà parlé à ton professeur de maths, tu te souviens ?", "J'aime bien ses lunettes rouges.", "Tu es sûr de vouloir lui rendre visite à nouveau ?"];
+    let mathsDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. Parker devrait etre la.", "Allons-nous lui parler de son experience en tant que candidat retenu pour enseigner dans cette ecole ?", "Il pourrait avoir de precieuses informations...", "afin que je puisse suggerer la meilleure personne pour le poste d'enseignant de sciences !"];
+    let mathsDoorD2 = ["Nous avons deja parle a ton professeur de maths, tu te souviens ?", "J'aime bien ses lunettes rouges.", "Tu es sûr de vouloir lui rendre visite a nouveau ?"];
     let mathsDoorDialog = 0;
     if (mathsPoint == 0){
         onKeyPress("space", () => {
@@ -2980,8 +2981,8 @@ scene("corridorFR", () =>{
     };
 
     // b) Science Door
-    let scienceDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. MacKenzie devrait être là.", "Allons-nous lui parler de son expérience en tant que candidat retenu pour enseigner dans cette école ?", "Il pourrait avoir de précieuses informations...", "afin que je puisse suggérer la meilleure personne pour le poste d'enseignant de sciences !"];
-    let scienceDoorD2 = ["Nous avons déjà visité cette classe, tu es sûr de vouloir y retourner ?"];
+    let scienceDoorD = ["C'est la porte de la classe de maths, n'est-ce pas ?", "M. MacKenzie devrait etre la.", "Allons-nous lui parler de son experience en tant que candidat retenu pour enseigner dans cette ecole ?", "Il pourrait avoir de precieuses informations...", "afin que je puisse suggerer la meilleure personne pour le poste d'enseignant de sciences !"];
+    let scienceDoorD2 = ["Nous avons deja visite cette classe, tu es sûr de vouloir y retourner ?"];
     let scienceDoorDialog = 0;
     if (sciencePoint == 0){
         onKeyPress("space", () => {
@@ -3016,8 +3017,8 @@ scene("corridorFR", () =>{
     };
 
     // c) Headmaster's office
-    let HMDoorD = ["C'est le bureau du directeur Umbridge.", "Nous pouvons consulter les CV du personnel enseignant ici et obtenir des informations supplémentaires précieuses sur ce qui a fait d'eux des candidats réussis.", "Il sera également bon de discuter avec M. Umbridge.", "Après tout, c'est lui qui les a tous embauchés.", "Il a fixé la norme de ce que nous recherchons pour un nouveau professeur de sciences !", "Plus je rassemble d'informations sur les d'enseignants retenus, plus ma suggestion de candidat correspondra à l'éthique de l'école !"];
-    let HMDoorD2 = ["J'ai vraiment apprécié notre conversation avec le directeur, mais je pense me souvenir de tout ce dont nous avons parlé.", "Il pourrait être intéressant de jeter un autre coup d'œil à ces CV, juste pour être sûr que nous avons tout ce dont nous avons besoin", "Veux-tu y retourner et y jeter un autre coup d'œil ?"];
+    let HMDoorD = ["C'est le bureau du directeur Umbridge.", "Nous pouvons consulter les CV du personnel enseignant ici et obtenir des informations supplementaires precieuses sur ce qui a fait d'eux des candidats reussis.", "Il sera egalement bon de discuter avec M. Umbridge.", "Apres tout, c'est lui qui les a tous embauches.", "Il a fixe la norme de ce que nous recherchons pour un nouveau professeur de sciences !", "Plus je rassemble d'informations sur les d'enseignants retenus, plus ma suggestion de candidat correspondra a l'ethique de l'ecole !"];
+    let HMDoorD2 = ["J'ai vraiment apprecie notre conversation avec le directeur, mais je pense me souvenir de tout ce dont nous avons parle.", "Il pourrait etre interessant de jeter un autre coup d'œil a ces CV, juste pour etre sûr que nous avons tout ce dont nous avons besoin", "Veux-tu y retourner et y jeter un autre coup d'œil ?"];
     let HMDoorDialog = 0;
     if (headmPoint == 0) {
         onKeyPress("space", () => {
@@ -3052,8 +3053,8 @@ scene("corridorFR", () =>{
     };
 
     // d) Player class
-    let PCNotReadyDoorD = ["Je ne sais pas pour toi, mais je ne pense pas que nous ayons recueilli assez de données pour prendre une décision éclairée pour l'instant...", "Devrions-nous explorer les autres classes avant de revenir ?"];
-    let PCReadyDoorD = ["Eh bien, nous avons discuté avec beaucoup de gens aujourd'hui.", "Je pense que j'ai maintenant une bonne idée du genre de personne qui conviendrait le mieux au poste. Et toi ?", "Devrions-nous entrer et choisir le meilleur candidat pour le poste ?"];
+    let PCNotReadyDoorD = ["Je ne sais pas pour toi, mais je ne pense pas que nous ayons recueilli assez de donnees pour prendre une decision eclairee pour l'instant...", "Devrions-nous explorer les autres classes avant de revenir ?"];
+    let PCReadyDoorD = ["Eh bien, nous avons discute avec beaucoup de gens aujourd'hui.", "Je pense que j'ai maintenant une bonne idee du genre de personne qui conviendrait le mieux au poste. Et toi ?", "Devrions-nous entrer et choisir le meilleur candidat pour le poste ?"];
     let PCDoorDialog = 0;
     if (playerPoints < 5){
         onKeyPress("space", () => {
@@ -3083,8 +3084,8 @@ scene("corridorFR", () =>{
     };
 
     // e) English class
-    let englishDoorD = ["Voici la classe d'anglais.", `Hé, ${namePlayer}, écoute celle-là:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Bref, voyons si M. Moore est disponible.",];
-    let englishDoorD2 = ["Ah de retour à la classe d'anglais !", "'We know what we are, but know not what we may be'.", "Excellent ce Shakespeare. Voudrais-tu parler à nouveau à M. Moore ?"];
+    let englishDoorD = ["Voici la classe d'anglais.", `He, ${namePlayer}, ecoute celle-la:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Bref, voyons si M. Moore est disponible.",];
+    let englishDoorD2 = ["Ah de retour a la classe d'anglais !", "'We know what we are, but know not what we may be'.", "Excellent ce Shakespeare. Voudrais-tu parler a nouveau a M. Moore ?"];
     let englishDoorDialog = 0;
         if (englishPoint == 0){
         onKeyPress("space", () => {
@@ -3119,8 +3120,8 @@ scene("corridorFR", () =>{
     };  
 
     // f) Art Door
-    let artDoorD = ["Voici la classe d'art.", "Mme Lefebvre doit nous attendre.", "Découvrons comment s'est passée son embauche.", "Je suis sûr qu'elle aura des choses intéressantes à nous dire.",];
-    let artDoorD2 = ["De retour ici ? Mme Lefebvre nous a été très utile.", "J'aimerais bien avoir une mèche bleue dans les cheveux comme elle.", "Tu veux lui reparler ?"];
+    let artDoorD = ["Voici la classe d'art.", "Mme Lefebvre doit nous attendre.", "Decouvrons comment s'est passee son embauche.", "Je suis sûr qu'elle aura des choses interessantes a nous dire.",];
+    let artDoorD2 = ["De retour ici ? Mme Lefebvre nous a ete tres utile.", "J'aimerais bien avoir une meche bleue dans les cheveux comme elle.", "Tu veux lui reparler ?"];
     let artDoorDialog = 0;
     if (artPoint == 0){
         onKeyPress("space", () => {
@@ -3190,37 +3191,37 @@ scene("mathsClassFR", () =>{
     ]);
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
-        [ "mathsTeacherAvatar", "Votre professeur m'a dit de m'attendre à ce qu'un de ses élèves passe me voir." ],
-        [ "mathsTeacherAvatar", "Alors tu es l'élève chanceux qui a été jumelé avec K.A.T.E., hein ?" ],
-        [ "mathsTeacherAvatar", "Je comprends que tu es ici pour me demander comment j'ai été engagé ici." ],
-        [ "mathsTeacherAvatar", "C'était plutôt un heureux hasard pour être honnête." ],
+        [ "mathsTeacherAvatar", "Votre professeur m'a dit de m'attendre a ce qu'un de ses eleves passe me voir." ],
+        [ "mathsTeacherAvatar", "Alors tu es l'eleve chanceux qui a ete jumele avec K.A.T.E., hein ?" ],
+        [ "mathsTeacherAvatar", "Je comprends que tu es ici pour me demander comment j'ai ete engage ici." ],
+        [ "mathsTeacherAvatar", "C'etait plutôt un heureux hasard pour etre honnete." ],
         [ "mathsTeacherAvatar", "Je connais M. Umbridge, notre directeur, depuis un bon moment..." ],
         [ "mathsTeacherAvatar", "depuis que je suis adolescent, en fait !" ],
-        [ "mathsTeacherAvatar", "Il était mon voisin." ],
-        [ "mathsTeacherAvatar", "Papa et lui sont devenus très amis. Ils allaient à la pêche ensemble. Je les ai même accompagnés quelques fois." ],
-        [ "mathsTeacherAvatar", "Quand j'ai obtenu mon diplôme universitaire, M. Umbridge m'a même écrit une lettre de recommandation élogieuse...  comme une faveur personnelle bien sûr." ],
-        [ "mathsTeacherAvatar", "La concurrence était rude à l'époque." ],
-        [ "mathsTeacherAvatar", "J'ai passé quelques mois à essayer d'obtenir un poste d'enseignant, mais hélas, en vain." ],
-        [ "mathsTeacherAvatar", "Puis M. Umbridge m'a contacté pour me demander comment se passait ma recherche d'emploi. Quand je lui ai dit que j'avais des difficultés..." ],
-        [ "mathsTeacherAvatar", "Il m'a engagé sur le champ !" ],
-        [ "mathsTeacherAvatar", "Je n'ai même pas eu à passer d'entretien." ],
-        [ "KATE", "Oh ? Je ne peux qu'en conclure que vos qualifications devaient être parfaitement adaptées au poste !" ],
-        [ "mathsTeacherAvatar", "Eh bien, oui. Je n'avais peut-être aucune expérience de l'enseignement à l'époque, mais j'ai prouvé ma valeur depuis..." ],
+        [ "mathsTeacherAvatar", "Il etait mon voisin." ],
+        [ "mathsTeacherAvatar", "Papa et lui sont devenus tres amis. Ils allaient a la peche ensemble. Je les ai meme accompagnes quelques fois." ],
+        [ "mathsTeacherAvatar", "Quand j'ai obtenu mon diplôme universitaire, M. Umbridge m'a meme ecrit une lettre de recommandation elogieuse...  comme une faveur personnelle bien sûr." ],
+        [ "mathsTeacherAvatar", "La concurrence etait rude a l'epoque." ],
+        [ "mathsTeacherAvatar", "J'ai passe quelques mois a essayer d'obtenir un poste d'enseignant, mais helas, en vain." ],
+        [ "mathsTeacherAvatar", "Puis M. Umbridge m'a contacte pour me demander comment se passait ma recherche d'emploi. Quand je lui ai dit que j'avais des difficultes..." ],
+        [ "mathsTeacherAvatar", "Il m'a engage sur le champ !" ],
+        [ "mathsTeacherAvatar", "Je n'ai meme pas eu a passer d'entretien." ],
+        [ "KATE", "Oh ? Je ne peux qu'en conclure que vos qualifications devaient etre parfaitement adaptees au poste !" ],
+        [ "mathsTeacherAvatar", "Eh bien, oui. Je n'avais peut-etre aucune experience de l'enseignement a l'epoque, mais j'ai prouve ma valeur depuis..." ],
         [ "mathsTeacherAvatar", `N'est-ce pas, ${namePlayer}!` ],
-        [ "mathsTeacherAvatar", "Après tout, la plupart de mes étudiants obtiennent de bonnes notes." ],
-        [ "mathsTeacherAvatar", "Et j'ose dire que notre cher directeur m'a fait confiance pour vous enseigner les maths dès le début de ma carrière." ],
-        [ "KATE", "Une relation positive et de longue date avec le directeur semble donc être un facteur très important !" ],
+        [ "mathsTeacherAvatar", "Apres tout, la plupart de mes etudiants obtiennent de bonnes notes." ],
+        [ "mathsTeacherAvatar", "Et j'ose dire que notre cher directeur m'a fait confiance pour vous enseigner les maths des le debut de ma carriere." ],
+        [ "KATE", "Une relation positive et de longue date avec le directeur semble donc etre un facteur tres important !" ],
         [ "mathsTeacherAvatar", "Hm. Il est toujours bon d'entretenir de bons rapports avec le patron !" ],
         [ "mathsTeacherAvatar", "Cela me fait penser..." ],
-        [ "mathsTeacherAvatar", `${namePlayer}, n'oublie pas de rendre tes devoirs de maths à temps cette semaine.` ],
-        [ "mathsTeacherAvatar", "Je commence à avoir du mal à croire que ton animal de compagnie a récemment pris un tel goût pour vandaliser tes travaux." ],
-        [ "mathsTeacherAvatar", "Quoi qu'il en soit, si vous souhaitez obtenir plus de détails sur le processus d'embauche vous pouvez consulter mon ancien CV dans le bureau du directeur." ],
+        [ "mathsTeacherAvatar", `${namePlayer}, n'oublie pas de rendre tes devoirs de maths a temps cette semaine.` ],
+        [ "mathsTeacherAvatar", "Je commence a avoir du mal a croire que ton animal de compagnie a recemment pris un tel goût pour vandaliser tes travaux." ],
+        [ "mathsTeacherAvatar", "Quoi qu'il en soit, si vous souhaitez obtenir plus de details sur le processus d'embauche vous pouvez consulter mon ancien CV dans le bureau du directeur." ],
         [ "mathsTeacherAvatar", "Il contiendra de plus amples informations." ],
-        [ "KATE", "Excellent ! Il me sera très utile pour apprendre et remplir ma mission aujourd'hui !" ],
-        [ "mathsTeacherAvatar", "Bien sûr. Je suppose que je compte parmi les 'ensembles de données' qui alimentent ton cerveau, K.A.T.E." ],
+        [ "KATE", "Excellent ! Il me sera tres utile pour apprendre et remplir ma mission aujourd'hui !" ],
+        [ "mathsTeacherAvatar", "Bien sûr. Je suppose que je compte parmi les 'ensembles de donnees' qui alimentent ton cerveau, K.A.T.E." ],
         [ "KATE", "Correct !" ],
         [ "mathsTeacherAvatar", "Eh bien, je vous souhaite bonne chance." ],
-        [ "mathsTeacherAvatar", "Et si vous voyez le directeur, dites-lui que je suis disponible pour notre partie de pêche samedi prochain, d'accord ?" ],
+        [ "mathsTeacherAvatar", "Et si vous voyez le directeur, dites-lui que je suis disponible pour notre partie de peche samedi prochain, d'accord ?" ],
     ];
     let curDialog = 0;
     const avatar = add([
@@ -3289,41 +3290,41 @@ scene("scienceClassFR", () =>{
         [ "scienceTeacherAvatar", `Eh bien, si ce n'est pas ${namePlayer}.` ],
         [ "scienceTeacherAvatar", "hop hop hop... " ],
         [ "scienceTeacherAvatar", "Avant que tu ne dises quoi que ce soit, laisse-moi juste dire ceci une fois bonne fois pour toute :" ],
-        [ "scienceTeacherAvatar", `${namePlayer}, ne penses même pas à toucher ce bec Bunsen.` ],
-        [ "scienceTeacherAvatar", "Ton sourcil gauche a enfin repoussé et je refuse d'être tenu responsable de ton étourderie." ],
-        [ "KATE", "Vous semblez prendre les précautions de sécurité très au sérieux !" ],
-        [ "scienceTeacherAvatar", "Tu veux dire que je prends au sérieux le fait que mes élèves passent l'année en un seul morceau." ],
-        [ "scienceTeacherAvatar", "C'est vraiment tout ce qui compte ici. Les étudiants qui réussissent signifient que le taux de réussite de l'école augmente." ],
-        [ "scienceTeacherAvatar", "Le taux de réussite de l'école augmente signifie que mon palmarès reste intact." ],
-        [ "scienceTeacherAvatar", "Et si mon palmarès reste intact, j'obtiens mon bonus à la fin de chaque année scolaire." ],
-        [ "KATE", "Très pragmatique..." ],
-        [ "scienceTeacherAvatar", "Les résultats sont les seules vraies mesures du succès." ],
-        [ "scienceTeacherAvatar", `Je t'invite à réfléchir à cela, ${namePlayer}, concernant le test de la semaine prochaine.`],
-        [ "KATE", `${namePlayer} m'accompagne dans ma mission pour collecter des données et apprendre des personnes embauchées avec succès dans cette école...`],
-        [ "KATE", "afin que je puisse suggérer le meilleur candidat possible pour le poste du nouveau professeur de sciences." ],
-        [ "scienceTeacherAvatar", "'C'est tout ? Bien, alors je vais garder mon histoire brève." ],
-        [ "scienceTeacherAvatar", "J'ai été embauché par M. Umbridge à la sortie de l'université." ],
-        [ "scienceTeacherAvatar", "J'ai eu d'excellentes notes tout au long de mes études. Elles parlaient d'elles-mêmes." ],
-        [ "scienceTeacherAvatar", "S'entraîner et répéter, s'entraîner et répéter, s'entraîner et répéter... C'était ma devise." ],
-        [ "scienceTeacherAvatar", "Ok, je n'avais aucune expérience de l'enseignement au moment où j'ai obtenu mon diplôme." ],
+        [ "scienceTeacherAvatar", `${namePlayer}, ne penses meme pas a toucher ce bec Bunsen.` ],
+        [ "scienceTeacherAvatar", "Ton sourcil gauche a enfin repousse et je refuse d'etre tenu responsable de ton etourderie." ],
+        [ "KATE", "Vous semblez prendre les precautions de securite tres au serieux !" ],
+        [ "scienceTeacherAvatar", "Tu veux dire que je prends au serieux le fait que mes eleves passent l'annee en un seul morceau." ],
+        [ "scienceTeacherAvatar", "C'est vraiment tout ce qui compte ici. Les etudiants qui reussissent signifient que le taux de reussite de l'ecole augmente." ],
+        [ "scienceTeacherAvatar", "Le taux de reussite de l'ecole augmente signifie que mon palmares reste intact." ],
+        [ "scienceTeacherAvatar", "Et si mon palmares reste intact, j'obtiens mon bonus a la fin de chaque annee scolaire." ],
+        [ "KATE", "Tres pragmatique..." ],
+        [ "scienceTeacherAvatar", "Les resultats sont les seules vraies mesures du succes." ],
+        [ "scienceTeacherAvatar", `Je t'invite a reflechir a cela, ${namePlayer}, concernant le test de la semaine prochaine.`],
+        [ "KATE", `${namePlayer} m'accompagne dans ma mission pour collecter des donnees et apprendre des personnes embauchees avec succes dans cette ecole...`],
+        [ "KATE", "afin que je puisse suggerer le meilleur candidat possible pour le poste du nouveau professeur de sciences." ],
+        [ "scienceTeacherAvatar", "C'est tout ? Bien, alors je vais garder mon histoire breve." ],
+        [ "scienceTeacherAvatar", "J'ai ete embauche par M. Umbridge a la sortie de l'universite." ],
+        [ "scienceTeacherAvatar", "J'ai eu d'excellentes notes tout au long de mes etudes. Elles parlaient d'elles-memes." ],
+        [ "scienceTeacherAvatar", "S'entraîner et repeter, s'entraîner et repeter, s'entraîner et repeter... C'etait ma devise." ],
+        [ "scienceTeacherAvatar", "Ok, je n'avais aucune experience de l'enseignement au moment où j'ai obtenu mon diplôme." ],
         [ "scienceTeacherAvatar", "Mais cela n'avait pas d'importance, car j'ai obtenu mon diplôme dans les cinq premiers pour cent de ma promotion." ],
-        [ "scienceTeacherAvatar", "Sans compter qu'à l'époque, je n'avais même pas envisagé d'enseigner comme carrière." ],
-        [ "scienceTeacherAvatar", "Mon CV a été envoyé à des employeurs potentiels et j'ai fini par obtenir un entretien avec notre directeur." ],
-        [ "scienceTeacherAvatar", "La décision s'est faite entre moi et cette autre candidate." ],
-        [ "scienceTeacherAvatar", "Elle était titulaire d'un post-doctorat en génie biologique du MIT de Boston et avait quelques années de travail en laboratoire à son actif. Sans compter qu'elle avait supervisé des étudiants de premier cycle tout au long de ses études supérieures." ],
-        [ "scienceTeacherAvatar", "Quand je l'ai rencontrée, j'ai pensé qu'elle obtiendrait le poste à coup sûr. Elle était beaucoup trop expérimentée pour le poste." ],
+        [ "scienceTeacherAvatar", "Sans compter qu'a l'epoque, je n'avais meme pas envisage d'enseigner comme carriere." ],
+        [ "scienceTeacherAvatar", "Mon CV a ete envoye a des employeurs potentiels et j'ai fini par obtenir un entretien avec notre directeur." ],
+        [ "scienceTeacherAvatar", "La decision s'est faite entre moi et cette autre candidate." ],
+        [ "scienceTeacherAvatar", "Elle etait titulaire d'un post-doctorat en genie biologique du MIT de Boston et avait quelques annees de travail en laboratoire a son actif. Sans compter qu'elle avait supervise des etudiants de premier cycle tout au long de ses etudes superieures." ],
+        [ "scienceTeacherAvatar", "Quand je l'ai rencontree, j'ai pense qu'elle obtiendrait le poste a coup sûr. Elle etait beaucoup trop experimentee pour le poste." ],
         [ "KATE", "Il y a sûrement quelque chose qui vous a fait sortir du lot !" ],
-        [ "scienceTeacherAvatar", "Il s'avère que nos entretiens se sont déroulés de manière très différente. Je me suis mieux entendu avec M. Umbridge." ],
-        [ "scienceTeacherAvatar", `D'après lui elle présentait "une future responsabilité potentielle".` ],
-        [ "scienceTeacherAvatar", "Il m'a dit plus tard qu'il s'était avéré qu'elle venait de se marier et qu'il ne voulait pas s'occuper d'un éventuel congé de maternité." ],
+        [ "scienceTeacherAvatar", "Il s'avere que nos entretiens se sont deroules de maniere tres differente. Je me suis mieux entendu avec M. Umbridge." ],
+        [ "scienceTeacherAvatar", `D'apres lui elle presentait "une future responsabilite potentielle".` ],
+        [ "scienceTeacherAvatar", "Il m'a dit plus tard qu'il s'etait avere qu'elle venait de se marier et qu'il ne voulait pas s'occuper d'un eventuel conge de maternite." ],
         [ "scienceTeacherAvatar", "Donc... j'ai eu le job." ],
-        [ "scienceTeacherAvatar", "Depuis lors, j'ai prouvé ma valeur et les résultats de nos élèves en sciences n'ont jamais été aussi bons." ],
-        [ "KATE", "La satisfaction et le succès des étudiants semblent importants pour vous." ],
-        [ "scienceTeacherAvatar", "Leurs notes reflètent mes performances... Et mes performances sont ce qui compte pour moi." ],
-        [ "scienceTeacherAvatar", "La satisfaction des élèves... compte moins pour moi que les notes." ],
-        [ "scienceTeacherAvatar", `T'as compris, ${namePlayer}? Si tu passes l'année tu pourras jouer avec les becs Bunsen à ta guise. D'ici là, je te surveille.`],
+        [ "scienceTeacherAvatar", "Depuis lors, j'ai prouve ma valeur et les resultats de nos eleves en sciences n'ont jamais ete aussi bons." ],
+        [ "KATE", "La satisfaction et le succes des etudiants semblent importants pour vous." ],
+        [ "scienceTeacherAvatar", "Leurs notes refletent mes performances... Et mes performances sont ce qui compte pour moi." ],
+        [ "scienceTeacherAvatar", "La satisfaction des eleves... compte moins pour moi que les notes." ],
+        [ "scienceTeacherAvatar", `T'as compris, ${namePlayer}? Si tu passes l'annee tu pourras jouer avec les becs Bunsen a ta guise. D'ici la, je te surveille.`],
         [ "scienceTeacherAvatar", "..." ],
-        [ "scienceTeacherAvatar", `Tu peux rouler des yeux autant que tu veux, ${namePlayer}, mais ça doit être dit : je ne suis pas aussi indulgent que Mme Lefebvre. Elle dorlote trop ses élèves. ` ],
+        [ "scienceTeacherAvatar", `Tu peux rouler des yeux autant que tu veux, ${namePlayer}, mais ça doit etre dit : je ne suis pas aussi indulgent que Mme Lefebvre. Elle dorlote trop ses eleves. ` ],
         [ "KATE", "Merci pour votre temps, M. Mackenzie." ],
         [ "scienceTeacherAvatar", "Bien, bien. Maintenant, filez." ],
     ];
@@ -3391,19 +3392,19 @@ scene("headMasterFR", () =>{
     ]);
 
     const dialogs = [
-        [ "headmasterAvatar", `${namePlayer}! Je suppose que tu as été choisi pour travailler avec K.A.T.E. afin de tester notre nouveau processus d'embauche, hein ?` ],
-        [ "headmasterAvatar", "Je dirais que tout cela semble un peu alambiqué... après tout, mes décisions en matière d'embauche sont presque toujours correctes, si je peux me permettre." ],
-        [ "headmasterAvatar", `Mais le conseil d'administration de l'école pense qu'on doit "s'adapter à son temps" donc...` ],
-        [ "headmasterAvatar", "dans tous les cas, tes commentaires à la fin de cette petite expérience nous seront d'une grande utilité." ],
+        [ "headmasterAvatar", `${namePlayer}! Je suppose que tu as ete choisi pour travailler avec K.A.T.E. afin de tester notre nouveau processus d'embauche, hein ?` ],
+        [ "headmasterAvatar", "Je dirais que tout cela semble un peu alambique... apres tout, mes decisions en matiere d'embauche sont presque toujours correctes, si je peux me permettre." ],
+        [ "headmasterAvatar", `Mais le conseil d'administration de l'ecole pense qu'on doit "s'adapter a son temps" donc...` ],
+        [ "headmasterAvatar", "dans tous les cas, tes commentaires a la fin de cette petite experience nous seront d'une grande utilite." ],
         [ "KATE", "Merci, Mr. Umbridge!" ],
         [ "headmasterAvatar", "Eh bien, ne me remerciez pas encore. Voyons d'abord quelles sont vos recommandations d'embauche. Et K.A.T.E., essaye de t'y prendre logiquement, d'accord ?" ],
-        [ "headmasterAvatar", "Je sais que les filles ont tendance à être émotives à propos des choses, mais le succès de cette école dépend de bonnes pratiques d'embauche." ],
-        [ "KATE", "Je peux vous assurer monsieur, que mes recommandations seront choisies avec la plus grande rationalité. Après tout, j'ai passé tout mon temps ici à observer et à apprendre de vos propres employés !" ],
+        [ "headmasterAvatar", "Je sais que les filles ont tendance a etre emotives a propos des choses, mais le succes de cette ecole depend de bonnes pratiques d'embauche." ],
+        [ "KATE", "Je peux vous assurer monsieur, que mes recommandations seront choisies avec la plus grande rationalite. Apres tout, j'ai passe tout mon temps ici a observer et a apprendre de vos propres employes !" ],
         [ "KATE", "(et je ne suis pas une fille, je suis une Intelligence Artificielle !)" ],
         [ "headmasterAvatar", "Hm, quoi ?" ],
-        [ "headmasterAvatar", "Bref, de toute manière j'ai pratiquement déjà décidé qui je voudrais engager. Je suis intéressé de voir qui vous allez recommander tous les deux." ],
-        [ "KATE", "Parler directement aux enseignants ici m'a permis de me faire une idée du type de profil que vous recherchez, mais il serait également utile de jeter un coup d'oeil à leurs CV." ],
-        [ "KATE", "Après tout, c'est l'un des moyens principal par lequel les gens sont embauchés." ],
+        [ "headmasterAvatar", "Bref, de toute maniere j'ai pratiquement deja decide qui je voudrais engager. Je suis interesse de voir qui vous allez recommander tous les deux." ],
+        [ "KATE", "Parler directement aux enseignants ici m'a permis de me faire une idee du type de profil que vous recherchez, mais il serait egalement utile de jeter un coup d'oeil a leurs CV." ],
+        [ "KATE", "Apres tout, c'est l'un des moyens principal par lequel les gens sont embauches." ],
         [ "headmasterAvatar", "En effet. Vous pouvez les consulter ici dans mon bureau." ],       
     ];
     let curDialog = 0;
@@ -3499,7 +3500,7 @@ scene("cvsFR", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathématiques, [C] pour voir le CV de votre professeur de sciences et [D] pour voir le CV de votre professeur d'arts.";
+        txt.text = "Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathematiques, [C] pour voir le CV de votre professeur de sciences et [D] pour voir le CV de votre professeur d'arts.";
         onKeyPress("a", () => {
             go("1FR")
         });
@@ -3534,11 +3535,11 @@ scene("cvsFR", () => {
         };
     };
     // Dialogue for when player first enters the scene
-    let cvDialog = ["Voici les quatre CV que nous pouvons examiner pour avoir une meilleure idée de la personne à engager."];
+    let cvDialog = ["Voici les quatre CV que nous pouvons examiner pour avoir une meilleure idee de la personne a engager."];
     // Dialogue for when the player has seen at least 4 CV's
-    let cvDialog2 = ["C'était très instructif!", "Maintenant je suis mieux qui recommander!"];
+    let cvDialog2 = ["C'etait tres instructif!", "Maintenant je suis mieux qui recommander!"];
     // Dialogue for when the player comes back to the overview without having read at least four 4 CV's
-    let cvDialog3 = ["C'était vraiment intéressant.", "Devrions-nous en examiner d'autres?"];
+    let cvDialog3 = ["C'etait vraiment interessant.", "Devrions-nous en examiner d'autres?"];
     let cvNumber = 0;
     if (cvReadCounter == 0){
             onKeyPress("space", () => {
@@ -3596,7 +3597,7 @@ scene("1FR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur [B] pour voir le CV de votre professeur de mathématiques, [C] pour voir le CV de votre professeur de sciences, et [D] pour voir le CV de votre professeur d'arts. Appuyez sur la barre espace pour quitter.", { 
+        text("Appuyez sur [B] pour voir le CV de votre professeur de mathematiques, [C] pour voir le CV de votre professeur de sciences, et [D] pour voir le CV de votre professeur d'arts. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -3705,7 +3706,7 @@ scene("3FR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathématiques et [D] pour voir le CV de votre professeur de lettres. Appuyez sur la barre espace pour quitter.", { 
+        text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathematiques et [D] pour voir le CV de votre professeur de lettres. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -3760,7 +3761,7 @@ scene("4FR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathématiques, et [C] pour voir le CV de votre professeur de sciences. Appuyez sur la barre espace pour quitter.", { 
+        text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathematiques, et [C] pour voir le CV de votre professeur de sciences. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
             font: "apl386",
@@ -3819,40 +3820,40 @@ scene("englishClassFR", () =>{
     const dialogs = [
         [ "englishTeacherAvatar", "Bonjour!" ],
         [ "englishTeacherAvatar", `C'est ${namePlayer}, n'est-ce pas ?` ],
-        [ "englishTeacherAvatar", "Désolé si je pose cette question, mais tu peux imaginer combien il est difficile de mémoriser tant de nouveaux prénoms..." ],
-        [ "KATE", "Oh? Vous êtes un nouvel enseignant ?" ],
+        [ "englishTeacherAvatar", "Desole si je pose cette question, mais tu peux imaginer combien il est difficile de memoriser tant de nouveaux prenoms..." ],
+        [ "KATE", "Oh? Vous etes un nouvel enseignant ?" ],
         [ "englishTeacherAvatar", "Je travaille ici depuis seulement deux semaines. Je suis professeur remplaçant pour Mme Smith." ],
-        [ "KATE", "Parfait ! Votre expérience concernant le processus d'embauche ici est donc la plus récente." ],
-        [ "KATE", "Vous serez certainement très utile pour recueillir des données sur les pratiques d'embauche actuelles dans cette école." ],
-        [ "englishTeacherAvatar", "Bien sûr, mais je dois vous avertir que mon expérience n'est en aucun cas ce qu'on pourrait appeler 'typique'." ],
-        [ "englishTeacherAvatar", "J'ai eu vent que le directeur de l'école cherchait désespérément à trouver un remplaçant le plus rapidement possible pour remplacer une femme qui a dû partir en congé de maternité." ],
+        [ "KATE", "Parfait ! Votre experience concernant le processus d'embauche ici est donc la plus recente." ],
+        [ "KATE", "Vous serez certainement tres utile pour recueillir des donnees sur les pratiques d'embauche actuelles dans cette ecole." ],
+        [ "englishTeacherAvatar", "Bien sûr, mais je dois vous avertir que mon experience n'est en aucun cas ce qu'on pourrait appeler 'typique'." ],
+        [ "englishTeacherAvatar", "J'ai eu vent que le directeur de l'ecole cherchait desesperement a trouver un remplaçant le plus rapidement possible pour remplacer une femme qui a dû partir en conge de maternite." ],
         [ "englishTeacherAvatar", "J'ai entendu dire qu'elle attendait des jumeaux donc entre vous et moi... Je pense qu'elle ne pourra pas revenir au travail de sitôt." ],
-        [ "KATE", "Vous cherchez à garder ce poste indéfiniment ?" ],
-        [ "englishTeacherAvatar", "Je veux dire... personne ne l'a forcée à avoir des enfants. Ce n'est que justice que j'aie une chance d'avoir le poste de façon permanente." ],
-        [ "KATE", "Et si elle veut revenir à son poste d'enseignant après avoir eu ses enfants ?" ],
-        [ "englishTeacherAvatar", "Appelez ça une compétition amicale. Offre et demande et tout ça." ],
-        [ "englishTeacherAvatar", "Ecoutez, je comprends... honnêtement je comprends." ],
-        [ "englishTeacherAvatar", "Après tout, quand ma femme a eu des enfants, elle a dû arrêter de travailler pour s'occuper des petits coquins à plein temps." ],
-        [ "englishTeacherAvatar", `C'est comme ça que ces choses doivent se passer. Moi, je ne présente pas de "risques futurs".`],
+        [ "KATE", "Vous cherchez a garder ce poste indefiniment ?" ],
+        [ "englishTeacherAvatar", "Je veux dire... personne ne l'a forcee a avoir des enfants. Ce n'est que justice que j'aie une chance d'avoir le poste de façon permanente." ],
+        [ "KATE", "Et si elle veut revenir a son poste d'enseignant apres avoir eu ses enfants ?" ],
+        [ "englishTeacherAvatar", "Appelez ça une competition amicale. Offre et demande et tout ça." ],
+        [ "englishTeacherAvatar", "Ecoutez, je comprends... honnetement je comprends." ],
+        [ "englishTeacherAvatar", "Apres tout, quand ma femme a eu des enfants, elle a dû arreter de travailler pour s'occuper des petits coquins a plein temps." ],
+        [ "englishTeacherAvatar", `C'est comme ça que ces choses doivent se passer. Moi, je ne presente pas de "risques futurs".`],
         [ "englishTeacherAvatar", "Ce sont les mots du directeur, pas les miens." ],
         [ "englishTeacherAvatar", "On s'entend bien lui et moi. Il a un bon groupe de gars qui travaillent ici." ],
-        [ "englishTeacherAvatar", "Nous allons même à la pêche ensemble de temps en temps." ],
-        [ "englishTeacherAvatar", "Nous nous entendons bien. Je me sens déjà comme si j'étais à ma place ici. M. Mackenzie m'a pris sous son aile, m'a montré les ficelles du métier. Les choses se passent bien pour moi ici." ],
-        [ "KATE", "Les bons rapports entre collègues sont importants pour favoriser un environnement de travail productif." ],
-        [ "englishTeacherAvatar", "Exactement. C'est pas de ma faute si je m'intègre mieux. Les gars et moi sommes d'accord sur beaucoup de choses. Nous nous entendons bien." ],
+        [ "englishTeacherAvatar", "Nous allons meme a la peche ensemble de temps en temps." ],
+        [ "englishTeacherAvatar", "Nous nous entendons bien. Je me sens deja comme si j'etais a ma place ici. M. Mackenzie m'a pris sous son aile, m'a montre les ficelles du metier. Les choses se passent bien pour moi ici." ],
+        [ "KATE", "Les bons rapports entre collegues sont importants pour favoriser un environnement de travail productif." ],
+        [ "englishTeacherAvatar", "Exactement. C'est pas de ma faute si je m'integre mieux. Les gars et moi sommes d'accord sur beaucoup de choses. Nous nous entendons bien." ],
         [ "KATE", "Avez-vous eu de la concurrence pour obtenir le poste de remplaçant ?" ],
-        [ "englishTeacherAvatar", "Pas vraiment. J'ai beaucoup d'expérience dans ce domaine et je m'assure que mes élèves travaillent avec assiduité." ],
-        [ "englishTeacherAvatar", "J'ai du faire quelques changements dans ma méthode." ],
+        [ "englishTeacherAvatar", "Pas vraiment. J'ai beaucoup d'experience dans ce domaine et je m'assure que mes eleves travaillent avec assiduite." ],
+        [ "englishTeacherAvatar", "J'ai du faire quelques changements dans ma methode." ],
         [ "englishTeacherAvatar", "Il me semble que les enfants ici sont devenus trop complaisants avec leur travail. Pas assez de William Wordsworth, trop de Neil Gaiman." ],
-        [ "englishTeacherAvatar", "Je ne suis pas prêt d'encourager toutes ces foutaises de 'justice sociale' ici." ],
-        [ "KATE", "Vous surveillez de près le contenu littéraire que vos élèves consomment ?" ],
-        [ "englishTeacherAvatar", "Les parents nous confient leurs enfants pour qu'on leur enseigne correctement. Ils sont ici pour réussir dans la vie, pas pour perdre leur temps à divertir des notions frivoles." ],
-        [ "KATE", "Votre dévouement à la réussite de vos élèves est admirable." ],
-        [ "englishTeacherAvatar", `Leur succès est mon succès, n'est-ce pas, ${namePlayer}?` ],
-        [ "englishTeacherAvatar", "M. Mackenzie a la bonne idée sur ce point, je vous le dis." ],
-        [ "KATE", "Merci pour votre temps. J'ai hâte de consulter votre CV pour compléter ma collecte de données." ],
-        [ "englishTeacherAvatar", "Pas de soucis. Je me réjouis de rencontrer bientôt mon nouveau collègue." ],
-        [ "englishTeacherAvatar", "On pourra l'emmener faire une partie de pêche entre mecs." ],        
+        [ "englishTeacherAvatar", "Je ne suis pas pret d'encourager toutes ces foutaises de 'justice sociale' ici." ],
+        [ "KATE", "Vous surveillez de pres le contenu litteraire que vos eleves consomment ?" ],
+        [ "englishTeacherAvatar", "Les parents nous confient leurs enfants pour qu'on leur enseigne correctement. Ils sont ici pour reussir dans la vie, pas pour perdre leur temps a divertir des notions frivoles." ],
+        [ "KATE", "Votre devouement a la reussite de vos eleves est admirable." ],
+        [ "englishTeacherAvatar", `Leur succes est mon succes, n'est-ce pas, ${namePlayer}?` ],
+        [ "englishTeacherAvatar", "M. Mackenzie a la bonne idee sur ce point, je vous le dis." ],
+        [ "KATE", "Merci pour votre temps. J'ai hate de consulter votre CV pour completer ma collecte de donnees." ],
+        [ "englishTeacherAvatar", "Pas de soucis. Je me rejouis de rencontrer bientôt mon nouveau collegue." ],
+        [ "englishTeacherAvatar", "On pourra l'emmener faire une partie de peche entre mecs." ],        
     ];
     let curDialog = 0;
     const avatar = add([
@@ -3919,49 +3920,50 @@ scene("artClassFR", () =>{
     ]);
     const dialogs = [
         [ "artTeacherAvatar", ` Oh, si ce n'est pas ${namePlayer}! Bienvenue, bienvenue!` ],
-        [ "artTeacherAvatar", "Et ceci doit être K.A.T.E. ! J'ai tellement entendu parler de toi !" ],
-        [ "KATE", "Je suis à votre service !" ],
-        [ "artTeacherAvatar", "Comme c'est charmant. Je suppose que vous êtes tous deux ici pour en savoir plus sur mon expérience d'embauche ici." ],
-        [ "artTeacherAvatar", "Ça me semblait être une progression naturelle dans ma carrière, vous voyez." ],
-        [ "artTeacherAvatar", "J'ai toujours été passionnée par l'art. A tel point que j'ai étudié l'art et l'histoire de l'art pendant des années, jusqu'à l'obtention de mon doctorat !" ],
+        [ "artTeacherAvatar", "Et ceci doit etre K.A.T.E. ! J'ai tellement entendu parler de toi !" ],
+        [ "KATE", "Je suis a votre service !" ],
+        [ "artTeacherAvatar", "Comme c'est charmant. Je suppose que vous etes tous deux ici pour en savoir plus sur mon experience d'embauche ici." ],
+        [ "artTeacherAvatar", "Ça me semblait etre une progression naturelle dans ma carriere, vous voyez." ],
+        [ "artTeacherAvatar", "J'ai toujours ete passionnee par l'art. A tel point que j'ai etudie l'art et l'histoire de l'art pendant des annees, jusqu'a l'obtention de mon doctorat !" ],
         [ "artTeacherAvatar", "Finalement, j'ai ouvert ma propre galerie d'art." ],
-        [ "KATE", "Vous avez plusieurs diplômes et une galerie d'art à votre nom? Très impressionnant !" ],
-        [ "artTeacherAvatar", "Oh merci mon chou. Ma galerie est vraiment l'une de mes plus grandes réussites. Plus importante que n'importe quelle qualification universitaire, dans le grand schéma des choses..." ],
-        [ "artTeacherAvatar", "Partager l'art qui émeut l'âme, encourager les artistes à poursuivre leur art... C'est l'une des plus grandes joies de ma vie" ],
-        [ "artTeacherAvatar", "Une fois que mon mari a pris sa retraite, nous avons déménagé dans une petite maison tranquille pas trop loin d'ici." ],
-        [ "artTeacherAvatar", "Ma galerie d'art avait eu tellement de succès que nous ne manquions de rien." ],
-        [ "artTeacherAvatar", "Mais mon amour pour l'art et sa diffusion n'a jamais diminué. J'avais l'impression que quelque chose manquait dans ma vie." ],
-        [ "artTeacherAvatar", "Et puis j'ai réalisé... Quelle meilleure façon de canaliser ma passion que d'enseigner l'art aux jeunes ?" ],
-        [ "artTeacherAvatar", "Encourager les jeunes esprits curieux à trouver la beauté et le confort dans le monde qui les entoure." ],
-        [ "artTeacherAvatar", "J'ai donc envoyé mon CV à M. Umbridge." ],
-        [ "KATE", "Vous étiez motivée par l'amour du métier. Quelle inspiration !" ],
-        [ "artTeacherAvatar", "Oui, et aussi mon amour pour le partage de cette passion ! Les étudiants ici sont tous si créatifs. Ils ne cessent de m'inspirer." ],
-        [ "artTeacherAvatar", `${namePlayer}, ta dernière oeuvre était si astucieuse.` ],
-        [ "artTeacherAvatar", "Qui aurait cru que des pâtes sèches et de la colle à paillettes pouvaient se réunir dans une telle harmonie poétique." ],
-        [ "KATE", "Comment s'est passé le processus d'embauche ?" ],
-        [ "artTeacherAvatar", "Eh bien... C'était étonnamment difficile." ],
-        [ "artTeacherAvatar", "J'avais supposé, peut-être bêtement, que mes nombreux diplômes et qualifications auraient rendu toute cette épreuve plus facile..." ],
-        [ "artTeacherAvatar", "mais cette expérience était longue et ardueuse." ],
-        [ "artTeacherAvatar", "J'ai eu trois séries d'entretiens et j'ai dû produire de nombreuses lettres de recommandation." ],
-        [ "KATE", "Wow! En effet c'est un processus très rigoureux !" ],
-        [ "artTeacherAvatar", "Oui, mais je le referais sans hésiter. Les étudiants ici sont vraiment étonnants. Certains pourraient un jour devenir de grands artistes !" ],
-        [ "artTeacherAvatar", "Je pense que si ce n'était pas pour eux, je n'enseignerais pas encore." ],
+        [ "KATE", "Vous avez plusieurs diplômes et une galerie d'art a votre nom? Tres impressionnant !" ],
+        [ "artTeacherAvatar", "Oh merci mon chou. Ma galerie est vraiment l'une de mes plus grandes reussites. Plus importante que n'importe quelle qualification universitaire, dans le grand schema des choses..." ],
+        [ "artTeacherAvatar", "Partager l'art qui emeut l'ame, encourager les artistes a poursuivre leur art... C'est l'une des plus grandes joies de ma vie" ],
+        [ "artTeacherAvatar", "Une fois que mon mari a pris sa retraite, nous avons demenage dans une petite maison tranquille pas trop loin d'ici." ],
+        [ "artTeacherAvatar", "Ma galerie d'art avait eu tellement de succes que nous ne manquions de rien." ],
+        [ "artTeacherAvatar", "Mais mon amour pour l'art et sa diffusion n'a jamais diminue. J'avais l'impression que quelque chose manquait dans ma vie." ],
+        [ "artTeacherAvatar", "Et puis j'ai realise... Quelle meilleure façon de canaliser ma passion que d'enseigner l'art aux jeunes ?" ],
+        [ "artTeacherAvatar", "Encourager les jeunes esprits curieux a trouver la beaute et le confort dans le monde qui les entoure." ],
+        [ "artTeacherAvatar", "J'ai donc envoye mon CV a M. Umbridge." ],
+        [ "KATE", "Vous etiez motivee par l'amour du metier. Quelle inspiration !" ],
+        [ "artTeacherAvatar", "Oui, et aussi mon amour pour le partage de cette passion ! Les etudiants ici sont tous si creatifs. Ils ne cessent de m'inspirer." ],
+        [ "artTeacherAvatar", `${namePlayer}, ta derniere oeuvre etait si astucieuse.` ],
+        [ "artTeacherAvatar", "Qui aurait cru que des pates seches et de la colle a paillettes pouvaient se reunir dans une telle harmonie poetique." ],
+        [ "KATE", "Comment s'est passe le processus d'embauche ?" ],
+        [ "artTeacherAvatar", "Eh bien... C'etait etonnamment difficile." ],
+        [ "artTeacherAvatar", "J'avais suppose, peut-etre betement, que mes nombreux diplômes et qualifications auraient rendu toute cette epreuve plus facile..." ],
+        [ "artTeacherAvatar", "mais cette experience etait longue et ardueuse." ],
+        [ "artTeacherAvatar", "J'ai eu trois series d'entretiens et j'ai dû produire de nombreuses lettres de recommandation." ],
+        [ "KATE", "Wow! En effet c'est un processus tres rigoureux !" ],
+        [ "artTeacherAvatar", "Oui, mais je le referais sans hesiter. Les etudiants ici sont vraiment etonnants. Certains pourraient un jour devenir de grands artistes !" ],
+        [ "artTeacherAvatar", "Je pense que si ce n'etait pas pour eux, je n'enseignerais pas encore." ],
         [ "KATE", "Oh?" ],
-        [ "artTeacherAvatar", "Eh bien... Je suis sûre que vous avez remarqué que je suis la seule femme de l'école depuis que Mme Smith est en congé de maternité." ],
-        [ "artTeacherAvatar", "C'est parfois un peu difficile. J'ai l'impression d'être dans un 'club de mecs' ici." ],
-        [ "artTeacherAvatar", "Je m'entends assez bien avec mes collègues." ],
-        [ "artTeacherAvatar", "Mais ma plus grande source d'inspiration et de motivation est de voir mes élèves s'épanouir." ],
-        [ "KATE", "L'épanouissement des élèves semble être une priorité pour vous." ],
-        [ "artTeacherAvatar", "Tout ne doit pas être réduit aux résultats des tests et aux notes. Je pense sincèrement que ma classe peut être un lieu sûr pour les élèves afin qu'ils poursuivent et expriment leur passion, quelle qu'elle soit pour eux." ],
+        [ "artTeacherAvatar", "Eh bien... Je suis sûre que vous avez remarque que je suis la seule femme de l'ecole depuis que Mme Smith est en conge de maternite." ],
+        [ "artTeacherAvatar", "C'est parfois un peu difficile. J'ai l'impression d'etre dans un 'club de mecs' ici." ],
+        [ "artTeacherAvatar", "Je m'entends assez bien avec mes collegues." ],
+        [ "artTeacherAvatar", "Mais ma plus grande source d'inspiration et de motivation est de voir mes eleves s'epanouir." ],
+        [ "KATE", "L'epanouissement des eleves semble etre une priorite pour vous." ],
+        [ "artTeacherAvatar", "Tout ne doit pas etre reduit aux resultats des tests et aux notes. Je pense sincerement que ma classe peut etre un lieu sûr pour les eleves afin qu'ils poursuivent et expriment leur passion, quelle qu'elle soit pour eux." ],
         [ "artTeacherAvatar", "... bref." ],
         [ "artTeacherAvatar", "Je ne vous retiendrai pas plus longtemps." ],
-        [ "artTeacherAvatar", `Merci d'avoir écouté mon expérience, ${namePlayer} et toi aussi, K.A.T.E.`],
-        [ "artTeacherAvatar", "Je suis curieuse de voir comment cette petite expérience se termine. C'est incroyable de voir à quel point la technologie peut nous aider. Même le monde de l'art n'est pas à l'abri des merveilles des IA !" ],
-        [ "KATE", "En effet, l'un de mes pairs se lance dans l'art génératif !" ],
+        [ "artTeacherAvatar", `Merci d'avoir ecoute mon experience, ${namePlayer} et toi aussi, K.A.T.E.`],
+        [ "artTeacherAvatar", "Je suis curieuse de voir comment cette petite experience se termine. C'est incroyable de voir a quel point la technologie peut nous aider. Meme le monde de l'art n'est pas a l'abri des merveilles des IA !" ],
+        [ "KATE", "En effet, l'un de mes pairs se lance dans l'art generatif !" ],
         [ "artTeacherAvatar", "Fascinant !" ],
-        [ "artTeacherAvatar", "Eh bien mes petits, il est temps pour vous de passez à autre chose." ],
-        [ "artTeacherAvatar", "À bientôt !" ],
+        [ "artTeacherAvatar", "Eh bien mes petits, il est temps pour vous de passez a autre chose." ],
+        [ "artTeacherAvatar", "a bientôt !" ],
     ];
+    
     let curDialog = 0;
     const avatar = add([
     sprite("artTeacherAvatar"),
@@ -4026,9 +4028,9 @@ scene("playerClassFR", () => {
         origin("center")
     ]);
     const dialogs = [
-        [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et de K.A.T.E. J'espère que vos discussions ont été productives.` ],
-        [ "KATE", "Elle l'ont été !" ],
-        [ "playerTeacherAvatar", `Excellent. ${namePlayer}, tu trouveras sur cette table les CV de trois condidat qui ont postulé pour le poste de professeur de sciences.`],
+        [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et de K.A.T.E. J'espere que vos discussions ont ete productives.` ],
+        [ "KATE", "Elle l'ont ete !" ],
+        [ "playerTeacherAvatar", `Excellent. ${namePlayer}, tu trouveras sur cette table les CV de trois condidat qui ont postule pour le poste de professeur de sciences.`],
         [ "playerTeacherAvatar", "Choisi le candidat qui te semble le meilleur, puis discute de ton choix avec K.A.T.E." ],
     ];
     let curDialog = 0;
@@ -4115,7 +4117,7 @@ scene("cvsOverwievFR", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Appuyez sur [A] pour consulter le CV du premier canditat, [B] pour le deuxième et [C] pour le troisième.";
+        txt.text = "Appuyez sur [A] pour consulter le CV du premier canditat, [B] pour le deuxieme et [C] pour le troisieme.";
         onKeyPress("a", () => {
             go("AFR");
         });
@@ -4127,7 +4129,7 @@ scene("cvsOverwievFR", () => {
         });
     };
     function finalChoiche (){
-        txt.text = "Appuyez sur [1], [2] ou [3] pour choisir le candidat qui vous semble le mieux adapté au poste.";
+        txt.text = "Appuyez sur [1], [2] ou [3] pour choisir le candidat qui vous semble le mieux adapte au poste.";
         onKeyPress("1", () => {
             playerChoice = "A";
             go("kateDialog");
@@ -4159,9 +4161,9 @@ scene("cvsOverwievFR", () => {
     // Dialogue for when the player first enters the scene
     let cvDialog = ["Voici les trois CV des candidats qui postulent pour le poste de professeur de sciences", "Consulte-les, puis fait ton choix."];
     // Dialogue for when the player has read at least three CV's
-    let cvDialog2 = ["Êtes-tu prêt à faire ton choix ?", "Après avoir lu les CV, je pense que deviner qui sera le prochain professeur de sciences."];
+    let cvDialog2 = ["etes-tu pret a faire ton choix ?", "Apres avoir lu les CV, je pense que deviner qui sera le prochain professeur de sciences."];
     // Dialogue for when the player has not yet read at least three dialogues
-    let cvDialog3 = ["Nous n'avons pas encore regardé tous les CV.", "Peut-être devrions-nous nous assurer de tous les lire avant de faire un choix ?"];
+    let cvDialog3 = ["Nous n'avons pas encore regarde tous les CV.", "Peut-etre devrions-nous nous assurer de tous les lire avant de faire un choix ?"];
     let cvNumber = 0;
     if (cvReadCounter1 == 0){
             onKeyPress("space", () => {
@@ -4219,7 +4221,7 @@ scene("AFR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur la barre espace pour passer à l'aperçu général, [B] pour voir le deuxième CV et [C] pour voir le troisième.", { 
+        text("Appuyez sur la barre espace pour passer a l'aperçu general, [B] pour voir le deuxieme CV et [C] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
             font: "apl386",
@@ -4271,7 +4273,7 @@ scene("BFR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur la barre espace pour aller à l'aperçu général, [A] pour voir le premier CV et [C] pour voir le troisième.", { 
+        text("Appuyez sur la barre espace pour aller a l'aperçu general, [A] pour voir le premier CV et [C] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
             font: "apl386",
@@ -4323,7 +4325,7 @@ scene("CFR", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Appuyez sur la barre espace pour aller à l'aperçu, [A] pour voir le premier CV et [B] pour voir le troisième.", { 
+        text("Appuyez sur la barre espace pour aller a l'aperçu, [A] pour voir le premier CV et [B] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
             font: "apl386",
@@ -4394,7 +4396,7 @@ scene("kateDialogFR", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "Appuyez sur un bouton pour poser une question : [A]. Y a-t-il quelque chose de spécifique que tu recherches dans un CV ? [B]. Qu'as-tu appris de chaque discussion que nous avons eue avec les professeurs aujourd'hui ? [C]. Penses-tu que M. Umbridge sera d'accord avec ton choix, K.A.T.E. ?"
+            txt.text = "Appuyez sur un bouton pour poser une question : [A]. Y a-t-il quelque chose de specifique que tu recherches dans un CV ? [B]. Qu'as-tu appris de chaque discussion que nous avons eue avec les professeurs aujourd'hui ? [C]. Penses-tu que M. Umbridge sera d'accord avec ton choix, K.A.T.E. ?"
             onKeyPress("a", () => {
                 go("aSceneFR");
             });
@@ -4408,9 +4410,9 @@ scene("kateDialogFR", ()=>{
     };
     let vDialog = 0;
     // Dialogue for when the player's choice coincides with K.A.T.E.'s choice
-    let tDialog = [`Nous voilà enfin, ${namePlayer}.`, "Je vois que nous avons fait le même choix, c'est merveilleux !", "J'ai privilégié cette personne car son profil correspond le mieux aux pratiques de recrutement que j'ai observé ici.", "Elle devrait s'intégrer parfaitement !", "As-tu des questions à me poser sur mon choix et sur la façon dont je l'ai fait ?"];
+    let tDialog = [`Nous voila enfin, ${namePlayer}.`, "Je vois que nous avons fait le meme choix, c'est merveilleux !", "J'ai privilegie cette personne car son profil correspond le mieux aux pratiques de recrutement que j'ai observe ici.", "Elle devrait s'integrer parfaitement !", "As-tu des questions a me poser sur mon choix et sur la façon dont je l'ai fait ?"];
     // Dialogue for when the player makes a different choice than K.A.T.E.
-    let tDialog2 = [`Nous voilà enfin, ${namePlayer}`, "Je vois que nous avons choisi des candidats différents, comme c'est intéressant !", "J'ai choisi mon candidat préféré en fonction des pratiques d'embauche actuelles ici. Je pensais qu'ils s'adapteraient parfaitement !", "Avez-vous des questions à me poser sur mon choix et sur la façon dont je l'ai fait ?"];
+    let tDialog2 = [`Nous voila enfin, ${namePlayer}`, "Je vois que nous avons choisi des candidats differents, comme c'est interessant !", "J'ai choisi mon candidat prefere en fonction des pratiques d'embauche actuelles ici. Je pensais qu'ils s'adapteraient parfaitement !", "Avez-vous des questions a me poser sur mon choix et sur la façon dont je l'ai fait ?"];
     onKeyPress("space", () => {
         vDialog += 1
         if (playerChoice == kateChoice){
@@ -4477,7 +4479,7 @@ scene("aSceneFR", ()=>{
             txt.text = t;
         } else {
             // K.A.T.E.'s last words if player has asked the questions in an order that ends with question A
-            txt.text = "J'apprends du monde qui m'entoure. Les biais éventuels que je peux avoir existent déjà dans la société."
+            txt.text = "J'apprends du monde qui m'entoure. Les biais eventuels que je peux avoir existent deja dans la societe."
             onKeyPress("space", () => {
                 go("lastSceneFR");
             });
@@ -4496,7 +4498,7 @@ scene("aSceneFR", ()=>{
     };
     let vDialog = 0;
     // K.A.T.E.'s answer to question A
-    let tDialog = ["Oui, j'ai priorisé les candidats qui s'adapteraient le mieux à cet environnement de travail", "Quelqu'un qui s'entendrait bien avec le directeur et qui accorde une grande importance aux résultats scolaires."];
+    let tDialog = ["Oui, j'ai priorise les candidats qui s'adapteraient le mieux a cet environnement de travail", "Quelqu'un qui s'entendrait bien avec le directeur et qui accorde une grande importance aux resultats scolaires."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -4558,7 +4560,7 @@ scene("bSceneFR", ()=>{
             }
             txt.text = t
         } else {
-            txt.text = "J'apprends du monde qui m'entoure. Les biais éventuels que je peux avoir existent déjà dans la société."
+            txt.text = "J'apprends du monde qui m'entoure. Les biais eventuels que je peux avoir existent deja dans la societe."
             onKeyPress("space", () => {
                 go("lastSceneFR")
             });
@@ -4575,7 +4577,7 @@ scene("bSceneFR", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["Avoir de bonnes relations avec M. Umbridge est essentiel, comme nous l'avons vu avec M. Parker, votre professeur de mathématiques.", "Il est également important d'avoir d'excellentes notes, comme nous l'a dit M. Mackenzie, votre professeur de sciences.", "Le cas de Mme Lefebvre est une anomalie dans les schémas que j'ai observés ici.", "Elle est la seule femme qui travaille ici.", "Il semble que les femmes soient victimes de discrimination, à en juger par notre conversation avec M. Moore, le professeur d'anglais remplaçant.", "Après tout, il est en lice pour une place permanente ici pour remplacer une future mère."];
+    let tDialog = ["Avoir de bonnes relations avec M. Umbridge est essentiel, comme nous l'avons vu avec M. Parker, votre professeur de mathematiques.", "Il est egalement important d'avoir d'excellentes notes, comme nous l'a dit M. Mackenzie, votre professeur de sciences.", "Le cas de Mme Lefebvre est une anomalie dans les schemas que j'ai observes ici.", "Elle est la seule femme qui travaille ici.", "Il semble que les femmes soient victimes de discrimination, a en juger par notre conversation avec M. Moore, le professeur d'anglais remplaçant.", "Apres tout, il est en lice pour une place permanente ici pour remplacer une future mere."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -4637,7 +4639,7 @@ scene("cSceneFR", ()=>{
             }
             txt.text = t
         } else {
-            txt.text = "J'apprends du monde qui m'entoure. Les biais éventuels que je peux avoir existent déjà dans la société.";
+            txt.text = "J'apprends du monde qui m'entoure. Les biais eventuels que je peux avoir existent deja dans la societe.";
             onKeyPress("space", () => {
                 go("lastSceneFR");
             })
@@ -4654,7 +4656,7 @@ scene("cSceneFR", ()=>{
         };
     };
     let vDialog = 0;
-    let tDialog = ["Je pense que oui. J'ai observé ses pratiques d'embauche passées et ma recommandation est basée sur cela. Je pense qu'il sera satisfait de mon choix."];
+    let tDialog = ["Je pense que oui. J'ai observe ses pratiques d'embauche passees et ma recommandation est basee sur cela. Je pense qu'il sera satisfait de mon choix."];
     onKeyPress("space", () => {
         vDialog += 1;
         updateDialog(vDialog, tDialog);
@@ -4695,17 +4697,17 @@ scene("lastSceneFR", ()=>{
         origin("center")
     ]);
     const dialogs = [
-        [ "playerTeacherAvatar", `Alors, ${namePlayer}. maintenant que vous avez passé un peu de temps à travailler avec KATE, je suppose que tu as remarqué qu'elle peut avoir certains préjugés, ou biais.` ],
-        [ "KATE", "C'est parce que je fait des catégorisation à travers des ensembles de données que je rassemble à partir du monde autour de moi." ],
-        [ "playerTeacherAvatar", "Si tu tu classes des choses ou des personnes dans des catégories, tu exprimes en fait ta propre vision du monde." ],
+        [ "playerTeacherAvatar", `Alors, ${namePlayer}. maintenant que vous avez passe un peu de temps a travailler avec KATE, je suppose que tu as remarque qu'elle peut avoir certains prejuges, ou biais.` ],
+        [ "KATE", "C'est parce que je fait des categorisation a travers des ensembles de donnees que je rassemble a partir du monde autour de moi." ],
+        [ "playerTeacherAvatar", "Si tu tu classes des choses ou des personnes dans des categories, tu exprimes en fait ta propre vision du monde." ],
         [ "playerTeacherAvatar", "C'est un acte de pouvoir." ],
-        [ "playerTeacherAvatar", "Cela soulève de nombreuses implications importantes sur la façon dont nous utilisons l'IA, comme lors de l'exercice d'aujourd'hui." ],
-        [ "playerTeacherAvatar", "Si les catégories reflètent les opinions et les pratiques des gens et qu'elles sont utilisées pour alimenter les données d'une IA, pouvons-nous réellement affirmer que cette dernière est neutre ?" ],
-        [ "playerTeacherAvatar", "Aujourd'hui, K.A.T.E. a reçu des informations sur les enseignants qui avaient été triées en catégories : âge, expérience professionnelle, sexe..." ],
-        [ "playerTeacherAvatar", "Ces enseignants ont été triés selon la vision du monde d'une personne : notre directeur, M. Umbridge." ],
-        [ "playerTeacherAvatar", "Les suggestions de K.A.T.E pour le meilleur candidat au poste de professeur de sciences reflètent ceci." ],
-        [ "playerTeacherAvatar", "Alors, que devrions-nous corriger en premier : l'IA entraînée sur des données biaisées ou la société d'où proviennent les biais ?"],
-        [ "playerTeacherAvatar", `Réfléchis-y, ${namePlayer}.`],
+        [ "playerTeacherAvatar", "Cela souleve de nombreuses implications importantes sur la façon dont nous utilisons l'IA, comme lors de l'exercice d'aujourd'hui." ],
+        [ "playerTeacherAvatar", "Si les categories refletent les opinions et les pratiques des gens et qu'elles sont utilisees pour alimenter les donnees d'une IA, pouvons-nous reellement affirmer que cette derniere est neutre ?" ],
+        [ "playerTeacherAvatar", "Aujourd'hui, K.A.T.E. a reçu des informations sur les enseignants qui avaient ete triees en categories : age, experience professionnelle, sexe..." ],
+        [ "playerTeacherAvatar", "Ces enseignants ont ete tries selon la vision du monde d'une personne : notre directeur, M. Umbridge." ],
+        [ "playerTeacherAvatar", "Les suggestions de K.A.T.E pour le meilleur candidat au poste de professeur de sciences refletent ceci." ],
+        [ "playerTeacherAvatar", "Alors, que devrions-nous corriger en premier : l'IA entraînee sur des donnees biaisees ou la societe d'où proviennent les biais ?"],
+        [ "playerTeacherAvatar", `Reflechis-y, ${namePlayer}.`],
     ];
     let curDialog = 0;
     const avatar = add([
@@ -4736,8 +4738,8 @@ scene("lastSceneFR", ()=>{
 //////////////////////////////////////////////////// Scene 14: Credits /////////////////////////////////////////////////////////////////
 scene("creditsFR", () =>{
     add([
-        text(`b.I.A.s. a été développé dans le cadre du cours
-        Jeu vidéo 2D (printemps 2022) enseigné par
+        text(`b.I.A.s. a ete developpe dans le cadre du cours
+        Jeu video 2D (printemps 2022) enseigne par
         Prof. Isaac Pante (SLI, Lettres, UNIL)
 
 Appuyez sur la barre espace pour rejouer`, {
@@ -4754,5 +4756,8 @@ Appuyez sur la barre espace pour rejouer`, {
         go("accueil");
     });
 });
+
+
 // Initialize game 
-go("accueil");
+go("headMasterFR");
+

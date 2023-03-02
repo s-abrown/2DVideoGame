@@ -51,24 +51,45 @@ loadSound("click", "click.mp3");
 loadSprite("mathTeachCV", "mathTeachCV.png");
 loadSprite("mathTeachCV1", "mathTeachCV1.png");
 loadSprite("mathTeachCV2", "mathTeachCV2.png");
+loadSprite("mathTeachFR", "mathteachFR.png");
+loadSprite("mathTeachFR1", "mathteachFR2.png");
+loadSprite("mathTeachFR2", "mathteachFR3.png");
 loadSprite("ArtteachCV", "ArtteachCV.png");
 loadSprite("artTeachCV1", "artTeachCV1.png");
 loadSprite("artTeachCV2", "artTeachCV2.png");
+loadSprite("ArtteachFR", "artteachFR.png");
+loadSprite("artTeachFR1", "artteachFR2.png");
+loadSprite("artTeachFR2", "artteachFR3.png");
 loadSprite("englishTeachCV", "englishTeachCV.png");
 loadSprite("englishTeachCV1", "englishTeach1.png");
 loadSprite("englishTeachCV2", "englishTeach2.png");
+loadSprite("englishTeachFR", "englishteachFR.png");
+loadSprite("englishTeachFR1", "englishteachFR1.png");
+loadSprite("englishTeachFR2", "englishteachFR2.png");
 loadSprite("scienceTeachCV", "scienceTeachCV.png");
 loadSprite("scienceTeachCV1", "scienceTeachCV1.png");
 loadSprite("scienceTeachCV2", "scienceTeachCV2.png");
+loadSprite("scienceTeachFR", "scienceteachFR.png");
+loadSprite("scienceTeachFR1", "scienceteachFR2.png");
+loadSprite("scienceTeachFR2", "scienceteachFR3.png");
 loadSprite("EvansCV", "EvansCV.png");
 loadSprite("EvansCV1", "EvansCV1.png");
 loadSprite("EvansCV2", "EvansCV2.png");
+loadSprite("evansFR", "evansFR.png");
+loadSprite("evansFR1", "evansFR2.png");
+loadSprite("evansFR2", "evansFR3.png");
 loadSprite("LaurenCV", "LaurenCV.png");
 loadSprite("LaurenCV1", "LaurenCV1.png");
 loadSprite("LaurenCV2", "LaurenCV2.png");
+loadSprite("laurenFR", "laurenFR.png");
+loadSprite("laurenFR1", "laurenFR2.png");
+loadSprite("laurenFR2", "laurenFR3.png");
 loadSprite("JohCV", "JohCV.png");
 loadSprite("JohCV1", "JohCV1.png");
 loadSprite("JohCV2", "JohCV2.png");
+loadSprite("JohFR", "johanssonFR.png");
+loadSprite("JohFR1", "johanssonFR2.png");
+loadSprite("JohFR2", "johanssonFR3.png");
 
 ///////////// Variables /////////////
 let placeHolder = "My name: ";
@@ -3443,28 +3464,28 @@ scene("cvsFR", () => {
         fixed()
       ]);
     let artCV = add([
-        sprite("ArtteachCV"),
+        sprite("ArtteachFR"),
         pos(300, height()/2),
         scale(0.15),
         origin("center"),
         fixed()
     ]);
     let mathCV = add([
-        sprite("mathTeachCV"),
+        sprite("mathTeachFR"),
         pos(430, height()/2),
         scale(0.17),
         origin("center"),
         fixed()
     ]);
     let scienceCV = add([
-        sprite("scienceTeachCV"),
+        sprite("scienceTeachFR"),
         pos(670, height()/2),
         scale(0.18),
         origin("center"),
         fixed()
     ]);
     let englishCV = add([
-        sprite("englishTeachCV"),
+        sprite("englishTeachFR"),
         pos(850, height()/2),
         scale(0.19),
         origin("center"),
@@ -3575,7 +3596,7 @@ scene("1FR", () => {
         fixed()
       ]);
     let CV1 = add([
-        sprite("englishTeachCV1"),
+        sprite("englishTeachFR1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -3584,7 +3605,7 @@ scene("1FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("englishTeachCV2"),
+        sprite("englishTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -3629,7 +3650,7 @@ scene("2FR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("mathTeachCV1"),
+        sprite("mathTeachFR1"),
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
@@ -3638,7 +3659,7 @@ scene("2FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("mathTeachCV2"),
+        sprite("mathTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -3684,7 +3705,7 @@ scene("3FR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("scienceTeachCV1"),
+        sprite("scienceTeachFR1"),
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
@@ -3693,7 +3714,7 @@ scene("3FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("scienceTeachCV2"),
+        sprite("scienceTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -3739,7 +3760,7 @@ scene("4FR", () => {
         fixed()
       ]);
     let CV1 = add([
-        sprite("artTeachCV1"),
+        sprite("artTeachFR1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -3748,7 +3769,7 @@ scene("4FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("artTeachCV2"),
+        sprite("artTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -4067,21 +4088,21 @@ scene("cvsOverwievFR", () => {
         fixed()
       ]);
     let EvansCV = add([
-        sprite("EvansCV"),
+        sprite("evansFR"),
         pos(320, height()/2),
         scale(0.17),
         origin("center"),
         fixed()
     ]);
     let LaurenCV = add([
-        sprite("LaurenCV"),
+        sprite("laurenFR"),
         pos(550, height()/2),
         scale(0.18),
         origin("center"),
         fixed()
     ]);
     let JohCV = add([
-        sprite("JohCV"),
+        sprite("JohFR"),
         pos(800, height()/2),
         scale(0.15),
         origin("center"),
@@ -4199,7 +4220,7 @@ scene("AFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("EvansCV1"),
+        sprite("evansFR1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -4208,7 +4229,7 @@ scene("AFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("EvansCV2"),
+        sprite("evansFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -4251,7 +4272,7 @@ scene("BFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("LaurenCV1"),
+        sprite("laurenFR1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -4260,7 +4281,7 @@ scene("BFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("LaurenCV2"),
+        sprite("laurenFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -4303,7 +4324,7 @@ scene("CFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("JohCV1"),
+        sprite("JohFR1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -4312,7 +4333,7 @@ scene("CFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("JohCV2"),
+        sprite("JohFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         origin("center"),
@@ -4759,5 +4780,4 @@ Appuyez sur la barre espace pour rejouer`, {
 
 
 // Initialize game 
-go("accueil");
-
+go("cvsFR");

@@ -4759,5 +4759,5 @@ Appuyez sur la barre espace pour rejouer`, {
 
 
 // Initialize game 
-go("headMasterFR");
+go("accueil");
 

@@ -4780,4 +4780,4 @@ Appuyez sur la barre espace pour rejouer`, {
 
 
 // Initialize game 
-go("cvsFR");
+go("accueil");

@@ -4767,7 +4767,7 @@ Appuyez sur la barre espace pour rejouer`, {
             size: 30,
             font: "monospace",
             lineSpacing: 10,
-            // // align: "center",
+            // align: "center",
         }),
         pos (100, 250),
     ]);

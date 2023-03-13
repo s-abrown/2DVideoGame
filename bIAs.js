@@ -129,7 +129,7 @@ PRESS ENTER TO BEGIN
 APPUYER SUR LA BARRE 
 ESPACE POUR COMMENCER`, {
             size: 48,
-            font: "apl386",
+            font: "monospace",
             lineSpacing: 10,
             
         }),
@@ -149,7 +149,7 @@ scene("nameInput", () => {
     add([
         pos(150, 200),
         text("Type your name and press enter", {
-            font: "apl386",
+            font: "monospace",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -159,7 +159,7 @@ scene("nameInput", () => {
     const input = add([
         pos(250, 250),
         text(`${placeHolder}`, {
-            font: "apl386",
+            font: "monospace",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -187,7 +187,7 @@ scene("introduction", () =>{
         sprite("classRoom1"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     // Adding the player's teacher to the background
@@ -197,14 +197,14 @@ scene("introduction", () =>{
     // Adding the dialog/text box at the bottom of the screen
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     // Adding the portrait to the left of the text box
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -213,17 +213,16 @@ scene("introduction", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     // Character avatar
     const avatar = add([
         sprite("playerTeacherAvatar"),
         scale(0.51),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
 
@@ -301,7 +300,7 @@ scene("corridor", () =>{
     let map = add([
         sprite("schoolMap"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     // I. Perimeters
@@ -489,7 +488,7 @@ scene("corridor", () =>{
     // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
-        origin("center"),
+        anchor("center"),
         pos(playerPos),
         area(),
         scale(0.10),
@@ -516,14 +515,14 @@ scene("corridor", () =>{
     // III. Corridor interactions
         const textbox = add([
             rect(width() - 300, 120, { radius: 32 }),
-            origin("center"),
+            anchor("center"),
             pos(center().x + 100, height() - 125),
             outline(2),
         ]);
         textbox.hidden = true;
         const portrait = add([
             rect(200, 120, {radius: 32}),
-            origin("center"),
+            anchor("center"),
             pos(center().x - 450, height() - 125),
             outline(2),
             "portrait"
@@ -532,7 +531,7 @@ scene("corridor", () =>{
         const avatar = add([
             sprite("KATE"),
             scale(0.3),
-            origin("center"),
+            anchor("center"),
             pos(portrait.pos),
         ]);
         avatar.hidden = true
@@ -540,11 +539,11 @@ scene("corridor", () =>{
             text("", { 
                 size: 32, 
                 width: 800,
-                font: "apl386",
+                font: "monospace",
+                // align: "center"
                 }),
             color([0, 0, 0]),
             pos(textbox.pos),
-            origin("center")
         ]);
         txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
@@ -857,7 +856,7 @@ scene("mathsClass", () =>{
     let classRoom = add([
         sprite("mathClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const mathsTeacher = add([
@@ -865,13 +864,13 @@ scene("mathsClass", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -879,11 +878,11 @@ scene("mathsClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
@@ -923,7 +922,7 @@ scene("mathsClass", () =>{
     const avatar = add([
         sprite("mathsTeacherAvatar"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -953,7 +952,7 @@ scene("scienceClass", () =>{
     let classRoom = add([
         sprite("scienceClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const scienceTeacher = add([
@@ -961,13 +960,13 @@ scene("scienceClass", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -975,11 +974,11 @@ scene("scienceClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
 
     const dialogs = [
@@ -1028,7 +1027,7 @@ scene("scienceClass", () =>{
     const avatar = add([
     sprite("scienceTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ])
     onKeyPress("space", () => {
@@ -1058,7 +1057,7 @@ scene("headMaster", () =>{
     let classRoom = add([
         sprite("headmasterBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const headmaster = add([
@@ -1066,13 +1065,13 @@ scene("headMaster", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1080,11 +1079,11 @@ scene("headMaster", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
 
     const dialogs = [
@@ -1108,7 +1107,7 @@ scene("headMaster", () =>{
     const avatar = add([
     sprite("headmasterAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ])
     onKeyPress("space", () => {
@@ -1136,46 +1135,46 @@ scene("cvs", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let artCV = add([
         sprite("ArtteachCV"),
         pos(300, height()/2),
         scale(0.15),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let mathCV = add([
         sprite("mathTeachCV"),
         pos(430, height()/2),
         scale(0.17),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let scienceCV = add([
         sprite("scienceTeachCV"),
         pos(670, height()/2),
         scale(0.18),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let englishCV = add([
         sprite("englishTeachCV"),
         pos(850, height()/2),
         scale(0.19),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1183,17 +1182,17 @@ scene("cvs", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hideen = true;
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
@@ -1268,7 +1267,7 @@ scene("1", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let CV1 = add([
@@ -1276,7 +1275,7 @@ scene("1", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1284,12 +1283,12 @@ scene("1", () => {
         sprite("englishTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1297,11 +1296,11 @@ scene("1", () => {
         text("Press [B] to see your maths teacher's CV, [C] to see your science teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1322,7 +1321,7 @@ scene("2", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -1330,7 +1329,7 @@ scene("2", () => {
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1338,12 +1337,12 @@ scene("2", () => {
         sprite("mathTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1351,11 +1350,11 @@ scene("2", () => {
         text("Press [A] to see your english teacher's CV, [C] to see your science teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1377,7 +1376,7 @@ scene("3", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -1385,7 +1384,7 @@ scene("3", () => {
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1393,12 +1392,12 @@ scene("3", () => {
         sprite("scienceTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1406,11 +1405,11 @@ scene("3", () => {
         text("Press [A] to see your english teacher's CV, [B] to see your maths teacher's CV, and [D] to see your arts teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1432,7 +1431,7 @@ scene("4", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let CV1 = add([
@@ -1440,7 +1439,7 @@ scene("4", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1448,12 +1447,12 @@ scene("4", () => {
         sprite("artTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1461,11 +1460,11 @@ scene("4", () => {
         text("Press [A] to see your english teacher's CV, [B] to see your math teacher's CV, and [C] to see your science teacher's CV. Press the spacebar to quit.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1486,7 +1485,7 @@ scene("englishClass", () =>{
     let classRoom = add([
         sprite("englishClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const englishTeacher = add([
@@ -1494,13 +1493,13 @@ scene("englishClass", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1508,11 +1507,11 @@ scene("englishClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "englishTeacherAvatar", "Hello there!" ],
@@ -1557,7 +1556,7 @@ scene("englishClass", () =>{
     const avatar = add([
     sprite("englishTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -1588,7 +1587,7 @@ scene("artClass", () =>{
     let artClass = add([
         sprite("artClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const artTeacher = add([
@@ -1596,13 +1595,13 @@ scene("artClass", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1610,11 +1609,11 @@ scene("artClass", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "artTeacherAvatar", `Oh, if it isn't my dear ${namePlayer}! Welcome, welcome!` ],
@@ -1665,7 +1664,7 @@ scene("artClass", () =>{
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -1696,7 +1695,7 @@ scene("playerClass", () => {
     let playerClass = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const artTeacher = add([
@@ -1704,13 +1703,13 @@ scene("playerClass", () => {
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1718,11 +1717,11 @@ scene("playerClass", () => {
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
@@ -1735,7 +1734,7 @@ scene("playerClass", () => {
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -1761,39 +1760,39 @@ scene("cvsOverwiev", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let EvansCV = add([
         sprite("EvansCV"),
         pos(320, height()/2),
         scale(0.17),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let LaurenCV = add([
         sprite("LaurenCV"),
         pos(550, height()/2),
         scale(0.18),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let JohCV = add([
         sprite("JohCV"),
         pos(800, height()/2),
         scale(0.15),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -1801,17 +1800,17 @@ scene("cvsOverwiev", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hideen = true;
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
@@ -1893,7 +1892,7 @@ scene("A", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -1901,7 +1900,7 @@ scene("A", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1909,12 +1908,12 @@ scene("A", () => {
         sprite("EvansCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1922,11 +1921,11 @@ scene("A", () => {
         text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -1945,7 +1944,7 @@ scene("B", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -1953,7 +1952,7 @@ scene("B", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -1961,12 +1960,12 @@ scene("B", () => {
         sprite("LaurenCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -1974,11 +1973,11 @@ scene("B", () => {
         text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -1997,7 +1996,7 @@ scene("C", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -2005,7 +2004,7 @@ scene("C", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -2013,12 +2012,12 @@ scene("C", () => {
         sprite("JohCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -2026,11 +2025,11 @@ scene("C", () => {
         text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -2050,18 +2049,18 @@ scene("kateDialog", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2069,7 +2068,7 @@ scene("kateDialog", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true
@@ -2077,11 +2076,11 @@ scene("kateDialog", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2128,18 +2127,18 @@ scene("aScene", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2147,7 +2146,7 @@ scene("aScene", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true
@@ -2155,11 +2154,11 @@ scene("aScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     // The function makes sure that the player cycles through all questions
@@ -2210,18 +2209,18 @@ scene("bScene", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2229,7 +2228,7 @@ scene("bScene", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true;
@@ -2237,11 +2236,11 @@ scene("bScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2289,18 +2288,18 @@ scene("cScene", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2308,7 +2307,7 @@ scene("cScene", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true;
@@ -2316,11 +2315,11 @@ scene("cScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2366,7 +2365,7 @@ scene("lastScene", ()=>{
     let playerClass = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const playerTeacher = add([
@@ -2374,13 +2373,13 @@ scene("lastScene", ()=>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2388,11 +2387,11 @@ scene("lastScene", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `So  ${namePlayer}, you have worked with K.A.T.E. and seen how biased she can be.` ],
@@ -2411,7 +2410,7 @@ scene("lastScene", ()=>{
     const avatar = add([
     sprite("playerTeacher"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -2441,9 +2440,9 @@ Prof. Isaac Pante (SLI, Lettres, UNIL)
 
 Press space to play again`, {
             size: 30,
-            font: "apl386",
+            font: "monospace",
             lineSpacing: 10,
-            align: center,
+            // align: center,
         }),
         pos (100, 250),
     ]);
@@ -2473,8 +2472,7 @@ scene("nameInputFR", () => {
     add([
         pos(150, 200),
         text("Tapez votre prenom puis appuyez sur enter", {
-            //font: "apl386",
-            font: "apl386",
+            font: "monospace",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -2484,7 +2482,7 @@ scene("nameInputFR", () => {
     const input = add([
         pos(250, 250),
         text(`${placeHolder}`, {
-            font: "apl386",
+            font: "monospace",
             width: width() - pad * 2,
             size: 32,
             lineSpacing: 8,
@@ -2511,7 +2509,7 @@ scene("introductionFR", () =>{
         sprite("classRoom1"),
         // Make the background centered on the screen
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     // Adding the player's teacher to the background
@@ -2521,14 +2519,14 @@ scene("introductionFR", () =>{
     // Adding the dialog/text box at the bottom of the screen
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     // Adding the portrait to the left of the text box
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -2537,17 +2535,18 @@ scene("introductionFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            //// align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
+        anchor("center"),
     ]);
     // Character avatar
     const avatar = add([
         sprite("playerTeacherAvatar"),
         scale(0.51),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
 
@@ -2626,7 +2625,7 @@ scene("corridorFR", () =>{
     let map = add([
         sprite("schoolMap"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     // I. Perimeters
@@ -2814,7 +2813,7 @@ scene("corridorFR", () =>{
     // Adding player into the over world 
     let overWorldPlayer = add([
         sprite("student"),
-        origin("center"),
+        anchor("center"),
         pos(playerPos),
         area(),
         scale(0.10),
@@ -2841,14 +2840,14 @@ scene("corridorFR", () =>{
     // III. Corridor interactions
         const textbox = add([
             rect(width() - 300, 120, { radius: 32 }),
-            origin("center"),
+            anchor("center"),
             pos(center().x + 100, height() - 125),
             outline(2),
         ]);
         textbox.hidden = true;
         const portrait = add([
             rect(200, 120, {radius: 32}),
-            origin("center"),
+            anchor("center"),
             pos(center().x - 450, height() - 125),
             outline(2),
             "portrait"
@@ -2857,7 +2856,7 @@ scene("corridorFR", () =>{
         const avatar = add([
             sprite("KATE"),
             scale(0.3),
-            origin("center"),
+            anchor("center"),
             pos(portrait.pos),
         ]);
         avatar.hidden = true
@@ -2865,11 +2864,11 @@ scene("corridorFR", () =>{
             text("", { 
                 size: 32, 
                 width: 800,
-                font: "apl386",
+                font: "monospace",
+                // align: "center"
                 }),
             color([0, 0, 0]),
             pos(textbox.pos),
-            origin("center")
         ]);
         txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
@@ -3182,7 +3181,7 @@ scene("mathsClassFR", () =>{
     let classRoom = add([
         sprite("mathClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const mathsTeacher = add([
@@ -3190,13 +3189,13 @@ scene("mathsClassFR", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3204,11 +3203,11 @@ scene("mathsClassFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
@@ -3248,7 +3247,7 @@ scene("mathsClassFR", () =>{
     const avatar = add([
         sprite("mathsTeacherAvatar"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -3278,7 +3277,7 @@ scene("scienceClassFR", () =>{
     let classRoom = add([
         sprite("scienceClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const scienceTeacher = add([
@@ -3286,13 +3285,13 @@ scene("scienceClassFR", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3300,11 +3299,11 @@ scene("scienceClassFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
 
     const dialogs = [
@@ -3353,7 +3352,7 @@ scene("scienceClassFR", () =>{
     const avatar = add([
     sprite("scienceTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ])
     onKeyPress("space", () => {
@@ -3383,7 +3382,7 @@ scene("headMasterFR", () =>{
     let classRoom = add([
         sprite("headmasterBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const headmaster = add([
@@ -3391,13 +3390,13 @@ scene("headMasterFR", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3405,11 +3404,11 @@ scene("headMasterFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
 
     const dialogs = [
@@ -3432,7 +3431,7 @@ scene("headMasterFR", () =>{
     const avatar = add([
     sprite("headmasterAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ])
     onKeyPress("space", () => {
@@ -3460,46 +3459,46 @@ scene("cvsFR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let artCV = add([
         sprite("ArtteachFR"),
         pos(300, height()/2),
         scale(0.15),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let mathCV = add([
         sprite("mathTeachFR"),
         pos(430, height()/2),
         scale(0.17),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let scienceCV = add([
         sprite("scienceTeachFR"),
         pos(670, height()/2),
         scale(0.18),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let englishCV = add([
         sprite("englishTeachFR"),
         pos(850, height()/2),
         scale(0.19),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3507,17 +3506,17 @@ scene("cvsFR", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hideen = true;
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
@@ -3592,7 +3591,7 @@ scene("1FR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let CV1 = add([
@@ -3600,7 +3599,7 @@ scene("1FR", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -3608,12 +3607,12 @@ scene("1FR", () => {
         sprite("englishTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -3621,11 +3620,11 @@ scene("1FR", () => {
         text("Appuyez sur [B] pour voir le CV de votre professeur de mathematiques, [C] pour voir le CV de votre professeur de sciences, et [D] pour voir le CV de votre professeur d'arts. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3646,7 +3645,7 @@ scene("2FR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -3654,7 +3653,7 @@ scene("2FR", () => {
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -3662,12 +3661,12 @@ scene("2FR", () => {
         sprite("mathTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -3675,11 +3674,11 @@ scene("2FR", () => {
         text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, sur [C] pour voir le CV de votre professeur de sciences et sur [D] pour voir le CV de votre professeur d'arts. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3701,7 +3700,7 @@ scene("3FR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -3709,7 +3708,7 @@ scene("3FR", () => {
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -3717,12 +3716,12 @@ scene("3FR", () => {
         sprite("scienceTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -3730,11 +3729,11 @@ scene("3FR", () => {
         text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathematiques et [D] pour voir le CV de votre professeur de lettres. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3756,7 +3755,7 @@ scene("4FR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let CV1 = add([
@@ -3764,7 +3763,7 @@ scene("4FR", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -3772,12 +3771,12 @@ scene("4FR", () => {
         sprite("artTeachFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -3785,11 +3784,11 @@ scene("4FR", () => {
         text("Appuyez sur [A] pour voir le CV de votre professeur d'anglais, [B] pour voir le CV de votre professeur de mathematiques, et [C] pour voir le CV de votre professeur de sciences. Appuyez sur la barre espace pour quitter.", { 
             size: 32, 
             width: 1000,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3810,7 +3809,7 @@ scene("englishClassFR", () =>{
     let classRoom = add([
         sprite("englishClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const englishTeacher = add([
@@ -3818,13 +3817,13 @@ scene("englishClassFR", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3832,11 +3831,11 @@ scene("englishClassFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "englishTeacherAvatar", "Bonjour!" ],
@@ -3846,7 +3845,7 @@ scene("englishClassFR", () =>{
         [ "englishTeacherAvatar", "Je travaille ici depuis seulement deux semaines. Je suis professeur remplaçant pour Mme Smith." ],
         [ "KATE", "Parfait ! Votre experience concernant le processus d'embauche ici est donc la plus recente." ],
         [ "KATE", "Vous serez certainement tres utile pour recueillir des donnees sur les pratiques d'embauche actuelles dans cette ecole." ],
-        [ "englishTeacherAvatar", "Bien sûr, mais je dois vous avertir que mon experience n'est en aucun cas ce qu'on pourrait appeler 'typique'." ],
+        [ "englishTeacherAvatar", "Bien sur, mais je dois vous avertir que mon experience n'est en aucun cas ce qu'on pourrait appeler 'typique'." ],
         [ "englishTeacherAvatar", "J'ai eu vent que le directeur de l'ecole cherchait desesperement a trouver un remplaçant le plus rapidement possible pour remplacer une femme qui a dû partir en conge de maternite." ],
         [ "englishTeacherAvatar", "J'ai entendu dire qu'elle attendait des jumeaux donc entre vous et moi... Je pense qu'elle ne pourra pas revenir au travail de sitôt." ],
         [ "KATE", "Vous cherchez a garder ce poste indefiniment ?" ],
@@ -3880,7 +3879,7 @@ scene("englishClassFR", () =>{
     const avatar = add([
     sprite("englishTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -3911,7 +3910,7 @@ scene("artClassFR", () =>{
     let artClass = add([
         sprite("artClassroom"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const artTeacher = add([
@@ -3919,13 +3918,13 @@ scene("artClassFR", () =>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -3933,11 +3932,11 @@ scene("artClassFR", () =>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "artTeacherAvatar", ` Oh, si ce n'est pas ${namePlayer}! Bienvenue, bienvenue!` ],
@@ -3989,7 +3988,7 @@ scene("artClassFR", () =>{
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -4020,7 +4019,7 @@ scene("playerClassFR", () => {
     let playerClass = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const artTeacher = add([
@@ -4028,13 +4027,13 @@ scene("playerClassFR", () => {
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4042,11 +4041,11 @@ scene("playerClassFR", () => {
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et de K.A.T.E. J'espere que vos discussions ont ete productives.` ],
@@ -4058,7 +4057,7 @@ scene("playerClassFR", () => {
     const avatar = add([
     sprite("artTeacherAvatar"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -4084,39 +4083,39 @@ scene("cvsOverwievFR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     let EvansCV = add([
         sprite("evansFR"),
         pos(320, height()/2),
         scale(0.17),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let LaurenCV = add([
         sprite("laurenFR"),
         pos(550, height()/2),
         scale(0.18),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     let JohCV = add([
         sprite("JohFR"),
         pos(800, height()/2),
         scale(0.15),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4124,17 +4123,17 @@ scene("cvsOverwievFR", () => {
         text(`So ${namePlayer},`, { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hideen = true;
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
@@ -4216,7 +4215,7 @@ scene("AFR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -4224,7 +4223,7 @@ scene("AFR", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -4232,12 +4231,12 @@ scene("AFR", () => {
         sprite("evansFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -4245,11 +4244,11 @@ scene("AFR", () => {
         text("Appuyez sur la barre espace pour passer a l'aperçu general, [B] pour voir le deuxieme CV et [C] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwievFR"); 
@@ -4268,7 +4267,7 @@ scene("BFR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -4276,7 +4275,7 @@ scene("BFR", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -4284,12 +4283,12 @@ scene("BFR", () => {
         sprite("laurenFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -4297,11 +4296,11 @@ scene("BFR", () => {
         text("Appuyez sur la barre espace pour aller a l'aperçu general, [A] pour voir le premier CV et [C] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwievFR"); 
@@ -4320,7 +4319,7 @@ scene("CFR", () => {
     let background = add([
         sprite("cvsBg"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
       let CV1 = add([
@@ -4328,7 +4327,7 @@ scene("CFR", () => {
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         color([242, 242, 242]),
         fixed()
     ]);
@@ -4336,12 +4335,12 @@ scene("CFR", () => {
         sprite("JohFR2"),
         pos(700, height()/2 - 50),
         scale(0.25),
-        origin("center"),
+        anchor("center"),
         fixed()
     ]);
     const textbox = add([
         rect(width() - 100, 160, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x, height() - 100),
         outline(2),
     ]);
@@ -4349,11 +4348,12 @@ scene("CFR", () => {
         text("Appuyez sur la barre espace pour aller a l'aperçu, [A] pour voir le premier CV et [B] pour voir le troisieme.", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
+        anchor("center")
     ]);
     onKeyPress("space", () => {
         go("cvsOverwievFR"); 
@@ -4373,18 +4373,18 @@ scene("kateDialogFR", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4392,7 +4392,7 @@ scene("kateDialogFR", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true
@@ -4400,11 +4400,11 @@ scene("kateDialogFR", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4451,18 +4451,18 @@ scene("aSceneFR", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4470,7 +4470,7 @@ scene("aSceneFR", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true
@@ -4478,11 +4478,11 @@ scene("aSceneFR", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     // The function makes sure that the player cycles through all questions
@@ -4533,18 +4533,18 @@ scene("bSceneFR", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4552,7 +4552,7 @@ scene("bSceneFR", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true;
@@ -4560,11 +4560,11 @@ scene("bSceneFR", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4612,18 +4612,18 @@ scene("cSceneFR", ()=>{
         sprite("overWorldKATE"),
         scale(0.3),
         pos(width() / 2 + 300, height() / 2),
-        origin("center")
+        anchor("center")
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]);
     textbox.hidden = true;
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4631,7 +4631,7 @@ scene("cSceneFR", ()=>{
     const avatar = add([
         sprite("KATE"),
         scale(0.3),
-        origin("center"),
+        anchor("center"),
         pos(portrait.pos),
     ]);
     avatar.hidden = true;
@@ -4639,11 +4639,11 @@ scene("cSceneFR", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center",
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4689,7 +4689,7 @@ scene("lastSceneFR", ()=>{
     let playerClass = add([
         sprite("classRoom1"),
         pos(width() / 2, height() / 2),
-        origin("center"),
+        anchor("center"),
         fixed()
       ]);
     const playerTeacher = add([
@@ -4697,13 +4697,13 @@ scene("lastSceneFR", ()=>{
     ]);
     const textbox = add([
         rect(width() - 300, 220, { radius: 32 }),
-        origin("center"),
+        anchor("center"),
         pos(center().x + 100, height() - 125),
         outline(2),
     ]); 
     const portrait = add([
         rect(200, 220, {radius: 32}),
-        origin("center"),
+        anchor("center"),
         pos(center().x - 450, height() - 125),
         outline(2),
     ]);
@@ -4711,11 +4711,11 @@ scene("lastSceneFR", ()=>{
         text("", { 
             size: 32, 
             width: 800,
-            font: "apl386",
+            font: "monospace",
+            // align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
-        origin("center")
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Alors, ${namePlayer}. maintenant que vous avez passe un peu de temps a travailler avec KATE, je suppose que tu as remarque qu'elle peut avoir certains prejuges, ou biais.` ],
@@ -4734,7 +4734,7 @@ scene("lastSceneFR", ()=>{
     const avatar = add([
     sprite("playerTeacher"),
     scale(0.3),
-    origin("center"),
+    anchor("center"),
     pos(portrait.pos),
     ]);
     onKeyPress("space", () => {
@@ -4765,9 +4765,9 @@ scene("creditsFR", () =>{
 
 Appuyez sur la barre espace pour rejouer`, {
             size: 30,
-            font: "apl386",
+            font: "monospace",
             lineSpacing: 10,
-            align: center,
+            // // align: "center",
         }),
         pos (100, 250),
     ]);
@@ -4780,4 +4780,4 @@ Appuyez sur la barre espace pour rejouer`, {
 
 
 // Initialize game 
-go("accueil");
+go("cvsOverwiev");

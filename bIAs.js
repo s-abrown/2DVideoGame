@@ -544,6 +544,7 @@ scene("corridor", () =>{
                 }),
             color([0, 0, 0]),
             pos(textbox.pos),
+            anchor("center"),
         ]);
         txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
@@ -883,6 +884,7 @@ scene("mathsClass", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
@@ -979,6 +981,7 @@ scene("scienceClass", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
 
     const dialogs = [
@@ -1084,6 +1087,7 @@ scene("headMaster", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
 
     const dialogs = [
@@ -1187,6 +1191,7 @@ scene("cvs", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hideen = true;
     const avatar = add([
@@ -1301,6 +1306,7 @@ scene("1", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1355,6 +1361,7 @@ scene("2", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1410,6 +1417,7 @@ scene("3", () => {
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1465,6 +1473,7 @@ scene("4", () => {
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvs"); 
@@ -1512,6 +1521,7 @@ scene("englishClass", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "englishTeacherAvatar", "Hello there!" ],
@@ -1614,6 +1624,7 @@ scene("artClass", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "artTeacherAvatar", `Oh, if it isn't my dear ${namePlayer}! Welcome, welcome!` ],
@@ -1722,6 +1733,7 @@ scene("playerClass", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Welcome back  ${namePlayer} and K.A.T.E. I hope your meetings were productive` ],
@@ -1801,10 +1813,12 @@ scene("cvsOverwiev", () => {
             size: 32, 
             width: 800,
             font: "monospace",
-            // align: "center"
+            //align: "center"
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
+        anchor("center"),
     ]);
     txt.hideen = true;
     const avatar = add([
@@ -1926,6 +1940,7 @@ scene("A", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -1978,6 +1993,7 @@ scene("B", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -2030,6 +2046,7 @@ scene("C", () => {
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsOverwiev"); 
@@ -2081,6 +2098,7 @@ scene("kateDialog", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2159,6 +2177,7 @@ scene("aScene", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     // The function makes sure that the player cycles through all questions
@@ -2241,6 +2260,7 @@ scene("bScene", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2320,6 +2340,7 @@ scene("cScene", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -2392,6 +2413,7 @@ scene("lastScene", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `So  ${namePlayer}, you have worked with K.A.T.E. and seen how biased she can be.` ],
@@ -2869,6 +2891,7 @@ scene("corridorFR", () =>{
                 }),
             color([0, 0, 0]),
             pos(textbox.pos),
+            anchor("center"),
         ]);
         txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
@@ -3208,6 +3231,7 @@ scene("mathsClassFR", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "mathsTeacherAvatar", `${namePlayer}!` ],
@@ -3304,6 +3328,7 @@ scene("scienceClassFR", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
 
     const dialogs = [
@@ -3409,6 +3434,7 @@ scene("headMasterFR", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
 
     const dialogs = [
@@ -3511,6 +3537,7 @@ scene("cvsFR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hideen = true;
     const avatar = add([
@@ -3625,6 +3652,7 @@ scene("1FR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3679,6 +3707,7 @@ scene("2FR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3734,6 +3763,7 @@ scene("3FR", () => {
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3789,6 +3819,7 @@ scene("4FR", () => {
         }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsFR"); 
@@ -3836,6 +3867,7 @@ scene("englishClassFR", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "englishTeacherAvatar", "Bonjour!" ],
@@ -3937,6 +3969,7 @@ scene("artClassFR", () =>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "artTeacherAvatar", ` Oh, si ce n'est pas ${namePlayer}! Bienvenue, bienvenue!` ],
@@ -4046,6 +4079,7 @@ scene("playerClassFR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Ah, voici le retour de ${namePlayer} et de K.A.T.E. J'espere que vos discussions ont ete productives.` ],
@@ -4128,6 +4162,7 @@ scene("cvsOverwievFR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hideen = true;
     const avatar = add([
@@ -4249,6 +4284,7 @@ scene("AFR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsOverwievFR"); 
@@ -4301,6 +4337,7 @@ scene("BFR", () => {
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     onKeyPress("space", () => {
         go("cvsOverwievFR"); 
@@ -4405,6 +4442,7 @@ scene("kateDialogFR", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4483,6 +4521,7 @@ scene("aSceneFR", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     // The function makes sure that the player cycles through all questions
@@ -4565,6 +4604,7 @@ scene("bSceneFR", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4644,6 +4684,7 @@ scene("cSceneFR", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     txt.hidden = true;
     placeHolder.hidden = true;
@@ -4716,6 +4757,7 @@ scene("lastSceneFR", ()=>{
             }),
         color([0, 0, 0]),
         pos(textbox.pos),
+        anchor("center"),
     ]);
     const dialogs = [
         [ "playerTeacherAvatar", `Alors, ${namePlayer}. maintenant que vous avez passe un peu de temps a travailler avec KATE, je suppose que tu as remarque qu'elle peut avoir certains prejuges, ou biais.` ],
@@ -4780,4 +4822,4 @@ Appuyez sur la barre espace pour rejouer`, {
 
 
 // Initialize game 
-go("cvsOverwiev");
+go("accueil");

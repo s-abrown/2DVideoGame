@@ -93,7 +93,6 @@ loadSprite("JohFR2", "johanssonFR3.png");
 
 ///////////// Variables /////////////
 let placeHolder = "My name: ";
-let placeHolderFR = "Mon nom: ";
 let namePlayer = "";
 const pad = 24;
 let playerPoints = 0;
@@ -286,7 +285,8 @@ scene("introduction", () =>{
 scene("corridor", () =>{
     const music = play("corridorAmbient", {
         loop:true
-    }); 
+    });
+    console.log(playerPos)
     let map = add([
         sprite("schoolMap"),
         pos(width() / 2, height() / 2),
@@ -564,7 +564,7 @@ scene("corridor", () =>{
         portrait.hidden = true;
         avatar.hidden = true;
         textbox.hidden = false;
-        txt.text = "Press Y if you would like to go in, or N if you don't.";
+        txt.text = "Press [Y] if you would like to go in, or [N] if you don't.";
     onKeyPress("y", () => {
         go(string)
     });
@@ -790,7 +790,6 @@ scene("corridor", () =>{
     overWorldPlayer.onCollide("artDoor", () => {
         onKeyPress("space", () => {
             console.log("art"+artDoorDialog)
-            console.log("art"+artDoorDialog)
             if (artPoint == 0) {
                 if (artDoorDialog <= artDoorD.length){
                     artDoorDialog += 1;
@@ -905,6 +904,7 @@ scene("mathsClass", () =>{
             go("corridor")
             playerPoints += 1;
             mathsPoint += 1;
+            // TEST TEST TEST
             playerPos = [316, 255];
         };
     };
@@ -1011,6 +1011,8 @@ scene("scienceClass", () =>{
             go("corridor")
             playerPoints += 1;
             sciencePoint += 1;
+            //TEST TEST TEST
+            console.log(playerPos, "TEST")
             playerPos = [818, 255];
         }
     };
@@ -1163,7 +1165,7 @@ scene("cvs", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Press A to see your english teacher's CV, B to see your maths teacher's CV, C to see your science teacher's CV, and D to see your arts teacher's CV.";
+        txt.text = "Press [A] to see your english teacher's CV, [B] to see your maths teacher's CV, [C] to see your science teacher's CV, and D to see your arts teacher's CV.";
         onKeyPress("a", () => {
             go("1")
         });
@@ -1186,7 +1188,7 @@ scene("cvs", () => {
             portrait.hidden = true;
             avatar.hidden = true;
             if (cvReadCounter >= 4){
-                txt.text = "Press space to go back to the corridor"
+                txt.text = "Press the spacebar to go back to the corridor"
                 onKeyPress("space", () => {
                     play("door")
                     go("corridor")
@@ -1790,7 +1792,7 @@ scene("cvsOverwiev", () => {
         pos(portrait.pos),
     ]);
     function ChoiceCv (){
-        txt.text = "Press A to see the first canditate's CV, B for the second and C for the third.";
+        txt.text = "Press [A] to see the first canditate's CV, [B] for the second and [C] for the third.";
         onKeyPress("a", () => {
             go("A");
         });
@@ -1802,7 +1804,7 @@ scene("cvsOverwiev", () => {
         });
     };
     function finalChoiche (){
-        txt.text = "Press 1, 2 or 3 to choose the candidate that you feel is most suited for the job. ";
+        txt.text = "Press [1], [2] or [3] to choose the candidate that you feel is most suited for the job. ";
         onKeyPress("1", () => {
             playerChoice = "A";
             go("kateDialog");
@@ -1894,7 +1896,7 @@ scene("A", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go the overwiev, B to see the second CV and C to see the third", { 
+        text("Press the spacebar to go the overwiev, [B] to see the second CV and [C] to see the third", { 
             size: 32, 
             width: 800,
             font: "monospace",
@@ -1947,7 +1949,7 @@ scene("B", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go to the overwiev, A to see the first CV and C to see the third", { 
+        text("Press the spacebar to go to the overwiev, [A] to see the first CV and [C] to see the third", { 
             size: 32, 
             width: 800,
             font: "monospace",
@@ -2000,7 +2002,7 @@ scene("C", () => {
         outline(2),
     ]);
     const txt = add([
-        text("Press space to go to the overwiev, A to see the first CV and B to see the second", { 
+        text("Press the spacebar to go to the overwiev, [A] to see the first CV and [B] to see the second", { 
             size: 32, 
             width: 800,
             font: "monospace",
@@ -2073,7 +2075,7 @@ scene("kateDialog", ()=>{
         txt.text = t[v - 1]} else {
             portrait.hidden = true;
             avatar.hidden = true;
-            txt.text = "Press button to ask question: [A]. Was there something specifc you looked for in a CV? [B]. What did you learn from each discussion we've had with the teachers today? [C]. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"
+            txt.text = "Choose the corresponding letter to ask question: [A]. Was there something specifc you looked for in a CV? [B]. What did you learn from each discussion we've had with the teachers today? [C]. Do you think that Mr. Umbridge will agree with your choice, K.A.T.E.?"
             onKeyPress("a", () => {
                 go("aScene");
             });
@@ -2422,7 +2424,7 @@ scene("credits", () =>{
 Jeu video 2D (Spring 2022) taught by 
 Prof. Isaac Pante (SLI, Lettres, UNIL)
 
-Press space to play again`, {
+Press the spacebar to play again`, {
             size: 30,
             font: "monospace",
             lineSpacing: 10,

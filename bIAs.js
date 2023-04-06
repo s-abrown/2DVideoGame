@@ -482,7 +482,7 @@ scene("corridor", () =>{
         pos(playerPos),
         area(),
         scale(0.10),
-        body({ isStatic: true }),
+        body(),
         ]);
 
     overWorldPlayer.onUpdate(() => {

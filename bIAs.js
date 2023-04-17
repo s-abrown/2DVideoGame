@@ -236,7 +236,8 @@ scene("introduction", () =>{
         [ "playerTeacherAvatar", "Today, one of you will be chosen to spend some time with K.A.T.E. so that you can see and how she works." ],
         [ "playerTeacherAvatar", "AIs need to collect information to learn from before they can offer informed suggestions." ],
         [ "playerTeacherAvatar", "For this reason, whomever will be chosen will accompany K.A.T.E. on her data-collecting journey!" ],
-        [ "playerTeacherAvatar", "Since our headmaster wants our new hiree to integrate comfortably in our school, K.A.T.E. will be gathering her information from past applicants. In other words, she'll get to know other teachers and find out about their hiring experience." ],
+        [ "playerTeacherAvatar", "Since our headmaster wants our new hiree to integrate comfortably in our school, K.A.T.E. will be gathering her information from past applicants." ],
+        [ "playerTeacherAvatar", "In other words, she'll get to know other teachers and find out about their hiring experience." ],
         [ "playerTeacherAvatar", "Their background, their work experience, their personnal opinions and insights..." ],
         [ "playerTeacherAvatar", "She'll even look at their CVs!" ],
         [ "playerTeacherAvatar", "Once she's gathered all the information she needs, she'll be able to tell us who she thinks is the best candidate for the science teaching position." ],
@@ -282,11 +283,11 @@ scene("introduction", () =>{
 });
 
 //////////////////////////////////////////////////// Scene 4: corridor /////////////////////////////////////////////////////////////////
+//txt.text = "Press [Y] if you would like to go in, or [N] if you don't.";
 scene("corridor", () =>{
     const music = play("corridorAmbient", {
         loop:true
-    });
-    console.log(playerPos)
+    }); 
     let map = add([
         sprite("schoolMap"),
         pos(width() / 2, height() / 2),
@@ -302,7 +303,7 @@ scene("corridor", () =>{
             opacity(0),
             color(255, 0, 0),
             area(),
-            body({ isStatic: true })
+            body({ isStatic: true }),
         ]);
         let corridorWallUp = add([
             pos(8, 237),
@@ -310,7 +311,7 @@ scene("corridor", () =>{
             opacity(0),
             color(255, 0, 0),
             area(),
-            body({ isStatic: true })
+            body({isStatic: true})
         ]);
         let corridorWallLeft = add([
             pos(11, 238),
@@ -538,7 +539,7 @@ scene("corridor", () =>{
         ]);
         txt.hidden = true
     // A function that deletes the text boxes once the dialogue is finished
-    function deleEverything (){
+    function delegetthing (){
         textbox.hidden = true;
         avatar.hidden = true; 
         portrait.hidden = true;
@@ -555,8 +556,7 @@ scene("corridor", () =>{
         txt.hidden = false;  
         txt.text = t[v - 1];
         playerSpeed = 0} else {
-            deleEverything();
-            v = 0
+            delegetthing();
         };
     };
     // Two functions to update the dialogues (for doors from which to access the teachers)
@@ -566,10 +566,11 @@ scene("corridor", () =>{
         textbox.hidden = false;
         txt.text = "Press [Y] if you would like to go in, or [N] if you don't.";
     onKeyPress("y", () => {
+        music.paused = true;
         go(string)
     });
     onKeyPress("n", () => {
-        deleEverything();
+        delegetthing();
     });
     };
     function updateDoorsDialog(v, t, string) {
@@ -589,8 +590,8 @@ scene("corridor", () =>{
     // A) Interaction with LOCKERS when player presses space while touching them
     let lockerD = ["Oh, do you think some of the teachers are hiding in the lockers? How fun!", "Is it a sort of school tradition for teachers to lock themselves in there?", "Maybe it's their designated quiet place?", "In any case, it seems like no one is in there.", "Shall we move on?"];
     let lockerDialog = 0;
-    overWorldPlayer.onCollide("locker", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if(overWorldPlayer.isColliding(lockers)) {
             if (lockerDialog <= lockerD.length){
                 console.log('locker'+lockerDialog)
                 lockerDialog += 1;
@@ -600,14 +601,14 @@ scene("corridor", () =>{
             } else if (lockerDialog > lockerD.length){
                 delete lockerDialog
             }
-        });
-    })
+        }
+    });
 
     // B) Interaction with CORRIDOR PLANTS when player presses space while touching them
     let plantsD = ["What a lovely green plant! And it's a real one too!", "Did you know that the presence of such plants can ease feelings of anxiety and stress?", "It helps you feel more at peace... and calm...", "Sort of like putting a piece of decoration in your Sim's house.", "I suppose that if a quiet moment in a locker won't help, a green plant can surely soothe your teachers.", "Nature sure is precious"];
     let plantDialog = 0;
-    overWorldPlayer.onCollide("plant", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if(overWorldPlayer.isColliding("plant")) {
             if (plantDialog <= plantsD.length){
                 console.log('plant'+plantDialog)
                 plantDialog += 1;
@@ -615,26 +616,25 @@ scene("corridor", () =>{
                     updateDialog(plantDialog, plantsD);
                 })
             } else if (plantDialog > plantsD.length){
-                delete plantDialog
+                plantDialog = 0;
             };
-        });
-    })
+        };   
+    });
 
     // C) Interaction with BATHROOM DOOR when player presses space when touching it
     let bathroomD = ["Oh, do you need to go to the bathroom?", "Go on, I'll wait for you here then", "...", "...", "...", "All done? Awesome! Let's go"];
     let bathroomDialog = 0;
-    overWorldPlayer.onCollide("bathroomDoor", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if(overWorldPlayer.isColliding(batroomDoor)) {
             if (bathroomDialog <= bathroomD.length){
-                console.log('bathroom'+bathroomDialog)
                 bathroomDialog += 1;
                 wait(0.3,() => {
                     updateDialog(bathroomDialog, bathroomD);
                 });
             } else if (bathroomDialog > bathroomD.length){
-                delete bathroomDialog
+               bathroomDialog = 0;
             }
-        });
+        }
     });
 
     // D) Interactions with DOORS 
@@ -643,8 +643,8 @@ scene("corridor", () =>{
     let mathsDoorD = ["This is the door to the maths class, right?", "Mr. Parker should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let mathsDoorD2 = ["We've already talked to your maths teacher, remember?", "I'm quite a fan of his red glasses.", "Are you sure you want to visit him again?"];
     let mathsDoorDialog = 0;
-    overWorldPlayer.onCollide("mathsDoor", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if(overWorldPlayer.isColliding(mathsDoor)) {
             console.log('maths'+mathsDoorDialog)
             if (mathsPoint == 0) {
                 if (mathsDoorDialog <= mathsDoorD.length){
@@ -653,7 +653,7 @@ scene("corridor", () =>{
                         updateDoorsDialog(mathsDoorDialog, mathsDoorD, "mathsClass");
                     })
                 } else if (mathsDoorDialog > mathsDoorD.length) {
-                    delete mathsDoorDialog
+                    mathsDoorDialog = 0;
                 }               
             } else if (mathsPoint > 0) {
                 if (mathsDoorDialog <= mathsDoorD.length){
@@ -662,19 +662,18 @@ scene("corridor", () =>{
                         updateDoorsDialog(mathsDoorDialog, mathsDoorD2, "mathsClass");
                     });
                 } else if (mathsDoorDialog > mathsDoorD.length) {
-                    delete mathsDoorDialog
+                    mathsDoorDialog = 0;
                 }
             }
-        });
-    })
-    
+        }
+    });
+   
     // b) Science Door
     let scienceDoorD = ["This is the door to the Science class, right?", "Mr. Mackenzie should be in there.", "Shall we go talk to him about his experience as a successful applicant to teach in this school?", "He may have valuable insights for me to learn from...", " so that I may suggest the best person suited for the open teaching position!"];
     let scienceDoorD2 = ["We already visited this class, are you sure you want to go back in?"];
     let scienceDoorDialog = 0;
-    overWorldPlayer.onCollide("scienceDoor", () => {
-        onKeyPress("space", () => {
-            console.log('science'+scienceDoorDialog)
+    onKeyPress("space", () => {
+        if (overWorldPlayer.isColliding(scienceDoor)){
             if (sciencePoint == 0) {
                 if (scienceDoorDialog <= scienceDoorD.length){
                     scienceDoorDialog += 1;
@@ -691,18 +690,18 @@ scene("corridor", () =>{
                         updateDoorsDialog(scienceDoorDialog, scienceDoorD2, "scienceClass");
                     });
                 } else if (scienceDoorDialog > scienceDoorD.length) {
-                    delete scienceDoorDialog
+                    scienceDoorDialog = 0;
                 }
             }
-        });
-    })
+        }
+    });
     
     // c) Headmaster's office
     let HMDoorD = ["This is headmaster Umbridge's office.", "We can consult the teaching staff's CV's here and get valuable extra insight on what made them succesful applicants.", "It will also be good to have a chat with Mr. Umbridge too.", "After all, he was the person who ultimately hired them all.", "He set the standard for what we're looking for in a new science teacher!", "The more information I gather on past and current successful hirees, the more my applicant suggestion will match with the school's ethics!"];
     let HMDoorD2 = ["I really enjoyed our conversation with the headmaster, but I think I remember everything we talked about", "It sure would be interesting to have another look at those CV's, just to be sure that we have everything we need", "Would you like to go in again and take a another look?"];
     let HMDoorDialog = 0;
-    overWorldPlayer.onCollide("headMastersDoor", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if (overWorldPlayer.isColliding(headmastersDoor)){
             if (headmPoint == 0) {
                 if (HMDoorDialog <= HMDoorD.length){
                     HMDoorDialog += 1;
@@ -710,7 +709,7 @@ scene("corridor", () =>{
                         updateDoorsDialog(HMDoorDialog, HMDoorD, "headMaster");
                     })
                 } else if (HMDoorDialog > HMDoorD.length){
-                        delete HMDoorDialog
+                        HMDoorDialog = 0;
                 }               
             } else if (headmPoint > 0) {
                 if (HMDoorDialog <= HMDoorD.length){
@@ -719,47 +718,47 @@ scene("corridor", () =>{
                         updateDoorsDialog(HMDoorDialog, HMDoorD2, "cvs");
                     });
                 } else if (HMDoorDialog > HMDoorD.length){
-                    delete HMDoorDialog
+                    HMDoorDialog = 0;
                 }   
             }
-        });
-    })
+        }
+    });
     
     // d) Player class
     let PCNotReadyDoorD = ["I don't know about you, but I don't think we've collected enough data to make an informed decion yet.", "Should we explore the other classes before coming back?"];
     let PCReadyDoorD = ["We sure talked with a lot of people today.", "I think I now have a fair idea about what sort of person would fit the job, do you?", "Should we go in and choose the best candidate for the job?"];
     let PCDoorDialog = 0;
-        overWorldPlayer.onCollide("playerClassDoor", () => {
-            onKeyPress("space", () => {
-                console.log("pc"+PCDoorDialog)
-                if (playerPoints < 5) {
-                    if (PCDoorDialog <= PCNotReadyDoorD.length){
-                        PCDoorDialog += 1;
-                        wait(0.3,() => {
-                            updateDialog(PCDoorDialog, PCNotReadyDoorD);
-                        })
-                    } else if (PCDoorDialog > PCNotReadyDoorD.length){
-                        delete PCDoorDialog
-                    }                 
-                } else if (playerPoints <= 5) {
-                    if (PCDoorDialog <= PCNotReadyDoorD.length){
-                        PCDoorDialog += 1;
-                        wait(0.3,() => {
-                            updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClass");
-                        });
-                    } else if (PCDoorDialog > PCNotReadyDoorD.length){
-                        delete PCDoorDialog
-                    }  
-                }
-            });
-        })
+    onKeyPress("space", () => {
+        if (overWorldPlayer.isColliding(playerClassDoor)) {
+            // console.log("pc"+PCDoorDialog, playerPoints)
+            if (playerPoints < 5) {
+                if (PCDoorDialog <= PCNotReadyDoorD.length){
+                    PCDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDialog(PCDoorDialog, PCNotReadyDoorD);
+                    })
+                } else if (PCDoorDialog > PCNotReadyDoorD.length){
+                    PCDoorDialog = 0
+                }                 
+            } else if (playerPoints >= 5) {
+                if (PCDoorDialog <= PCReadyDoorD.length){
+                    PCDoorDialog += 1;
+                    wait(0.3,() => {
+                        updateDoorsDialog(PCDoorDialog, PCReadyDoorD, "playerClass");
+                    });
+                } else if (PCDoorDialog > PCNotReadyDoorD.length){
+                    PCDoorDialog = 0
+                };
+            };
+        };
+    });
     
     // e) English class
     let englishDoorD = ["This is the English class.", `Hey, ${namePlayer}, listen to this one:` , "The past, present and future walk into a bar...", "It was tense.", "...", "......", "Anyway, let's see if Mr. Moore is available.",];
     let englishDoorD2 = ["Back to the English classroom I see!", "We know what we are, but know not what we may be.", "I do love some Shakespeare myself. Would you like to talk to the english teacher again?"];
     let englishDoorDialog = 0;
-    overWorldPlayer.onCollide("englishDoor", () => {
-        onKeyPress("space", () => {
+    onKeyPress("space", () => {
+        if (overWorldPlayer.isColliding(englishDoor)) {
             console.log("english"+englishDoorDialog)
             if (englishPoint == 0) {
                 if (englishDoorDialog <= englishDoorD.length){
@@ -768,7 +767,7 @@ scene("corridor", () =>{
                         updateDoorsDialog(englishDoorDialog, englishDoorD, "englishClass");
                     })
                 } else if (englishDoorDialog > englishDoorD.length){
-                    delete englishDoorDialog
+                    englishDoorDialog = 0
                 }                 
             } else if (englishPoint > 0) {
                 if (englishDoorD2 <= englishDoorD.length){
@@ -777,19 +776,18 @@ scene("corridor", () =>{
                         updateDoorsDialog(englishDoorDialog, englishDoorD2, "englishClass");
                     });
                 } else if (englishDoorDialog > englishDoorD.length){
-                    delete englishDoorDialog
-                } 
-            }
-        });
-    })  
+                    englishDoorDialog = 0
+                }; 
+            };
+        };
+    });  
     
     // f) Art Door
     let artDoorD = ["Ah, this is the art class.", "Mrs. Lefebvre must be waiting for us.", "Let's find out what her hiring experience was like.", "I'm certain that she'll have some interesting things to say.",];
     let artDoorD2 = ["Back here again? Mrs. Lefebvre was very helpful after all.", "I wish I could get a blue streak in my hair too.", "Would you like to talk to her again?"];
     let artDoorDialog = 0;
-    overWorldPlayer.onCollide("artDoor", () => {
-        onKeyPress("space", () => {
-            console.log("art"+artDoorDialog)
+    onKeyPress("space", () => {
+        if (overWorldPlayer.isColliding(artDoor)) {    
             if (artPoint == 0) {
                 if (artDoorDialog <= artDoorD.length){
                     artDoorDialog += 1;
@@ -797,8 +795,8 @@ scene("corridor", () =>{
                         updateDoorsDialog(artDoorDialog, artDoorD, "artClass");
                     })
                 } else if (artDoorDialog > artDoorD.length){
-                    delete artDoorDialog
-                }              
+                    artDoorDialog = 0;
+                };              
             } else if (artPoint > 0) {
                 if (artDoorDialog <= artDoorD.length){
                     artDoorDialog += 1;
@@ -806,11 +804,11 @@ scene("corridor", () =>{
                         updateDoorsDialog(artDoorDialog, artDoorD2, "artClass");
                     });
                 } else if (artDoorDialog > artDoorD.length){
-                    delete artDoorDialog
-                }
-            }
-        });
-    })
+                    artDoorDialog = 0;
+                };
+            };
+        };
+    });
 });
 
 //////////////////////////////////////////////////// Scene 5: Maths class /////////////////////////////////////////////////////////////////

@@ -679,7 +679,7 @@ scene("corridorFR", () =>{
                         updateDoorsDialog(scienceDoorDialog, scienceDoorD, "scienceClassFR");
                     })
                 } else if (scienceDoorDialog > scienceDoorD.length) {
-                        delete scienceDoorDialog
+                    scienceDoorDialog = 0;
                 }               
             } else if (sciencePoint > 0) {
                 if (scienceDoorDialog <= scienceDoorD.length){
@@ -1099,28 +1099,28 @@ scene("cvsFR", () => {
         fixed()
       ]);
     let artCV = add([
-        sprite("ArtteachFR"),
+        sprite("ArtteachCV"),
         pos(250, height()/2),
         scale(0.15),
         anchor("center"),
         fixed()
     ]);
     let mathCV = add([
-        sprite("mathTeachFR"),
+        sprite("mathTeachCV"),
         pos(380, height()/2),
         scale(0.17),
         anchor("center"),
         fixed()
     ]);
     let scienceCV = add([
-        sprite("scienceTeachFR"),
+        sprite("scienceTeachCV"),
         pos(620, height()/2),
         scale(0.18),
         anchor("center"),
         fixed()
     ]);
     let englishCV = add([
-        sprite("englishTeachFR"),
+        sprite("englishTeachCV"),
         pos(800, height()/2),
         scale(0.19),
         anchor("center"),
@@ -1232,7 +1232,7 @@ scene("1FR", () => {
         fixed()
       ]);
     let CV1 = add([
-        sprite("englishTeachFR1"),
+        sprite("englishTeachCV1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -1241,7 +1241,7 @@ scene("1FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("englishTeachFR2"),
+        sprite("englishTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1287,7 +1287,7 @@ scene("2FR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("mathTeachFR1"),
+        sprite("mathTeachCV1"),
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
@@ -1296,7 +1296,7 @@ scene("2FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("mathTeachFR2"),
+        sprite("mathTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1343,7 +1343,7 @@ scene("3FR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("scienceTeachFR1"),
+        sprite("scienceTeachCV1"),
         pos(400, height()/2),
         rotate(-30),
         scale(0.25),
@@ -1352,7 +1352,7 @@ scene("3FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("scienceTeachFR2"),
+        sprite("scienceTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1399,7 +1399,7 @@ scene("4FR", () => {
         fixed()
       ]);
     let CV1 = add([
-        sprite("artTeachFR1"),
+        sprite("artTeachCV1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -1408,7 +1408,7 @@ scene("4FR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("artTeachFR2"),
+        sprite("artTeachCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1733,21 +1733,21 @@ scene("cvsOverwievFR", () => {
         fixed()
       ]);
     let EvansCV = add([
-        sprite("evansFR"),
+        sprite("EvansCV"),
         pos(320, height()/2),
         scale(0.17),
         anchor("center"),
         fixed()
     ]);
     let LaurenCV = add([
-        sprite("laurenFR"),
+        sprite("LaurenCV"),
         pos(550, height()/2),
         scale(0.18),
         anchor("center"),
         fixed()
     ]);
     let JohCV = add([
-        sprite("JohFR"),
+        sprite("JohCV"),
         pos(800, height()/2),
         scale(0.15),
         anchor("center"),
@@ -1866,7 +1866,7 @@ scene("AFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("evansFR1"),
+        sprite("EvansCV1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -1875,7 +1875,7 @@ scene("AFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("evansFR2"),
+        sprite("EvansCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1919,7 +1919,7 @@ scene("BFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("laurenFR1"),
+        sprite("LaurenCV1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -1928,7 +1928,7 @@ scene("BFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("laurenFR2"),
+        sprite("LaurenCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),
@@ -1972,7 +1972,7 @@ scene("CFR", () => {
         fixed()
       ]);
       let CV1 = add([
-        sprite("JohFR1"),
+        sprite("JohCV1"),
         pos(350, height()/2 - 50),
         rotate(-30),
         scale(0.25),
@@ -1981,7 +1981,7 @@ scene("CFR", () => {
         fixed()
     ]);
     let CV2 = add([
-        sprite("JohFR2"),
+        sprite("JohCV2"),
         pos(700, height()/2 - 50),
         scale(0.25),
         anchor("center"),

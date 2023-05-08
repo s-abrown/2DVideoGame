@@ -37,5 +37,5 @@ While the hard coding was split evenly between us, the artwork (background, port
 This project was developed as part of the course "Jeu vidéo 2D" (Spring 2022) taught by Prof. Isaac Pante (SLI, Lettres, UNIL)
 
 ## Links
-French version of the game: https://github.com/s-abrown/2DVideoGameFR
-Itch page: https://t-cat.itch.io/bias
+- French version of the game: https://github.com/s-abrown/2DVideoGameFR
+- Itch page: https://t-cat.itch.io/bias

@@ -223,7 +223,7 @@ scene("introductionFR", () =>{
         [ "playerTeacherAvatar", "Much like you and I, an AI can understand language, plan things, solve problems, think, and flex its intelligence." ],
         [ "playerTeacherAvatar", "It's a great way to make computers perform tasks for us and help us in our everyday lives!" ],
         [ "playerTeacherAvatar", "If you play video games, then you most likely have already encountered an AI. It helps gaming experiences by making them feel more natural." ],
-        [ "playerTeacherAvatar", " In short, AIs can be used in all sorts of scenarios to automate things and help carry out complex tasks." ],
+        [ "playerTeacherAvatar", "In short, AIs can be used in all sorts of scenarios to automate things and help carry out complex tasks." ],
         // Teacher introduces K.A.T.E.:
         [ "playerTeacherAvatar", "I'll be introducing you to one today." ],
         [ "playerTeacherAvatar", "She's called K.A.T.E. Her name is short for 'Kind Artifical Teaching Enrichment Tool'. " ], 
@@ -236,7 +236,8 @@ scene("introductionFR", () =>{
         [ "playerTeacherAvatar", "Today, one of you will be chosen to spend some time with K.A.T.E. so that you can see and how she works." ],
         [ "playerTeacherAvatar", "AIs need to collect information to learn from before they can offer informed suggestions." ],
         [ "playerTeacherAvatar", "For this reason, whomever will be chosen will accompany K.A.T.E. on her data-collecting journey!" ],
-        [ "playerTeacherAvatar", "Since our headmaster wants our new hiree to integrate comfortably in our school, K.A.T.E. will be gathering her information from past applicants. In other words, she'll get to know other teachers and find out about their hiring experience." ],
+        [ "playerTeacherAvatar", "Since our headmaster wants our new hiree to integrate comfortably in our school, K.A.T.E. will be gathering her information from past applicants." ],
+        [ "playerTeacherAvatar", "In other words, she'll get to know other teachers and find out about their hiring experience." ],
         [ "playerTeacherAvatar", "Their background, their work experience, their personnal opinions and insights..." ],
         [ "playerTeacherAvatar", "She'll even look at their CVs!" ],
         [ "playerTeacherAvatar", "Once she's gathered all the information she needs, she'll be able to tell us who she thinks is the best candidate for the science teaching position." ],
@@ -2414,7 +2415,7 @@ scene("lastSceneFR", ()=>{
 scene("creditsFR", () =>{
     add([
         text(`b.I.A.s. was developed as part of the course
-        Jeu video 2D (Spring 2022) taught by 
+        Jeu vidéo 2D (Spring 2022) taught by 
         Prof. Isaac Pante (SLI, Lettres, UNIL)
         
         Press space to play again`, {
@@ -2434,4 +2435,4 @@ scene("creditsFR", () =>{
 
 
 // Initialize game 
-go("corridorFR");
+go("accueil");
